@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-  @apply text-[40px];
-}
-
-h2 {
-  @apply text-[25px];
-}
-
-p {
-  @apply text-[20px];
-}
-
 .btn {
   @apply px-6 py-2 rounded-[15px];
 }
