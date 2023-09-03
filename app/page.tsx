@@ -1,26 +1,27 @@
-import { draftMode } from "next/headers";
-import { fetchConferencePages } from "@/contentful/services/conferences";
-import Link from "next/link";
+import Header from "@/components/home/Header";
+import UpcomingConferences from "@/components/home/UpcomingConferences";
+import About from "@/components/home/About";
+import Advantages from "@/components/home/Advantages";
+import CallToAction from "@/components/common/CallToAction";
+import Contact from "@/components/home/Contact";
+import Footer from "@/components/common/Footer";
+// import { draftMode } from "next/headers";
+// import { fetchConferencePages } from "@/contentful/services/conferences";
 
 export default async function Home() {
-  const conferencePages = await fetchConferencePages({
-    preview: draftMode().isEnabled,
-  });
+  // const conferencePages = await fetchConferencePages({
+  //   preview: draftMode().isEnabled,
+  // });
 
   return (
-    <main className="p-[6vw]">
-      <div className="container">
-        <h1 className="text-3xl font-bold">Main Page</h1>
-        <ul>
-          {conferencePages.map((conferencePage) => {
-            return (
-              <li key={conferencePage.title}>
-                <Link href={`/conferences/${conferencePage.slug}`}>{conferencePage.title}</Link>
-              </li>
-            )
-          })}
-        </ul>
-      </div>
+    <main>
+      <Header />
+      <UpcomingConferences />
+      <About />
+      <Advantages />
+      <CallToAction />
+      <Contact />
+      <Footer />
     </main>
   );
 }

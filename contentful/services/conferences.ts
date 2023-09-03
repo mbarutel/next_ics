@@ -19,12 +19,12 @@ export function parseContentfulConference(
 
   const coverImage = coverImageParse(conferenceEntry.fields.coverImage);
 
-  console.log("-----------------------------------");
-  console.log(conferenceEntry.fields.title);
-  if (conferenceEntry.fields.media) {
-    console.log(conferenceEntry.fields.media[0]);
-  }
-  console.log("-----------------------------------");
+  // console.log("-----------------------------------");
+  // console.log(conferenceEntry.fields.title);
+  // if (conferenceEntry.fields.media) {
+  //   console.log(conferenceEntry.fields.media[0]);
+  // }
+  // console.log("-----------------------------------");
 
   return {
     title: conferenceEntry.fields.title,
@@ -44,7 +44,6 @@ export function parseContentfulConference(
 interface FetchConferencePagesOptions {
   preview: boolean;
 }
-
 export async function fetchConferencePages(
   { preview }: FetchConferencePagesOptions,
 ): Promise<ConferencePage[]> {
@@ -66,7 +65,6 @@ interface FetchConferencePageOptions {
   slug: string;
   preview: boolean;
 }
-
 export async function fetchConferencePage(
   { slug, preview }: FetchConferencePageOptions,
 ): Promise<ConferencePage | null> {
