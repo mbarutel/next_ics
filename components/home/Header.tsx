@@ -1,6 +1,6 @@
 import Link from "next/link";
-import React, { Fragment } from "react";
-import {BiSolidDownArrow} from "react-icons/bi"
+import React from "react";
+import { BiSolidDownArrow } from "react-icons/bi";
 
 export default function Header() {
   return (
@@ -14,18 +14,30 @@ export default function Header() {
 function HeaderBox() {
   return (
     <div className="text-center w-max absolute top-1/2 left-1/2 -translate-x-1/2">
-      <div className="bg-off_yellow py-5 px-10">
-        <h1>Indigenous Conference Services</h1>
-        <p>The impossible is the next step for our journey</p>
+      <div className="bg-gradient-to-t from-yellow-400/70 to-neutral-50 py-7 px-10 rounded-xl mb-5">
+        <h1 className="text-4xl font-black tracking-wide uppercase text-stone-500">
+          Indigenous Conference Services
+        </h1>
+        <p className="text-2xl uppercase text-stone-400">
+          The impossible is the next step for our journey
+        </p>
       </div>
-      <Fragment>
-        <Link href="/" target="_blank" rel="noreferrer" className="btn">
-          Register
-        </Link>
-        <Link href="/" target="_blank" rel="noreferrer" className="btn">
-          Submit a paper
-        </Link>
-      </Fragment>
+      <Link
+        href="/"
+        target="_blank"
+        rel="noreferrer"
+        className="btn bg-stone-600 text-white/90"
+      >
+        Register
+      </Link>
+      <Link
+        href="/"
+        target="_blank"
+        rel="noreferrer"
+        className="btn text-stone-500/70"
+      >
+        Submit a paper
+      </Link>
     </div>
   );
 }
