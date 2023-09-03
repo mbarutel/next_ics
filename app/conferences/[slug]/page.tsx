@@ -1,18 +1,18 @@
-import { Metadata, ResolvedMetadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import {
   fetchConferencePage,
   fetchConferencePages,
-} from "@/services/conferences";
+} from "@/contentful/services/conferences"
 import Link from "next/link";
 import RichText from "@/components/RichText";
 
-interface ConferencePageParams {
+type ConferencePageParams = {
   slug: string;
 }
 
-interface ConferencePageProps {
+type ConferencePageProps = {
   params: ConferencePageParams;
 }
 

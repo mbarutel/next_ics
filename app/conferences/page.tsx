@@ -29,7 +29,7 @@
 //   );
 // }
 import React from "react";
-import { fetchConferencePages } from "@/services/conferences";
+import { fetchConferencePages } from "@/contentful/services/conferences";
 import { draftMode } from "next/headers";
 import Link from "next/link";
 

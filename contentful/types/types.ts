@@ -12,7 +12,6 @@ export type Location = {
   lon: number | undefined;
 };
 
-
 // Our simplified version of a ConferencePage.
 // We don't need all the data that Contentful gives us.
 export type ConferencePage = {
@@ -22,7 +21,8 @@ export type ConferencePage = {
   tags: string[] | undefined;
   startDate: string | undefined;
   endDate: string | undefined;
-  venue: Location | undefined;
+  venueName: string;
+  venueAddress: Location;
   // media: string[] | undefined;
-  coverImage: Media | null;
+  coverImage: Media;
 };

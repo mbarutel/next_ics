@@ -18,6 +18,8 @@ export function parseContentfulConference(
   }
 
   const coverImage = coverImageParse(conferenceEntry.fields.coverImage);
+  // console.log("coverImage");
+  // console.log(coverImage);
 
   // console.log("-----------------------------------");
   // console.log(conferenceEntry.fields.title);
@@ -33,7 +35,8 @@ export function parseContentfulConference(
     tags: conferenceEntry.fields.tags,
     startDate: conferenceEntry.fields.startDate,
     endDate: conferenceEntry.fields.endDate,
-    venue: conferenceEntry.fields.venue,
+    venueName: conferenceEntry.fields.venueName,
+    venueAddress: conferenceEntry.fields.venueAddress,
     // media: conferenceEntry.fields.media,
     coverImage: coverImage,
   };

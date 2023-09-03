@@ -6,10 +6,11 @@ export interface TypeConferenceFields {
     tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
     startDate?: EntryFieldTypes.Date;
     endDate?: EntryFieldTypes.Date;
-    venue?: EntryFieldTypes.Location;
     media?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
     slug: EntryFieldTypes.Symbol;
-    coverImage?: EntryFieldTypes.AssetLink;
+    coverImage: EntryFieldTypes.AssetLink;
+    venueName: EntryFieldTypes.Symbol;
+    venueAddress: EntryFieldTypes.Location;
 }
 
 export type TypeConferenceSkeleton = EntrySkeletonType<TypeConferenceFields, "conference">;

@@ -15,7 +15,7 @@ p {
 }
 
 .btn {
-  @apply mx-6 my-2 rounded-[15px];
+  @apply px-6 py-2 rounded-[15px];
 }
 
 section {
