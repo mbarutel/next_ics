@@ -32,17 +32,19 @@ export default function ConferenceCard(
             {conferencePage.title}
           </h4>
         </div>
-        <span className="text-[0.8rem] sm:text-[1rem] text-stone-700">
+        <span className="text-[0.8rem] sm:text-[1rem] text-stone-700 text-center sm:text-left">
           🗓️&nbsp;
           {dayjs(conferencePage.startDate).format("DD")} -{" "}
           {dayjs(conferencePage.endDate).format("DD MMM, YYYY")}
         </span>
-        <span className="capitalize text-[0.8rem] sm:text-[1rem] text-stone-700">
+        <span className="capitalize text-[0.8rem] sm:text-[1rem] text-stone-700 text-center sm:text-left">
           📍&nbsp;
           {conferencePage.venueName}
         </span>
       </div>
-      <p className="text-center text-stone-700/80 text-[0.8rem] sm:text-[1.02rem]">Read More</p>
+      <p className="text-center text-stone-700/80 text-[0.8rem] sm:text-[1.02rem]">
+        Read More
+      </p>
     </Link>
   );
 }

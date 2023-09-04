@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body className={`${lato.className} flex flex-col items-center`}>
-        <main className="px-4">
+        <main className="px-4 max-w-6xl">
           {children}
         </main>
       </body>

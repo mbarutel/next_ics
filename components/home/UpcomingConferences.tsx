@@ -6,7 +6,9 @@ export default function UpcomingConferences() {
   return (
     <section id="conferences">
       <div className="container">
-        <h2 className="section_header">Upcoming Conferences</h2>
+        <h2 className="section_header text-stone-600/80 text-center">
+          Upcoming Conferences
+        </h2>
         <ConferenceCards />
         <Link
           href="/conferences"

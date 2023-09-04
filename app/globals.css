@@ -19,5 +19,9 @@ section {
 }
 
 .section_header {
-  @apply text-xl sm:text-3xl font-extrabold uppercase text-stone-600/80 text-center mb-2 sm:mb-4;
+  @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4;
+}
+
+p {
+  @apply text-stone-700 leading-tight text-justify;
 }

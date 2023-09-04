@@ -9,9 +9,9 @@ type ImageFrameProp = {
 };
 export default function ImageFrame({ img, alt, position, bg }: ImageFrameProp) {
   return (
-    <div className="m-6 rounded">
+    <div className="m-6 rounded max-w-xl">
       <div
-        className="h-[400px] flex rounded relative translate-x-[10px] translate-y-[-10px]"
+        className="h-[300px] sm:h-[400px] flex rounded relative translate-x-[10px] translate-y-[-10px]"
         style={{ backgroundColor: bg }}
       >
         <Image
