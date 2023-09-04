@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lato.className} flex flex-col items-center`}>
-        <main>
+        <main className="px-4">
           {children}
         </main>
       </body>
