@@ -45,7 +45,7 @@ function HeaderBox() {
 function GetStarted() {
   return (
     <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center group effects text-[0.7rem] sm:text-lg w-full">
-      <a href="/" className="text-stone-600/80">
+      <a href="#conferences" className="text-stone-600/80">
         To get started, check the information below
       </a>
       <BiSolidDownArrow className="text-stone-600/60 group-hover:translate-y-[2px] transition-all" />

@@ -11,7 +11,7 @@
 }
 
 section {
-  @apply flex justify-center py-10;
+  @apply flex justify-center py-5 sm:py-10;
 }
 
 .container {
@@ -19,5 +19,5 @@ section {
 }
 
 .section_header {
-  @apply text-3xl;
+  @apply text-xl sm:text-3xl font-extrabold uppercase text-stone-600/80 text-center mb-2 sm:mb-4;
 }
