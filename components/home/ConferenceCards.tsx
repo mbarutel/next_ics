@@ -2,7 +2,6 @@
 import React, { useCallback } from "react";
 import ConferenceCard from "./ConferenceCard";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 import { ConferencePage } from "@/contentful/types/types";
 import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 import Link from "next/link";
@@ -12,7 +11,7 @@ type ConferenceCardsProps = {
 };
 
 export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [Autoplay()]);
+  const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -27,7 +26,7 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
       <h3 className="text-[1.2rem] sm:text-2xl text-yellow-400 font-semibold mb-2 sm:mb-5">
         2023
       </h3>
-      <div className="overflow-hidden" ref={emblaRef}>
+      <div ref={emblaRef} className="overflow-hidden">
         <div className="flex gap-1 sm:gap-2">
           {conferences.map((conference) => (
             <div

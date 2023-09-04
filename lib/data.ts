@@ -23,36 +23,32 @@ export const configs = {
   },
 } as const;
 
-// export const cta = [
-//   {
-//     header: "Join the Indigenous Movement",
-//   },
-//   {
-//     header: "Celebrate Cultural Identity",
-//     description: [
-//       "Our heritage, paired with professional event management, sets the standard for excellence.",
-//       "Join us in preserving and celebrating Indigenous cultural identity while striving for self-determination.",
-//     ],
-//   },
-//   {
-//     header: "Forge Partnerships, Not Just Events",
-//     description: [
-//       "Partner with us and fund conferences without relying on government sources.",
-//       "Shape the agenda and address your organization's specific needs. Let's make your event truly impactful.",
-//     ],
-//   },
-//   {
-//     header: "Empower Indigenous Independence",
-//     description: [
-//       "Support Indigenous independence through private enterprise.",
-//       "By working together, we can make a lasting impact on Indigenous communities' success and prosperity.",
-//     ],
-//   },
-// ] as const;
-
 export const advantages = [
-  "Join the Indigenous Movement",
-  "Celebrate Cultural Identity",
-  "Forge Partnerships, Not Just Events",
-  "Empower Indigenous Independence",
+  {
+    header: "Join the Indigenous Movement",
+    description:
+      "Be a part of our 100% Indigenous-owned conference services that are free from government influence. Embrace the power of First Nations culture and unity!",
+  },
+  {
+    header: "Celebrate Cultural Identity",
+    description:
+      "Join us in preserving and celebrating Indigenous cultural identity while striving for self-determination. Our heritage, paired with professional event management, sets the standard for excellence.",
+  },
+  {
+    header: "Forge Partnerships, Not Just Events",
+    description:
+      "Partner with us and fund conferences without relying on government sources. Shape the agenda and address your organization's specific needs. Let's make your event truly impactful.",
+  },
+  {
+    header: "Empower Indigenous Independence",
+    description:
+      "Support Indigenous independence through private enterprise. By working together, we can make a lasting impact on Indigenous communities' success and prosperity.",
+  },
 ] as const;
+
+// export const advantages = [
+//   "Join the Indigenous Movement",
+//   "Celebrate Cultural Identity",
+//   "Forge Partnerships, Not Just Events",
+//   "Empower Indigenous Independence",
+// ] as const;
