@@ -30,7 +30,6 @@ p {
   @apply px-4 max-w-6xl;
 }
 
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
+.advantage_card {
+  @apply flex flex-col items-center bg-white/70 py-10 rounded-xl px-2 h-52 md:h-56 lg:h-52 shadow-lg;
 }

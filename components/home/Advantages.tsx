@@ -9,7 +9,7 @@ export default function Advantages() {
 
   return (
     <section>
-      <div className="container bg-advantages_background bg-cover bg-center bg-fixed rounded-xl py-7">
+      <div className="container bg-advantages_background bg-cover bg-center bg-fixed rounded-xl py-7 sm:px-12">
         <div className="bg-white/40 rounded-xl p-2 sm:p-5 flex flex-col">
           <h2 className="section_header text-stone-600/80 text-center">
             Become&nbsp;part&nbsp;of&nbsp;ICS

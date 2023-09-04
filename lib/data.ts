@@ -1,3 +1,8 @@
+import React from "react";
+import { HiSpeakerphone } from "react-icons/hi";
+import { PiMedalFill } from "react-icons/pi";
+import { RiPresentationFill } from "react-icons/ri";
+
 export const configs = {
   contact: {
     phone: "",
@@ -46,9 +51,29 @@ export const advantages = [
   },
 ] as const;
 
-// export const advantages = [
-//   "Join the Indigenous Movement",
-//   "Celebrate Cultural Identity",
-//   "Forge Partnerships, Not Just Events",
-//   "Empower Indigenous Independence",
-// ] as const;
+export const cta = [
+  {
+    title: "Keynotes",
+    description: "Share your passion through ICS",
+    button: "Become a Speaker",
+    icon: React.createElement(HiSpeakerphone),
+    form:
+      "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURDA4VDFPTlgzVU01OUtBM0pCSkRBWFU0OS4u",
+  },
+  {
+    title: "Exhibitions",
+    description: "Connect, Engage, & Exhibit at ICS",
+    button: "Become a Speaker",
+    icon: React.createElement(RiPresentationFill),
+    form:
+      "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURU5XVUZNTk1KVzRCSUM3VVc0OTM0VVYyUC4u",
+  },
+  {
+    title: "Sponsorship",
+    description: "Share your passion through ICS",
+    button: "Partner with us at ICS",
+    icon: React.createElement(PiMedalFill),
+    form:
+      "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURDE3WU0yN0M2VzRCQzNTMEVYUkdKRlBTVi4u",
+  },
+] as const;

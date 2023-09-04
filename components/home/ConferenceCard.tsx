@@ -14,7 +14,7 @@ export default function ConferenceCard(
 
   return (
     <>
-      <div className="bg-blue-200/80 pt-1 sm:pt-2 px-1 sm:px-2 pb-2 sm:pb-4 rounded-lg mb-1 sm:mb-2 shadow-lg">
+      <div className="bg-blue-200/80 pt-1 sm:pt-2 px-1 sm:px-2 pb-2 sm:pb-4 rounded-lg mb-1 sm:mb-2 shadow-md">
         <div className="relative mb-3 flex flex-col items-center">
           <Image
             src={conferencePage.coverImage.src}
