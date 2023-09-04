@@ -23,9 +23,14 @@ section {
 }
 
 p {
-  @apply text-stone-700 leading-tight text-justify;
+  @apply text-stone-700/80 leading-tight text-justify;
 }
 
 .container {
   @apply px-4 max-w-6xl;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
 }
