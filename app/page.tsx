@@ -5,16 +5,11 @@ import Advantages from "@/components/home/Advantages";
 import CallToAction from "@/components/common/CallToAction";
 import Contact from "@/components/home/Contact";
 import Footer from "@/components/common/Footer";
-// import { draftMode } from "next/headers";
-// import { fetchConferencePages } from "@/contentful/services/conferences";
 
 export default async function Home() {
-  // const conferencePages = await fetchConferencePages({
-  //   preview: draftMode().isEnabled,
-  // });
 
   return (
-    <main>
+    <>
       <Header />
       <UpcomingConferences />
       <About />
@@ -22,6 +17,6 @@ export default async function Home() {
       <CallToAction />
       <Contact />
       <Footer />
-    </main>
+    </>
   );
 }

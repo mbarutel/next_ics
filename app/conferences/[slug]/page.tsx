@@ -4,17 +4,17 @@ import { notFound } from "next/navigation";
 import {
   fetchConferencePage,
   fetchConferencePages,
-} from "@/contentful/services/conferences"
+} from "@/contentful/services/conferences";
 import Link from "next/link";
 import RichText from "@/components/RichText";
 
 type ConferencePageParams = {
   slug: string;
-}
+};
 
 type ConferencePageProps = {
   params: ConferencePageParams;
-}
+};
 
 // Tell Next.js about all our blog posts so
 // they can be statically generated at build time.
@@ -53,20 +53,17 @@ export default async function ConferencePage({ params }: ConferencePageProps) {
     preview: draftMode().isEnabled,
   });
 
-  console.log(conferencePage)
-
   if (!conferencePage) {
     return notFound();
   }
 
   return (
-    <main className="p-[6vw]">
+    <>
       <Link href="/">Posts</Link>
-
-      <div className="prose mt-8 border-t pt-8">
+      <div className="mt-8 border-t pt-8">
         <h1>{conferencePage.title}</h1>
         <RichText document={conferencePage.content} />
       </div>
-    </main>
+    </>
   );
 }

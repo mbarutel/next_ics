@@ -5,7 +5,7 @@ export default function UpcomingConferences() {
   return (
     <section>
       <div className="container">
-        <h2>Upcoming Conferences</h2>
+        <h2 className="section_header">Upcoming Conferences</h2>
         <ConferenceCards />
       </div>
     </section>

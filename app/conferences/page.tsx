@@ -39,8 +39,8 @@ export default async function Page() {
   });
 
   return (
-    <main className="p-[6vw]">
-      <div className="prose">
+    <>
+      <div>
         <h1 className="text-3xl font-bold">Main Page</h1>
         <ul>
           {conferencePages.map((conferencePage) => {
@@ -54,6 +54,6 @@ export default async function Page() {
           })}
         </ul>
       </div>
-    </main>
+    </>
   );
 }
