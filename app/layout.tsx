@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import Footer from "@/components/common/Footer";
 import { Toaster } from "react-hot-toast";
+import Navbar from "@/components/common/Navbar";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en" className="!scroll-smooth">
       <body className={`${lato.className}`}>
         <main>
+          <Navbar />
           {children}
           <Footer />
           <Toaster position="top-right" />
