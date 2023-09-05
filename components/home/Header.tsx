@@ -4,7 +4,7 @@ import { BiSolidDownArrow } from "react-icons/bi";
 
 export default function Header() {
   return (
-    <header className="relative h-[40vh] sm:h-[50vh] flex items-center justify-center">
+    <header className="relative h-[40vh] sm:h-[50vh] flex items-center justify-center bg-gradient-to-b from-stone-400/80 to-neutral-50/10">
       <HeaderBox />
       <GetStarted />
     </header>
@@ -14,8 +14,8 @@ export default function Header() {
 function HeaderBox() {
   return (
     <div className="text-center">
-      <div className="bg-gradient-to-t from-yellow-400/70 to-neutral-50 pb-2 pt-6 sm:py-7 rounded-xl mb-5 px-4">
-        <h1 className="text-[1.1rem] sm:text-4xl font-black tracking-wide uppercase text-stone-500">
+      <div className="bg-gradient-to-t from-yellow-400/70 to-neutral-50/10 pb-2 pt-6 sm:py-7 rounded-xl mb-5 px-4">
+        <h1 className="text-[1.1rem] sm:text-4xl font-black tracking-wide uppercase text-stone-600">
           Indigenous Conference Services
         </h1>
         <p className="text-[0.7rem] sm:text-xl uppercase text-stone-400 !text-center">
@@ -34,7 +34,7 @@ function HeaderBox() {
         href="/"
         target="_blank"
         rel="noreferrer"
-        className="btn effects text-stone-500/70"
+        className="btn effects text-stone-500/80"
       >
         Submit a paper
       </Link>

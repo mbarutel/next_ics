@@ -24,7 +24,7 @@ export default function Footer() {
                 href={`mailto:${configs.contact.email}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center border-solid border-2 rounded-full border-white/70 p-2 md:p-4 md:rounded-xl"
+                className="flex items-center border-solid border-2 rounded-full border-white/70 p-2 md:p-4 md:rounded-xl effects"
               >
                 <AiOutlineMail className="text-4xl sm:mr-2" />
                 <span className="font-bold hidden sm:block">
@@ -33,7 +33,7 @@ export default function Footer() {
               </a>
               <a
                 href={`tel:${configs.contact.phone}`}
-                className="flex items-center border-solid border-2 rounded-full border-white/70 p-2 md:p-4 md:rounded-xl"
+                className="flex items-center border-solid border-2 rounded-full border-white/70 p-2 md:p-4 md:rounded-xl effects"
               >
                 <AiOutlinePhone className="text-4xl sm:mr-2" />
                 <span className="font-bold hidden sm:block">

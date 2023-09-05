@@ -12,7 +12,7 @@ export default function CallToAction() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {cta.map((item, index) => (
             <div key={index}>
-              <div className="flex flex-col items-center py-10 rounded-xl px-2 h-52 md:h-56 lg:h-52 shadow-md bg-yellow-400/30">
+              <div className="flex flex-col items-center py-10 rounded-xl px-4 h-52 md:h-56 lg:h-52 shadow-md bg-yellow-300/80">
                 <span className="text-4xl mb-3 text-stone-500/90">
                   {item.icon}
                 </span>
