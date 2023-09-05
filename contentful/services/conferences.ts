@@ -5,7 +5,6 @@ import { ConferencePage } from "../types/types";
 import { coverImageParse } from "../utils/coverImageParse";
 
 // TODO: Create media parse function
-
 type ConferenceEntry = Entry<TypeConferenceSkeleton, undefined, string>;
 
 // A function to transform a Contentful blog post
@@ -18,15 +17,6 @@ export function parseContentfulConference(
   }
 
   const coverImage = coverImageParse(conferenceEntry.fields.coverImage);
-  // console.log("coverImage");
-  // console.log(coverImage);
-
-  // console.log("-----------------------------------");
-  // console.log(conferenceEntry.fields.title);
-  // if (conferenceEntry.fields.media) {
-  //   console.log(conferenceEntry.fields.media[0]);
-  // }
-  // console.log("-----------------------------------");
 
   return {
     title: conferenceEntry.fields.title,
@@ -55,6 +45,7 @@ export async function fetchConferencePages(
   const conferenceResult = await contenful.getEntries<TypeConferenceSkeleton>({
     content_type: "conference",
     include: 2,
+    order: ["fields.startDate"]
   });
 
   return conferenceResult.items.map((conferenceEntry) =>

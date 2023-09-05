@@ -15,11 +15,10 @@ export default function Navbar() {
     <nav className="flex fixed top-0 justify-end sm:justify-center h-12 sm:h-16 z-[999] w-screen bg-white/80">
       <ul className="hidden sm:flex items-center justify-center gap-6 text-xl font-semibold uppercase text-gray-700/50">
         {links.map((link) => (
-          <li
-            key={link.name}
-          >
+          <li key={link.name}>
             <Link
               href={link.path}
+              className="flex effects"
             >
               {link.name}
             </Link>

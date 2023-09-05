@@ -1,9 +1,13 @@
-import { Asset } from "contentful";
-import { Media } from "../types/types";
+import { Asset, AssetLink } from "contentful";
+import { ContentImage } from "../types/types";
 
 export function coverImageParse(
-  asset: Asset<undefined, string>,
-): Media {
+  asset: Asset<undefined, string> | { sys: AssetLink },
+): ContentImage | null {
+  if (!asset || !("fields" in asset)) {
+    return null;
+  }
+
   return {
     src: `https:${asset.fields.file?.url}` || "",
     alt: asset.fields.title || "",

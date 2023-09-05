@@ -7,7 +7,7 @@
 }
 
 .effects {
-  @apply hover:scale-110 focus:scale-110 active:scale-105 transition-all;
+  @apply hover:scale-110 active:scale-105 transition-all;
 }
 
 section {

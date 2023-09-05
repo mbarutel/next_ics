@@ -1,6 +1,6 @@
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 
-export type Media = {
+export type ContentImage = {
   src: string;
   alt: string;
   width: number;
