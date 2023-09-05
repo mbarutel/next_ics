@@ -7,11 +7,11 @@ import CallToAction from "@/components/common/CallToAction";
 export default async function Home() {
   return (
     <>
-      <Header />
+      <Header link="#conferences" />
       <UpcomingConferences />
       <About />
-      <Advantages />
       <CallToAction />
+      <Advantages />
     </>
   );
 }

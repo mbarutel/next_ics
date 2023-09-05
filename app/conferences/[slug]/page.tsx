@@ -45,7 +45,7 @@ export async function generateMetaData(
 }
 
 // The actual BlogPostPage component.
-export default async function ConferencePage({ params }: ConferencePageProps) {
+export default async function page({ params }: ConferencePageProps) {
   // Fetch a single blog post by slug,
   // using the content preview if draft mode is enabled:
   const conferencePage = await fetchConferencePage({

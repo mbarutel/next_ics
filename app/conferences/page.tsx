@@ -33,7 +33,7 @@ import { fetchConferencePages } from "@/contentful/services/conferences";
 import { draftMode } from "next/headers";
 import Link from "next/link";
 
-export default async function Page() {
+export default async function page() {
   const conferencePages = await fetchConferencePages({
     preview: draftMode().isEnabled,
   });

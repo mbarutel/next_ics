@@ -19,7 +19,7 @@ section {
 }
 
 .section_header {
-  @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4;
+  @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide;
 }
 
 p {

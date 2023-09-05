@@ -2,11 +2,19 @@ import Link from "next/link";
 import React from "react";
 import { BiSolidDownArrow } from "react-icons/bi";
 
-export default function Header() {
+type HeaderProps = {
+  link: string;
+};
+export default function Header({ link }: HeaderProps) {
   return (
     <header className="relative h-[40vh] sm:h-[50vh] flex items-center justify-center bg-gradient-to-b from-stone-400/80 to-neutral-50/10">
       <HeaderBox />
-      <GetStarted />
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center group effects text-[0.7rem] sm:text-lg w-full">
+        <a href={link} className="text-stone-600/80">
+          To get started, check the information below
+        </a>
+        <BiSolidDownArrow className="text-stone-600/60 group-hover:translate-y-[2px] transition-all" />
+      </div>
     </header>
   );
 }
@@ -38,17 +46,6 @@ function HeaderBox() {
       >
         Submit a paper
       </Link>
-    </div>
-  );
-}
-
-function GetStarted() {
-  return (
-    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center group effects text-[0.7rem] sm:text-lg w-full">
-      <a href="#conferences" className="text-stone-600/80">
-        To get started, check the information below
-      </a>
-      <BiSolidDownArrow className="text-stone-600/60 group-hover:translate-y-[2px] transition-all" />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import IcsFounders from "@/public/assets/images/ics-founders.webp";
+import IcsImage from "@/public/assets/images/about-img.webp";
 import ImageFrame from "../common/ImageFrame";
 
 export default function About() {
@@ -37,7 +37,7 @@ export default function About() {
             </Link>
           </div>
           <ImageFrame
-            img={IcsFounders}
+            img={IcsImage} 
             alt="random-alt"
             position="50% 20%"
             bg="rgba(255, 222, 61, 1)"
