@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import Footer from "@/components/common/Footer";
+import { Toaster } from "react-hot-toast";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function RootLayout({
         <main>
           {children}
           <Footer />
+          <Toaster position="top-right" />
         </main>
       </body>
     </html>

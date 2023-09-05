@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@/components/home/Header";
+import Header from "@/components/common/Header";
 import Highlights from "@/components/common/Highlights";
 import GuideBox from "@/components/common/Guidebox";
 import OurVision from "@/components/about/OurVision";
@@ -9,7 +9,10 @@ import OurValues from "@/components/about/OurValues";
 export default function page() {
   return (
     <>
-      <Header link="#about" />
+      <Header
+        link="#about"
+        text="To get started, check the information below"
+      />
       <OurVision />
       <OurPurpose />
       <OurValues />
