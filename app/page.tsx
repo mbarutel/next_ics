@@ -16,7 +16,11 @@ export default async function Home() {
       <Advantages />
       <CallToAction />
       <Contact />
-      <Footer />
     </>
   );
 }
+      // <UpcomingConferences />
+      // <About />
+      // <Advantages />
+      // <CallToAction />
+      // <Contact />

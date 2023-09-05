@@ -14,11 +14,11 @@ export default function Header() {
 function HeaderBox() {
   return (
     <div className="text-center">
-      <div className="bg-gradient-to-t from-yellow-400/70 to-neutral-50 pb-2 pt-6 sm:py-7 px-[14px] sm:px-10 rounded-xl mb-5">
+      <div className="bg-gradient-to-t from-yellow-400/70 to-neutral-50 pb-2 pt-6 sm:py-7 rounded-xl mb-5 px-4">
         <h1 className="text-[1.1rem] sm:text-4xl font-black tracking-wide uppercase text-stone-500">
-          Indigenous&nbsp;Conference&nbsp;Services
+          Indigenous Conference Services
         </h1>
-        <p className="text-[0.7rem] sm:text-xl uppercase text-stone-400">
+        <p className="text-[0.7rem] sm:text-xl uppercase text-stone-400 !text-center">
           The impossible is the next step for our journey
         </p>
       </div>

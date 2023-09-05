@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
 
 export default function Footer() {
   return (
-    <div>Footer</div>
-  )
+    <section>
+      <div>
+        <small className="italic text-center">
+          ©&nbsp;Indigenous&nbsp;Conference&nbsp;Services&nbsp;2023
+        </small>
+      </div>
+    </section>
+  );
 }

@@ -5,9 +5,8 @@ import { RiPresentationFill } from "react-icons/ri";
 
 export const configs = {
   contact: {
-    phone: "",
-    email: "",
-    address: "",
+    phone: "+6141942803",
+    email: "adminics@iinet.net.au",
   },
   defaultCoverImage: {
     src:
@@ -63,7 +62,7 @@ export const cta = [
   {
     title: "Exhibitions",
     description: "Connect, Engage, & Exhibit at ICS",
-    button: "Become a Speaker",
+    button: "Become an Exhibitor",
     icon: React.createElement(RiPresentationFill),
     form:
       "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURU5XVUZNTk1KVzRCSUM3VVc0OTM0VVYyUC4u",
@@ -71,9 +70,28 @@ export const cta = [
   {
     title: "Sponsorship",
     description: "Share your passion through ICS",
-    button: "Partner with us at ICS",
+    button: "Become a Speaker",
     icon: React.createElement(PiMedalFill),
     form:
       "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURDE3WU0yN0M2VzRCQzNTMEVYUkdKRlBTVi4u",
+  },
+] as const;
+
+export const links = [
+  {
+    name: "Home",
+    path: "/home",
+  },
+  {
+    name: "About",
+    path: "/about",
+  },
+  {
+    name: "Conferences",
+    path: "/conferences",
+  },
+  {
+    name: "Contact",
+    path: "/contact",
   },
 ] as const;

@@ -29,7 +29,7 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
       <div className="flex">
         <button
           onClick={scrollPrev}
-          className="effects text-stone-500 text-lg sm:text-4xl"
+          className="effects text-stone-500 text-lg sm:text-4xl hidden sm:block"
         >
           <BsChevronLeft />
         </button>
@@ -47,7 +47,7 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
         </div>
         <button
           onClick={scrollNext}
-          className="effects text-stone-500 text-lg sm:text-4xl"
+          className="effects text-stone-500 text-lg sm:text-4xl hidden sm:block"
         >
           <BsChevronRight />
         </button>

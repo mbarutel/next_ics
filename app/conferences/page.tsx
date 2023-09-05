@@ -39,21 +39,19 @@ export default async function Page() {
   });
 
   return (
-    <>
-      <div>
-        <h1 className="text-3xl font-bold">Main Page</h1>
-        <ul>
-          {conferencePages.map((conferencePage) => {
-            return (
-              <li key={conferencePage.title}>
-                <Link href={`/conferences/${conferencePage.slug}`}>
-                  {conferencePage.title}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </>
+    <section>
+      <h1 className="text-3xl font-bold">Main Page</h1>
+      <ul>
+        {conferencePages.map((conferencePage) => {
+          return (
+            <li key={conferencePage.title}>
+              <Link href={`/conferences/${conferencePage.slug}`}>
+                {conferencePage.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 }

@@ -8,7 +8,7 @@ export default function About() {
     <section>
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <div className="flex flex-col justify-center order-1 sm:order-none relative ml-3">
+          <div className="flex flex-col justify-center order-1 sm:order-none relative sm:ml-3">
             <h2 className="section_header text-blue-400/80 text-center sm:text-left">
               About ICS
             </h2>
