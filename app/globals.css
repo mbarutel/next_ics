@@ -10,12 +10,12 @@
   @apply hover:scale-110 focus:scale-110 active:scale-105 transition-all;
 }
 
-/* section { */
-/*   @apply flex justify-center py-5 sm:py-10; */
-/* } */
+section {
+  @apply my-6 sm:my-10 md:my-14 flex justify-center;
+}
 
 .container {
-  @apply flex flex-col items-center px-5;
+  @apply flex flex-col items-center px-5 w-[min(100%,70rem)];
 }
 
 .section_header {

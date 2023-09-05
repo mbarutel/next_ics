@@ -1,6 +1,5 @@
 import React from "react";
 import ConferenceCards from "./ConferenceCards";
-import Link from "next/link";
 import { draftMode } from "next/headers";
 import { fetchConferencePages } from "@/contentful/services/conferences";
 

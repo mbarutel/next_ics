@@ -16,7 +16,7 @@ export default function CallToAction() {
                 <span className="text-4xl mb-3 text-stone-500/90">
                   {item.icon}
                 </span>
-                <strong className="text-2xl text-blue-400/80 drop-shadow-md">
+                <strong className="text-2xl text-blue-400/80 drop-shadow-sm">
                   {item.title}
                 </strong>
                 <p className="italic text-center">

@@ -5,7 +5,7 @@ import ImageFrame from "../common/ImageFrame";
 
 export default function About() {
   return (
-    <section>
+    <section className="-mt-6">
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <div className="flex flex-col justify-center order-1 sm:order-none relative sm:ml-3">
