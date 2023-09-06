@@ -21,7 +21,7 @@ export default function ConferenceCard(
             alt={conferencePage.coverImage.alt}
             width={conferencePage.coverImage.width}
             height={conferencePage.coverImage.height}
-            className="h-36 sm:h-56 w-ful rounded-lg contrast-50"
+            className="h-36 sm:h-56 w-ful rounded-lg contrast-50 object-cover"
           />
           <h4 className="absolute bottom-1/2 translate-y-1/2 sm:translate-y-0 sm:bottom-2 left-1/2 -translate-x-1/2 text-center w-[90%] text-white capitalize font-semibold leading-none text-lg">
             {conferencePage.title}

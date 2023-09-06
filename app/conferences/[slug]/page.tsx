@@ -7,6 +7,7 @@ import {
 } from "@/contentful/services/conferences";
 import Link from "next/link";
 import RichText from "@/components/RichText";
+import ConferenceHeader from "@/components/conference/ConferenceHeader";
 
 type ConferencePageParams = {
   slug: string;
@@ -59,11 +60,15 @@ export default async function page({ params }: ConferencePageProps) {
 
   return (
     <>
-      <Link href="/">Posts</Link>
-      <div className="mt-8 border-t pt-8">
-        <h1>{conferencePage.title}</h1>
-        <RichText document={conferencePage.content} />
-      </div>
+      <ConferenceHeader conferencePage={conferencePage} />
+      <section>
+        <div className="container">
+          <div className="mt-8 border-t pt-8">
+            <h1>{conferencePage.title}</h1>
+            <RichText document={conferencePage.content} />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
