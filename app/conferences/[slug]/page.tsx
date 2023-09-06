@@ -27,23 +27,23 @@ export async function generateStaticParams(): Promise<ConferencePageParams[]> {
 
 // For each blog post, tell Next.js which metadata
 // (e.g. page title) to display.
-export async function generateMetaData(
-  { params }: ConferencePageProps,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const conferencePage = await fetchConferencePage({
-    slug: params.slug,
-    preview: draftMode().isEnabled,
-  });
-
-  if (!conferencePage) {
-    return notFound();
-  }
-
-  return {
-    title: conferencePage.title,
-  };
-}
+// export async function generateMetaData(
+//   { params }: ConferencePageProps,
+//   parent: ResolvingMetadata,
+// ): Promise<Metadata> {
+//   const conferencePage = await fetchConferencePage({
+//     slug: params.slug,
+//     preview: draftMode().isEnabled,
+//   });
+//
+//   if (!conferencePage) {
+//     return notFound();
+//   }
+//
+//   return {
+//     title: conferencePage.title,
+//   };
+// }
 
 // The actual BlogPostPage component.
 export default async function page({ params }: ConferencePageProps) {
