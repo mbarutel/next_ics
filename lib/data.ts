@@ -5,7 +5,7 @@ import { RiPresentationFill } from "react-icons/ri";
 
 export const configs = {
   contact: {
-    phone: "+6141942803",
+    phone: "+61740009111",
     email: "adminics@iinet.net.au",
   },
   defaultCoverImage: {
