@@ -10,7 +10,7 @@ export default async function UpcomingConferences() {
   return (
     <section id="conferences">
       <div className="container">
-        <h2 className="section_header text-stone-600/80 text-center">
+        <h2 className="section_header text-night text-center">
           Upcoming Conferences
         </h2>
         <ConferenceCards conferences={conferencePages} />

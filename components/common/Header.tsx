@@ -1,3 +1,4 @@
+import { configs } from "@/lib/data";
 import Link from "next/link";
 import React from "react";
 import { BiSolidDownArrow } from "react-icons/bi";
@@ -8,13 +9,16 @@ type HeaderProps = {
 };
 export default function Header({ link, text }: HeaderProps) {
   return (
-    <header className="relative h-[40vh] sm:h-[50vh] flex items-center justify-center bg-gradient-to-b from-stone-400/80 to-neutral-50/10">
+    <header className="relative h-[40vh] sm:h-[70vh] flex items-center justify-center bg-gradient-to-b from-night to-hibiscus">
       <HeaderBox />
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center group effects text-[0.7rem] sm:text-lg w-full">
-        <a href={link} className="text-stone-600/80">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center group text-[0.7rem] sm:text-[1.1rem] w-full text-indian transition-all hover:scale-[1.05] active:scale-[1.02]">
+        <a
+          href={link}
+          className="uppercase font-thin font-mono"
+        >
           {text}
         </a>
-        <BiSolidDownArrow className="text-stone-600/60 group-hover:translate-y-[2px] transition-all" />
+        <BiSolidDownArrow className="group-hover:translate-y-[2px] text-xl transition-all -mt-[2px]" />
       </div>
     </header>
   );
@@ -23,30 +27,32 @@ export default function Header({ link, text }: HeaderProps) {
 function HeaderBox() {
   return (
     <div className="text-center">
-      <div className="bg-gradient-to-t from-yellow-400/70 to-neutral-50/10 pb-2 pt-6 sm:py-7 rounded-xl mb-5 px-4">
-        <h1 className="text-[1.1rem] sm:text-4xl font-black tracking-wide uppercase text-stone-600">
+      <div className="bg-elden border-solid border-[1px] border-indian/70 shadow-lg pb-2 pt-6 sm:py-7 rounded-xl mb-5 px-8">
+        <h1 className="text-[1.1rem] sm:text-4xl font-black tracking-wide uppercase text-indian drop-shadow-lg">
           Indigenous Conference Services
         </h1>
-        <p className="text-[0.7rem] sm:text-xl uppercase text-stone-400 !text-center">
+        <p className="text-[0.7rem] sm:text-xl uppercase text-night !text-center">
           The impossible is the next step for our journey
         </p>
       </div>
-      <Link
-        href="/"
-        target="_blank"
-        rel="noreferrer"
-        className="btn effects bg-stone-600 text-white/90"
-      >
-        Register
-      </Link>
-      <Link
-        href="/"
-        target="_blank"
-        rel="noreferrer"
-        className="btn effects text-stone-500/80"
-      >
-        Submit a paper
-      </Link>
+      <div className="flex gap-4 justify-center">
+        <Link
+          href={configs.forms.registration}
+          target="_blank"
+          rel="noreferrer"
+          className="px-4 py-2 bg-night text-lg rounded-md shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono border-solid border-[1px] border-indian/70"
+        >
+          Register
+        </Link>
+        <Link
+          href={configs.forms.submitPaper}
+          target="_blank"
+          rel="noreferrer"
+          className="px-4 py-2 bg-night text-lg rounded-md shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono border-solid border-[1px] border-indian/70"
+        >
+          Submit a paper
+        </Link>
+      </div>
     </div>
   );
 }

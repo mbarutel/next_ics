@@ -10,18 +10,18 @@ export default function Advantages() {
   return (
     <section>
       <div className="container bg-advantages_background bg-cover bg-center bg-fixed rounded-xl py-7 w-[95%] sm:px-12">
-        <div className="bg-white/40 rounded-xl p-2 sm:p-5 flex flex-col">
-          <h2 className="section_header text-stone-600/80 text-center">
+        <div className="bg-rain/40 rounded-xl p-2 sm:p-5 flex flex-col">
+          <h2 className="section_header text-night text-center pb-3">
             Become&nbsp;part&nbsp;of&nbsp;ICS
           </h2>
           <div ref={emblaRef} className="overflow-hidden sm:-mt-1">
             <div className="flex">
               {advantages.map((advantage, index) => (
                 <div key={index} className="flex-grow flex-shrink-0 w-full">
-                  <h3 className="capitalize font-semibold text-stone-500/90 text-center text-[1rem] sm:text-2xl">
+                  <h3 className="capitalize font-semibold text-hibiscus text-center text-[1rem] sm:text-2xl">
                     {advantage.header}
                   </h3>
-                  <p className="text-center text-[0.7rem] sm:text-xl">
+                  <p className="text-center text-[0.7rem] sm:text-xl text-night/90">
                     {advantage.description}
                   </p>
                 </div>

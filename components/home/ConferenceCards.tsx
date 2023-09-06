@@ -22,11 +22,11 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
   }, [emblaApi]);
 
   return (
-    <div className="flex flex-col items-center mb-6">
-      <h3 className="text-[1.2rem] sm:text-2xl text-yellow-400 font-semibold mb-2 sm:mb-5">
+    <div className="flex flex-col items-center">
+      <h3 className="text-[1.2rem] sm:text-4xl text-chili font-bold mb-2 sm:mb-3">
         2023
       </h3>
-      <div className="flex">
+      <div className="flex mb-12">
         <button
           onClick={scrollPrev}
           className="effects text-stone-500 text-lg sm:text-4xl hidden sm:block"
@@ -54,7 +54,7 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
       </div>
       <Link
         href="/conferences"
-        className="btn effects bg-stone-600 text-white/90 mt-2 sm:mt-6"
+        className="px-4 py-2 bg-night text-lg rounded-md shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono border-solid border-2 border-regal"
       >
         More Conferences
       </Link>

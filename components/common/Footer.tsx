@@ -5,15 +5,15 @@ import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 
 export default function Footer() {
   return (
-    <footer className="bg-stone-700/90 flex justify-center lg:py-6">
-      <div className="container text-white/90">
+    <footer className="bg-dove flex justify-center lg:py-6">
+      <div className="container text-night">
         <div className="w-full flex flex-col lg:flex-row lg:justify-between items-center">
           <div className="order-1 md:order-none">
             <div className="text-center lg:text-left">
-              <h3 className="text-lg font-semibold uppercase text-white/70">
+              <h3 className="text-lg font-semibold uppercase text-night">
                 Indigenous Conference Services
               </h3>
-              <div className="flex flex-col text-white/60">
+              <div className="flex flex-col text-night/80">
                 <span>8 Kiwi Court</span>
                 <span>Point Vernon, Hervey Bay</span>
                 <span>QLD Australia 4655</span>
@@ -24,7 +24,7 @@ export default function Footer() {
                 href={`mailto:${configs.contact.email}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center border-solid border-2 rounded-full border-white/70 p-2 md:p-4 md:rounded-xl effects"
+                className="flex items-center border-solid border-2 rounded-full border-night/70 p-2 md:p-4 md:rounded-xl transition hover:bg-night/50 hover:text-rain/70 hover:border-rain/70 focus:bg-night/50 focus:text-rain/70 focus:border-rain/70 active:scale-105"
               >
                 <AiOutlineMail className="text-4xl sm:mr-2" />
                 <span className="font-bold hidden sm:block">
@@ -33,7 +33,7 @@ export default function Footer() {
               </a>
               <a
                 href={`tel:${configs.contact.phone}`}
-                className="flex items-center border-solid border-2 rounded-full border-white/70 p-2 md:p-4 md:rounded-xl effects"
+                className="flex items-center border-solid border-2 rounded-full border-night/70 p-2 md:p-4 md:rounded-xl transition hover:bg-night/50 hover:text-rain/70 hover:border-rain/70 focus:bg-night/50 focus:text-rain/70 focus:border-rain/70 active:scale-105"
               >
                 <AiOutlinePhone className="text-4xl sm:mr-2" />
                 <span className="font-bold hidden sm:block">
@@ -47,7 +47,7 @@ export default function Footer() {
               <Fragment key={index}>
                 <Link
                   href={link.path}
-                  className="effects text-center lg:text-right text-[0.9rem] md:text-lg font-medium uppercase"
+                  className="text-center lg:text-right text-[0.9rem] md:text-lg font-medium uppercase transition hover:-translate-x-2 focus:-translate-x-2 active:scale-105"
                 >
                   {link.name}
                 </Link>

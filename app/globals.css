@@ -7,11 +7,12 @@
 }
 
 .effects {
-  @apply hover:scale-110 active:scale-105 transition-all;
+  /* @apply hover:scale-110 active:scale-105 transition-all; */
+  @apply active:scale-105 transition-all;
 }
 
 section {
-  @apply my-6 sm:my-10 md:my-14 flex justify-center;
+  @apply py-6 sm:py-10 md:py-14 flex justify-center bg-indian/70;
 }
 
 .container {
@@ -19,13 +20,13 @@ section {
 }
 
 .section_header {
-  @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide;
+  @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide underline underline-offset-2;
 }
 
 p {
-  @apply text-stone-700/80 leading-tight text-justify;
+  @apply text-justify;
 }
 
 .border_black {
-  @apply border border-black/10;
+  @apply border;
 }

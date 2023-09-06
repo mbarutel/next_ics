@@ -12,13 +12,13 @@ export default function Navbar() {
     setMenuOpen(!menuOpen);
   };
   return (
-    <nav className="flex fixed top-0 justify-end sm:justify-center h-12 sm:h-16 z-[999] w-screen bg-white/80">
-      <ul className="hidden sm:flex items-center justify-center gap-6 text-xl font-semibold uppercase text-gray-700/50">
+    <nav className="flex fixed top-0 justify-end sm:justify-center h-12 sm:h-16 z-[999] w-screen bg-dove">
+      <ul className="hidden sm:flex items-center justify-center gap-6 text-xl font-semibold tracking-wider uppercase">
         {links.map((link) => (
           <li key={link.name}>
             <Link
               href={link.path}
-              className="flex effects"
+              className="flex text-night transition-all hover:-translate-y-1 active:scale-105"
             >
               {link.name}
             </Link>
