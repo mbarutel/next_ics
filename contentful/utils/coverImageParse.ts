@@ -1,11 +1,12 @@
 import { Asset, AssetLink } from "contentful";
 import { ContentImage } from "../types/types";
+import { configs } from "@/lib/data";
 
 export function coverImageParse(
   asset: Asset<undefined, string> | { sys: AssetLink },
-): ContentImage | null {
+): ContentImage {
   if (!asset || !("fields" in asset)) {
-    return null;
+    return configs.defaultCoverImage;
   }
 
   return {
