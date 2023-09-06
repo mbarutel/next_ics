@@ -19,10 +19,10 @@ export type ConferencePage = {
   content: RichTextDocument;
   slug: string;
   tags: string[] | undefined;
-  startDate: string | undefined;
-  endDate: string | undefined;
+  startDate: string;
+  endDate: string;
   venueName: string;
   venueAddress: Location;
   // media: string[] | undefined;
-  coverImage: Media;
+  coverImage: ContentImage;
 };

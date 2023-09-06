@@ -4,8 +4,8 @@ export interface TypeConferenceFields {
     title: EntryFieldTypes.Symbol;
     content: EntryFieldTypes.RichText;
     tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
-    startDate?: EntryFieldTypes.Date;
-    endDate?: EntryFieldTypes.Date;
+    startDate: EntryFieldTypes.Date;
+    endDate: EntryFieldTypes.Date;
     media?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
     slug: EntryFieldTypes.Symbol;
     coverImage: EntryFieldTypes.AssetLink;
