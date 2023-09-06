@@ -46,9 +46,9 @@ export async function generateStaticParams(): Promise<ConferencePageParams[]> {
 // }
 
 // The actual BlogPostPage component.
+// Fetch a single blog post by slug,
+// using the content preview if draft mode is enabled:
 export default async function page({ params }: ConferencePageProps) {
-  // Fetch a single blog post by slug,
-  // using the content preview if draft mode is enabled:
   const conferencePage = await fetchConferencePage({
     slug: params.slug,
     preview: draftMode().isEnabled,
@@ -61,7 +61,7 @@ export default async function page({ params }: ConferencePageProps) {
   return (
     <>
       <ConferenceHeader conferencePage={conferencePage} />
-      <section className="-mt-20 sm:-mt-28">
+      <section className="-mt-28 sm:-mt-40">
         <div className="container">
           <div className="mt-8 border-t pt-8">
             <RichText document={conferencePage.content} />

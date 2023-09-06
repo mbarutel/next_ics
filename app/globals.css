@@ -12,7 +12,7 @@
 }
 
 section {
-  @apply py-6 sm:py-10 md:py-14 flex justify-center bg-indian/70;
+  @apply py-6 sm:py-10 md:py-14 flex justify-center;
 }
 
 .container {

@@ -43,32 +43,32 @@ export default function Countdown({ startDate }: CountdownProps) {
     <div className="my-4">
       {conferenceTime
         ? (
-          <div className="bg-stone-800 text-white/80 px-7 py-3 w-fit rounded-md font-bold sm:text-lg uppercase">
+          <div className="bg-night/90 text-rain/80 px-7 py-3 w-fit rounded-md font-bold sm:text-lg uppercase">
             Building a better future today
           </div>
         )
         : (
           <div className="flex gap-1">
             <div className="flex flex-col text-center">
-              <span className="bg-stone-800 text-white/80 px-7 py-1 rounded-md font-bold text-lg">
+              <span className="bg-night/90 text-rain/80 px-7 py-1 rounded-md font-bold text-lg">
                 {days}
               </span>
               <span>days</span>
             </div>
             <div className="flex flex-col text-center">
-              <span className="bg-stone-800 text-white/80 px-7 py-1 rounded-md font-bold text-lg">
+              <span className="bg-night/90 text-rain/80 px-7 py-1 rounded-md font-bold text-lg">
                 {hours}
               </span>
               <span>hours</span>
             </div>
             <div className="flex flex-col text-center">
-              <span className="bg-stone-800 text-white/80 px-7 py-1 rounded-md font-bold text-lg">
+              <span className="bg-night/90 text-rain/80 px-7 py-1 rounded-md font-bold text-lg">
                 {minutes}
               </span>
               <span>minutes</span>
             </div>
             <div className="flex flex-col text-center">
-              <span className="bg-stone-800 text-white/80 px-7 py-1 rounded-md font-bold text-lg">
+              <span className="bg-night/90 text-rain/80 px-7 py-1 rounded-md font-bold text-lg">
                 {seconds}
               </span>
               <span>seconds</span>

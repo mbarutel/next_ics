@@ -6,7 +6,6 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { configs } from "@/lib/data";
-// import Link from "next/link";
 
 type ConferenceHeaderProps = {
   conferencePage: ConferencePage;
@@ -26,14 +25,14 @@ export default function ConferenceHeader(
         height={conferencePage.coverImage.height}
         quality="90"
         priority={true}
-        className="w-screen h-[20rem] sm:h-[400px] md:h-[500px] object-cover"
+        className="w-screen h-[20rem] sm:h-[400px] md:h-[700px] object-cover"
       />
       <div className="container relative -translate-y-20 sm:-translate-y-28 sm:!items-start">
-        <div className="bg-yellow-400 p-6 sm:p-10 rounded-xl shadow-lg">
-          <h1 className="text-lg font-semibold uppercase text-stone-700">
+        <div className="bg-chili p-6 sm:p-10 rounded-xl shadow-lg">
+          <h1 className="text-lg font-semibold uppercase text-rain">
             {conferencePage.title}
           </h1>
-          <div className="text-stone-700/80 flex flex-col mt-2">
+          <div className="text-rain flex flex-col mt-2">
             <span>
               🗓️&nbsp;
               {dayjs(conferencePage.startDate).format("DD")} -{" "}
@@ -50,7 +49,7 @@ export default function ConferenceHeader(
               href={configs.forms.registration}
               target="_blank"
               rel="noreferrer"
-              className="flex border-solid border-2 border-black/90 py-1 px-3 rounded-md transition-all hover:bg-stone-700/70 hover:text-white/80 hover:border-white/80 active:scale-105 outline-none"
+              className="flex border-solid border-2 border-night/90 py-1 px-3 rounded-md transition-all hover:bg-night/70 hover:text-rain hover:border-rain active:scale-105 outline-none"
             >
               Register Now
             </Link>
@@ -58,7 +57,7 @@ export default function ConferenceHeader(
               href={configs.forms.submitPaper}
               target="_blank"
               rel="noreferrer"
-              className="flex border-solid border-2 border-black/90 py-1 px-3 rounded-md transition-all hover:bg-stone-700/70 hover:text-white/80 hover:border-white/80 active:scale-105 outline-none"
+              className="flex border-solid border-2 border-night/90 py-1 px-3 rounded-md transition-all hover:bg-night/70 hover:text-rain hover:border-rain active:scale-105 outline-none"
             >
               Submit a Paper
             </Link>
