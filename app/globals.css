@@ -30,3 +30,15 @@ p {
 .border_black {
   @apply border;
 }
+
+ .rich_text h2 {
+  @apply text-2xl text-center mt-7 mb-3 font-semibold text-night;
+}
+
+.rich_text p {
+  @apply text-night;
+}
+
+.rich_text li {
+  @apply list-disc;
+}

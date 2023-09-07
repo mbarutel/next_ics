@@ -27,7 +27,7 @@ export default function Header({ link, text }: HeaderProps) {
 function HeaderBox() {
   return (
     <div className="text-center">
-      <div className="bg-elden border-solid border-[1px] border-indian/70 shadow-lg pb-2 pt-6 sm:py-7 rounded-xl mb-5 px-8">
+      <div className="bg-elden/80 shadow-lg pb-2 pt-6 sm:py-7 rounded-xl mb-5 px-8">
         <h1 className="text-[1.1rem] sm:text-4xl font-black tracking-wide uppercase text-indian drop-shadow-lg">
           Indigenous Conference Services
         </h1>
@@ -40,7 +40,7 @@ function HeaderBox() {
           href={configs.forms.registration}
           target="_blank"
           rel="noreferrer"
-          className="px-4 py-2 bg-night text-lg rounded-md shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono border-solid border-[1px] border-indian/70"
+          className="px-4 py-2 bg-night text-lg rounded-xl shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono"
         >
           Register
         </Link>
@@ -48,7 +48,7 @@ function HeaderBox() {
           href={configs.forms.submitPaper}
           target="_blank"
           rel="noreferrer"
-          className="px-4 py-2 bg-night text-lg rounded-md shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono border-solid border-[1px] border-indian/70"
+          className="px-4 py-2 bg-night text-lg rounded-xl shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono"
         >
           Submit a paper
         </Link>

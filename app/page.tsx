@@ -13,8 +13,8 @@ export default async function Home() {
       />
       <UpcomingConferences />
       <About />
-      <CallToAction />
       <Advantages />
+      <CallToAction />
     </>
   );
 }

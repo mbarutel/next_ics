@@ -32,16 +32,16 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
       <div className="flex mb-12">
         <button
           onClick={scrollPrev}
-          className="effects text-night text-lg sm:text-4xl hidden sm:block"
+          className="effects text-night text-lg sm:text-4xl hidden md:block"
         >
           <BsChevronLeft />
         </button>
-        <div ref={emblaRef} className="overflow-hidden">
+        <div ref={emblaRef} className="overflow-hidden pt-5">
           <div className="flex touch-pan-y">
             {conferences.map((conference) => (
               <div
                 key={conference.slug}
-                className="flex-grow-0 flex-shrink-0 w-1/2 sm:w-1/3 min-w-0 pl-2 relative"
+                className="flex-grow-0 flex-shrink-0 w-1/2 lg:w-1/3 min-w-0 pl-2"
               >
                 <ConferenceCard conferencePage={conference} />
               </div>
@@ -50,7 +50,7 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
         </div>
         <button
           onClick={scrollNext}
-          className="effects text-night text-lg sm:text-4xl hidden sm:block"
+          className="effects text-night text-lg sm:text-4xl hidden md:block"
         >
           <BsChevronRight />
         </button>
