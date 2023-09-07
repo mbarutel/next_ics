@@ -4,6 +4,8 @@ import { Lato } from "next/font/google";
 import Footer from "@/components/common/Footer";
 import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/common/Navbar";
+import { draftMode } from "next/headers";
+import ExitDraftModeLink from "@/components/common/ExitDraftModeLink";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -23,6 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body className={`${lato.className} bg-indian/70`}>
+        {draftMode().isEnabled && (
+          <p className="bg-elden/80 py-4 px-[6vw]">
+            Draft mode is on! <ExitDraftModeLink className="undeline" />
+          </p>
+        )}
         <main>
           <Navbar />
           {children}
