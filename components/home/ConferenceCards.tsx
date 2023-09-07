@@ -11,7 +11,10 @@ type ConferenceCardsProps = {
 };
 
 export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    slidesToScroll: "auto",
+    containScroll: "trimSnaps",
+  });
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -29,16 +32,16 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
       <div className="flex mb-12">
         <button
           onClick={scrollPrev}
-          className="effects text-stone-500 text-lg sm:text-4xl hidden sm:block"
+          className="effects text-night text-lg sm:text-4xl hidden sm:block"
         >
           <BsChevronLeft />
         </button>
-        <div ref={emblaRef} className="overflow-hidden px-4">
-          <div className="flex">
+        <div ref={emblaRef} className="overflow-hidden">
+          <div className="flex touch-pan-y">
             {conferences.map((conference) => (
               <div
-                className="flex-grow flex-shrink-0 w-1/2 sm:w-1/3 mr-2"
                 key={conference.slug}
+                className="flex-grow-0 flex-shrink-0 w-1/2 sm:w-1/3 min-w-0 pl-2 relative"
               >
                 <ConferenceCard conferencePage={conference} />
               </div>
@@ -47,7 +50,7 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
         </div>
         <button
           onClick={scrollNext}
-          className="effects text-stone-500 text-lg sm:text-4xl hidden sm:block"
+          className="effects text-night text-lg sm:text-4xl hidden sm:block"
         >
           <BsChevronRight />
         </button>
