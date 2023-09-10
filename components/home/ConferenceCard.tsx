@@ -14,7 +14,7 @@ export default function ConferenceCard(
 
   return (
     <>
-      <div className="bg-elden/70 pt-1 sm:pt-2 px-1 sm:px-2 pb-2 sm:pb-4 rounded-lg mb-1 sm:mb-2 hover:-translate-y-2 active:scale-105 transition-all">
+      <div className="bg-elden/70 pt-1 sm:pt-2 px-1 sm:px-2 pb-2 sm:pb-4 rounded-lg mb-1 sm:mb-2 active:scale-105 transition-all">
         <Link
           href={`/conferences/${conferencePage.slug}`}
           target="_blank"
