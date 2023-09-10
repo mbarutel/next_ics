@@ -48,7 +48,7 @@ export default function Countdown({ startDate }: CountdownProps) {
           </div>
         )
         : (
-          <div className="flex gap-1">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1">
             <div className="flex flex-col text-center">
               <span className="bg-night/90 text-rain/80 px-7 py-1 rounded-md font-bold text-lg">
                 {days}
