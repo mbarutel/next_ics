@@ -5,7 +5,6 @@ import {
   fetchConferencePage,
   fetchConferencePages,
 } from "@/contentful/services/conferences";
-import Link from "next/link";
 import RichText from "@/components/RichText";
 import ConferenceHeader from "@/components/conference/ConferenceHeader";
 

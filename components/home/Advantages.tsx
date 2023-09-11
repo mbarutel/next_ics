@@ -12,7 +12,7 @@ export default function Advantages() {
       <div className="container bg-advantages_background bg-cover bg-center bg-fixed rounded-xl py-7 sm:px-12">
         <div className="bg-rain/40 rounded-xl p-2 sm:p-5 flex flex-col">
           <h2 className="section_header text-night text-center pb-3">
-            Become part of&nbsp;ICS
+            Become part of&nbsp;Indigenous Conference Services
           </h2>
           <div ref={emblaRef} className="overflow-hidden sm:-mt-1">
             <div className="flex mb-4">

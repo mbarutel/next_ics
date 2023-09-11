@@ -13,29 +13,36 @@ export default function OurValues() {
               Our Values
             </h2>
             <p className="mb-2">
-              Our Koori CEO, Tom Callaghan, hails from Kempsey in Dunghutti
-              country, NSW. ICS specializes in collaborating with NGOs and
-              governments, organizing informative events fostering open
-              discussion and Indigenous self-determination principles. We also
-              support national associations in event development. Our
-              successful, proven business model saves organizations time and
-              resources, and we remain neutral and independent of political
-              agendas to secure funding.
+              Our Koori CEO, Tom Callaghan, proudly hails from Kempsey in
+              Dunghutti country, New South Wales, and is deeply committed to the
+              cause of closing the gap in Indigenous health. At ICS, we
+              specialize in collaborating with NGOs and governments,
+              orchestrating insightful conferences that foster open discussions
+              and align with Indigenous self-determination principles.
+              Additionally, we provide vital support to national associations in
+              the development of impactful events. Our well-established and
+              successful business model not only streamlines the process for
+              organizations but also conserves valuable time and resources. It's
+              worth noting that we maintain a steadfast commitment to neutrality
+              and independence from political agendas, ensuring secure funding
+              for our initiatives aimed at advancing Indigenous health.
             </p>
             <p>
-              We do not enter into government politics, nor were wishing to
-              develop a profile that will interfere or cut across any community
-              group’s philosophy or beliefs. Our sole aim is to bring together
-              information that can be disseminated for the better good of
-              Indigenous communities. It is our plan to be recognized as a
-              network sharing tools and a provider of quality conferences and
-              seminars that enhances local and government organization with
-              quality speakers and training programs.
+              We refrain from involvement in government politics, with no desire
+              to establish a profile that could disrupt or conflict with any
+              community group's philosophies or beliefs. Our exclusive goal is
+              to bring together valuable information that can be disseminated
+              for the greater benefit of Indigenous communities. We are
+              determined to establish ourselves as a recognized network sharing
+              essential tools and as a provider of top-tier conferences and
+              seminars, enriching both local and government organizations with
+              access to quality speakers and training programs dedicated to
+              advancing Indigenous health and closing the gap.
             </p>
           </div>
           <ImageFrame
             img={IcsImage}
-            alt="Conferences Services Australia"
+            alt="Indigenous Health"
             position="50% 50%"
             bg="#5190e8"
           />
