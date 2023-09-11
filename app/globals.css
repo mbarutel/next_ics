@@ -20,7 +20,7 @@ section {
 }
 
 .section_header {
-  @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide underline underline-offset-2;
+  @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide;
 }
 
 p {
@@ -31,7 +31,11 @@ p {
   @apply border;
 }
 
- .rich_text h2 {
+.btn {
+  @apply px-4 py-2 bg-night text-sm sm:text-lg rounded-xl shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono;
+}
+
+.rich_text h2 {
   @apply text-2xl text-center mt-7 mb-3 font-semibold text-night;
 }
 

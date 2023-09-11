@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function CallToAction() {
   return (
     <section>
-      <div className="container text-center">
+      <div className="container text-center pb-10">
         <h3 className="text-center mb-8 sm:mb-12 section_header !no-underline !font-thin italic">
           Building better future together
         </h3>

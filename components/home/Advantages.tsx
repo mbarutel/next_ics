@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment } from "react";
+import React from "react";
 import { advantages } from "@/lib/data";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -8,11 +8,11 @@ export default function Advantages() {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   return (
-    <section>
-      <div className="container bg-advantages_background bg-cover bg-center bg-fixed rounded-xl py-7 w-[95%] sm:px-12">
+    <section className="px-2">
+      <div className="container bg-advantages_background bg-cover bg-center bg-fixed rounded-xl py-7 sm:px-12">
         <div className="bg-rain/40 rounded-xl p-2 sm:p-5 flex flex-col">
           <h2 className="section_header text-night text-center pb-3">
-            Become&nbsp;part&nbsp;of&nbsp;ICS
+            Become part of&nbsp;ICS
           </h2>
           <div ref={emblaRef} className="overflow-hidden sm:-mt-1">
             <div className="flex mb-4">

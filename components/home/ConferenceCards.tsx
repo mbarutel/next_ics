@@ -29,14 +29,14 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
       <h3 className="text-[1.2rem] sm:text-4xl text-chili font-bold mb-2 sm:mb-3">
         2023
       </h3>
-      <div className="flex mb-12">
+      <div className="flex mb-6 lg:mb-12">
         <button
           onClick={scrollPrev}
           className="effects text-night text-lg sm:text-4xl hidden md:block"
         >
           <BsChevronLeft />
         </button>
-        <div ref={emblaRef} className="overflow-hidden pt-5">
+        <div ref={emblaRef} className="overflow-hidden">
           <div className="flex touch-pan-y">
             {conferences.map((conference) => (
               <div
@@ -57,9 +57,9 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
       </div>
       <Link
         href="/conferences"
-        className="px-4 py-2 bg-night text-lg rounded-md shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono border-solid border-2 border-regal"
+        className="btn"
       >
-        More Conferences
+        Conferences
       </Link>
     </div>
   );

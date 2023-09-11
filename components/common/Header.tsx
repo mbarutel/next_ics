@@ -28,10 +28,10 @@ function HeaderBox() {
   return (
     <div className="text-center">
       <div className="bg-elden/80 shadow-lg rounded-xl mb-3 px-3 sm:px-5 lg:px-6 py-2 sm:py-3 lg:py-5">
-        <h1 className="text-[0.9rem] sm:text-3xl lg:text-4xl font-black tracking-wide uppercase text-indian drop-shadow-lg">
+        <h1 className="text-[1.1rem] sm:text-3xl lg:text-4xl font-black tracking-wide uppercase text-indian drop-shadow-lg">
           Indigenous Conference&nbsp;Services
         </h1>
-        <p className="text-[0.7rem] sm:text-xl lg:text-2xl uppercase text-night !text-center">
+        <p className="text-[0.75rem] sm:text-xl lg:text-2xl uppercase text-night !text-center">
           The impossible is the next step for our journey
         </p>
       </div>
@@ -40,7 +40,7 @@ function HeaderBox() {
           href={configs.forms.registration}
           target="_blank"
           rel="noreferrer"
-          className="px-4 py-2 bg-night sm:text-lg rounded-xl shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono"
+          className="btn"
         >
           Register
         </Link>
@@ -48,7 +48,7 @@ function HeaderBox() {
           href={configs.forms.submitPaper}
           target="_blank"
           rel="noreferrer"
-          className="px-4 py-2 bg-night sm:text-lg rounded-xl shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono"
+          className="btn"
         >
           Submit a paper
         </Link>

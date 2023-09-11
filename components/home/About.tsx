@@ -15,7 +15,7 @@ export default function About() {
             <h3 className="-mt-2 tracking-tight text-lg md:text-xl uppercase text-chili text-center sm:text-left mb-2">
               Indigenous Conference Services
             </h3>
-            <p className="mb-12 sm:mb-16 text-night">
+            <p className="mb-6 sm:mb-12 text-night">
               ICS is an Indigenous-owned company operating independently and
               without government funding. They prioritize First Nations culture
               and self-determination. With a skilled team, they manage various
@@ -31,7 +31,7 @@ export default function About() {
             </p>
             <Link
               href="/"
-              className="px-4 py-2 bg-night w-fit text-lg rounded-md shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono border-solid border-2 border-regal"
+              className="btn w-fit"
             >
               Read More
             </Link>
