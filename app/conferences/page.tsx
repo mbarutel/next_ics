@@ -1,8 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { fetchConferencePages } from "@/contentful/services/conferences";
 import { draftMode } from "next/headers";
 import Header from "@/components/common/Header";
 import ConferenceCard from "@/components/home/ConferenceCard";
+import CallToAction from "@/components/common/CallToAction";
 
 export default async function page() {
   const conferencePages = await fetchConferencePages({
@@ -17,7 +18,10 @@ export default async function page() {
       />
       <section id="conferences">
         <div className="container">
-          <div className="grid grid-cols-2 gap-8">
+          <h2 className="section_header text-night text-center sm:text-left pb-6">
+            Upcoming ICS Conferences
+          </h2>
+          <div className="grid grid-cols-2 gap-2 lg:gap-8">
             {conferencePages.map((conferencePage) => (
               <div key={conferencePage.slug} className="flex flex-col">
                 <ConferenceCard conferencePage={conferencePage} />
@@ -26,6 +30,7 @@ export default async function page() {
           </div>
         </div>
       </section>
+      <CallToAction />
     </>
   );
 }

@@ -12,7 +12,7 @@
 }
 
 section {
-  @apply py-6 sm:py-10 md:py-14 flex justify-center;
+  @apply py-2 sm:py-3 md:py-5 lg:py-8 flex justify-center;
 }
 
 .container {
@@ -24,11 +24,11 @@ section {
 }
 
 p {
-  @apply text-justify;
+  @apply text-justify text-plum;
 }
 
-.border_black {
-  @apply border;
+.border_night {
+  @apply border-solid border-[1px] border-night/40;
 }
 
 .btn {
@@ -36,7 +36,11 @@ p {
 }
 
 .rich_text h2 {
-  @apply text-2xl text-center mt-7 mb-3 font-semibold text-night;
+  @apply text-lg sm:text-2xl mt-7 font-bold text-night/90;
+}
+
+.rich_text h3 {
+  @apply text-[1.1rem] sm:text-xl mt-2 mb-1 font-semibold text-night/80;
 }
 
 .rich_text p {
@@ -44,5 +48,5 @@ p {
 }
 
 .rich_text li {
-  @apply list-disc;
+  @apply list-disc list-outside ml-5;
 }

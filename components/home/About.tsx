@@ -9,7 +9,7 @@ export default function About() {
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <div className="flex flex-col justify-center order-1 sm:order-none relative sm:ml-3">
-            <h2 className="section_header text-blue-400/80 text-center sm:text-left">
+            <h2 className="section_header text-night text-center sm:text-left">
               About ICS
             </h2>
             <h3 className="-mt-2 tracking-tight text-lg md:text-xl uppercase text-chili text-center sm:text-left mb-2">

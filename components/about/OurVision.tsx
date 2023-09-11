@@ -7,16 +7,16 @@ export default function OurVision() {
     <section id="about">
       <div className="container">
         <div>
-          <h2 className="section_header text-center text-stone-600/70">
+          <h2 className="section_header text-center text-night">
             About ICS
           </h2>
-          <h3 className="text-center mb-4 -mt-3 text-xl lg:text-3xl italic font-thin">
+          <h3 className="text-center mb-4 -mt-3 text-xl lg:text-3xl italic text-night font-thin">
             Building better future together
           </h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
           <div className="order-1 sm:order-none">
-            <h3 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-stone-600/70">
+            <h3 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-night/90">
               Our Vision
             </h3>
             <p className="mb-2">

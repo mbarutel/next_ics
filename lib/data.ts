@@ -73,8 +73,8 @@ export const cta = [
   },
   {
     title: "Sponsorship",
-    description: "Share your passion through ICS",
-    button: "Become a Speaker",
+    description: "Partner with us at ICS",
+    button: "Become a Sponsor",
     icon: React.createElement(PiMedalFill),
     form:
       "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURDE3WU0yN0M2VzRCQzNTMEVYUkdKRlBTVi4u",

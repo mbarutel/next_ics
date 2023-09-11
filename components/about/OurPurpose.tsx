@@ -11,10 +11,10 @@ export default function OurPurpose() {
             img={IcsImage}
             alt="Conferences Services Australia"
             position="50% 50%"
-            bg="#dde4ea"
+            bg="#bd4a3d"
           />
           <div>
-            <h2 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-stone-600/70 md:text-right">
+            <h2 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-night/90 md:text-right">
               Our Purpose
             </h2>
             <p className="mb-2">

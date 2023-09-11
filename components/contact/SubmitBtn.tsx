@@ -10,11 +10,11 @@ export default function SubitBtn() {
     <button
       type="submit"
       disabled={pending}
-      className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-gray-700 text-white rounded-full outline-none buttonEffect hover:bg-gray-950 disabled:scale-100 disabled:bg-opacity-65"
+      className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-night/90 text-rain rounded-full outline-none buttonEffect hover:bg-night disabled:scale-100 disabled:bg-opacity-65"
     >
       {pending
         ? (
-          <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white">
+          <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-rain">
           </div>
         )
         : (

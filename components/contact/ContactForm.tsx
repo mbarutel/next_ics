@@ -10,9 +10,9 @@ export default function ContactForm() {
     <section id="contact">
       <div className="container">
         <div>
-          <h2 className="section_header text-center text-stone-700/80">Contact Me</h2>
-          <p className="text-gray-700">
-            Please contact me direcly at{" "}
+          <h2 className="section_header text-center text-night/90">Contact Us</h2>
+          <p className="text-night/80">
+            Please contact us direcly at{" "}
             <a
               href={`mailto:${configs.contact.email}`}
               className="underline"
@@ -40,21 +40,21 @@ export default function ContactForm() {
             type="email"
             maxLength={500}
             placeholder="Your email"
-            className="h-14 px-4 rounded-lg border_black transition-all"
+            className="h-14 px-4 rounded-lg border_night transition-all"
           />
           <input
             required
             name="senderSubject"
             maxLength={500}
             placeholder="Your Subject"
-            className="h-14 px-4 rounded-lg border_black transition-all"
+            className="h-14 px-4 rounded-lg border_night transition-all"
           />
           <textarea
             required
             name="message"
             maxLength={5000}
             placeholder="Your message"
-            className="h-52 p-4 rounded-lg border_black transition-all"
+            className="h-52 p-4 rounded-lg border_night transition-all"
           />
           <SubmitBtn />
         </form>

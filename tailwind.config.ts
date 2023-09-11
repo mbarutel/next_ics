@@ -24,6 +24,7 @@ const config: Config = {
       "night": "#3e2926",
       "dove": "#bfbebd",
       "hibiscus": "#A4343A",
+      "plum": "#393641",
     },
   },
   plugins: [],

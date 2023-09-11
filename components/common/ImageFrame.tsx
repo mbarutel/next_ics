@@ -11,7 +11,7 @@ export default function ImageFrame({ img, alt, position, bg }: ImageFrameProp) {
   return (
     <div className="m-6 rounded max-w-lg">
       <div
-        className="h-[300px] sm:h-[400px] lg:h-[600px] flex rounded relative translate-x-[10px] translate-y-[-10px] shadow-lg"
+        className="h-[300px] sm:h-[400px] lg:h-[450px] flex rounded relative translate-x-[10px] translate-y-[-10px] shadow-lg"
         style={{ backgroundColor: bg }}
       >
         <Image
