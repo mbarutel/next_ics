@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${lato.className} bg-indian/70`}>
         {draftMode().isEnabled && (
           <p className="bg-elden/80 py-4 px-[6vw]">
-            Draft mode is on! <ExitDraftModeLink className="undeline" />
+            Draft mode is on! <ExitDraftModeLink className="underline" />
           </p>
         )}
         <main>
