@@ -9,7 +9,7 @@ export default function OurValues() {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
           <div className="order-1 sm:order-none">
-            <h2 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-night/90">
+            <h2 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-amber-800/90">
               Our Values
             </h2>
             <p className="mb-2">

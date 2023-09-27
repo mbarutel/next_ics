@@ -18,7 +18,7 @@ export default async function page() {
       />
       <section id="conferences">
         <div className="container">
-          <h2 className="section_header text-night text-center sm:text-left pb-6">
+          <h2 className="section_header text-amber-800 text-center pb-6">
             Upcoming ICS Conferences
           </h2>
           <div className="grid grid-cols-2 gap-2 lg:gap-8">

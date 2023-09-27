@@ -60,9 +60,9 @@ export default async function page({ params }: ConferencePageProps) {
   return (
     <>
       <ConferenceHeader conferencePage={conferencePage} />
-      <section className="-mt-[6.5rem] sm:-mt-[8.5rem] lg:-mt-[9.5rem]">
+      <section className="-mt-[6.5rem] sm:-mt-[9rem] lg:-mt-[10rem]">
         <div className="container">
-          <div className="rich_text mt-8 border-t pt-8">
+          <div className="rich_text mt-8 border-t">
             <RichText document={conferencePage.content} />
           </div>
         </div>

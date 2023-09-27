@@ -14,7 +14,7 @@ export default function OurPurpose() {
             bg="#bd4a3d"
           />
           <div>
-            <h2 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-night/90 md:text-right">
+            <h2 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-amber-800/90 md:text-right">
               Our Purpose
             </h2>
             <p className="mb-2">
