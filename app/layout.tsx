@@ -30,7 +30,7 @@ export default function RootLayout({
             Draft mode is on! <ExitDraftModeLink className="underline" />
           </p>
         )}
-        <main>
+        <main className="relative">
           <Navbar />
           {children}
           <Footer />

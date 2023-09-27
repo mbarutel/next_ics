@@ -116,6 +116,15 @@ export default function Header({ link, text }: HeaderProps) {
         className="contrast-75"
       />
       <HeaderBox />
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center group text-[0.7rem] sm:text-[1rem] text-white/90 w-[90%] effects">
+        <a
+          href={link}
+          className="uppercase font-thin font-mono"
+        >
+          {text}
+        </a>
+        <BiSolidDownArrow className="group-hover:translate-y-[2px] text-xl transition-all -mt-[2px]" />
+      </div>
     </header>
   );
 }
@@ -127,7 +136,7 @@ function HeaderBox() {
         <h1 className="text-center text-white text-[1.6rem] sm:text-3xl font-black uppercase tracking-wider leading-tight mb-1 drop-shadow-xs">
           Indigenous Conference Services
         </h1>
-        <p className="text-center text-yellow-100 text-[0.8rem] sm:text-lg uppercase font-semibold">
+        <p className="text-center text-yellow-200/70 text-[0.8rem] sm:text-lg uppercase font-semibold">
           The impossible is the next step for our journey
         </p>
       </div>

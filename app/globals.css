@@ -15,14 +15,14 @@
 /*   @apply py-2 sm:py-3 md:py-5 lg:py-8 flex justify-center; */
 /* } */
 /**/
-/* .container { */
-/*   @apply flex flex-col items-center px-5 w-[min(100%,70rem)]; */
-/* } */
-/**/
-/* .section_header { */
-/*   @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide; */
-/* } */
-/**/
+.container {
+  @apply px-4 mx-auto max-w-7xl sm:px-6;
+}
+
+.section_header {
+  @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide;
+}
+
 /* p { */
 /*   @apply text-justify text-plum; */
 /* } */
@@ -50,3 +50,7 @@
 /* .rich_text li { */
 /*   @apply list-disc list-outside ml-5; */
 /* } */
+
+.effects {
+  @apply transition-all hover:scale-105 focus:scale-105 active:scale-95;
+}
