@@ -23,9 +23,9 @@ section {
   @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide;
 }
 
-/* p { */
-/*   @apply text-justify text-plum; */
-/* } */
+p {
+  @apply text-justify text-stone-700;
+}
 /**/
 /* .border_night { */
 /*   @apply border-solid border-[1px] border-night/40; */
