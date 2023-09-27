@@ -13,44 +13,41 @@ export default function ConferenceCard(
   dayjs.extend(localizedFormat);
 
   return (
-    <>
-      <div className="bg-elden/70 pt-1 sm:pt-2 px-1 sm:px-2 pb-2 sm:pb-4 rounded-lg mb-1 sm:mb-2 active:scale-105 transition-all">
-        <Link
-          href={`/conferences/${conferencePage.slug}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className="relative mb-3 flex flex-col items-center">
-            <Image
-              src={conferencePage.coverImage.src}
-              alt={conferencePage.coverImage.alt}
-              width={conferencePage.coverImage.width}
-              height={conferencePage.coverImage.height}
-              className="h-36 sm:h-56 w-ful rounded-lg object-cover shadow-lg contrast-50"
-            />
-            <h4 className="absolute bottom-1/2 translate-y-1/2 sm:translate-y-0 sm:bottom-2 left-1/2 -translate-x-1/2 text-center w-[90%] text-rain capitalize font-bold leading-none text-lg">
-              {conferencePage.title}
-            </h4>
-          </div>
-          <p className="text-[0.8rem] sm:text-[1rem] text-night text-center sm:text-left">
-            🗓️&nbsp;
-            {dayjs(conferencePage.startDate).format("DD")} -{" "}
-            {dayjs(conferencePage.endDate).format("DD MMM, YYYY")}
-          </p>
-          <p className="capitalize text-[0.8rem] sm:text-[1rem] text-night text-center sm:text-left">
-            📍&nbsp;
-            {conferencePage.venueName}
-          </p>
-        </Link>
+    <div>
+      <div className="bg-red-800/80 pt-1 sm:pt-2 px-1 sm:px-2 pb-2 sm:pb-4 rounded-t-lg mb-1">
+        <div className="relative mb-3 flex flex-col items-center">
+          <Image
+            src={conferencePage.coverImage.src}
+            alt={conferencePage.coverImage.alt}
+            width={conferencePage.coverImage.width}
+            height={conferencePage.coverImage.height}
+            className="h-36 sm:h-56 w-full rounded-lg object-cover shadow-lg contrast-50"
+          />
+          <h4 className="absolute bottom-1/2 translate-y-1/2 sm:translate-y-0 sm:bottom-2 left-1/2 -translate-x-1/2 text-center w-[90%] text-white capitalize font-bold leading-none text-lg">
+            {conferencePage.title}
+          </h4>
+        </div>
+        <p className="text-[0.8rem] sm:text-[1rem] text-center sm:text-left font-semibold text-white">
+          🗓️&nbsp;
+          {dayjs(conferencePage.startDate).format("DD")} -{" "}
+          {dayjs(conferencePage.endDate).format("DD MMM, YYYY")}
+        </p>
+        <p className="capitalize text-[0.8rem] sm:text-[1rem] text-center sm:text-left font-bold text-white">
+          📍&nbsp;
+          {conferencePage.venueName}
+        </p>
       </div>
+
       <Link
+        className="group relative inline-flex focus:outline-none w-full mb-2 rounded-b-xl"
         href={`/conferences/${conferencePage.slug}`}
         target="_blank"
         rel="noreferrer"
-        className="flex justify-center text-chili text-[0.8rem] sm:text-xl uppercase cursor-pointer transition-all hover:scale-110 focus:scale-110 active:scale-105"
       >
-        Read More
+        <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase ring-1 ring-red-800/80 transform transition-transform group-hover:translate-y-1 group-focus:translate-y-1 rounded-b-xl bg-red-800/80 active:scale-95">
+          Read More
+        </span>
       </Link>
-    </>
+    </div>
   );
 }

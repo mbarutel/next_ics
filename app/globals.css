@@ -11,9 +11,9 @@
 /*   @apply active:scale-105 transition-all; */
 /* } */
 /**/
-/* section { */
-/*   @apply py-2 sm:py-3 md:py-5 lg:py-8 flex justify-center; */
-/* } */
+section {
+  @apply pt-4;
+}
 /**/
 .container {
   @apply px-4 mx-auto max-w-7xl sm:px-6;

@@ -11,7 +11,7 @@ export default async function UpcomingConferences() {
     <section id="conferences">
       <div className="container">
         <h2 className="section_header text-night text-center">
-          Upcoming Conferences
+          Upcoming Events
         </h2>
         <ConferenceCards conferences={conferencePages} />
       </div>
