@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en" className="!scroll-smooth">
       <body className={`${lato.className} bg-indian/70`}>
         {draftMode().isEnabled && (
-          <p className="bg-elden/80 py-4 px-[6vw]">
+          <p className="bg-elden/80 py-4 px-[6vw] z-[999]">
             Draft mode is on! <ExitDraftModeLink className="underline" />
           </p>
         )}

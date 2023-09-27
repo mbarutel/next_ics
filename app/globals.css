@@ -2,51 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
-  @apply px-5 sm:px-10 py-1 sm:py-2 rounded-[10px] sm:rounded-[15px] text-[0.8rem] sm:text-lg font-medium tracking-wide inline-block;
-}
+/* .btn { */
+/*   @apply px-5 sm:px-10 py-0 sm:py-2 rounded-[10px] sm:rounded-[15px] text-[0.8rem] sm:text-lg font-medium tracking-wide w-fit; */
+/* } */
 
-.effects {
-  /* @apply hover:scale-110 active:scale-105 transition-all; */
-  @apply active:scale-105 transition-all;
-}
-
-section {
-  @apply py-2 sm:py-3 md:py-5 lg:py-8 flex justify-center;
-}
-
-.container {
-  @apply flex flex-col items-center px-5 w-[min(100%,70rem)];
-}
-
-.section_header {
-  @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide;
-}
-
-p {
-  @apply text-justify text-plum;
-}
-
-.border_night {
-  @apply border-solid border-[1px] border-night/40;
-}
-
-.btn {
-  @apply px-4 py-2 bg-night text-sm sm:text-lg rounded-xl shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono;
-}
-
-.rich_text h2 {
-  @apply text-lg sm:text-2xl mt-7 font-bold text-night/90;
-}
-
-.rich_text h3 {
-  @apply text-[1.1rem] sm:text-xl mt-2 mb-1 font-semibold text-night/80;
-}
-
-.rich_text p {
-  @apply text-night;
-}
-
-.rich_text li {
-  @apply list-disc list-outside ml-5;
-}
+/* .effects { */
+/*   @apply hover:scale-110 active:scale-105 transition-all; */
+/*   @apply active:scale-105 transition-all; */
+/* } */
+/**/
+/* section { */
+/*   @apply py-2 sm:py-3 md:py-5 lg:py-8 flex justify-center; */
+/* } */
+/**/
+/* .container { */
+/*   @apply flex flex-col items-center px-5 w-[min(100%,70rem)]; */
+/* } */
+/**/
+/* .section_header { */
+/*   @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide; */
+/* } */
+/**/
+/* p { */
+/*   @apply text-justify text-plum; */
+/* } */
+/**/
+/* .border_night { */
+/*   @apply border-solid border-[1px] border-night/40; */
+/* } */
+/**/
+/* .btn { */
+/*   @apply px-4 py-2 bg-night text-sm sm:text-lg rounded-xl shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono; */
+/* } */
+/**/
+/* .rich_text h2 { */
+/*   @apply text-lg sm:text-2xl mt-7 font-bold text-night/90; */
+/* } */
+/**/
+/* .rich_text h3 { */
+/*   @apply text-[1.1rem] sm:text-xl mt-2 mb-1 font-semibold text-night/80; */
+/* } */
+/**/
+/* .rich_text p { */
+/*   @apply text-night; */
+/* } */
+/**/
+/* .rich_text li { */
+/*   @apply list-disc list-outside ml-5; */
+/* } */
