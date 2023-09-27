@@ -12,7 +12,7 @@
 /* } */
 /**/
 section {
-  @apply pt-4;
+  @apply pt-6 sm:pt-10 lg:pt-14;
 }
 /**/
 .container {
@@ -20,7 +20,7 @@ section {
 }
 
 .section_header {
-  @apply text-xl sm:text-3xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide;
+  @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase mb-2 sm:mb-4 tracking-wide;
 }
 
 /* p { */
