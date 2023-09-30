@@ -13,10 +13,9 @@ export default function Header({ link, text }: HeaderProps) {
   return (
     <header className="relative h-[25rem] sm:h-[30rem] lg:h-[40rem] flex items-center justify-center">
       <Image
-        src="/assets/images/header-new-one.webp"
+        src="/assets/images/header.webp"
         alt="Indigenous Health Conference Services"
         fill
-        // style={{ objectFit: "cover" }}
         className="contrast-[0.9] object-cover"
       />
       <HeaderBox />
