@@ -20,26 +20,30 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex gap-5 justify-center mt-4">
-              <a
+              <Link
                 href={`mailto:${configs.contact.email}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center border-solid border-2 rounded-full border-stone-800/80 p-2 md:p-4 md:rounded-xl transition hover:bg-stone-800/50 focus:bg-stone-800/50 active:scale-95"
+                className="flex items-center border-solid border-2 rounded-full border-stone-800/80 p-2 md:rounded-xl group active:scale-95 relative"
               >
-                <AiOutlineMail className="text-4xl sm:mr-2" />
-                <span className="font-bold hidden sm:block">
+                <div className="w-0 h-full bg-stone-400/50 transition-all group-hover:w-full absolute inset-0 rounded-full md:rounded-xl z-0">
+                </div>
+                <AiOutlineMail className="text-3xl sm:mr-2 z-10" />
+                <span className="font-bold hidden sm:block z-10">
                   {configs.contact.email}
                 </span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href={`tel:${configs.contact.phone}`}
-                className="flex items-center border-solid border-2 rounded-full border-stone-800/80 p-2 md:p-4 md:rounded-xl transition hover:bg-stone-800/50 focus:bg-stone-800/50 active:scale-95"
+                className="flex items-center border-solid border-2 rounded-full border-stone-800/80 p-2 md:rounded-xl group active:scale-95 relative"
               >
-                <AiOutlinePhone className="text-4xl sm:mr-2" />
-                <span className="font-bold hidden sm:block">
+                <div className="w-0 h-full bg-stone-400/50 transition-all group-hover:w-full absolute inset-0 rounded-full md:rounded-xl z-0">
+                </div>
+                <AiOutlinePhone className="text-3xl sm:mr-2 z-10" />
+                <span className="font-bold hidden sm:block z-10">
                   {configs.contact.phone}
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="flex flex-row lg:flex-col py-4 gap-3 sm:gap-6 lg:gap-3">
