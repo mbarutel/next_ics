@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import ConferenceCard from "./ConferenceCard";
 import useEmblaCarousel from "embla-carousel-react";
 import { ConferencePage } from "@/contentful/types/types";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { DotButton, useDotButton } from "./CarousalDotButton";
 import Link from "next/link";
 
 type ConferenceCardsProps = {
@@ -11,22 +11,14 @@ type ConferenceCardsProps = {
 };
 
 export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
-  const [emblaRef] = useEmblaCarousel({
-    slidesToScroll: "auto",
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    // slidesToScroll: "auto",
     containScroll: "trimSnaps",
   });
-  // const [emblaRef, emblaApi] = useEmblaCarousel({
-  //   slidesToScroll: "auto",
-  //   containScroll: "trimSnaps",
-  // });
 
-  // const scrollPrev = useCallback(() => {
-  //   if (emblaApi) emblaApi.scrollPrev();
-  // }, [emblaApi]);
-  //
-  // const scrollNext = useCallback(() => {
-  //   if (emblaApi) emblaApi.scrollNext();
-  // }, [emblaApi]);
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(
+    emblaApi,
+  );
 
   return (
     <div>
@@ -50,6 +42,17 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
           </div>
         </div>
       </div>
+      <div className="flex justify-center items-center mt-2">
+        {scrollSnaps.map((_, index) => (
+          <DotButton
+            key={index}
+            onClick={() => onDotButtonClick(index)}
+            className={`touch-manipulation inline-flex cursor-pointer border-none p-0 mx-1 w-6 h-2 rounded-full transition-all ${
+              index === selectedIndex ? "bg-gradient-to-r from-stone-950/70 to-red-700/90" : "bg-stone-900/60 hover:bg-red-800"
+            }`}
+          />
+        ))}
+      </div>
       <div className="flex items-center mt-6">
         <Link
           href="/conferences"
@@ -63,18 +66,3 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
     </div>
   );
 }
-
-// <button
-//   onClick={scrollPrev}
-//   className="effects text-night text-lg sm:text-4xl hidden sm:block"
-// >
-//   <BsChevronLeft />
-// </button>
-//
-// <button
-//   onClick={scrollNext}
-//   className="effects text-night text-lg sm:text-4xl hidden sm:block"
-// >
-//   <BsChevronRight />
-// </button>
-//
