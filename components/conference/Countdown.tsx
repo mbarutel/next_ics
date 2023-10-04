@@ -43,7 +43,7 @@ export default function Countdown({ startDate }: CountdownProps) {
     <div className="my-4">
       {conferenceTime
         ? (
-          <div className="bg-amber-800/80 text-white px-7 py-3 w-fit rounded-md font-bold sm:text-lg uppercase">
+          <div className="bg-amber-800/80 text-white px-7 py-3 w-fit rounded-md italic sm:text-lg uppercase">
             Building a better future today
           </div>
         )
