@@ -1,7 +1,6 @@
 import React from "react";
 import ImageFrame from "../common/ImageFrame";
-import IcsImage from "@/public/assets/images/elders-conference.webp";
-import GuideBox from "../common/Guidebox";
+import IcsImage from "@/public/assets/images/default-cover-image.webp";
 
 export default function OurValues() {
   return (
