@@ -51,12 +51,16 @@ export default function OurVision() {
               Indigenous health and closing the gap.
             </p>
           </div>
-          <ImageFrame
-            img={IcsFounders}
-            alt="Conference Health"
-            position="50% 15%"
-            bg="#EBC284"
-          />
+          <div className="flex justify-center items-center">
+            <ImageFrame
+              img={IcsFounders}
+              alt="Conference Health"
+              position="50% 15%"
+              bg="#EBC284"
+              transformImg="translateX(-20px) translateY(20px)"
+              transformDiv="translate-x-[10px]"
+            />
+          </div>
         </div>
       </div>
     </section>

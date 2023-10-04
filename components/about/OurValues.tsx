@@ -39,12 +39,16 @@ export default function OurValues() {
               advancing Indigenous health and closing the gap.
             </p>
           </div>
-          <ImageFrame
-            img={IcsImage}
-            alt="Indigenous Health"
-            position="50% 50%"
-            bg="#5190e8"
-          />
+          <div className="flex justify-center items-center">
+            <ImageFrame
+              img={IcsImage}
+              alt="Indigenous Health"
+              position="50% 50%"
+              bg="#5190e8"
+              transformImg="translateX(-20px) translateY(20px)"
+              transformDiv="translate-x-[10px]"
+            />
+          </div>
         </div>
       </div>
     </section>

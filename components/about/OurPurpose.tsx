@@ -6,13 +6,17 @@ export default function OurPurpose() {
   return (
     <section>
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
-          <ImageFrame
-            img={IcsImage}
-            alt="closing the gap"
-            position="50% 50%"
-            bg="#bd4a3d"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div className="flex justify-center items-center">
+            <ImageFrame
+              img={IcsImage}
+              alt="closing the gap"
+              position="50% 50%"
+              bg="#bd4a3d"
+              transformImg="translateX(20px) translateY(20px)"
+              transformDiv="translate-x-[-10px]"
+            />
+          </div>
           <div>
             <h2 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-amber-800/90 md:text-right">
               Our Purpose

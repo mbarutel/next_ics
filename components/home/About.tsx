@@ -52,6 +52,8 @@ export default function About() {
             alt="Indigenous Health Conference"
             position="50% 20%"
             bg="#A4343A"
+            transformImg="translateX(-20px) translateY(20px)"
+            transformDiv="translate-x-[10px]"
           />
         </div>
       </div>

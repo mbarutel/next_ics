@@ -6,12 +6,16 @@ type ImageFrameProp = {
   alt: string;
   position: string;
   bg: string;
+  transformImg: string;
+  transformDiv: string;
 };
-export default function ImageFrame({ img, alt, position, bg }: ImageFrameProp) {
+export default function ImageFrame(
+  { img, alt, position, bg, transformImg, transformDiv }: ImageFrameProp,
+) {
   return (
     <div className="m-6 rounded max-w-lg">
       <div
-        className="h-[300px] sm:h-[400px] lg:h-[450px] flex rounded relative translate-x-[10px] translate-y-[-10px] shadow-lg"
+        className={`h-[300px] sm:h-[400px] lg:h-[450px] flex rounded relative ${transformDiv} translate-y-[-10px] shadow-lg`}
         style={{ backgroundColor: bg }}
       >
         <Image
@@ -20,7 +24,7 @@ export default function ImageFrame({ img, alt, position, bg }: ImageFrameProp) {
           style={{
             objectFit: "cover",
             objectPosition: position,
-            transform: "translateX(-20px) translateY(20px)",
+            transform: transformImg,
             borderRadius: "4px",
           }}
           className="shadow-lg"
