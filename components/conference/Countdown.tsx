@@ -32,7 +32,7 @@ export default function Countdown({ startDate }: CountdownProps) {
       );
       setSeconds(s);
 
-      if (d <= 0 && h <= 0 && m <= 0 && s <= m) {
+      if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
         setConferenceTime(true);
       }
     }, 1000);
