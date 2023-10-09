@@ -1,6 +1,6 @@
 import React from "react";
 import ImageFrame from "../common/ImageFrame";
-import IcsImage from "@/public/assets/images/default-cover-image.webp";
+import IcsImage from "@/public/assets/images/aboriginal-art.webp";
 
 export default function OurValues() {
   return (
@@ -44,7 +44,7 @@ export default function OurValues() {
               img={IcsImage}
               alt="Indigenous Health"
               position="50% 50%"
-              bg="#5190e8"
+              bg="#ea642e"
               transformImg="translateX(-20px) translateY(20px)"
               transformDiv="translate-x-[10px]"
             />

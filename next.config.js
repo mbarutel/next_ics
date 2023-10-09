@@ -8,6 +8,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "downloads.ctfassets.net",
+      },
+      {
+        protocol: "https",
         hostname: "www.clipartmax.com",
       },
     ],

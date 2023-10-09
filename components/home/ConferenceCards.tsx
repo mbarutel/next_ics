@@ -21,8 +21,6 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
     emblaApi,
   );
 
-  const backgrounds = ["bg-red-500/80", "bg-orange-500/80", "bg-yellow-500/80"];
-
   return (
     <div>
       <h3 className="font-bold mb-2 sm:mb-3 text-center uppercase sm:text-xl lg:text-2xl text-stone-500">
@@ -41,7 +39,6 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
               >
                 <ConferenceCard
                   conferencePage={conference}
-                  background={backgrounds[index % 3]}
                 />
               </div>
             ))}
