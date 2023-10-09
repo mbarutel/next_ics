@@ -28,6 +28,7 @@ export function parseContentfulConference(
     venueName: conferenceEntry.fields.venueName,
     venueAddress: conferenceEntry.fields.venueAddress,
     // media: conferenceEntry.fields.media,
+    description: conferenceEntry.fields.description,
     coverImage: coverImage,
   };
 }
@@ -45,7 +46,7 @@ export async function fetchConferencePages(
   const conferenceResult = await contenful.getEntries<TypeConferenceSkeleton>({
     content_type: "conference",
     include: 2,
-    order: ["fields.startDate"]
+    order: ["fields.startDate"],
   });
 
   return conferenceResult.items.map((conferenceEntry) =>

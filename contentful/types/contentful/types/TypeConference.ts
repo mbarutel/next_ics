@@ -11,6 +11,7 @@ export interface TypeConferenceFields {
     coverImage: EntryFieldTypes.AssetLink;
     venueName: EntryFieldTypes.Symbol;
     venueAddress: EntryFieldTypes.Location;
+    description: EntryFieldTypes.Text;
 }
 
 export type TypeConferenceSkeleton = EntrySkeletonType<TypeConferenceFields, "conference">;

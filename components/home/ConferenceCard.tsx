@@ -5,16 +5,19 @@ import dayjs from "dayjs";
 
 type ConferenceCardProps = {
   conferencePage: ConferencePage;
+  background: string;
 };
 export default function ConferenceCard(
-  { conferencePage }: ConferenceCardProps,
+  { conferencePage, background }: ConferenceCardProps,
 ) {
   const localizedFormat = require("dayjs/plugin/localizedFormat");
   dayjs.extend(localizedFormat);
 
   return (
     <div>
-      <div className="bg-red-800/80 pt-1 sm:pt-2 px-1 sm:px-2 pb-2 sm:pb-4 rounded-t-lg mb-1">
+      <div
+        className={`${background} pt-1 sm:pt-2 px-1 sm:px-2 pb-2 sm:pb-4 rounded-t-lg mb-1`}
+      >
         <div className="relative mb-3 flex flex-col items-center">
           <Image
             src={conferencePage.coverImage.src}
@@ -44,7 +47,9 @@ export default function ConferenceCard(
         target="_blank"
         rel="noreferrer"
       >
-        <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase ring-1 ring-red-800/80 transform transition-transform group-hover:translate-y-1 group-focus:translate-y-1 rounded-b-xl bg-red-800/80 active:scale-95">
+        <span
+          className={`w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase transform transition-transform group-hover:translate-y-1 group-focus:translate-y-1 rounded-b-xl ${background} active:scale-95`}
+        >
           Read More
         </span>
       </Link>

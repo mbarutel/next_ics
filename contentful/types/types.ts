@@ -24,5 +24,6 @@ export type ConferencePage = {
   venueName: string;
   venueAddress: Location;
   // media: string[] | undefined;
+  description: string;
   coverImage: ContentImage;
 };

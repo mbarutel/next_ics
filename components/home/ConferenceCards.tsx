@@ -1,5 +1,6 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+
+import React from "react";
 import ConferenceCard from "./ConferenceCard";
 import useEmblaCarousel from "embla-carousel-react";
 import { ConferencePage } from "@/contentful/types/types";
@@ -20,6 +21,8 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
     emblaApi,
   );
 
+  const backgrounds = ["bg-red-500/80", "bg-orange-500/80", "bg-yellow-500/80"];
+
   return (
     <div>
       <h3 className="font-bold mb-2 sm:mb-3 text-center uppercase sm:text-xl lg:text-2xl text-stone-500">
@@ -31,12 +34,15 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
           className="overflow-hidden cursor-grab"
         >
           <div className="flex touch-pan-y -ml-[1rem]">
-            {conferences.map((conference) => (
+            {conferences.map((conference, index) => (
               <div
                 key={conference.slug}
                 className="flex-grow-0 flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 pl-[1rem]"
               >
-                <ConferenceCard conferencePage={conference} />
+                <ConferenceCard
+                  conferencePage={conference}
+                  background={backgrounds[index % 3]}
+                />
               </div>
             ))}
           </div>
@@ -48,7 +54,9 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
             key={index}
             onClick={() => onDotButtonClick(index)}
             className={`touch-manipulation inline-flex cursor-pointer border-none p-0 mx-1 w-6 h-2 rounded-full transition-all ${
-              index === selectedIndex ? "bg-gradient-to-r from-stone-950/70 to-red-700/90" : "bg-stone-900/60 hover:bg-red-800"
+              index === selectedIndex
+                ? "bg-gradient-to-r from-stone-950/70 to-red-700/90"
+                : "bg-stone-900/60 hover:bg-red-800"
             }`}
           />
         ))}
