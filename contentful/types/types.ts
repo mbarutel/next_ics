@@ -27,3 +27,8 @@ export type ConferencePage = {
   description: string;
   coverImage: ContentImage;
 };
+
+export type Conferences = {
+  month: string;
+  Conferences: ConferencePage[];
+}

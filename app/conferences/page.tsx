@@ -1,38 +1,65 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import { fetchConferencePages } from "@/contentful/services/conferences";
 import { draftMode } from "next/headers";
 import Header from "@/components/common/Header";
 import ConferencesPageCard from "@/components/conference/ConferencesPageCard";
 import CallToAction from "@/components/common/CallToAction";
-import { ConferencePage } from "@/contentful/types/types";
+import { ConferencePage, Conferences } from "@/contentful/types/types";
 
-// function groupConferencesByMonth(
-//   { conferences }: ConferencePage[],
-// ) {
-//   const groupedEvents: any = {};
-//
-//   for (let i = 1; i < conferences.length; i++) {
-//     const startDate = new Date(conferences[i].startDate);
-//     const month = startDate.getMonth();
-//     const year = startDate.getFullYear();
-//     const key = `${year}-${month + 1}`;
-//
-//     if (!groupedEvents[key]) {
-//       groupedEvents[key] = [];
-//     }
-//
-//     groupedEvents[key].push(conferences[i]);
-//   }
-//
-//   return groupedEvents;
-// }
+type ConferenceMonth = {
+  month: string;
+  conferences: ConferencePage[];
+};
+
+type ConferenceYear = {
+  year: string;
+  conferences: ConferenceMonth[];
+};
+
+function groupFunctionByMonth(
+  { conference, conferences }: {
+    conference: ConferencePage;
+    conferences: ConferencePage[];
+  },
+) {
+  const startDate = new Date(conference.startDate);
+  const month = startDate.getMonth().toString();
+  const foundMonth = conferences.find((conferenceMonth) =>
+    conferenceMonth.month === month
+  );
+}
+
+function groupConferences(
+  { conferences }: { conferences: ConferencePage[] },
+) {
+  let conferencesByYear: ConferenceYear[] = [];
+
+  conferences.forEach((conference) => {
+    const startDate = new Date(conference.startDate);
+    const year = startDate.getFullYear().toString();
+
+    const foundYear = conferencesByYear.find((conferenceYear) =>
+      conferenceYear.year === year
+    );
+
+    if (!foundYear) {
+      const newYear: ConferenceYear = {
+        year: year,
+        conferences: groupConferencesByMonth(conference, []),
+      };
+    }
+  });
+
+  // const month = startDate.getMonth();
+  // const year = startDate.getFullYear();
+}
 
 export default async function page() {
-  const conferencePages = await fetchConferencePages({
+  const conferences = await fetchConferencePages({
     preview: draftMode().isEnabled,
   });
 
-  // console.log(groupConferencesByMonth(conferencePages));
+  groupConferences({ conferences });
 
   return (
     <>
@@ -46,7 +73,7 @@ export default async function page() {
             Upcoming ICS&nbsp;Conferences
           </h2>
           <div className="grid grid-cols-1 gap-2 lg:gap-8">
-            {conferencePages.map((conferencePage) => (
+            {conferences.map((conferencePage) => (
               <Fragment key={conferencePage.slug}>
                 <ConferencesPageCard conferencePage={conferencePage} />
               </Fragment>
