@@ -16,17 +16,34 @@ type ConferenceYear = {
   conferences: ConferenceMonth[];
 };
 
-function groupFunctionByMonth(
-  { conference, conferences }: {
+function groupConferencesByMonth(
+  { conference, conferencesMonth }: {
     conference: ConferencePage;
-    conferences: ConferencePage[];
+    conferencesMonth: ConferenceMonth[];
   },
 ) {
   const startDate = new Date(conference.startDate);
   const month = startDate.getMonth().toString();
-  const foundMonth = conferences.find((conferenceMonth) =>
+
+  const foundMonth = conferencesMonth.find((conferenceMonth) =>
     conferenceMonth.month === month
   );
+
+  if (!foundMonth) {
+    const newMonth = {
+      month: month,
+      conferences: [{ ...conference }],
+    };
+    return conferencesMonth.concat(newMonth);
+  } else {
+    const updatedMonth = {
+      ...foundMonth,
+      conferences: foundMonth.conferences.concat(conference),
+    };
+    return conferencesMonth.map((conferencesMonth) =>
+      conferencesMonth.month === month ? updatedMonth : conferencesMonth
+    );
+  }
 }
 
 function groupConferences(
@@ -45,13 +62,27 @@ function groupConferences(
     if (!foundYear) {
       const newYear: ConferenceYear = {
         year: year,
-        conferences: groupConferencesByMonth(conference, []),
+        conferences: groupConferencesByMonth({
+          conference: conference,
+          conferencesMonth: [],
+        }),
       };
+      conferencesByYear = conferencesByYear.concat(newYear);
+    } else {
+      const updatedYear = {
+        ...foundYear,
+        conferences: groupConferencesByMonth({
+          conference: conference,
+          conferencesMonth: foundYear.conferences,
+        }),
+      };
+      conferencesByYear = conferencesByYear.map((conferenceYear) =>
+        conferenceYear.year === year ? updatedYear : conferenceYear
+      );
     }
   });
 
-  // const month = startDate.getMonth();
-  // const year = startDate.getFullYear();
+  return conferencesByYear;
 }
 
 export default async function page() {
@@ -59,7 +90,8 @@ export default async function page() {
     preview: draftMode().isEnabled,
   });
 
-  groupConferences({ conferences });
+  const conferenceByYears = groupConferences({ conferences });
+  console.log(conferenceByYears);
 
   return (
     <>
