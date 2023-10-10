@@ -1,4 +1,6 @@
 import { ConferencePage } from "@/contentful/types/types";
+import { CiLocationOn } from "react-icons/ci";
+import { CiCalendar } from "react-icons/ci";
 import Image from "next/image";
 import Link from "next/link";
 import dayjs from "dayjs";
@@ -28,18 +30,18 @@ export default function ConferencesPageCard(
           className="h-full object-cover shadow-lg contrast-75 sm:group-odd:rounded-l-md sm:group-even:rounded-r-md"
         />
       </div>
-      <div className="flex flex-col justify-center items-center text-center py-6 px-4 sm:px-8">
-        <h4 className="text-white font-black leading-none text-lg sm:text-2xl uppercase">
+      <div className="flex flex-col justify-center items-center text-center py-6 px-4 lg:px-8">
+        <h4 className="text-white font-black leading-none text-lg sm:text-2xl uppercase mb-2 drop-shadow-lg">
           {conferencePage.title}
         </h4>
         <span className="flex justify-between w-full lg:w-[80%] mb-4">
-          <span className="text-base lg:text-lg font-semibold text-white/90">
-            🗓️&nbsp;
+          <span className="text-base lg:text-lg font-semibold text-white/90 flex items-center gap-1 lg:gap-2">
+            <CiCalendar className="text-2xl"/>
             {dayjs(conferencePage.startDate).format("DD")} -{" "}
             {dayjs(conferencePage.endDate).format("DD MMM, YYYY")}
           </span>
-          <span className="capitalize text-base lg:text-lg font-semibold text-white/90">
-            📍&nbsp;
+          <span className="capitalize text-base lg:text-lg font-semibold text-white/90 flex items-center gap-1 lg:gap-2">
+            <CiLocationOn className="text-2xl"/>
             {conferencePage.venueName}
           </span>
         </span>
