@@ -25,18 +25,18 @@ export default function ConferenceCard(
             height={conferencePage.coverImage.height}
             className="h-36 sm:h-56 w-full rounded-t-md object-cover shadow-lg contrast-75"
           />
-          <h4 className="absolute bottom-1/2 translate-y-1/2 sm:translate-y-0 sm:bottom-2 left-1/2 -translate-x-1/2 text-center w-[90%] text-white capitalize font-bold leading-none text-lg">
+          <h4 className="absolute bottom-1/2 translate-y-1/2 sm:translate-y-0 sm:bottom-2 left-1/2 -translate-x-1/2 text-center w-[95%] text-white capitalize font-bold leading-none text-base">
             {conferencePage.title}
           </h4>
         </div>
         <span className="flex justify-between px-4 uppercase">
-          <span className="flex items-center text-xs lg:text-sm text-center sm:text-left font-semibold text-white">
+          <span className="flex items-center text-[0.8rem] text-center sm:text-left text-white">
             <CiCalendar className="text-lg"/>
             &nbsp;
             {dayjs(conferencePage.startDate).format("DD")} -{" "}
             {dayjs(conferencePage.endDate).format("DD MMM, YYYY")}
           </span>
-          <span className="flex items-center text-xs lg:text-sm text-center sm:text-left font-bold text-white">
+          <span className="flex items-center text-[0.8rem] text-center sm:text-left text-white">
             <CiLocationOn className="text-lg"/>
             &nbsp;
             {conferencePage.venueName}
@@ -50,7 +50,7 @@ export default function ConferenceCard(
         target="_blank"
         rel="noreferrer"
       >
-        <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase transform transition-transform group-hover:translate-y-1 group-focus:translate-y-1 rounded-b-md bg-red-800/90 active:scale-95">
+        <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center uppercase transform transition-transform group-hover:translate-y-1 group-focus:translate-y-1 rounded-b-md bg-stone-500/80 active:scale-95">
           Read More
         </span>
       </Link>

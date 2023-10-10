@@ -13,7 +13,7 @@
 /**/
 
 section {
-  @apply pt-6 sm:pt-10 lg:pt-14;
+  @apply pt-6 sm:pt-10 lg:pt-14 bg-stone-200;
 }
 /**/
 .container {

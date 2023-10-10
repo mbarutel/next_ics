@@ -9,25 +9,26 @@ type HeaderProps = {
   text: string;
 };
 
+// <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center group text-[0.7rem] sm:text-[1rem] text-white/90 w-[90%] effects">
+//   <a
+//     href={link}
+//     className="uppercase font-thin font-mono"
+//   >
+//     {text}
+//   </a>
+//   <BiSolidDownArrow className="group-hover:translate-y-[2px] text-xl transition-all -mt-[2px]" />
+// </div>
+
 export default function Header({ link, text }: HeaderProps) {
   return (
-    <header className="relative h-[25rem] sm:h-[30rem] lg:h-[40rem] flex items-center justify-center">
+    <header className="relative h-[25rem] sm:h-[30rem] lg:h-[60rem] flex items-center justify-center">
       <Image
-        src="/assets/images/header.webp"
+        src="/assets/images/header-testing.jpg"
         alt="Indigenous Health Conference Services"
         fill
         className="contrast-[0.9] object-cover"
       />
       <HeaderBox />
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center group text-[0.7rem] sm:text-[1rem] text-white/90 w-[90%] effects">
-        <a
-          href={link}
-          className="uppercase font-thin font-mono"
-        >
-          {text}
-        </a>
-        <BiSolidDownArrow className="group-hover:translate-y-[2px] text-xl transition-all -mt-[2px]" />
-      </div>
     </header>
   );
 }
@@ -39,7 +40,7 @@ function HeaderBox() {
         <h1 className="text-center text-white text-[1.6rem] sm:text-3xl font-black uppercase tracking-wider leading-tight mb-1 drop-shadow-xs">
           Indigenous Conference Services
         </h1>
-        <p className="text-center text-yellow-200/70 text-[0.8rem] sm:text-lg uppercase font-semibold">
+        <p className="text-center text-yellow-500 text-[0.8rem] sm:text-lg uppercase font-semibold">
           The impossible is the next step for our journey
         </p>
       </div>
@@ -48,19 +49,19 @@ function HeaderBox() {
           href={configs.forms.registration}
           target="_blank"
           rel="noreferrer"
-          className="group relative inline-flex border border-orange-500 focus:outline-none w-full sm:w-auto"
+          className="group relative inline-flex border border-orange-500 focus:outline-none w-full sm:w-auto rounded-md"
         >
-          <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-orange-500 ring-1 ring-orange-500 ring-offset-1 ring-offset-orange-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
+          <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-orange-500 ring-1 ring-orange-500 ring-offset-1 ring-offset-orange-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1 group-active:translate-y-0 group-active:translate-x-0 rounded-md">
             Register
           </span>
         </Link>
         <Link
-          className="group relative inline-flex border border-orange-500 focus:outline-none w-full sm:w-auto"
+          className="group relative inline-flex border border-orange-500 focus:outline-none w-full sm:w-auto rounded-md"
           href={configs.forms.submitPaper}
           target="_blank"
           rel="noreferrer"
         >
-          <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-transparent ring-1 ring-orange-500 ring-offset-1 ring-offset-orange-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
+          <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-transparent ring-1 ring-orange-500 ring-offset-1 ring-offset-orange-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1 group-active:translate-y-0 group-active:translate-x-0 rounded-md">
             Submit&nbsp;a&nbsp;paper
           </span>
         </Link>

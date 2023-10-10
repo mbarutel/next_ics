@@ -5,8 +5,8 @@ import Link from "next/link";
 export default function CallToAction() {
   return (
     <section>
-      <div className="container text-center pb-10">
-        <h3 className="text-center mb-8 section_header text-amber-900 !font-thin italic">
+      <div className="container text-center py-12">
+        <h3 className="text-center mb-8 lg:mb-12 section_header text-red-800 !font-normal italic">
           Building better future together
         </h3>
         <div className="flex flex-col sm:flex-row justify-center p-[20px]">
@@ -18,7 +18,7 @@ export default function CallToAction() {
               <span className="text-4xl">
                 {cta[0].icon}
               </span>
-              <strong>
+              <strong className="text-base sm:text-2xl">
                 {cta[0].title}
               </strong>
               <p className="italic text-center text-stone-950 mb-8">
@@ -47,7 +47,7 @@ export default function CallToAction() {
               <span className="text-4xl">
                 {cta[1].icon}
               </span>
-              <strong>
+              <strong className="text-base sm:text-2xl">
                 {cta[1].title}
               </strong>
               <p className="italic text-center text-stone-950 mb-8">
@@ -76,7 +76,7 @@ export default function CallToAction() {
               <span className="text-4xl">
                 {cta[2].icon}
               </span>
-              <strong>
+              <strong className="text-base sm:text-2xl">
                 {cta[2].title}
               </strong>
               <p className="italic text-center text-stone-950 mb-8">

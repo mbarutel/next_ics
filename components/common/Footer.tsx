@@ -5,7 +5,7 @@ import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-300 flex justify-center py-3 lg:py-6 mt-6">
+    <footer className="bg-neutral-300 flex justify-center py-3 lg:py-6">
       <div className="container text-night">
         <div className="w-full flex flex-col lg:flex-row lg:justify-between items-center">
           <div className="order-1 md:order-none">

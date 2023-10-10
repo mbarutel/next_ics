@@ -4,7 +4,7 @@ import IcsImage from "@/public/assets/images/aboriginal-art.webp";
 
 export default function OurValues() {
   return (
-    <section className="sm:pb-6">
+    <section className="sm:pb-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
           <div className="order-1 sm:order-none">

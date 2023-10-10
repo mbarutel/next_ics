@@ -7,12 +7,12 @@ export default function About() {
   return (
     <section>
       <div className="container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 justify-center items-center">
           <div className="flex flex-col justify-center order-1 sm:order-none relative sm:ml-3 pt-2">
-            <h2 className="section_header text-amber-800 text-center sm:text-left">
+            <h2 className="section_header text-orange-500 text-center sm:text-left">
               About ICS
             </h2>
-            <h3 className="-mt-2 tracking-tight text-lg md:text-xl uppercase text-stone-500 text-center sm:text-left mb-2">
+            <h3 className="-mt-4 tracking-tight text-lg md:text-xl uppercase text-stone-500 text-center sm:text-left mb-4 lg:mb-6">
               Indigenous Conference Services
             </h3>
             <p className="mb-6">
@@ -39,9 +39,9 @@ export default function About() {
             <div>
               <Link
                 href="/about"
-                className="group relative inline-flex border border-red-800/80 focus:outline-none w-auto"
+                className="group relative inline-flex border border-red-800/80 focus:outline-none w-auto rounded-md"
               >
-                <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-red-800/90 ring-1 ring-red-800/80 ring-offset-1 ring-offset-red-800/80 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
+                <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-red-800/90 ring-1 ring-red-800/80 ring-offset-1 ring-offset-red-800/80 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0 rounded-md">
                   Read More
                 </span>
               </Link>

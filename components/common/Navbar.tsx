@@ -72,7 +72,7 @@ export default function Navbar() {
             <li className="active:scale-95">
               <Link
                 href="/"
-                className="text-base font-normal text-gray-800 list-none hover:text-red-800 transition uppercase group"
+                className="text-base font-normal text-stone-500 list-none hover:text-red-800 transition uppercase group"
                 target=""
               >
                 Home
@@ -91,7 +91,7 @@ export default function Navbar() {
             <li className="active:scale-95">
               <Link
                 href="/about"
-                className="text-base font-normal text-gray-800 list-none hover:text-red-800 transition uppercase group"
+                className="text-base font-normal text-stone-500 list-none hover:text-red-800 transition uppercase group"
               >
                 About
                 <div className="grid grid-cols-2 h-[2px]">
@@ -109,7 +109,7 @@ export default function Navbar() {
             <li className="active:scale-95">
               <Link
                 href="/conferences"
-                className="text-base font-normal text-gray-800 list-none hover:text-red-800 transition uppercase group"
+                className="text-base font-normal text-stone-500 list-none hover:text-red-800 transition uppercase group"
               >
                 Conferences
                 <div className="grid grid-cols-2 h-[2px]">
