@@ -17,7 +17,7 @@ export default function ConferencesPageCard(
       href={`/conferences/${conferencePage.slug}`}
       target="_blank"
       rel="noreferrer"
-      className="bg-red-800/80 grid grid-cols-1 sm:grid-cols-2 group transition-all hover:scale-105 active:scale-95 sm:rounded-lg shadow-xl min-h-[25rem]"
+      className="bg-red-800/80 grid grid-cols-1 sm:grid-cols-2 group transition-all active:scale-95 sm:rounded-lg shadow-xl min-h-[25rem]"
     >
       <div className="relative sm:group-even:order-1">
         <Image
@@ -46,6 +46,11 @@ export default function ConferencesPageCard(
         <p className="mt-2 text-justify text-white">
           {conferencePage.description}
         </p>
+        <span className="text-left sm:group-even:text-right w-full mt-4 sm:mt-6 text-white text-lg font-mono uppercase">
+          <small className="bg-orange-400/80 p-3 hover:text-gray-700 transition rounded-sm">
+            View Conference
+          </small>
+        </span>
       </div>
     </Link>
   );

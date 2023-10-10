@@ -5,7 +5,7 @@ import {
   fetchConferencePage,
   fetchConferencePages,
 } from "@/contentful/services/conferences";
-import RichText from "@/components/RichText";
+import RichText from "@/components/common/RichText";
 import ConferenceHeader from "@/components/conference/ConferenceHeader";
 
 type ConferencePageParams = {
