@@ -26,7 +26,7 @@ export default function Footer() {
                 rel="noreferrer"
                 className="flex items-center p-2 group active:scale-95 relative"
               >
-                <div className="w-0 h-full bg-stone-400/50 transition-all group-hover:w-full absolute inset-0 z-0">
+                <div className="w-0 h-full bg-stone-400/50 transition-all group-hover:w-full absolute inset-0 z-0 rounded-md">
                 </div>
                 <AiOutlineMail className="text-3xl sm:mr-2 z-10" />
                 <span className="font-bold hidden sm:block z-10">
@@ -37,7 +37,7 @@ export default function Footer() {
                 href={`tel:${configs.contact.phone}`}
                 className="flex items-center p-2 group active:scale-95 relative"
               >
-                <div className="w-0 h-full bg-stone-400/50 transition-all group-hover:w-full absolute inset-0 z-0">
+                <div className="w-0 h-full bg-stone-400/50 transition-all group-hover:w-full absolute inset-0 z-0 rounded-md">
                 </div>
                 <AiOutlinePhone className="text-3xl sm:mr-2 z-10" />
                 <span className="font-bold hidden sm:block z-10">

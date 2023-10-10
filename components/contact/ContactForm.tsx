@@ -40,21 +40,21 @@ export default function ContactForm() {
             type="email"
             maxLength={500}
             placeholder="Your email"
-            className="h-14 px-4 rounded-lg border-solid border-[1px] border-stone-700 transition-all"
+            className="h-14 px-4 rounded-lg border-solid border-[1px] border-stone-500/60 transition-all"
           />
           <input
             required
             name="senderSubject"
             maxLength={500}
             placeholder="Your Subject"
-            className="h-14 px-4 rounded-lg border-solid border-[1px] border-stone-700 transition-all"
+            className="h-14 px-4 rounded-lg border-solid border-[1px] border-stone-500/60 transition-all"
           />
           <textarea
             required
             name="message"
             maxLength={5000}
             placeholder="Your message"
-            className="h-52 p-4 rounded-lg border-solid border-[1px] border-stone-700 transition-all"
+            className="h-52 p-4 rounded-lg border-solid border-[1px] border-stone-500/60 transition-all"
           />
           <SubmitBtn />
         </form>

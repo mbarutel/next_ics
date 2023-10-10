@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-full sm:px-6 bg-neutral-300 fixed top-0 z-[999]">
+    <div className="w-full sm:px-6 bg-white/50 backdrop-blur-md fixed top-0 z-[999]">
       <div className="relative container py-2">
         <nav className="relative flex items-center justify-between sm:h-10 md:justify-center">
           <div className="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
@@ -72,32 +72,61 @@ export default function Navbar() {
             <li className="active:scale-95">
               <Link
                 href="/"
-                className="text-base font-normal text-gray-600 list-none hover:text-gray-900 transition uppercase"
+                className="text-base font-normal text-gray-800 list-none hover:text-red-800 transition uppercase group"
                 target=""
               >
                 Home
+                <div className="grid grid-cols-2 h-[2px]">
+                  <span className="relative">
+                    <span className="absolute right-0 h-full w-0 group-hover:w-full bg-red-800 transition-all">
+                    </span>
+                  </span>
+                  <span className="relative">
+                    <span className="absolute left-0 h-full w-0 group-hover:w-full bg-red-800 transition-all">
+                    </span>
+                  </span>
+                </div>
               </Link>
             </li>
             <li className="active:scale-95">
               <Link
                 href="/about"
-                className="text-base font-normal text-gray-600 list-none hover:text-gray-900 transition uppercase"
-                target=""
+                className="text-base font-normal text-gray-800 list-none hover:text-red-800 transition uppercase group"
               >
                 About
+                <div className="grid grid-cols-2 h-[2px]">
+                  <span className="relative">
+                    <span className="absolute right-0 h-full w-0 group-hover:w-full bg-red-800 transition-all">
+                    </span>
+                  </span>
+                  <span className="relative">
+                    <span className="absolute left-0 h-full w-0 group-hover:w-full bg-red-800 transition-all">
+                    </span>
+                  </span>
+                </div>
               </Link>
             </li>
             <li className="active:scale-95">
               <Link
                 href="/conferences"
-                className="text-base font-normal text-gray-600 list-none hover:text-gray-900 transition uppercase"
+                className="text-base font-normal text-gray-800 list-none hover:text-red-800 transition uppercase group"
               >
                 Conferences
+                <div className="grid grid-cols-2 h-[2px]">
+                  <span className="relative">
+                    <span className="absolute right-0 h-full w-0 group-hover:w-full bg-red-800 transition-all">
+                    </span>
+                  </span>
+                  <span className="relative">
+                    <span className="absolute left-0 h-full w-0 group-hover:w-full bg-red-800 transition-all">
+                    </span>
+                  </span>
+                </div>
               </Link>
             </li>
           </div>
           <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
-            <div className="inline-flex rounded-full shadow transition-all bg-gradient-to-b hover:bg-gradient-to-t from-stone-950/90 to-red-950/90 active:scale-95">
+            <div className="inline-flex rounded-md shadow transition-all bg-gradient-to-b hover:bg-gradient-to-t from-stone-950/90 to-red-950/90 active:scale-95">
               <Link
                 href="/contact"
                 className="inline-flex items-center px-4 py-2 text-base text-white border border-transparent cursor-pointer font-base uppercase"

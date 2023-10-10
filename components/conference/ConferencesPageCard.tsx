@@ -25,28 +25,28 @@ export default function ConferencesPageCard(
           alt={conferencePage.coverImage.alt}
           width={conferencePage.coverImage.width}
           height={conferencePage.coverImage.height}
-          className="h-full object-cover shadow-lg contrast-75 sm:group-odd:rounded-l-lg sm:group-even:rounded-r-lg"
+          className="h-full object-cover shadow-lg contrast-75 sm:group-odd:rounded-l-md sm:group-even:rounded-r-md"
         />
       </div>
-      <div className="flex flex-col justify-center items-center text-center py-6 px-4">
+      <div className="flex flex-col justify-center items-center text-center py-6 px-4 sm:px-8">
         <h4 className="text-white font-black leading-none text-lg sm:text-2xl uppercase">
           {conferencePage.title}
         </h4>
-        <span className="flex gap-3">
-          <span className="text-base lg:text-lg font-normal text-white">
+        <span className="flex justify-between w-full lg:w-[80%] mb-4">
+          <span className="text-base lg:text-lg font-semibold text-white/90">
             🗓️&nbsp;
             {dayjs(conferencePage.startDate).format("DD")} -{" "}
             {dayjs(conferencePage.endDate).format("DD MMM, YYYY")}
           </span>
-          <span className="capitalize text-base lg:text-lg font-normal text-white">
+          <span className="capitalize text-base lg:text-lg font-semibold text-white/90">
             📍&nbsp;
             {conferencePage.venueName}
           </span>
         </span>
-        <p className="mt-2 text-justify text-white">
+        <p className="text-justify text-white mb-4">
           {conferencePage.description}
         </p>
-        <span className="text-left sm:group-even:text-right w-full mt-4 sm:mt-6 text-white text-lg font-mono uppercase">
+        <span className="text-left sm:group-even:text-right w-full text-white text-lg font-mono uppercase">
           <small className="bg-orange-400/80 p-3 hover:text-gray-700 transition rounded-sm">
             View Conference
           </small>

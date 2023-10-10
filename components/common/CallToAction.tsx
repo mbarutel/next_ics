@@ -30,9 +30,9 @@ export default function CallToAction() {
                   href={cta[0].form}
                   target="_blank"
                   rel="noreferrer"
-                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto rounded-xl"
+                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto rounded-md"
                 >
-                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white rounded-xl text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
+                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white rounded-md text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
                     {cta[0].button}
                   </span>
                 </Link>
@@ -59,9 +59,9 @@ export default function CallToAction() {
                   href={cta[1].form}
                   target="_blank"
                   rel="noreferrer"
-                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto rounded-xl"
+                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto rounded-md"
                 >
-                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white rounded-xl text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
+                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white rounded-md text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
                     {cta[1].button}
                   </span>
                 </Link>
@@ -88,9 +88,9 @@ export default function CallToAction() {
                   href={cta[2].form}
                   target="_blank"
                   rel="noreferrer"
-                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto rounded-xl"
+                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto rounded-md"
                 >
-                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white rounded-xl text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
+                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white rounded-md text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
                     {cta[2].button}
                   </span>
                 </Link>
