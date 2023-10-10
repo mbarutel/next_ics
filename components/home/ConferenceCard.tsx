@@ -1,4 +1,6 @@
 import { ConferencePage } from "@/contentful/types/types";
+import { CiLocationOn } from "react-icons/ci";
+import { CiCalendar } from "react-icons/ci";
 import Image from "next/image";
 import Link from "next/link";
 import dayjs from "dayjs";
@@ -27,16 +29,18 @@ export default function ConferenceCard(
             {conferencePage.title}
           </h4>
         </div>
-        <span className="flex justify-between px-4">
-          <p className="text-[0.8rem] sm:text-[1rem] text-center sm:text-left font-semibold text-white">
-            🗓️&nbsp;
+        <span className="flex justify-between px-4 uppercase">
+          <span className="flex items-center text-xs lg:text-sm text-center sm:text-left font-semibold text-white">
+            <CiCalendar className="text-lg"/>
+            &nbsp;
             {dayjs(conferencePage.startDate).format("DD")} -{" "}
             {dayjs(conferencePage.endDate).format("DD MMM, YYYY")}
-          </p>
-          <p className="capitalize text-[0.8rem] sm:text-[1rem] text-center sm:text-left font-bold text-white">
-            📍&nbsp;
+          </span>
+          <span className="flex items-center text-xs lg:text-sm text-center sm:text-left font-bold text-white">
+            <CiLocationOn className="text-lg"/>
+            &nbsp;
             {conferencePage.venueName}
-          </p>
+          </span>
         </span>
       </div>
 

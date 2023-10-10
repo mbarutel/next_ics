@@ -52,8 +52,8 @@ export default function ConferenceCards({ conferences }: ConferenceCardsProps) {
             onClick={() => onDotButtonClick(index)}
             className={`touch-manipulation inline-flex cursor-pointer border-none p-0 mx-1 w-6 h-2 rounded-full transition-all ${
               index === selectedIndex
-                ? "bg-gradient-to-r from-stone-950/70 to-red-700/90"
-                : "bg-stone-900/60 hover:bg-red-800"
+                ? "bg-red-800"
+                : "bg-stone-900/60 hover:bg-red-300"
             }`}
           />
         ))}
