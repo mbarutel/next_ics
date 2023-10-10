@@ -15,11 +15,6 @@ export default function page() {
       <OurVision />
       <OurPurpose />
       <OurValues />
-      <GuideBox
-        text="If you have any questions,"
-        link="/contact"
-        textLink="contact us"
-      />
     </>
   );
 }

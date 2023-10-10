@@ -11,8 +11,8 @@ export default async function Home() {
         link="#conferences"
         text="To get started, check the information below"
       />
-      <UpcomingConferences />
       <About />
+      <UpcomingConferences />
       <Advantages />
       <CallToAction />
     </>
