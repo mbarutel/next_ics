@@ -22,7 +22,6 @@ export default async function Home() {
   return (
     <>
       <Header conferences={conferences} />
-      <UpcomingConferences />
       <About />
       <Advantages />
       <CallToAction />

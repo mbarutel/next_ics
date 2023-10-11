@@ -85,8 +85,10 @@ export default function Header(
                 fill
                 className="object-cover z-0"
               />
-              <ConferenceInfo conference={conference} />
-              <Countdown startDate={conference.startDate} />
+              <div className="relative container h-full">
+                <ConferenceInfo conference={conference} />
+                <Countdown startDate={conference.startDate} />
+              </div>
             </div>
           ))}
         </div>
@@ -100,7 +102,7 @@ function ConferenceInfo({ conference }: { conference: ConferencesType }) {
   dayjs.extend(localizedFormat);
 
   return (
-    <div className="z-10 text-white absolute top-1/2 left-4 sm:left-12">
+    <div className="z-10 text-white absolute top-1/2 left-4">
       <h1
         style={{ fontFamily: "Gabarito" }}
         className="uppercase sm:text-4xl sm:mb-4"
