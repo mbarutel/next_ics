@@ -1,4 +1,4 @@
-import Header from "@/components/common/Header";
+import { Header } from "@/components";
 import UpcomingConferences from "@/components/home/UpcomingConferences";
 import About from "@/components/home/About";
 import Advantages from "@/components/home/Advantages";
@@ -15,15 +15,13 @@ export default async function Home() {
   // });
   //
   // console.log(events);
+
   const conferences = await fetchConferences({ preview: false });
   // console.log(conferences);
 
   return (
     <>
-      <Header
-        link="#conferences"
-        text="To get started, check the information below"
-      />
+      <Header conferences={conferences}/>
       <UpcomingConferences />
       <About />
       <Advantages />
