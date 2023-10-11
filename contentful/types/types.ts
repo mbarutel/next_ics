@@ -7,6 +7,13 @@ export type ContentImage = {
   height: number;
 };
 
+export type CoverImageType = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export type Location = {
   lat: number | undefined;
   lon: number | undefined;

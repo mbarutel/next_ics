@@ -5,7 +5,7 @@ import Advantages from "@/components/home/Advantages";
 import CallToAction from "@/components/common/CallToAction";
 import {
   fetchConferences,
-  fetchConferencesEvents,
+//   fetchConferencesEvents,
 } from "@/contentful/services/conferences";
 
 export default async function Home() {
@@ -15,8 +15,8 @@ export default async function Home() {
   // });
   //
   // console.log(events);
-  const conferences = await fetchConferences({ preview: false});
-  console.log(conferences);
+  const conferences = await fetchConferences({ preview: false });
+  // console.log(conferences);
 
   return (
     <>
