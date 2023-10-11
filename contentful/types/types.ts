@@ -48,13 +48,13 @@ export type ConferencesEntry = Entry<TypeConferencesSkeleton, undefined, string>
 export type EventEntry = Entry<TypeEventSkeleton, undefined, string>;
 
 export type ConferencesType = {
-  title: string | undefined;
+  title: string;
   description: RichTextDocument | undefined;
-  registrationLink: string | undefined;
-  startDate: string | undefined;
-  endDate: string | undefined;
-  venue: string | undefined;
-  coverImage: CoverImageType | undefined;
+  registrationLink: string;
+  startDate: string;
+  endDate: string;
+  venue: string;
+  coverImage: CoverImageType;
   // location: Location | undefined;
 };
 

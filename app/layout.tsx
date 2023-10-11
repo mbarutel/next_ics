@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth">
+    <html lang="en" className="!scroll-smooth no-scrollbar">
       <body className={`${lato.className} bg-indian/70`}>
         {draftMode().isEnabled && (
           <p className="bg-elden/80 py-4 px-[6vw] z-[999]">
