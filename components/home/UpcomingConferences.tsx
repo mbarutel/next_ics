@@ -1,7 +1,7 @@
 import React from "react";
 import ConferenceCards from "./ConferenceCards";
 import { draftMode } from "next/headers";
-import { fetchConferencePages } from "@/contentful/services/conferences";
+import { fetchConferencePages } from "@/contentful/services/conference";
 
 export default async function UpcomingConferences() {
   const conferencePages = await fetchConferencePages({

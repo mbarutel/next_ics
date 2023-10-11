@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { fetchConferencePages } from "@/contentful/services/conferences";
+import { fetchConferencePages } from "@/contentful/services/conference";
 import { draftMode } from "next/headers";
 import Header from "@/components/common/Header";
 import ConferencesPageCard from "@/components/conference/ConferencesPageCard";
