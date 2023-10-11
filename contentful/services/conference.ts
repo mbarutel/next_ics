@@ -1,6 +1,6 @@
+import { contentfulClient } from "../client";
 import { TypeConferenceSkeleton } from "../types/contentful/types";
 import { Entry } from "contentful";
-import contentfulClient from "../client";
 import { ConferencePage } from "../types/types";
 import { coverImageParse } from "../utils/coverImageParse";
 
@@ -46,7 +46,7 @@ export async function fetchConferencePages(
   const conferenceResult = await contenful.getEntries<TypeConferenceSkeleton>({
     content_type: "conference",
     include: 2,
-    order: ["fields.startDate"]
+    order: ["fields.startDate"],
   });
 
   return conferenceResult.items.map((conferenceEntry) =>

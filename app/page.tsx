@@ -5,8 +5,8 @@ import Advantages from "@/components/home/Advantages";
 import CallToAction from "@/components/common/CallToAction";
 import {
   fetchConferences,
-//   fetchConferencesEvents,
-} from "@/contentful/services/conferences";
+  //   fetchConferencesEvents,
+} from "@/contentful";
 
 export default async function Home() {
   // const events = await fetchConferencesEvents({
@@ -21,7 +21,7 @@ export default async function Home() {
 
   return (
     <>
-      <Header conferences={conferences}/>
+      <Header conferences={conferences} />
       <UpcomingConferences />
       <About />
       <Advantages />

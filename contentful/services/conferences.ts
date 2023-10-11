@@ -1,4 +1,4 @@
-import contentfulClient from "../client";
+import { contentfulClient } from "../client";
 import { ConferencesType } from "../types/types";
 import { TypeConferencesSkeleton } from "../types/contentful/types/TypeConferences";
 import { parseContentfulConferences } from "../utils";

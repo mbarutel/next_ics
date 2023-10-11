@@ -1,4 +1,4 @@
-import contentfulClient from "../client";
+import { contentfulClient } from "../client";
 import { EventType } from "../types/types";
 import { TypeEventSkeleton } from "../types/contentful/types";
 import { parseContentfulEvent } from "../utils";
