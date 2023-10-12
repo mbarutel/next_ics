@@ -14,6 +14,7 @@ export default function parseContentfulConferences(
 
   return {
     title: conferenceEntry.fields.title,
+    slug: conferenceEntry.fields.slug,
     description: conferenceEntry.fields.description,
     registrationLink: conferenceEntry.fields.registrationLink,
     startDate: conferenceEntry.fields.startDate,

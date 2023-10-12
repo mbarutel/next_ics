@@ -5,9 +5,9 @@ export default function coverImageParse(
   { coverImage }: {
     coverImage: UnresolvedLink<"Asset"> | Asset<undefined, string> | undefined;
   },
-): ContentImage | undefined {
+): ContentImage {
   if (!coverImage || !("fields" in coverImage)) {
-    return undefined;
+    throw Error("Cover image must not be empty");
   }
 
   return {

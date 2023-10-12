@@ -49,6 +49,7 @@ export type EventEntry = Entry<TypeEventSkeleton, undefined, string>;
 
 export type ConferencesType = {
   title: string;
+  slug: string;
   description: RichTextDocument | undefined;
   registrationLink: string;
   startDate: string;

@@ -75,7 +75,7 @@ export default function Header(
         <div className="flex h-[25rem] sm:h-[30rem] lg:h-[60rem]">
           {conferences.map((conference) => (
             <div
-              key={conference.title}
+              key={conference.slug}
               className="relative flex-grow flex-shrink-0 w-full"
             >
               <Image
