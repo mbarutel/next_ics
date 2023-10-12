@@ -87,7 +87,7 @@ export default function About() {
             <h2 className="ml-6 section_header text-orange-500 text-center sm:text-left">
               About ICS
             </h2>
-            <h3 className="ml-6 -mt-4 tracking-tight text-lg md:text-xl uppercase text-stone-500 text-center sm:text-left mb-4 lg:mb-6">
+            <h3 className="ml-6 tracking-tight text-lg md:text-xl uppercase text-stone-500 text-center sm:text-left mb-4 lg:mb-6">
               Indigenous Conference Services
             </h3>
             <p className="ml-6 mb-6">

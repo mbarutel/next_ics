@@ -24,7 +24,13 @@ function EmailForm() {
   const { pending } = useFormStatus();
 
   return (
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+      <h2 className="section_header text-white mb-5">Join Our Conference</h2>
+      <p className="text-center text-white/80 mb-4">
+        Subscribe to our mailing list and stay informed about the latest
+        developments in the world of conferences. Join us on this knowledge
+        journey - subscribe now!
+      </p>
       <form className="flex">
         <input
           required
@@ -32,12 +38,12 @@ function EmailForm() {
           type="email"
           maxLength={500}
           placeholder="Your email"
-          className="h-14 px-4 border-solid border-[1px] border-stone-500/60 transition-all"
+          className="h-14 px-4 bg-black/40 backdrop-blur-md border-solid border-[1px] border-stone-500/60 transition-all w-96 text-white"
         />
         <button
           type="submit"
           disabled={pending}
-          className="group flex items-center justify-center gap-2 bg-red-500 hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65"
+          className="group flex items-center justify-center gap-2 bg-yellow-500 px-4 uppercase hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65"
         >
           {pending
             ? (
