@@ -70,7 +70,7 @@ export default function Header(
   ]);
 
   return (
-    <header>
+    <header className="cursor-grab mx-auto max-w-[90rem]">
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex h-[25rem] sm:h-[30rem] lg:h-[60rem]">
           {conferences.map((conference) => (
@@ -175,7 +175,7 @@ function Countdown({ startDate }: { startDate: string }) {
   }, [startDate]);
 
   return (
-    <div className="z-10 absolute bottom-0 right-0 flex text-white">
+    <div className="z-10 absolute bottom-0 right-0 flex text-white cursor-default">
       {conferenceTime
         ? (
           <span className="sm:px-8 sm:py-6 bg-yellow-500 sm:text-2xl italic uppercase">

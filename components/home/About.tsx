@@ -115,7 +115,7 @@ export default function About() {
               href="/about"
               className="group relative inline-flex w-fit px-6 py-4 bg-red-600 uppercase text-white"
             >
-              Read More
+              Get to know us more
             </Link>
           </div>
         </div>
