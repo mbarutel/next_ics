@@ -3,15 +3,13 @@ import Header from "@/components/common/Header";
 import OurVision from "@/components/about/OurVision";
 import OurPurpose from "@/components/about/OurPurpose";
 import OurValues from "@/components/about/OurValues";
-import GuideBox from "@/components/common/Guidebox";
+import { fetchConferences } from "@/contentful";
 
-export default function page() {
+export default async function page() {
+  const conferences = await fetchConferences({ preview: false });
   return (
     <>
-      <Header
-        link="#about"
-        text="To get started, check the information below"
-      />
+      <Header conferences={conferences} />
       <OurVision />
       <OurPurpose />
       <OurValues />

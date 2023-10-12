@@ -9,15 +9,7 @@ import {
 } from "@/contentful";
 
 export default async function Home() {
-  // const events = await fetchConferencesEvents({
-  //   slug: "february-2024-conferences",
-  //   preview: false,
-  // });
-  //
-  // console.log(events);
-
   const conferences = await fetchConferences({ preview: false });
-  // console.log(conferences);
 
   return (
     <>
