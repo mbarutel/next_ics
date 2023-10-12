@@ -27,31 +27,50 @@ export const configs = {
   },
 } as const;
 
+// export const advantages = [
+//   {
+//     icon: React.createElement(HiSpeakerphone),
+//     header: "Join the movement",
+//     description:
+//       "Be a part of our 100% Indigenous-owned conference services that are free from government influence. Embrace the power of First Nations culture and unity!",
+//   },
+//   {
+//     icon: React.createElement(HiSpeakerphone),
+//     header: "Celebrate cultural identity",
+//     description:
+//       "Join us in preserving and celebrating Indigenous cultural identity while striving for self-determination. Our heritage, paired with professional event management, sets the standard for excellence.",
+//   },
+//   {
+//     icon: React.createElement(HiSpeakerphone),
+//     header: "Forge partnerships",
+//     description:
+//       "Partner with us and fund conferences without relying on government sources. Shape the agenda and address your organization's specific needs. Let's make your event truly impactful.",
+//   },
+//   {
+//     icon: React.createElement(HiSpeakerphone),
+//     header: "Empower independence",
+//     description:
+//       "Support Indigenous independence through private enterprise. By working together, we can make a lasting impact on Indigenous communities' success and prosperity.",
+//   },
+// ] as const;
+
 export const advantages = [
-  [
-    {
-      header: "Join the indigenous movement",
-      description:
-        "Be a part of our 100% Indigenous-owned conference services that are free from government influence. Embrace the power of First Nations culture and unity!",
-    },
-    {
-      header: "Celebrate cultural identity",
-      description:
-        "Join us in preserving and celebrating Indigenous cultural identity while striving for self-determination. Our heritage, paired with professional event management, sets the standard for excellence.",
-    },
-  ],
-  [
-    {
-      header: "Forge partnerships, not just events",
-      description:
-        "Partner with us and fund conferences without relying on government sources. Shape the agenda and address your organization's specific needs. Let's make your event truly impactful.",
-    },
-    {
-      header: "Empower indigenous independence",
-      description:
-        "Support Indigenous independence through private enterprise. By working together, we can make a lasting impact on Indigenous communities' success and prosperity.",
-    },
-  ],
+  {
+    header: "Join the movement",
+    image: "/assets/images/advantages-one.jpg",
+  },
+  {
+    header: "Celebrate cultural identity",
+    image: "/assets/images/advantages-two.jpg",
+  },
+  {
+    header: "Forge partnerships",
+    image: "/assets/images/advantages-three.jpg",
+  },
+  {
+    header: "Empower independence",
+    image: "/assets/images/advantages-four.jpg",
+  },
 ] as const;
 
 export const cta = [

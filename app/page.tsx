@@ -1,4 +1,4 @@
-import { Header } from "@/components";
+import { Header, SubscribeEmailList } from "@/components";
 import UpcomingConferences from "@/components/home/UpcomingConferences";
 import About from "@/components/home/About";
 import Advantages from "@/components/home/Advantages";
@@ -16,6 +16,7 @@ export default async function Home() {
       <Header conferences={conferences} />
       <About />
       <Advantages />
+      <SubscribeEmailList />
       <CallToAction />
     </>
   );
