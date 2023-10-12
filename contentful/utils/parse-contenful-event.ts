@@ -11,7 +11,6 @@ export function parseContentfulEvent(
   const coverImage = coverImageParse({
     coverImage: eventEntry.fields.coverImage,
   });
-  console.log(coverImage);
 
   return {
     title: eventEntry.fields.title,
