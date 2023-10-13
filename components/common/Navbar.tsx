@@ -3,10 +3,8 @@
 import React, { useState } from "react";
 import { links } from "@/lib/data";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import Logo from "@/public/assets/images/logo.svg";
 import Link from "next/link";
 import Image from "next/image";
-import { link } from "fs";
 
 // export default function Navbar() {
 //   const [menuOpen, setMenuOpen] = useState(false);
@@ -182,7 +180,7 @@ export default function Navbar() {
           {links.map((link) => (
             <li
               key={link.name}
-              className="relative px-4 py-3 group last:bg-slate-800 last:text-white active:scale-95"
+              className="relative px-4 py-3 group last:bg-orange-500 last:text-white active:scale-95"
             >
               <Link
                 href={link.path}
@@ -191,7 +189,7 @@ export default function Navbar() {
                 <span className="z-10">
                   {link.name}
                 </span>
-                <span className="absolute h-1 group-last:h-full w-0 left-0 bottom-0 group-hover:w-full bg-slate-950 transition-all ease-in-out z-0" />
+                <span className="absolute h-1 group-last:h-full w-0 left-0 bottom-0 group-hover:w-full bg-orange-500 group-last:bg-slate-900 transition-all ease-in-out z-0" />
               </Link>
             </li>
           ))}

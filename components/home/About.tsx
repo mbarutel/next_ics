@@ -68,11 +68,11 @@ export default function About() {
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 justify-center items-end">
           <div className="relative sm:h-[40rem]">
-            <span className="w-60 h-96 absolute top-0 left-0 bg-blue-600"></span>
+            <span className="w-60 h-96 absolute top-0 left-0 bg-slate-600"></span>
             <div className="absolute bottom-0 right-0 h-[90%] w-[90%]">
               <div className="relative h-full">
                 <Image
-                  src="/assets/images/aboriginal-art.webp"
+                  src="/assets/images/about-img-test.jpg"
                   fill
                   alt="Indigenous Health Conference"
                   className="object-cover"
@@ -81,13 +81,10 @@ export default function About() {
             </div>
           </div>
           <div className="flex flex-col relative">
-            <small className="ml-6 mb-3 uppercase tracking-wide font-semibold text-yellow-500">
-              Welcome
-            </small>
             <h2 className="ml-6 section_header text-orange-500 text-center sm:text-left">
               About ICS
             </h2>
-            <h3 className="ml-6 tracking-tight text-lg md:text-xl uppercase text-stone-500 text-center sm:text-left mb-4 lg:mb-6">
+            <h3 className="ml-6 tracking-tight text-lg md:text-xl uppercase text-slate-800 text-center sm:text-left mb-4 lg:mb-6">
               Indigenous Conference Services
             </h3>
             <p className="ml-6 mb-6">
@@ -113,9 +110,9 @@ export default function About() {
 
             <Link
               href="/about"
-              className="group relative inline-flex w-fit px-6 py-4 bg-red-600 uppercase text-white"
+              className="group relative inline-flex w-fit px-6 py-4 bg-orange-500 uppercase text-white"
             >
-              Get to know us more
+              Read More
             </Link>
           </div>
         </div>

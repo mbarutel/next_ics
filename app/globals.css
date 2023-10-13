@@ -46,7 +46,7 @@ body {
 }
 
 p {
-  @apply text-justify text-zinc-600;
+  @apply text-justify text-slate-800;
 }
 
 /* .btn { */

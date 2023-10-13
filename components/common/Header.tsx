@@ -72,7 +72,7 @@ export default function Header(
   return (
     <header className="cursor-grab mx-auto max-w-[90rem]">
       <div ref={emblaRef} className="overflow-hidden">
-        <div className="flex h-[25rem] sm:h-[30rem] lg:h-[60rem]">
+        <div className="flex h-[25rem] sm:h-[35rem] lg:h-[60rem]">
           {conferences.map((conference) => (
             <div
               key={conference.slug}
@@ -105,32 +105,33 @@ function ConferenceInfo({ conference }: { conference: ConferencesType }) {
     <div className="z-10 text-white absolute top-1/2 left-4">
       <h1
         style={{ fontFamily: "Gabarito" }}
-        className="uppercase sm:text-4xl sm:mb-4"
+        className="uppercase text-xl sm:text-4xl sm:mb-4"
       >
         {conference.title}
       </h1>
-      <span>
-        {dayjs(conference.startDate).format("MMMM DD")}-
-        {dayjs(conference.endDate).format("DD, YYYY")} -{" "}
-        {dayjs(conference.startDate).format("HH:mma")} -{" "}
-        {dayjs(conference.endDate).format("HH:mma")}
+      <span className="text-sm flex flex-col">
+        <span>{conference.venue}</span>
+        <span>
+          {dayjs(conference.startDate).format("DD")} -{" "}
+          {dayjs(conference.endDate).format("DD MMM, YYYY")}
+        </span>
       </span>
-      <span className="flex gap-3 mt-3">
+      <span className="flex gap-1 sm:gap-3 mt-3 text-white">
         <Link
           href="/"
-          className="px-4 py-3 bg-yellow-400  text-slate-700"
+          className="px-2 py-1 sm:px-4 sm:py-3 bg-orange-500 text-sm sm:text-base"
         >
           Register
         </Link>
         <Link
           href="/"
-          className="px-4 py-3 bg-yellow-200  text-slate-700"
+          className="px-2 py-1 sm:px-4 sm:py-3 bg-slate-800 text-sm sm:text-base"
         >
           Sumbit a paper
         </Link>
         <Link
           href="/"
-          className="px-4 py-3 bg-yellow-200  text-slate-700"
+          className="px-2 py-1 sm:px-4 sm:py-3 bg-slate-800 text-sm sm:text-base"
         >
           View Events
         </Link>
@@ -178,27 +179,35 @@ function Countdown({ startDate }: { startDate: string }) {
     <div className="z-10 absolute bottom-0 right-0 flex text-white cursor-default">
       {conferenceTime
         ? (
-          <span className="sm:px-8 sm:py-6 bg-yellow-500 sm:text-2xl italic uppercase">
+          <span className="sm:px-8 sm:py-6 bg-slate-600 sm:text-2xl italic uppercase">
             Building a better future today
           </span>
         )
         : (
           <>
-            <span className="flex flex-col sm:px-8 sm:py-6 bg-yellow-500 border-solid border-r-[1px] border-stone-200/50 text-center">
-              <span className="font-semibold text-xl">{days}</span>
-              <span className="text-xs uppercase">days</span>
+            <span className="flex flex-col px-3 sm:px-4 sm:py-2 lg:px-8 lg:py-6 bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
+              <span className="font-normal sm:font-semibold text-lg sm:text-xl">
+                {days}
+              </span>
+              <span className="text-xs uppercase -mt-1 sm:mt-0">days</span>
             </span>
-            <span className="flex flex-col sm:px-8 sm:py-6 bg-yellow-500 border-solid border-r-[1px] border-stone-200/50 text-center">
-              <span className="font-semibold text-xl">{hours}</span>
-              <span className="text-xs uppercase">hours</span>
+            <span className="flex flex-col px-3 sm:px-4 sm:py-2 lg:px-8 lg:py-6 bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
+              <span className="font-normal sm:font-semibold text-lg sm:text-xl">
+                {hours}
+              </span>
+              <span className="text-xs uppercase -mt-1 sm:mt-0">hours</span>
             </span>
-            <span className="flex flex-col sm:px-8 sm:py-6 bg-yellow-500 border-solid border-r-[1px] border-stone-200/50 text-center">
-              <span className="font-semibold text-xl">{minutes}</span>
-              <span className="text-xs uppercase">minutes</span>
+            <span className="flex flex-col px-3 sm:px-4 sm:py-2 lg:px-8 lg:py-6 bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
+              <span className="font-normal sm:font-semibold text-lg sm:text-xl">
+                {minutes}
+              </span>
+              <span className="text-xs uppercase -mt-1 sm:mt-0">minutes</span>
             </span>
-            <span className="flex flex-col sm:px-8 sm:py-6 bg-stone-200 text-center text-slate-900">
-              <span className="font-semibold text-xl">{seconds}</span>
-              <span className="text-xs uppercase">seconds</span>
+            <span className="flex flex-col px-3 sm:px-4 sm:py-2 lg:px-8 lg:py-6 bg-slate-600 text-center">
+              <span className="font-normal sm:font-semibold text-lg sm:text-xl">
+                {seconds}
+              </span>
+              <span className="text-xs uppercase -mt-1 sm:mt-0">seconds</span>
             </span>
           </>
         )}
