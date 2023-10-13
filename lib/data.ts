@@ -114,7 +114,7 @@ export const links = [
     path: "/conferences",
   },
   {
-    name: "Contact",
+    name: "Contact Us",
     path: "/contact",
   },
 ] as const;

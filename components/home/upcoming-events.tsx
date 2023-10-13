@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { ConferencesType } from "@/contentful/types/types";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function UpcomingEvents(
@@ -9,6 +8,7 @@ export default function UpcomingEvents(
   return (
     <section>
       <div className="container">
+        <h2 className="section_header mb-3">Upcoming Events</h2>
         <div className="grid sm:grid-cols-3 gap-8">
           {conferences.map((conference) => (
             <Fragment key={conference.slug}>

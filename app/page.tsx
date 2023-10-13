@@ -19,8 +19,8 @@ export default async function Home() {
       <About />
       <UpcomingEvents conferences={conferences} />
       <Advantages />
-      <SubscribeEmailList />
       <CallToAction />
+      <SubscribeEmailList />
     </>
   );
 }

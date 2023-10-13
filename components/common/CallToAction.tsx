@@ -106,15 +106,10 @@ import Link from "next/link";
 export default function CallToAction() {
   return (
     <section>
-      <div className="container text-center py-12">
-        <h3 className="text-center mb-3 section_header text-red-800 !font-normal italic">
-          Building better future together
-        </h3>
-        <div className="flex flex-col sm:flex-row justify-center p-[20px]">
-          <div className="text-white flex-grow h-[400px] sm:-mx-[15px] -mb-[15px] sm:my-0 mix-blend-multiply">
-            <div
-              className="bg-red-500/80 h-full flex flex-col justify-center items-center"
-            >
+      <div className="mx-auto max-w-[90rem]">
+        <div className="flex flex-col sm:flex-row justify-center">
+          <div className="text-white flex-grow h-[400px] mix-blend-multiply">
+            <div className="bg-red-500/80 h-full flex flex-col justify-center items-center">
               <span className="text-4xl">
                 {cta[0].icon}
               </span>
@@ -130,19 +125,17 @@ export default function CallToAction() {
                   href={cta[0].form}
                   target="_blank"
                   rel="noreferrer"
-                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto rounded-md"
+                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto"
                 >
-                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white rounded-md text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
+                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
                     {cta[0].button}
                   </span>
                 </Link>
               </div>
             </div>
           </div>
-          <div className="text-white flex-grow h-[400px] sm:-mx-[15px] -my-[15px] sm:my-0 mix-blend-multiply">
-            <div
-              className="bg-orange-500/80 h-full flex flex-col justify-center items-center"
-            >
+          <div className="text-white flex-grow h-[400px] mix-blend-multiply">
+            <div className="bg-orange-500/80 h-full flex flex-col justify-center items-center">
               <span className="text-4xl">
                 {cta[1].icon}
               </span>
@@ -158,19 +151,17 @@ export default function CallToAction() {
                   href={cta[1].form}
                   target="_blank"
                   rel="noreferrer"
-                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto rounded-md"
+                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto"
                 >
-                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white rounded-md text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
+                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
                     {cta[1].button}
                   </span>
                 </Link>
               </div>
             </div>
           </div>
-          <div className="text-white flex-grow h-[400px] sm:-mx-[15px] -mt-[15px] sm:my-0 mix-blend-multiply">
-            <div
-              className="bg-yellow-500/80 h-full flex flex-col justify-center items-center"
-            >
+          <div className="text-white flex-grow h-[400px] mix-blend-multiply">
+            <div className="bg-yellow-500/80 h-full flex flex-col justify-center items-center">
               <span className="text-4xl">
                 {cta[2].icon}
               </span>
@@ -186,9 +177,9 @@ export default function CallToAction() {
                   href={cta[2].form}
                   target="_blank"
                   rel="noreferrer"
-                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto rounded-md"
+                  className="group relative inline-flex border border-orange-700 focus:outline-none w-[80%] sm:w-auto"
                 >
-                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white rounded-md text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
+                  <span className="w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-orange-700 ring-1 ring-orange-700 ring-offset-1 ring-offset-orange-700 transform transition-transform group-hover:translate-y-1 group-hover:translate-x-1 group-focus:translate-y-1 group-focus:translate-x-1 group-active:translate-y-0 group-active:translate-x-0">
                     {cta[2].button}
                   </span>
                 </Link>
