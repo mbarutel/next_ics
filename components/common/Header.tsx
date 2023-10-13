@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { ConferencesType } from "@/contentful/types/types";
-import { configs } from "@/lib/data";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
@@ -64,7 +63,6 @@ import dayjs from "dayjs";
 export default function Header(
   { conferences }: { conferences: ConferencesType[] },
 ) {
-  // console.log(conferences);
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 8000, stopOnMouseEnter: true, stopOnInteraction: false }),
   ]);
@@ -102,14 +100,14 @@ function ConferenceInfo({ conference }: { conference: ConferencesType }) {
   dayjs.extend(localizedFormat);
 
   return (
-    <div className="z-10 text-white absolute top-1/2 left-4">
+    <div className="z-10 text-white absolute top-1/2 -translate-y-1/2 lg:translate-y-0 left-4">
       <h1
         style={{ fontFamily: "Gabarito" }}
         className="uppercase text-xl sm:text-4xl sm:mb-4"
       >
         {conference.title}
       </h1>
-      <span className="text-sm flex flex-col">
+      <span className="text-sm sm:text-base flex flex-col">
         <span>{conference.venue}</span>
         <span>
           {dayjs(conference.startDate).format("DD")} -{" "}
@@ -119,19 +117,19 @@ function ConferenceInfo({ conference }: { conference: ConferencesType }) {
       <span className="flex gap-1 sm:gap-3 mt-3 text-white">
         <Link
           href="/"
-          className="px-2 py-1 sm:px-4 sm:py-3 bg-orange-500 text-sm sm:text-base"
+          className="button_padding bg-orange-500 text-sm sm:text-base"
         >
           Register
         </Link>
         <Link
           href="/"
-          className="px-2 py-1 sm:px-4 sm:py-3 bg-slate-800 text-sm sm:text-base"
+          className="button_padding bg-slate-800 text-sm sm:text-base"
         >
           Sumbit a paper
         </Link>
         <Link
           href="/"
-          className="px-2 py-1 sm:px-4 sm:py-3 bg-slate-800 text-sm sm:text-base"
+          className="button_padding bg-slate-800 text-sm sm:text-base"
         >
           View Events
         </Link>
@@ -185,25 +183,25 @@ function Countdown({ startDate }: { startDate: string }) {
         )
         : (
           <>
-            <span className="flex flex-col px-3 sm:px-4 sm:py-2 lg:px-8 lg:py-6 bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
+            <span className="flex flex-col button_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
               <span className="font-normal sm:font-semibold text-lg sm:text-xl">
                 {days}
               </span>
               <span className="text-xs uppercase -mt-1 sm:mt-0">days</span>
             </span>
-            <span className="flex flex-col px-3 sm:px-4 sm:py-2 lg:px-8 lg:py-6 bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
+            <span className="flex flex-col button_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
               <span className="font-normal sm:font-semibold text-lg sm:text-xl">
                 {hours}
               </span>
               <span className="text-xs uppercase -mt-1 sm:mt-0">hours</span>
             </span>
-            <span className="flex flex-col px-3 sm:px-4 sm:py-2 lg:px-8 lg:py-6 bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
+            <span className="flex flex-col button_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
               <span className="font-normal sm:font-semibold text-lg sm:text-xl">
                 {minutes}
               </span>
               <span className="text-xs uppercase -mt-1 sm:mt-0">minutes</span>
             </span>
-            <span className="flex flex-col px-3 sm:px-4 sm:py-2 lg:px-8 lg:py-6 bg-slate-600 text-center">
+            <span className="flex flex-col button_padding bg-slate-600 text-center">
               <span className="font-normal sm:font-semibold text-lg sm:text-xl">
                 {seconds}
               </span>

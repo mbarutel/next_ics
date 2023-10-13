@@ -38,7 +38,7 @@ function EmailForm() {
           type="email"
           maxLength={500}
           placeholder="Your email"
-          className="h-14 px-4 bg-black/40 backdrop-blur-md border-solid border-[1px] border-stone-500/60 transition-all w-96 text-white"
+          className="h-14 px-4 bg-black/40 backdrop-blur-md border-solid border-[1px] border-stone-500/60 transition-all w-20 text-white"
         />
         <button
           type="submit"

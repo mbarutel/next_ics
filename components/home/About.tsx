@@ -64,11 +64,12 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section>
+    <section className="py-4 sm:py-8 lg:py-12">
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 justify-center items-end">
-          <div className="relative sm:h-[40rem]">
-            <span className="w-60 h-96 absolute top-0 left-0 bg-slate-600"></span>
+          <div className="relative h-full hidden sm:block">
+            <span className="w-60 h-96 absolute top-0 left-0 bg-slate-600">
+            </span>
             <div className="absolute bottom-0 right-0 h-[90%] w-[90%]">
               <div className="relative h-full">
                 <Image
@@ -81,13 +82,13 @@ export default function About() {
             </div>
           </div>
           <div className="flex flex-col relative">
-            <h2 className="ml-6 section_header text-orange-500 text-center sm:text-left">
+            <h2 className="sm:ml-6 section_header text-orange-500">
               About ICS
             </h2>
-            <h3 className="ml-6 tracking-tight text-lg md:text-xl uppercase text-slate-800 text-center sm:text-left mb-4 lg:mb-6">
+            <h3 className="sm:ml-6 tracking-tight text-lg md:text-xl uppercase text-slate-800/80 mb-1 sm:mb-4 lg:mb-6">
               Indigenous Conference Services
             </h3>
-            <p className="ml-6 mb-6">
+            <p className="sm:ml-6 mb-3 sm:mb-6">
               ICS, an Indigenous-owned enterprise committed to closing the gap
               in Indigenous health and well-being, operates independently and
               without government funding. Our mission centers on prioritizing
@@ -110,7 +111,7 @@ export default function About() {
 
             <Link
               href="/about"
-              className="group relative inline-flex w-fit px-6 py-4 bg-orange-500 uppercase text-white"
+              className="group relative inline-flex w-fit button_padding bg-orange-500 text-white"
             >
               Read More
             </Link>
