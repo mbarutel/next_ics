@@ -3,11 +3,11 @@ import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleC
 export interface TypeEventFields {
     title: EntryFieldTypes.Symbol;
     description?: EntryFieldTypes.Text;
-    content?: EntryFieldTypes.RichText;
+    content: EntryFieldTypes.RichText;
     tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
     media?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
     slug: EntryFieldTypes.Symbol;
-    coverImage?: EntryFieldTypes.AssetLink;
+    coverImage: EntryFieldTypes.AssetLink;
 }
 
 export type TypeEventSkeleton = EntrySkeletonType<TypeEventFields, "event">;

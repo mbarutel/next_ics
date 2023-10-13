@@ -73,6 +73,6 @@ export type EventType = {
   content: RichTextDocument | undefined;
   tags: string[] | undefined;
   slug: string;
-  coverImage: ContentImage | undefined;
+  coverImage: ContentImage;
   // media: string[] | undefined;
 };
