@@ -6,10 +6,15 @@ export default function UpcomingEvents(
   { conferences }: { conferences: ConferencesType[] },
 ) {
   return (
-    <section>
-      <div className="container">
-        <h2 className="section_header mb-3">Upcoming Events</h2>
-        <div className="grid sm:grid-cols-3 gap-8">
+    <section className="pt-8 lg:pt-12">
+      <div className="container flex flex-col">
+        <span className="w-fit mb-6 sm:mb-10 flex flex-col gap-2">
+          <h2 className="w-fit section_header text-orange-500">
+            Upcoming Events
+          </h2>
+          <span className="inline-flex h-1 bg-orange-500 w-3/4" />
+        </span>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {conferences.map((conference) => (
             <Fragment key={conference.slug}>
               <Events conference={conference} />
@@ -53,7 +58,7 @@ function Events({ conference }: { conference: ConferencesType }) {
               <p>{event.description}</p>
               <Link
                 href={event.slug}
-                className="relative inline-flex group mt-3 px-4 py-3 bg-slate-700  text-white transition-all active:scale-95"
+                className="relative inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95"
               >
                 <span className="z-10">
                   Learn More

@@ -43,7 +43,7 @@ import Image from "next/image";
 
 export default function Advantages() {
   return (
-    <section>
+    <section className="pt-8 lg:pt-12">
       <div className="mx-auto max-w-[90rem] grid grid-cols-2 sm:grid-cols-4">
         {advantages.map((advantage, index) => (
           <Fragment key={index}>

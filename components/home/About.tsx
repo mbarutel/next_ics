@@ -64,7 +64,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section className="py-4 sm:py-8 lg:py-12">
+    <section className="pt-8 lg:pt-12">
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 justify-center items-end">
           <div className="relative h-full hidden sm:block">
@@ -81,7 +81,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col relative">
+          <div className="flex flex-col relative sm:pt-10 lg:pt-16">
             <h2 className="sm:ml-6 section_header text-orange-500">
               About ICS
             </h2>
