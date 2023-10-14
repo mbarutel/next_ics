@@ -146,7 +146,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav>
+    <nav className="fixed w-full top-0 left-0 z-[999] bg-stone-200">
       <div className="container h-16 flex justify-between items-center">
         <Link
           href="/"
@@ -163,7 +163,7 @@ export default function Navbar() {
           </span>
           <span
             style={{ fontFamily: "Bungee Inline" }}
-            className="flex flex-col text-xl sm:text-3xl text-slate-800"
+            className="flex flex-col text-xl sm:text-3xl text-slate-700"
           >
             ICS
             <span className="w-full h-1 bg-slate-800/80" />
@@ -179,7 +179,7 @@ export default function Navbar() {
           {links.map((link) => (
             <li
               key={link.name}
-              className="relative px-4 py-3 group last:bg-orange-500 last:text-white active:scale-95"
+              className="relative px-4 py-3 group last:bg-orange-500 text-slate-800 last:text-white active:scale-95"
             >
               <Link
                 href={link.path}
