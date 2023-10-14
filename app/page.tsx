@@ -1,6 +1,11 @@
-import { Advantages, Header, SubscribeEmailList, UpcomingEvents } from "@/components";
-import About from "@/components/home/About";
-import CallToAction from "@/components/common/CallToAction";
+import {
+  About,
+  CallToAction,
+  Header,
+  SubscribeEmailList,
+  UpcomingEvents,
+} from "@/components";
+
 import {
   fetchConferences,
   //   fetchConferencesEvents,
