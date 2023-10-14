@@ -1,26 +1,34 @@
 import React from "react";
-import ImageFrame from "../common/ImageFrame";
-import IcsImage from "@/public/assets/images/indigenous-conference-exhibits.webp";
+import Image from "next/image";
 
 export default function OurPurpose() {
   return (
-    <section>
+    <section className="pt-8 lg:pt-12">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          <div className="flex justify-center items-center">
-            <ImageFrame
-              img={IcsImage}
-              alt="closing the gap"
-              position="50% 50%"
-              bg="#bd4a3d"
-              transformImg="translateX(20px) translateY(20px)"
-              transformDiv="translate-x-[-10px]"
-            />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="relative h-full hidden sm:block">
+            <span className="w-60 h-96 absolute bottom-0 left-0 bg-slate-600" />
+            <div className="absolute top-0 right-0 h-[90%] w-[90%]">
+              <div className="relative h-full">
+                <Image
+                  src="/assets/images/indigenous-conference-exhibits.webp"
+                  fill
+                  alt="Indigenous Health Conference"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
           <div>
-            <h2 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-amber-800/90 md:text-right">
-              Our Purpose
-            </h2>
+            <span className="w-fit flex flex-col mb-4 ml-auto">
+              <h3
+                style={{ fontFamily: "Gabarito" }}
+                className="w-fit text-3xl lg:text-4xl mb-1 uppercase font-bold tracking-tight text-orange-500/90 text-right"
+              >
+                Our Purpose
+              </h3>
+              <span className="inline-flex h-1 bg-orange-500 w-3/4 ml-auto" />
+            </span>
             <p className="mb-2">
               At ICS, we are unwavering in our belief that education serves as a
               powerful catalyst for driving positive change. Our dedicated

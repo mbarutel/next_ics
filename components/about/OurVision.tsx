@@ -1,24 +1,27 @@
 import React from "react";
-import ImageFrame from "@/components/common/ImageFrame";
-import IcsFounders from "@/public/assets/images/ics-founders.webp";
+import Image from "next/image";
 
 export default function OurVision() {
   return (
-    <section id="about">
+    <section className="pt-8 lg:pt-12">
       <div className="container">
-        <div>
-          <h2 className="section_header text-center text-amber-800">
-            About ICS
-          </h2>
-          <h3 className="text-center mb-4 -mt-3 text-xl lg:text-3xl italic text-orange-600 font-thin capitalize">
-            Building better future together
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
-          <div className="order-1 sm:order-none">
-            <h3 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-amber-800/90">
-              Our Vision
-            </h3>
+        <h2 className="section_header text-center text-orange-500">
+          About ICS
+        </h2>
+        <h3 className="text-center mb-4 sm:mb-6 lg:mb-10 text-2xl sm:text-3xl italic text-orange-600 font-thin capitalize">
+          Building better future together
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <span className="w-fit flex flex-col mb-4">
+              <h3
+                style={{ fontFamily: "Gabarito" }}
+                className="w-fit text-3xl lg:text-4xl mb-1 uppercase font-bold tracking-tight text-orange-500/90"
+              >
+                Our Vision
+              </h3>
+              <span className="inline-flex h-1 bg-orange-500 w-3/4" />
+            </span>
             <p className="mb-2">
               ICS stands as the foremost and most enduring professional event
               management company in First Nations Australia, distinguished by
@@ -51,15 +54,18 @@ export default function OurVision() {
               Indigenous health and closing the gap.
             </p>
           </div>
-          <div className="flex justify-center items-center">
-            <ImageFrame
-              img={IcsFounders}
-              alt="Conference Health"
-              position="50% 15%"
-              bg="#EBC284"
-              transformImg="translateX(-20px) translateY(20px)"
-              transformDiv="translate-x-[10px]"
-            />
+          <div className="relative h-full hidden sm:block">
+            <span className="w-60 h-96 absolute top-0 right-0 bg-slate-600" />
+            <div className="absolute bottom-0 left-0 h-[90%] w-[90%]">
+              <div className="relative h-full">
+                <Image
+                  src="/assets/images/ics-founders.webp"
+                  fill
+                  alt="Indigenous Health Conference"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

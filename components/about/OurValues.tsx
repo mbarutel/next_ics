@@ -1,16 +1,21 @@
 import React from "react";
-import ImageFrame from "../common/ImageFrame";
-import IcsImage from "@/public/assets/images/aboriginal-art.webp";
+import Image from "next/image";
 
 export default function OurValues() {
   return (
-    <section className="sm:pb-12">
+    <section className="pt-8 lg:pt-12">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="order-1 sm:order-none">
-            <h2 className="text-xl md:text-3xl mb-1 uppercase font-bold tracking-tight text-amber-800/90">
-              Our Values
-            </h2>
+            <span className="w-fit flex flex-col mb-4">
+              <h3
+                style={{ fontFamily: "Gabarito" }}
+                className="w-fit text-3xl lg:text-4xl mb-1 uppercase font-bold tracking-tight text-orange-500/90 text-right"
+              >
+                Our Values
+              </h3>
+              <span className="inline-flex h-1 bg-orange-500 w-3/4" />
+            </span>
             <p className="mb-2">
               Our Koori CEO, Tom Callaghan, proudly hails from Kempsey in
               Dunghutti country, New South Wales, and is deeply committed to the
@@ -39,15 +44,18 @@ export default function OurValues() {
               advancing Indigenous health and closing the gap.
             </p>
           </div>
-          <div className="flex justify-center items-center">
-            <ImageFrame
-              img={IcsImage}
-              alt="Indigenous Health"
-              position="50% 50%"
-              bg="#ea642e"
-              transformImg="translateX(-20px) translateY(20px)"
-              transformDiv="translate-x-[10px]"
-            />
+          <div className="relative h-full hidden sm:block">
+            <span className="w-60 h-96 absolute bottom-0 right-0 bg-slate-600" />
+            <div className="absolute top-0 left-0 h-[90%] w-[90%]">
+              <div className="relative h-full">
+                <Image
+                  src="/assets/images/aboriginal-art.webp"
+                  fill
+                  alt="Indigenous Health Conference"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
