@@ -111,7 +111,7 @@ export default function About() {
 
             <Link
               href="/about"
-              className="group relative inline-flex w-fit button_padding bg-orange-500 text-white"
+              className="group relative inline-flex w-fit button_padding bg-orange-500 text-white rounded-r-sm"
             >
               Read More
             </Link>

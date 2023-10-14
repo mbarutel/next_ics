@@ -6,7 +6,7 @@ import { experimental_useFormStatus as useFormStatus } from "react-dom";
 
 export default function SubscribeEmailList() {
   return (
-    <section>
+    <section className="pt-8 lg:pt-12">
       <div className="mx-auto max-w-[90rem] relative h-[30rem]">
         <Image
           src="/assets/images/email-subscribe-bg.jpg"

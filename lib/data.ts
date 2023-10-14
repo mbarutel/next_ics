@@ -76,25 +76,28 @@ export const advantages = [
 export const cta = [
   {
     title: "Keynotes",
-    description: "Share your passion through ICS",
+    description:
+      "Empower others with your stories, insights, and wisdom, inspiring a world where Indigenous culture is celebrated and respected.",
     button: "Become a Speaker",
-    icon: React.createElement(HiSpeakerphone),
+    image: "/assets/images/advantages-two.jpg",
     form:
       "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURDA4VDFPTlgzVU01OUtBM0pCSkRBWFU0OS4u",
   },
   {
     title: "Exhibitions",
-    description: "Connect, Engage, & Exhibit at ICS",
+    description:
+      "Use your platform to create awareness about vital Indigenous causes and issues, inspiring attendees to become advocates for positive change.",
     button: "Become an Exhibitor",
-    icon: React.createElement(RiPresentationFill),
+    image: "/assets/images/advantages-three.jpg",
     form:
       "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURU5XVUZNTk1KVzRCSUM3VVc0OTM0VVYyUC4u",
   },
   {
     title: "Sponsorship",
-    description: "Partner with us at ICS",
+    description:
+      "Associate your brand with a cause that matters, gaining valuable exposure to a diverse and engaged audience, both locally and globally.",
     button: "Become a Sponsor",
-    icon: React.createElement(PiMedalFill),
+    image: "/assets/images/advantages-one.jpg",
     form:
       "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURDE3WU0yN0M2VzRCQzNTMEVYUkdKRlBTVi4u",
   },
