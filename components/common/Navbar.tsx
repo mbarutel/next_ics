@@ -150,7 +150,6 @@ export default function Navbar() {
       <div className="container h-16 flex justify-between items-center">
         <Link
           href="/"
-          style={{ fontFamily: "Bungee Inline" }}
           className="flex items-center h-full gap-1 sm:gap-2 transition-all active:scale-95"
         >
           <span className="relative w-10 sm:w-12 h-full">
