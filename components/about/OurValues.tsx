@@ -6,7 +6,7 @@ export default function OurValues() {
     <section className="pt-8 lg:pt-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="order-1 sm:order-none">
+          <div className="xl:py-20">
             <span className="w-fit flex flex-col mb-4">
               <h3
                 style={{ fontFamily: "Gabarito" }}

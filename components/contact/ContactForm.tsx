@@ -4,60 +4,75 @@ import { sendEmail } from "@/actions/send-email";
 import SubmitBtn from "@/components/contact/SubmitBtn";
 import toast from "react-hot-toast";
 import { configs } from "@/lib/data";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function ContactForm() {
   return (
-    <section id="contact">
-      <div className="container flex flex-col items-center">
+    <section className="pt-8 lg:pt-12">
+      <div className="container grid sm:grid-cols-2 gap-4 lg:gap-8">
+        <div className="relative hidden sm:block">
+          <Image
+            src="/assets/images/contact-us.webp"
+            alt="Contact us ICS"
+            fill
+            className="object-cover"
+          />
+        </div>
         <div>
-          <h2 className="section_header text-center text-amber-800">Contact Us</h2>
-          <p className="text-stone-700">
+          <span className="w-fit mb-2 lg:mb-3 flex flex-col gap-2">
+            <h2 className="w-fit section_header text-orange-500">
+              Contact Us
+            </h2>
+            <span className="inline-flex h-1 bg-orange-500 w-3/4" />
+          </span>
+          <small className="text-sm sm:text-base text-slate-700">
             Please contact us direcly at{" "}
-            <a
+            <Link
               href={`mailto:${configs.contact.email}`}
               className="underline"
             >
               {configs.contact.email}
-            </a>{" "}
+            </Link>{" "}
             or through this form.
-          </p>
-        </div>
-        <form
-          action={async (formData) => {
-            const { error } = await sendEmail(formData);
+          </small>
+          <form
+            action={async (formData) => {
+              const { error } = await sendEmail(formData);
 
-            if (error) {
-              toast.error(error);
-              return;
-            }
-            toast.success("Email sent successfully");
-          }}
-          className="mt-10 flex flex-col gap-3 w-[min(100%,40rem)]"
-        >
-          <input
-            required
-            name="senderEmail"
-            type="email"
-            maxLength={500}
-            placeholder="Your email"
-            className="h-14 px-4 rounded-lg border-solid border-[1px] border-stone-500/60 transition-all"
-          />
-          <input
-            required
-            name="senderSubject"
-            maxLength={500}
-            placeholder="Your Subject"
-            className="h-14 px-4 rounded-lg border-solid border-[1px] border-stone-500/60 transition-all"
-          />
-          <textarea
-            required
-            name="message"
-            maxLength={5000}
-            placeholder="Your message"
-            className="h-52 p-4 rounded-lg border-solid border-[1px] border-stone-500/60 transition-all"
-          />
-          <SubmitBtn />
-        </form>
+              if (error) {
+                toast.error(error);
+                return;
+              }
+              toast.success("Email sent successfully");
+            }}
+            className="mt-4 sm:mt-6 flex flex-col gap-3"
+          >
+            <input
+              required
+              name="senderEmail"
+              type="email"
+              maxLength={500}
+              placeholder="Your email"
+              className="h-14 px-4 bg-black/20 backdrop-blur-md text-white border-solid border-[1px] border-stone-500/60 transition-all placeholder-white"
+            />
+            <input
+              required
+              name="senderSubject"
+              maxLength={500}
+              placeholder="Your Subject"
+              className="h-14 px-4 bg-black/20 backdrop-blur-md text-white border-solid border-[1px] border-stone-500/60 transition-all placeholder-white"
+            />
+            <textarea
+              required
+              name="message"
+              maxLength={5000}
+              placeholder="Your message"
+              className="h-52 p-4 bg-black/20 backdrop-blur-md text-white border-solid border-[1px] border-stone-500/60 transition-all placeholder-white"
+            />
+            <SubmitBtn />
+          </form>
+        </div>
       </div>
     </section>
   );

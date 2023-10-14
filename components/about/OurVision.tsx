@@ -12,7 +12,7 @@ export default function OurVision() {
           Building better future together
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
+          <div className="xl:py-20">
             <span className="w-fit flex flex-col mb-4">
               <h3
                 style={{ fontFamily: "Gabarito" }}
@@ -62,7 +62,7 @@ export default function OurVision() {
                   src="/assets/images/ics-founders.webp"
                   fill
                   alt="Indigenous Health Conference"
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
             </div>

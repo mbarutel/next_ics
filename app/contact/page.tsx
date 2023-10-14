@@ -1,14 +1,13 @@
 import React from "react";
 import Header from "@/components/common/Header";
 import ContactForm from "@/components/contact/ContactForm";
+import { fetchConferences } from "@/contentful";
 
-export default function page() {
+export default async function page() {
+  const conferences = await fetchConferences({ preview: false });
   return (
     <>
-      <Header
-        link="#contact"
-        text="To get started, check the information below"
-      />
+      <Header conferences={conferences} />
       <ContactForm />
     </>
   );

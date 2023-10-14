@@ -19,7 +19,7 @@ export default function OurPurpose() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="xl:py-20">
             <span className="w-fit flex flex-col mb-4 ml-auto">
               <h3
                 style={{ fontFamily: "Gabarito" }}
