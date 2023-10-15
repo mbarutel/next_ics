@@ -2,7 +2,7 @@ import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleC
 
 export interface TypeEventFields {
     title: EntryFieldTypes.Symbol;
-    description?: EntryFieldTypes.Text;
+    description: EntryFieldTypes.Text;
     content: EntryFieldTypes.RichText;
     tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
     media?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;

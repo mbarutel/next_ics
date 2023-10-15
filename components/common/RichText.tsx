@@ -1,14 +1,16 @@
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-type RichTextProps = {
-  document: RichTextDocument | null;
-};
-
-export default function RichText({ document }: RichTextProps) {
+export default function RichText(
+  { document }: { document: RichTextDocument | null },
+) {
   if (!document) {
     return null;
   }
 
-  return <div className="text-red-600">{documentToReactComponents(document)}</div>;
+  return (
+    <div>
+      {documentToReactComponents(document)}
+    </div>
+  );
 }

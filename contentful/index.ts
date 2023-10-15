@@ -1,4 +1,4 @@
 import { fetchConference, fetchConferences } from "./services/conferences";
-import { fetchEvent } from "./services/event";
+import { fetchEvent, fetchEvents } from "./services/event";
 
-export { fetchConference, fetchConferences, fetchEvent };
+export { fetchConference, fetchConferences, fetchEvent, fetchEvents };

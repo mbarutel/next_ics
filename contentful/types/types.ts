@@ -68,9 +68,9 @@ export type ConferencesType = {
 };
 
 export type EventType = {
-  title: string | undefined;
-  description: string | undefined;
-  content: RichTextDocument | undefined;
+  title: string;
+  description: string;
+  content: RichTextDocument;
   tags: string[] | undefined;
   slug: string;
   coverImage: ContentImage;

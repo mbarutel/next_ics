@@ -62,7 +62,7 @@ function Events({ conference }: { conference: ConferencesType }) {
               <p className="flex-grow">{event.description}</p>
               <div className="w-full h-[2px] bg-black/80 my-3" />
               <Link
-                href={event.slug}
+                href={`/events/${event.slug}`}
                 className="relative w-fit inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95"
               >
                 <span className="z-10">
