@@ -51,21 +51,26 @@ function Events({ conference }: { conference: ConferencesType }) {
           return null;
         } else {
           return (
-            <span key={event.slug}>
-              <h4 className="mb-4">{conference.title}</h4>
-              <h3 className="text-2xl">{event.title}</h3>
+            <div key={event.slug} className="flex flex-col">
+              <h4 className="mb-2">{conference.title}</h4>
+              <h3
+                style={{ fontFamily: "Gabarito" }}
+                className="text-2xl text-slate-800 mb-4"
+              >
+                {event.title}
+              </h3>
+              <p className="flex-grow">{event.description}</p>
               <div className="w-full h-[2px] bg-black/80 my-3" />
-              <p>{event.description}</p>
               <Link
                 href={event.slug}
-                className="relative inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95"
+                className="relative w-fit inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95"
               >
                 <span className="z-10">
                   Learn More
                 </span>
                 <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-slate-950 transition-all ease-in-out z-0" />
               </Link>
-            </span>
+            </div>
           );
         }
       })}

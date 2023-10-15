@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { fetchConferencePages } from "@/contentful/services/conference";
+import { fetchConferences } from "@/contentful";
 import { draftMode } from "next/headers";
 import Header from "@/components/common/Header";
 import ConferencesPageCard from "@/components/conference/ConferencesPageCard";
@@ -86,31 +86,23 @@ import CallToAction from "@/components/common/CallToAction";
 // }
 
 export default async function page() {
-  const conferences = await fetchConferencePages({
+  // const conferences = await fetchConferencePages({
+  //   preview: draftMode().isEnabled,
+  // });
+  const conferences = await fetchConferences({
     preview: draftMode().isEnabled,
   });
 
   return (
     <>
-      <Header
-        link="#conferences"
-        text="To get started, check the information below"
-      />
-      <section id="conferences">
+      <Header conferences={conferences} />
+      <section className="pt-8 lg:pt-12">
         <div className="container">
-          <h2 className="section_header text-amber-800 text-center">
-            Upcoming ICS&nbsp;Conferences
+          <h2 className="section_header text-orange-500 text-center">
+            Upcoming Conferences
           </h2>
-          <div className="grid grid-cols-1 gap-2 lg:gap-8">
-            {conferences.map((conferencePage) => (
-              <Fragment key={conferencePage.slug}>
-                <ConferencesPageCard conferencePage={conferencePage} />
-              </Fragment>
-            ))}
-          </div>
         </div>
       </section>
-      <CallToAction />
     </>
   );
 }
