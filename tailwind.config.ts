@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-radial":
+          "background-image: radial-gradient(circle, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "advantages_background": "url('/assets/images/advantages-bg.jpg')",
       },
     },
     // colors: {
@@ -28,7 +28,7 @@ const config: Config = {
     // },
   },
   plugins: [
-    require("@tailwindcss/typography"),
+    require("tailwind-clip-path"),
   ],
 };
 export default config;

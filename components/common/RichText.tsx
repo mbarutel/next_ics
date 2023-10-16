@@ -14,7 +14,7 @@ export default function RichText(
   const options = {
     renderMark: {
       [MARKS.BOLD]: (children: ReactNode) => {
-        return <span className="font-bold">{children}</span>;
+        return <span className="font-semibold">{children}</span>;
       },
       [MARKS.ITALIC]: (children: ReactNode) => {
         return <span className="italic">{children}</span>;
@@ -61,31 +61,31 @@ export default function RichText(
         </ListItem>
       ),
       [BLOCKS.TABLE]: (_node: Block | Inline, children: ReactNode) => (
-        <table className="w-[60%] mx-auto bg-slate-300 my-4 rounded-lg flex flex-col px-5 py-6">
-          <tbody className="flex flex-col gap-2">
-            {children}
-          </tbody>
-        </table>
+        <div className="paper px-20 py-12 my-16">
+          <span className="tape-section" />
+          <table className="w-full">
+            <tbody>
+              {children}
+            </tbody>
+          </table>
+        </div>
       ),
       [BLOCKS.TABLE_HEADER_CELL]: (
         _node: Block | Inline,
         children: ReactNode,
       ) => (
-        <th
-          style={{ fontFamily: "Gabarito" }}
-          className="text-slate-800/80 text-2xl uppercase text-left"
-        >
+        <th className="text-2xl uppercase text-slate-800 mb-3">
           {children}
         </th>
       ),
       [BLOCKS.TABLE_ROW]: (_node: Block | Inline, children: ReactNode) => (
-        <tr className="grid grid-cols-2 rounded-lg text-slate-800">
+        <tr className="grid grid-cols-2 rounded-lg text-slate-800/80 mb-2 last:mb-0">
           {children}
         </tr>
       ),
       [BLOCKS.TABLE_CELL]: (_node: Block | Inline, children: ReactNode) => (
         <td className="even:text-right flex flex-row group">
-          <span className="w-auto h-full group-odd:order-1 group-odd:ml-3 group-even:mr-3 grow border-dashed border-b-2 border-slate-800/50" />
+          <span className="w-auto h-1 my-auto group-odd:order-1 group-odd:ml-3 group-even:mr-3 grow border-dotted border-b-2 border-slate-800/30" />
           <span className="grow-0">
             {children}
           </span>
@@ -94,9 +94,20 @@ export default function RichText(
     },
   };
 
+  // const table = document.content.filter((item) =>
+  //   item.nodeType === BLOCKS.TABLE
+  // );
+  //
+  // console.log(table[0].content[0])
+  //
   return (
     <>
       {documentToReactComponents(document, options)}
     </>
   );
 }
+// <table className="w-[60%] mx-auto bg-slate-300 my-4 rounded-lg flex flex-col px-5 py-6">
+//   <tbody className="flex flex-col gap-2">
+//     {children}
+//   </tbody>
+// </table>

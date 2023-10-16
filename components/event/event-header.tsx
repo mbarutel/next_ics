@@ -12,13 +12,13 @@ export default function EventHeader(
 
   return (
     <section className="pt-20">
-      <div className="container grid grid-cols-2 h-[25rem] sm:h-[35rem] lg:h-[60rem]">
+      <div className="container grid grid-cols-2 h-[25rem] sm:h-[30rem] lg:h-[50rem]">
         <div className="relative h-full">
           <Image
             src={event.coverImage.src}
             alt="Event Cover Image"
             fill
-            className="object-contain"
+            className="object-cover"
           />
         </div>
         <div className="bg-slate-600 flex justify-center items-center">

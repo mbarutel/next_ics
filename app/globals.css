@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Gabarito:wght@700&family=Passion+One:wght@700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Gabarito:wght@700&family=Passion+One:wght@700;900&family=Permanent+Marker&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -16,27 +16,102 @@
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
     }
+
+    .paper {
+      font-family: "Permanent Marker", cursive;
+      position: relative;
+      background: linear-gradient(
+          to bottom right,
+          #c6939a,
+          20%,
+          rgba(255, 255, 255, 0)
+        ),
+        #ecb2ba;
+      min-width: 250px;
+      min-height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0.5px 0.5px 1px #c6939a;
+    }
+
+    .paper::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+          rgba(236, 178, 186, 0),
+          50%,
+          #c6939a,
+          51%,
+          rgba(236, 178, 186, 0)
+        ),
+        linear-gradient(
+          to right,
+          rgba(236, 178, 186, 0),
+          50%,
+          #c6939a,
+          51%,
+          rgba(236, 178, 186, 0)
+        );
+    }
+
+    .tape-section {
+      position: absolute;
+      width: 100%;
+      top: 0;
+    }
+
+    .top-tape {
+      position: absolute;
+      height: 4vmin;
+      top: -5px;
+      width: 110%;
+      background-color: #dbd8be;
+      border-right: 1px dotted #b7b49d;
+      border-left: 1px dotted #b7b49d;
+      opacity: 0.5;
+    }
+
+    .tape-section::before,
+    .tape-section::after {
+      top: 0;
+      content: "";
+      width: 10vmin;
+      height: 4vmin;
+      position: absolute;
+      background-color: #dbd8be;
+      opacity: 0.5;
+      border-right: 1px dotted #b7b49d;
+      border-left: 1px dotted #b7b49d;
+    }
+
+    .tape-section:last-of-type::after {
+      transform: rotate(45deg);
+      right: -4vmin;
+    }
+
+    .tape-section:first-of-type::before {
+      transform: rotate(-45deg);
+      left: -4vmin;
+    }
+
+    .tape-section:first-of-type::after {
+      transform: rotate(45deg);
+      right: -4vmin;
+    }
+
+    .tape-section:last-of-type::before {
+      transform: rotate(-45deg);
+      left: -4vmin;
+    }
   }
 }
-
-/* .btn { */
-/*   @apply px-5 sm:px-10 py-0 sm:py-2 rounded-[10px] sm:rounded-[15px] text-[0.8rem] sm:text-lg font-medium tracking-wide w-fit; */
-/* } */
-
-/* .effects { */
-/*   @apply hover:scale-110 active:scale-105 transition-all; */
-/*   @apply active:scale-105 transition-all; */
-/* } */
-/**/
 
 body {
   @apply bg-stone-200;
 }
-
-/* section { */
-/*   @apply pt-6 sm:pt-10 lg:pt-14; */
-/* } */
-/**/
 
 .container {
   @apply px-4 mx-auto max-w-[90rem] sm:px-6 2xl:px-0;
@@ -48,33 +123,4 @@ body {
 
 .button_padding {
   @apply px-4 py-3 sm:px-6 sm:py-4;
-}
-
-/* .btn { */
-/*   @apply px-4 py-2 bg-night text-sm sm:text-lg rounded-xl shadow-xl transition-all hover:-translate-y-[2px] focus:-translate-y-1 active:translate-y-1 text-indian uppercase font-mono; */
-/* } */
-/**/
-
-.rich_text {
-  @apply mb-10 sm:mb-12;
-}
-
-.rich_text h2 {
-  @apply text-lg sm:text-2xl mt-7 font-bold text-amber-800;
-}
-
-.rich_text h3 {
-  @apply text-[1.1rem] sm:text-xl mt-2 mb-1 font-semibold text-amber-700;
-}
-
-.rich_text p {
-  @apply text-justify text-stone-700;
-}
-
-.rich_text li {
-  @apply list-disc list-outside ml-5 text-amber-800;
-}
-
-.effects {
-  @apply transition-all hover:scale-105 focus:scale-105 active:scale-95;
 }
