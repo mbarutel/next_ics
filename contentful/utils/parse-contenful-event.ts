@@ -1,7 +1,8 @@
+import { parseContentfulConferences } from ".";
 import { EventEntry, EventType } from "../types/types";
 import coverImageParse from "./cover-image-parse";
 
-export function parseContentfulEvent(
+export default function parseContentfulEvent(
   eventEntry: EventEntry,
 ): EventType | null {
   if (!eventEntry) {

@@ -74,5 +74,17 @@ export type EventType = {
   tags: string[] | undefined;
   slug: string;
   coverImage: ContentImage;
+  // conference: ConferencesType;
+  // media: string[] | undefined;
+};
+
+export type EventPageType = {
+  title: string;
+  content: RichTextDocument;
+  coverImage: ContentImage;
+  conference: ConferencesType | null;
+  // description: string;
+  // tags: string[] | undefined;
+  // slug: string;
   // media: string[] | undefined;
 };

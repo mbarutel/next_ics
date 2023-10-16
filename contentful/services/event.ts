@@ -1,7 +1,7 @@
 import { contentfulClient } from "../client";
-import { EventType } from "../types/types";
+import { EventPageType, EventType } from "../types/types";
 import { TypeEventSkeleton } from "../types/contentful/types";
-import { parseContentfulEvent } from "../utils";
+import { parseContentfulEvent, parseContentfulEventPage } from "../utils";
 
 export async function fetchEvents(
   { preview }: { preview: boolean },
@@ -20,7 +20,7 @@ export async function fetchEvents(
 
 export async function fetchEvent(
   { slug, preview }: { slug: string; preview: boolean },
-): Promise<EventType | null> {
+): Promise<EventPageType | null> {
   const contenful = contentfulClient({ preview });
 
   const eventResult = await contenful.getEntries<TypeEventSkeleton>({
@@ -29,5 +29,5 @@ export async function fetchEvent(
     include: 2,
   });
 
-  return parseContentfulEvent(eventResult.items[0]);
+  return parseContentfulEventPage(eventResult.items[0]);
 }
