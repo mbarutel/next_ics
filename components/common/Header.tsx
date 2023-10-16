@@ -9,7 +9,6 @@ import Link from "next/link";
 import dayjs from "dayjs";
 import { configs } from "@/lib/data";
 
-
 export default function Header(
   { conferences }: { conferences: ConferencesType[] },
 ) {

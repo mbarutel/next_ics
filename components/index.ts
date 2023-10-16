@@ -7,11 +7,13 @@ import CallToAction from "./home/call-to-action";
 import OurPurpose from "./about/our-purpose";
 import OurValues from "./about/our-values";
 import OurVision from "./about/our-vision";
+import EventHeader from "./event/event-header";
 
 export {
   About,
   Advantages,
   CallToAction,
+  EventHeader,
   Header,
   OurPurpose,
   OurValues,
