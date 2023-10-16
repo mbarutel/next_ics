@@ -2,6 +2,7 @@ import { draftMode } from "next/headers";
 import { fetchEvent, fetchEvents } from "@/contentful";
 import { notFound } from "next/navigation";
 import RichText from "@/components/common/RichText";
+import Image from "next/image";
 
 type EventPageParams = {
   slug: string;
@@ -21,6 +22,8 @@ export default async function page({ params }: EventPageProps) {
     preview: draftMode().isEnabled,
   });
 
+  console.log(eventPage);
+
   if (!eventPage) {
     return notFound();
   }
@@ -29,6 +32,14 @@ export default async function page({ params }: EventPageProps) {
     <>
       <section>
         <div className="container pt-20">
+          <div className="relative h-96 w-72 mx-auto">
+            <Image
+              src={eventPage.coverImage.src}
+              alt="Event Cover Image"
+              fill
+              className="object-cover"
+            />
+          </div>
           <RichText document={eventPage.content} />
         </div>
       </section>

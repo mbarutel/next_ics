@@ -8,6 +8,7 @@ export interface TypeEventFields {
     media?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
     slug: EntryFieldTypes.Symbol;
     coverImage: EntryFieldTypes.AssetLink;
+    conference: EntryFieldTypes.EntryLink<EntrySkeletonType>;
 }
 
 export type TypeEventSkeleton = EntrySkeletonType<TypeEventFields, "event">;
