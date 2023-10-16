@@ -11,14 +11,6 @@ export default function RichText(
     return null;
   }
 
-  // const Bold = ({ children }) => <p className="font-bold">{children}</p>;
-  // const Text = ({ children }) => <p className="text-center">{children}</p>;
-  //
-  // const options = {
-  //   renderMark: {
-  //     [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
-  //   },
-  // };
   const options = {
     renderMark: {
       [MARKS.BOLD]: (children: ReactNode) => {
@@ -30,15 +22,33 @@ export default function RichText(
       [MARKS.UNDERLINE]: (children: ReactNode) => {
         return <span className="underline">{children}</span>;
       },
-      // [MARKS.CODE]: (children: ReactNode) => {
-      // },
     },
     renderNode: {
+      [BLOCKS.DOCUMENT]: (_node: Block | Inline, children: ReactNode) => (
+        <article className="text-slate-700 px-4 lg:px-12 py-7">
+          {children}
+        </article>
+      ),
       [BLOCKS.HEADING_1]: (_node: Block | Inline, children: ReactNode) => (
-        <h1 className="text-3xl text-orange-500 text-center">{children}</h1>
+        <h1 className="text-4xl mb-2 mt-8">{children}</h1>
       ),
       [BLOCKS.HEADING_2]: (_node: Block | Inline, children: ReactNode) => (
-        <h2 className="text-2xl text-orange-500">{children}</h2>
+        <h2 className="text-3xl mb-2 mt-8">{children}</h2>
+      ),
+      [BLOCKS.HEADING_3]: (_node: Block | Inline, children: ReactNode) => (
+        <h3 className="text-2xl mb-2 mt-8">{children}</h3>
+      ),
+      [BLOCKS.HEADING_4]: (_node: Block | Inline, children: ReactNode) => (
+        <h4 className="text-xl mb-2 mt-8">{children}</h4>
+      ),
+      [BLOCKS.HEADING_5]: (_node: Block | Inline, children: ReactNode) => (
+        <h5 className="text-xl mb-2 mt-8">{children}</h5>
+      ),
+      [BLOCKS.HEADING_6]: (_node: Block | Inline, children: ReactNode) => (
+        <h6 className="text-xl mb-2 mt-8">{children}</h6>
+      ),
+      [BLOCKS.PARAGRAPH]: (_node: Block | Inline, children: ReactNode) => (
+        <p className="text-justify">{children}</p>
       ),
       [BLOCKS.QUOTE]: (_node: Block | Inline, children: ReactNode) => (
         <Quote>
@@ -51,7 +61,7 @@ export default function RichText(
         </ListItem>
       ),
       [BLOCKS.TABLE]: (_node: Block | Inline, children: ReactNode) => (
-        <table className="w-[95%] mx-auto bg-slate-300 my-4 rounded-lg flex flex-col px-5 py-6">
+        <table className="w-[60%] mx-auto bg-slate-300 my-4 rounded-lg flex flex-col px-5 py-6">
           <tbody className="flex flex-col gap-2">
             {children}
           </tbody>

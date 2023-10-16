@@ -27,6 +27,8 @@ const config: Config = {
     //   "plum": "#393641",
     // },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"),
+  ],
 };
 export default config;
