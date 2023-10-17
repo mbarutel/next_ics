@@ -8,6 +8,7 @@ import OurPurpose from "./about/our-purpose";
 import OurValues from "./about/our-values";
 import OurVision from "./about/our-vision";
 import EventHeader from "./event/event-header";
+import ConferenceDisplay from "./conference/conference-display";
 
 export {
   About,
@@ -20,4 +21,5 @@ export {
   OurVision,
   SubscribeEmailList,
   UpcomingEvents,
+  ConferenceDisplay
 };

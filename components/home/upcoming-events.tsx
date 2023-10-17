@@ -26,23 +26,6 @@ export default function UpcomingEvents(
   );
 }
 
-// function Events({ events }: { events: (EventType | null)[] }) {
-//   return (
-//     <div>
-//       {events.map((event) => {
-//         if (!event) {
-//           return null;
-//         } else {
-//           return (
-//             <span key={event.slug}>
-//             </span>
-//           );
-//         }
-//       })}
-//     </div>
-//   );
-// }
-
 function Events({ conference }: { conference: ConferencesType }) {
   return (
     <>
