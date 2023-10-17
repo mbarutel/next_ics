@@ -52,36 +52,43 @@ export type ConferencesEntry = Entry<
   undefined,
   string
 >;
+
 export type EventEntry = Entry<TypeEventSkeleton, undefined, string>;
 
 export type ConferencesType = {
-  title: string;
   slug: string;
-  description: RichTextDocument | undefined;
-  registrationLink: string;
-  startDate: string;
-  endDate: string;
+  title: string;
   venue: string;
+  endDate: string;
+  startDate: string;
+  events: EventType[];
+  registrationLink: string;
   coverImage: CoverImageType;
-  events: (EventType | null)[];
   // location: Location | undefined;
 };
 
+export type ConferenceInEventType = {
+  venue: string;
+  endDate: string;
+  startDate: string;
+  registrationLink: string;
+};
+
 export type EventType = {
+  slug: string;
   title: string;
   description: string;
+  coverImage: ContentImage;
   content: RichTextDocument;
   tags: string[] | undefined;
-  slug: string;
-  coverImage: ContentImage;
-  // conference: ConferencesType;
+  conference: ConferenceInEventType;
   // media: string[] | undefined;
 };
 
 export type EventPageType = {
   title: string;
-  content: RichTextDocument;
   coverImage: ContentImage;
+  content: RichTextDocument;
   conference: ConferencesType | null;
   // description: string;
   // tags: string[] | undefined;

@@ -3,9 +3,8 @@ import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleC
 export interface TypeConferencesFields {
     title: EntryFieldTypes.Symbol;
     coverImage: EntryFieldTypes.AssetLink;
-    description?: EntryFieldTypes.RichText;
     registrationLink: EntryFieldTypes.Symbol;
-    events?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<EntrySkeletonType>>;
+    events: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<EntrySkeletonType>>;
     venue: EntryFieldTypes.Symbol;
     location?: EntryFieldTypes.Location;
     startDate: EntryFieldTypes.Date;

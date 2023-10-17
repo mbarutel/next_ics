@@ -3,6 +3,7 @@ import { EventPageType, EventType } from "../types/types";
 import { TypeEventSkeleton } from "../types/contentful/types";
 import { parseContentfulEvent, parseContentfulEventPage } from "../utils";
 
+// Fetch all of the EVENTS
 export async function fetchEvents(
   { preview }: { preview: boolean },
 ): Promise<EventType[]> {
@@ -18,6 +19,7 @@ export async function fetchEvents(
   );
 }
 
+// Fetch EVENT based on the slug
 export async function fetchEvent(
   { slug, preview }: { slug: string; preview: boolean },
 ): Promise<EventPageType | null> {
@@ -29,5 +31,8 @@ export async function fetchEvent(
     include: 2,
   });
 
+  if (eventResult.items.length === 0) {
+    return null;
+  }
   return parseContentfulEventPage(eventResult.items[0]);
 }
