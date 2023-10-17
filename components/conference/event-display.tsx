@@ -16,7 +16,7 @@ export default function EventDisplay(props: EventDisplayProps) {
   dayjs.extend(localizedFormat);
 
   return (
-    <div className="grow flex flex-col">
+    <div className="grow flex flex-col bg-slate-300 p-4 shadow-lg">
       <h3
         style={{ fontFamily: "Gabarito" }}
         className="text-2xl text-slate-800 mb-2"
