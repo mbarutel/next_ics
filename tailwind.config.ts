@@ -10,22 +10,9 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial":
-          "background-image: radial-gradient(circle, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+          "linear-gradient(to left top, #de8a1f, #e08525, #e17f2a, #e27a2f, #e37534, #e36f36, #e26939, #e1633b, #e05b3b, #de523c, #dc493e, #da3f3f);",
       },
     },
-    // colors: {
-    //   "rain": "#eaeff4",
-    //   "elden": "#f28c09",
-    //   "indian": "#f1d9c2",
-    //   "regal": "#dac3b2",
-    //   "chili": "#bd4a3d",
-    //   "night": "#3e2926",
-    //   "dove": "#bfbebd",
-    //   "hibiscus": "#A4343A",
-    //   "plum": "#393641",
-    // },
   },
   plugins: [
     require("tailwind-clip-path"),

@@ -25,7 +25,7 @@ export default function RichText(
     },
     renderNode: {
       [BLOCKS.DOCUMENT]: (_node: Block | Inline, children: ReactNode) => (
-        <article className="text-slate-700 px-4 lg:px-12 py-7">
+        <article className="text-slate-700 px-2 lg:px-12">
           {children}
         </article>
       ),
@@ -33,19 +33,19 @@ export default function RichText(
         <h1 className="text-4xl mb-2 mt-8">{children}</h1>
       ),
       [BLOCKS.HEADING_2]: (_node: Block | Inline, children: ReactNode) => (
-        <h2 className="text-3xl mb-2 mt-8">{children}</h2>
+        <h2 className="text-xl sm:text-2xl lg:text-3xl mb-2 mt-5 lg:mt-8">{children}</h2>
       ),
       [BLOCKS.HEADING_3]: (_node: Block | Inline, children: ReactNode) => (
-        <h3 className="text-2xl mb-2 mt-8">{children}</h3>
+        <h3 className="text-xl sm:text-2xl lg:text-3xl mb-2 mt-5 lg:mt-8">{children}</h3>
       ),
       [BLOCKS.HEADING_4]: (_node: Block | Inline, children: ReactNode) => (
-        <h4 className="text-xl mb-2 mt-8">{children}</h4>
+        <h4 className="text-xl sm:text-2xl lg:text-3xl mb-2 mt-5 lg:mt-8">{children}</h4>
       ),
       [BLOCKS.HEADING_5]: (_node: Block | Inline, children: ReactNode) => (
-        <h5 className="text-xl mb-2 mt-8">{children}</h5>
+        <h5 className="text-xl sm:text-2xl lg:text-3xl mb-2 mt-5 lg:mt-8">{children}</h5>
       ),
       [BLOCKS.HEADING_6]: (_node: Block | Inline, children: ReactNode) => (
-        <h6 className="text-xl mb-2 mt-8">{children}</h6>
+        <h6 className="text-center text-xl sm:text-2xl lg:text-3xl mb-2 mt-5 lg:mt-8">{children}</h6>
       ),
       [BLOCKS.PARAGRAPH]: (_node: Block | Inline, children: ReactNode) => (
         <p className="text-justify">{children}</p>
@@ -55,13 +55,18 @@ export default function RichText(
           {children}
         </Quote>
       ),
+      [BLOCKS.UL_LIST]: (_node: Block | Inline, children: ReactNode) => (
+        <ul className="py-2">
+          {children}
+        </ul>
+      ),
       [BLOCKS.LIST_ITEM]: (_node: Block | Inline, children: ReactNode) => (
         <ListItem>
           {children}
         </ListItem>
       ),
       [BLOCKS.TABLE]: (_node: Block | Inline, children: ReactNode) => (
-        <div className="paper px-20 py-12 my-16">
+        <div className="paper px-4 lg:px-20 py-6 lg:py-12 my-6 lg:my-16">
           <span className="tape-section" />
           <table className="w-full">
             <tbody>
@@ -74,12 +79,12 @@ export default function RichText(
         _node: Block | Inline,
         children: ReactNode,
       ) => (
-        <th className="text-2xl uppercase text-slate-800 mb-3">
+        <th className="text-xl lg:text-2xl uppercase text-slate-800/90 mb-1 lg:mb-3">
           {children}
         </th>
       ),
       [BLOCKS.TABLE_ROW]: (_node: Block | Inline, children: ReactNode) => (
-        <tr className="grid grid-cols-2 rounded-lg text-slate-800/80 mb-2 last:mb-0">
+        <tr className="grid grid-cols-2 rounded-lg text-slate-800/80 mb-1 sm:mb-2 last:mb-0 text-sm sm:text-base">
           {children}
         </tr>
       ),

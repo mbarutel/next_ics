@@ -12,28 +12,30 @@ export default function EventHeader(
 
   return (
     <section className="pt-20">
-      <div className="container grid grid-cols-2 h-[25rem] sm:h-[30rem] lg:h-[50rem]">
-        <div className="relative h-full">
-          <Image
-            src={event.coverImage.src}
-            alt="Event Cover Image"
-            fill
-            className="object-cover"
-          />
+      <div className="container grid grid-cols-1 sm:grid-cols-2 sm:clip-path-polygon-[0_0,_100%_0,_100%_90%,_90%_100%,_10%_100%,_0_90%]">
+        <div className="relative h-full bg-gradient-radial flex justify-center items-center">
+          <div className="relative h-56 w-full sm:h-3/4 sm:w-1/2">
+            <Image
+              src={event.coverImage.src}
+              alt="Event Cover Image"
+              fill
+              className="object-contain"
+            />
+          </div>
         </div>
-        <div className="bg-slate-600 flex justify-center items-center">
+        <div className="sm:bg-slate-600 flex justify-center items-center sm:py-16">
           <div className="flex flex-col">
-            <span className="bg-slate-100 h-32 flex justify-center items-center px-8">
+            <span className="bg-slate-100 h-24 lg:h-32 flex justify-center items-center px-2 lg:px-8">
               <h1
                 style={{ fontFamily: "Passion One" }}
-                className="text-slate-700/90 text-3xl uppercase font-bold"
+                className="text-slate-700/90 text-xl lg:text-3xl text-center uppercase font-bold"
               >
                 {event.title}
               </h1>
             </span>
             <span
               style={{ fontFamily: "Passion One" }}
-              className="bg-orange-500 h-32 flex items-center text-2xl"
+              className="bg-orange-500 h-24 lg:h-32 flex items-center text-center text-lg lg:text-2xl"
             >
               <span className="text-white w-fit mx-auto flex flex-col text-center">
                 {dayjs(event.conference?.startDate).format("DD ")}-{" "}
