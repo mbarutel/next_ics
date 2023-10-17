@@ -22,8 +22,6 @@ export default async function page({ params }: EventPageProps) {
     preview: draftMode().isEnabled,
   });
 
-  console.log(eventPage);
-
   if (!eventPage) {
     return notFound();
   }

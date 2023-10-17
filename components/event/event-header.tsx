@@ -1,11 +1,11 @@
 import React from "react";
-import { EventPageType } from "@/contentful/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import dayjs from "dayjs";
+import { EventType } from "@/contentful/types/types";
 
 export default function EventHeader(
-  { event }: { event: EventPageType },
+  { event }: { event: EventType },
 ) {
   const localizedFormat = require("dayjs/plugin/localizedFormat");
   dayjs.extend(localizedFormat);
@@ -38,15 +38,15 @@ export default function EventHeader(
               className="bg-orange-500 h-24 lg:h-32 flex items-center text-center text-lg lg:text-2xl"
             >
               <span className="text-white w-fit mx-auto flex flex-col text-center">
-                {dayjs(event.conference?.startDate).format("DD ")}-{" "}
-                {dayjs(event.conference?.endDate).format("DD MMM, YYYY")}
+                {dayjs(event.conference.startDate).format("DD ")}-{" "}
+                {dayjs(event.conference.endDate).format("DD MMM, YYYY")}
               </span>
               <span className="text-slate-200 w-fit mx-auto">
-                {event.conference?.venue}
+                {event.conference.venue}
               </span>
             </span>
             <Link
-              href={event.conference?.registrationLink}
+              href={event.conference.registrationLink}
               target="_blank"
               rel="noreferrer"
               className="relative ml-auto inline-flex w-fit group button_padding bg-orange-500 text-sm sm:text-base text-slate-200 transition-all active:scale-95"

@@ -15,20 +15,17 @@ export default function ConferenceDisplay(
       </span>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {conference.events.map((event) => (
-          event === null ? null : (
-            <Fragment key={event.slug}>
-              <EventDisplay
-                event={event}
-                startDate={conference.startDate}
-                endDate={conference.endDate}
-                venue={conference.venue}
-                registrationLink={conference.registrationLink}
-              />
-            </Fragment>
-          )
+          <Fragment key={event.slug}>
+            <EventDisplay
+              event={event}
+              startDate={conference.startDate}
+              endDate={conference.endDate}
+              venue={conference.venue}
+              registrationLink={conference.registrationLink}
+            />
+          </Fragment>
         ))}
       </div>
     </div>
   );
 }
-

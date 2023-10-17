@@ -22,7 +22,7 @@ export async function fetchEvents(
 // Fetch EVENT based on the slug
 export async function fetchEvent(
   { slug, preview }: { slug: string; preview: boolean },
-): Promise<EventPageType | null> {
+): Promise<EventType | null> {
   const contenful = contentfulClient({ preview });
 
   const eventResult = await contenful.getEntries<TypeEventSkeleton>({
@@ -34,5 +34,5 @@ export async function fetchEvent(
   if (eventResult.items.length === 0) {
     return null;
   }
-  return parseContentfulEventPage(eventResult.items[0]);
+  return parseContentfulEvent(eventResult.items[0]);
 }

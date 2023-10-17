@@ -6,18 +6,20 @@ import {
   UpcomingEvents,
 } from "@/components";
 
-import {
-  fetchConferences,
-} from "@/contentful";
+import { fetchConferences } from "@/contentful";
 
 export default async function Home() {
   const conferences = await fetchConferences({ preview: false });
 
   return (
     <>
-      <Header conferences={conferences} />
+      <Header
+        conferences={conferences}
+      />
       <About />
-      <UpcomingEvents conferences={conferences} />
+      <UpcomingEvents
+        conferences={conferences}
+      />
       <CallToAction />
       <SubscribeEmailList />
     </>
