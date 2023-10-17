@@ -1,11 +1,12 @@
 "use client";
+
 import React from "react";
-import { sendEmail } from "@/actions/send-email";
-import SubmitBtn from "@/components/contact/SubmitBtn";
-import toast from "react-hot-toast";
-import { configs } from "@/lib/data";
 import Link from "next/link";
 import Image from "next/image";
+import toast from "react-hot-toast";
+import SubmitButton from "./submit-button";
+import { configs } from "@/lib/data";
+import { sendEmail } from "@/actions/send-email";
 
 export default function ContactForm() {
   return (
@@ -70,7 +71,7 @@ export default function ContactForm() {
               placeholder="Your message"
               className="h-52 p-4 bg-black/20 backdrop-blur-md text-white border-solid border-[1px] border-stone-500/60 transition-all placeholder-white"
             />
-            <SubmitBtn />
+            <SubmitButton />
           </form>
         </div>
       </div>
