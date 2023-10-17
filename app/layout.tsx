@@ -1,11 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
-import { Toaster } from "react-hot-toast";
 import { draftMode } from "next/headers";
-import Footer from "@/components/common/Footer";
-import Navbar from "@/components/common/Navbar";
-import ExitDraftModeLink from "@/components/common/ExitDraftModeLink";
+import { Toaster } from "react-hot-toast";
+import { ExitDraftModeLink, Footer, Navbar } from "@/components";
 
 const lato = Lato({
   subsets: ["latin"],

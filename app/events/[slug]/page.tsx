@@ -1,8 +1,7 @@
 import { draftMode } from "next/headers";
-import { fetchEvent, fetchEvents } from "@/contentful";
 import { notFound } from "next/navigation";
-import RichText from "@/components/common/RichText";
-import { EventHeader } from "@/components";
+import { EventHeader, RichText } from "@/components";
+import { fetchEvent, fetchEvents } from "@/contentful";
 
 type EventPageParams = {
   slug: string;

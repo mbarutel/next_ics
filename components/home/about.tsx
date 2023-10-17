@@ -12,7 +12,7 @@ export default function About() {
             <div className="absolute bottom-0 right-0 h-[90%] w-[90%]">
               <div className="relative h-full">
                 <Image
-                  src="/assets/images/about-img-test.jpg"
+                  src="/assets/images/about-img.webp"
                   fill
                   alt="Indigenous Health Conference"
                   className="object-cover"

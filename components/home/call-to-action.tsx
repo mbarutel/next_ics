@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import { cta } from "@/lib/data";
 import Link from "next/link";
 import Image from "next/image";
+import { cta } from "@/lib/data";
+import React, { Fragment } from "react";
 
 export default function CallToAction() {
   return (

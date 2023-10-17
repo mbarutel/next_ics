@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { fetchConferences } from "@/contentful";
 import { draftMode } from "next/headers";
-import Header from "@/components/common/Header";
 import {
   CallToAction,
   ConferenceDisplay,
+  Header,
   SubscribeEmailList,
 } from "@/components";
 

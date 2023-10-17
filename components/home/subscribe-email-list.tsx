@@ -9,7 +9,7 @@ export default function SubscribeEmailList() {
     <section className="pt-8 lg:pt-12">
       <div className="mx-auto max-w-[90rem] relative h-[30rem]">
         <Image
-          src="/assets/images/email-subscribe-bg.jpg"
+          src="/assets/images/email-subscribe-bg.webp"
           alt="Subscribe to our email list"
           fill
           className="object-cover"

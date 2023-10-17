@@ -42,7 +42,6 @@ function parseConferenceInEvent(
 export default function parseContentfulEvent(
   eventEntry: EventEntry,
 ): EventType {
-  console.log(eventEntry);
   const coverImage = coverImageParse({
     coverImage: eventEntry.fields.coverImage,
   });
