@@ -1,7 +1,7 @@
 import { contentfulClient } from "../client";
-import { EventPageType, EventType } from "../types/types";
+import { EventType } from "../types/types";
 import { TypeEventSkeleton } from "../types/contentful/types";
-import { parseContentfulEvent, parseContentfulEventPage } from "../utils";
+import { parseContentfulEvent } from "../utils";
 
 // Fetch all of the EVENTS
 export async function fetchEvents(
