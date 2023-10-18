@@ -47,7 +47,7 @@ function EmailForm() {
     const response = await rawResponse.json();
 
     if ("error" in response) {
-      toast.error(response.message);
+      toast.error(response.error);
     } else {
       toast.success(response.message);
     }

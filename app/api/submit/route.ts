@@ -1,4 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
@@ -8,11 +7,13 @@ type SheetForm = {
 };
 
 export async function POST(
-  req: NextApiRequest,
-  res: NextApiResponse,
+  req: Request,
+  _res: Response,
 ) {
   if (req.method !== "POST") {
-    return res.status(405).send({ message: "Only POST requests allowed" });
+    return NextResponse.json({ error: "Only POST requests allowed" }, {
+      status: 405,
+    });
   }
 
   const passedValue = await new Response(req.body).text();
@@ -48,14 +49,13 @@ export async function POST(
     });
 
     return NextResponse.json({
-      message: "Subscribing was succesful. Thank you.",
-    });
+      message: "Subscribing Success!",
+    }, { status: 201 });
   } catch (error: unknown) {
     if (error instanceof Error) {
       return NextResponse.json({
-        error: error.message,
-        message: "Subscribing was unsuccesful. Please try again later.",
-      });
+        error: "Subscribing unsuccesful. Please try again later.",
+      }, { status: 500 });
     }
   }
 }
