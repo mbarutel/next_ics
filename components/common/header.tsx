@@ -28,6 +28,7 @@ export default function Header(
               <Image
                 src={conference.coverImage.src}
                 alt="Indigenous Health Conference Services"
+                priority={true}
                 quality={100}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
