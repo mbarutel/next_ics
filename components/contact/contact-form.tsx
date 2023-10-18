@@ -28,7 +28,7 @@ export default function ContactForm() {
             </h2>
             <span className="inline-flex h-1 bg-orange-500 w-3/4" />
           </span>
-          <small className="text-sm sm:text-base text-slate-700">
+          <small className="text-sm lg:text-base text-slate-700">
             Please contact us direcly at{" "}
             <Link
               href={`mailto:${configs.contact.email}`}
@@ -48,7 +48,7 @@ export default function ContactForm() {
               }
               toast.success("Email sent successfully");
             }}
-            className="mt-4 sm:mt-6 flex flex-col gap-3"
+            className="mt-3 lg:mt-6 flex flex-col gap-3"
           >
             <input
               required

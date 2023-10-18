@@ -12,7 +12,7 @@ export default function EventHeader(
 
   return (
     <section className="pt-20">
-      <div className="container grid grid-cols-1 sm:grid-cols-2 sm:clip-path-polygon-[0_0,_100%_0,_100%_90%,_90%_100%,_10%_100%,_0_90%]">
+      <div className="container grid grid-cols-1 sm:grid-cols-2 clip-path-polygon-[0_0,_100%_0,_100%_90%,_90%_100%,_10%_100%,_0_90%]">
         <div className="relative h-full bg-gradient-radial flex justify-center items-center">
           <div className="relative h-56 w-full sm:h-3/4 sm:w-1/2">
             <Image
@@ -24,9 +24,9 @@ export default function EventHeader(
             />
           </div>
         </div>
-        <div className="sm:bg-slate-600 flex justify-center items-center sm:py-16">
+        <div className="bg-slate-600 flex justify-center items-center py-5 sm:py-16">
           <div className="flex flex-col">
-            <span className="bg-slate-100 h-24 lg:h-32 flex justify-center items-center px-2 lg:px-8">
+            <span className="bg-slate-100 h-24 lg:h-32 flex justify-center items-center px-8 lg:px-8">
               <h1
                 style={{ fontFamily: "Passion One" }}
                 className="text-slate-700/90 text-xl lg:text-3xl text-center uppercase font-bold"

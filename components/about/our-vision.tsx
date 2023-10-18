@@ -22,7 +22,7 @@ export default function OurVision() {
               </h3>
               <span className="inline-flex h-1 bg-orange-500 w-3/4" />
             </span>
-            <p className="mb-2">
+            <p className="mb-2 text-justify">
               ICS stands as the foremost and most enduring professional event
               management company in First Nations Australia, distinguished by
               our independence from government funding. Our unwavering
@@ -30,7 +30,7 @@ export default function OurVision() {
               with our rich heritage, propels us to consistently deliver the
               highest standard of professional event management services.
             </p>
-            <p className="mb-2">
+            <p className="mb-2 text-justify">
               At the heart of our organization lies our people and culture,
               individuals deeply dedicated to advancing First Nations affairs
               both in their professional roles and personal experiences. Over
@@ -41,7 +41,7 @@ export default function OurVision() {
               rooted in our mission to promote Indigenous health and close the
               gap.
             </p>
-            <p>
+            <p className="text-justify">
               ICS boasts an impressive track record, having flawlessly managed
               conferences hosting up to 6,500 delegates, organized festivals
               with attendance exceeding 70,000 over two days, and facilitated

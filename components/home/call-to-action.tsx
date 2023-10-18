@@ -13,7 +13,7 @@ export default function CallToAction() {
           </h2>
           <span className="inline-flex h-1 bg-orange-500 w-3/4" />
         </span>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2 lg:gap-8">
           {cta.map((action, index) => (
             <Fragment key={index}>
               <ActionCard {...action} />
@@ -53,6 +53,8 @@ function ActionCard(
         <span className="inline-flex w-full h-[3px] bg-slate-800/80" />
         <Link
           href={form}
+          target="_blank"
+          rel="noreferrer"
           className="relative inline-flex group mt-3 lg:mt-5 button_padding bg-slate-700  text-white transition-all active:scale-95 w-fit"
         >
           <span className="z-10">

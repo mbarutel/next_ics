@@ -16,7 +16,7 @@ export default function OurValues() {
               </h3>
               <span className="inline-flex h-1 bg-orange-500 w-3/4" />
             </span>
-            <p className="mb-2">
+            <p className="mb-2 text-justify">
               Our Koori CEO, Tom Callaghan, proudly hails from Kempsey in
               Dunghutti country, New South Wales, and is deeply committed to the
               cause of closing the gap in Indigenous health. At ICS, we
@@ -31,7 +31,7 @@ export default function OurValues() {
               and independence from political agendas, ensuring secure funding
               for our initiatives aimed at advancing Indigenous health.
             </p>
-            <p>
+            <p className="text-justify">
               We refrain from involvement in government politics, with no desire
               to establish a profile that could disrupt or conflict with any
               community group's philosophies or beliefs. Our exclusive goal is

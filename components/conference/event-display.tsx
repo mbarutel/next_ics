@@ -24,13 +24,13 @@ export default function EventDisplay(props: EventDisplayProps) {
         {props.event.title}
       </h3>
       <div className="grow">
-        <div className="h-72 w-52 float-left mr-3 relative">
+        <div className="h-64 w-48 sm:h-72 lg:w-52 float-left mr-2 relative">
           <Image
             src={props.event.coverImage}
             alt="Conferences Australia"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-contain"
+            className="object-contain object-left-top"
           />
         </div>
         <p className="text-justify h-full">{props.event.description}</p>
@@ -61,6 +61,8 @@ export default function EventDisplay(props: EventDisplayProps) {
         </Link>
         <Link
           href={props.registrationLink}
+          target="_blank"
+          rel="noreferrer"
           className="relative w-fit inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95"
         >
           <span className="z-10">

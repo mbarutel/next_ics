@@ -13,7 +13,7 @@ export default function ConferenceDisplay(
         </h2>
         <span className="inline-flex h-1 bg-orange-500/80 w-3/4" />
       </span>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-8">
         {conference.events.map((event) => (
           <Fragment key={event.slug}>
             <EventDisplay

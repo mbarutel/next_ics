@@ -30,7 +30,7 @@ export default function OurPurpose() {
               </h3>
               <span className="inline-flex h-1 bg-orange-500 w-3/4 ml-auto" />
             </span>
-            <p className="mb-2">
+            <p className="mb-2 text-justify">
               At ICS, we are unwavering in our belief that education serves as a
               powerful catalyst for driving positive change. Our dedicated
               mission revolves around advancing Indigenous health and
@@ -44,7 +44,7 @@ export default function OurPurpose() {
               upholds grassroots principles, furthering the cause of Indigenous
               health.
             </p>
-            <p>
+            <p className="text-justify">
               At the heart of our company lies our profound commitment to our
               people and Indigenous culture. The ICS team is deeply immersed in
               First Nations affairs, both professionally and personally,

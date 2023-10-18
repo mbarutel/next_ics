@@ -14,7 +14,7 @@ export default function UpcomingEvents(
           </h2>
           <span className="inline-flex h-1 bg-orange-500 w-3/4" />
         </span>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {conferences.map((conference) => (
             <Fragment key={conference.slug}>
               <Events conference={conference} />
@@ -42,7 +42,7 @@ function Events({ conference }: { conference: ConferencesType }) {
               >
                 {event.title}
               </h3>
-              <p className="flex-grow">{event.description}</p>
+              <p className="flex-grow text-justify">{event.description}</p>
               <div className="w-full h-[2px] bg-black/80 my-3" />
               <Link
                 href={`/events/${event.slug}`}

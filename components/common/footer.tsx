@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="pt-5 pb-2 lg:pt-8">
       <div className="container flex flex-col">
-        <div className="grid grid-cols-2 lg:grid-cols-3 lg:gap-8 mb-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 lg:gap-8 sm:mb-4">
           <div className="flex flex-col">
             <h3
               style={{ fontFamily: "Gabarito" }}
