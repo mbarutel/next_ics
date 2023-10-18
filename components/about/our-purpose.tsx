@@ -14,6 +14,7 @@ export default function OurPurpose() {
                   src="/assets/images/indigenous-conference-exhibits.webp"
                   fill
                   alt="Indigenous Health Conference"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
               </div>

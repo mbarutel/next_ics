@@ -51,7 +51,7 @@ export default function Footer() {
             <span className="w-fit mb-3 flex flex-col gap-1 mx-auto">
               <h2
                 style={{ fontFamily: "Bungee Inline" }}
-                className="text-lg sm:text-xl w-fit text-slate-800"
+                className="text-lg sm:text-xl w-fit text-slate-800 text-center"
               >
                 Indigenous Conference Services
               </h2>

@@ -30,6 +30,7 @@ export default function Header(
                 alt="Indigenous Health Conference Services"
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover z-0"
               />
               <div className="relative container h-full">

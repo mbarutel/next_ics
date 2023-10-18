@@ -32,7 +32,13 @@ function ActionCard(
   return (
     <div className="bg-slate-400/90 shadow-xl shadow-black/20 flex flex-col">
       <div className="relative h-52 lg:h-96">
-        <Image src={image} alt={title} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover"
+        />
       </div>
       <div className="px-3 pb-3 lg:px-6 lg:pb-6 mt-5 flex-grow flex flex-col">
         <h3

@@ -2,8 +2,9 @@ import React from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import { experimental_useFormStatus as useFormStatus } from "react-dom";
 
-export default function SubitButton() {
+export default function SubmitButton() {
   const { pending } = useFormStatus();
+
   return (
     <button
       type="submit"
@@ -12,8 +13,7 @@ export default function SubitButton() {
     >
       {pending
         ? (
-          <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-stone-400">
-          </div>
+          <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-stone-400" />
         )
         : (
           <>
