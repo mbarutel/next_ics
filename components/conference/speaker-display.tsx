@@ -41,7 +41,7 @@ export default function SpeakersDisplay(
                     setSide((side) => !side);
                     setSpeaker(null);
                   }}
-                  className="absolute top-3 right-3 text-slate-600 text-2xl"
+                  className="absolute top-3 right-3 text-slate-600 text-4xl hover:scale-105 active:scale-95 transition-all"
                 >
                   <AiOutlineCloseCircle />
                 </button>
@@ -78,7 +78,7 @@ export default function SpeakersDisplay(
                   setSide((side) => !side);
                   setSpeaker(speaker);
                 }}
-                className="flex items-center bg-slate-300 rounded-sm cursor-pointer"
+                className="flex items-center bg-slate-300 rounded-sm cursor-pointer hover:bg-slate-400/70 transition-all"
               >
                 <div className="relative h-20 w-20">
                   <Image
