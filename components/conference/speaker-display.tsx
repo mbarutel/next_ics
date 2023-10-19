@@ -13,17 +13,16 @@ export default function SpeakersDisplay(
   const [side, setSide] = useState(false);
   const [speaker, setSpeaker] = useState<SpeakerType | null>(null);
 
-  const { transform, opacity } = useSpring({
+  const { opacity } = useSpring({
     opacity: side ? 1 : 0,
-    transform: `perspective(600px) rotateX(${side ? 180 : 0}deg)`,
-    config: { mass: 7, tension: 500, friction: 280 },
+    config: { mass: 5, tension: 500, friction: 100 },
   });
 
   return (
-    <div className="bg-slate-300 p-4 flex flex-col shadow-lg">
+    <div className="flex flex-col">
       <h3
         style={{ fontFamily: "Gabarito" }}
-        className="text-2xl text-slate-800 mb-2"
+        className="text-2xl text-slate-800 mb-2 text-center"
       >
         Speakers
       </h3>
@@ -32,10 +31,8 @@ export default function SpeakersDisplay(
           <a.div
             style={{
               opacity,
-              transform,
-              rotateX: "180deg",
             }}
-            className="bg-slate-400/30 rounded-sm flex flex-col items-center relative p-4 text-center"
+            className="bg-slate-300 rounded-sm flex flex-col items-center relative p-4 text-center lg:w-3/4 mx-auto"
           >
             {speaker === null ? null : (
               <>
@@ -71,7 +68,7 @@ export default function SpeakersDisplay(
         )}
         {side === true ? null : (
           <a.div
-            style={{ opacity: opacity.to((o) => 1 - o), transform }}
+            style={{ opacity: opacity.to((o) => 1 - o) }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-1 overflow-x-auto"
           >
             {conference.speakers.map((speaker) => (
@@ -81,7 +78,7 @@ export default function SpeakersDisplay(
                   setSide((side) => !side);
                   setSpeaker(speaker);
                 }}
-                className="flex items-center bg-slate-400/30 rounded-sm cursor-pointer"
+                className="flex items-center bg-slate-300 rounded-sm cursor-pointer"
               >
                 <div className="relative h-20 w-20">
                   <Image
