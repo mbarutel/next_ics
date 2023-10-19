@@ -1,15 +1,18 @@
 import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
+import type { TypeEventSkeleton } from "./TypeEvent";
+import type { TypeSpeakerSkeleton } from "./TypeSpeaker";
 
 export interface TypeConferencesFields {
     title: EntryFieldTypes.Symbol;
     coverImage: EntryFieldTypes.AssetLink;
     registrationLink: EntryFieldTypes.Symbol;
-    events: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<EntrySkeletonType>>;
+    events: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeEventSkeleton>>;
     venue: EntryFieldTypes.Symbol;
     location?: EntryFieldTypes.Location;
     startDate: EntryFieldTypes.Date;
     endDate: EntryFieldTypes.Date;
     slug: EntryFieldTypes.Symbol;
+    speakers: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeSpeakerSkeleton>>;
 }
 
 export type TypeConferencesSkeleton = EntrySkeletonType<TypeConferencesFields, "conferences">;

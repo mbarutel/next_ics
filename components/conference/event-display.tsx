@@ -24,7 +24,7 @@ export default function EventDisplay(props: EventDisplayProps) {
         {props.event.title}
       </h3>
       <div className="grow">
-        <div className="h-64 w-48 sm:h-72 lg:w-52 float-left mr-2 relative">
+        <div className="h-64 w-32 sm:h-72 float-left mr-2 relative">
           <Image
             src={props.event.coverImage}
             alt="Conferences Australia"

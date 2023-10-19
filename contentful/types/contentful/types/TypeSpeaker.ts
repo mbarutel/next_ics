@@ -2,9 +2,9 @@ import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleC
 
 export interface TypeSpeakerFields {
     name: EntryFieldTypes.Symbol;
+    photo: EntryFieldTypes.AssetLink;
     jobTitle: EntryFieldTypes.Symbol;
     organization: EntryFieldTypes.Symbol;
-    photo: EntryFieldTypes.AssetLink;
     biography: EntryFieldTypes.RichText;
 }
 

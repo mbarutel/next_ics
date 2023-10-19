@@ -1,4 +1,5 @@
 import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
+import type { TypeConferencesSkeleton } from "./TypeConferences";
 
 export interface TypeEventFields {
     title: EntryFieldTypes.Symbol;
@@ -8,7 +9,7 @@ export interface TypeEventFields {
     media?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
     slug: EntryFieldTypes.Symbol;
     coverImage: EntryFieldTypes.AssetLink;
-    conference: EntryFieldTypes.EntryLink<EntrySkeletonType>;
+    conference: EntryFieldTypes.EntryLink<TypeConferencesSkeleton>;
 }
 
 export type TypeEventSkeleton = EntrySkeletonType<TypeEventFields, "event">;
