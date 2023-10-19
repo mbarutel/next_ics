@@ -10,6 +10,7 @@ export default function parseContentfulSpeaker(
 
   return {
     photo: photo,
+    slug: speakerEntry.fields.slug,
     name: speakerEntry.fields.name,
     jobTitle: speakerEntry.fields.jobTitle,
     biography: speakerEntry.fields.biography,

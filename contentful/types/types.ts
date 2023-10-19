@@ -71,6 +71,7 @@ export type ConferencesType = {
 
 export type SpeakerType = {
   name: string;
+  slug: string;
   jobTitle: string;
   organization: string;
   photo: CoverImageType;

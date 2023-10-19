@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { ConferencesType } from "@/contentful/types/types";
 import EventDisplay from "./event-display";
+import SpeakersDisplay from "./speaker-display";
 
 export default function ConferenceDisplay(
   { conference }: { conference: ConferencesType },
@@ -25,6 +26,7 @@ export default function ConferenceDisplay(
             />
           </Fragment>
         ))}
+        <SpeakersDisplay conference={conference} />
       </div>
     </div>
   );
