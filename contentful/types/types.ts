@@ -1,8 +1,9 @@
-import { Entry } from "contentful";
 import {
   TypeConferencesSkeleton,
   TypeEventSkeleton,
+  TypeSpeakerSkeleton,
 } from "../types/contentful/types";
+import { Entry } from "contentful";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 
 export type ContentImage = {
@@ -52,8 +53,8 @@ export type ConferencesEntry = Entry<
   undefined,
   string
 >;
-
 export type EventEntry = Entry<TypeEventSkeleton, undefined, string>;
+export type SpeakerEntry = Entry<TypeSpeakerSkeleton, undefined, string>;
 
 export type ConferencesType = {
   slug: string;
@@ -62,9 +63,18 @@ export type ConferencesType = {
   endDate: string;
   startDate: string;
   events: EventType[];
+  speakers: SpeakerType[];
   registrationLink: string;
   coverImage: CoverImageType;
   // location: Location | undefined;
+};
+
+export type SpeakerType = {
+  name: string;
+  jobTitle: string;
+  organization: string;
+  photo: CoverImageType;
+  biography: RichTextDocument;
 };
 
 export type ConferenceInEventType = {
@@ -85,13 +95,13 @@ export type EventType = {
   // media: string[] | undefined;
 };
 
-export type EventPageType = {
-  title: string;
-  coverImage: ContentImage;
-  content: RichTextDocument;
-  conference: ConferencesType | null;
-  // description: string;
-  // tags: string[] | undefined;
-  // slug: string;
-  // media: string[] | undefined;
-};
+// export type EventPageType = {
+//   title: string;
+//   coverImage: ContentImage;
+//   description: string;
+//   content: RichTextDocument;
+//   conference: ConferencesType | null;
+//   tags: string[] | undefined;
+//   slug: string;
+//   media: string[] | undefined;
+// };

@@ -6,6 +6,7 @@ export interface TypeSpeakerFields {
     jobTitle: EntryFieldTypes.Symbol;
     organization: EntryFieldTypes.Symbol;
     biography: EntryFieldTypes.RichText;
+    slug: EntryFieldTypes.Symbol;
 }
 
 export type TypeSpeakerSkeleton = EntrySkeletonType<TypeSpeakerFields, "speaker">;

@@ -1,5 +1,5 @@
-import { parseContentfulEvent } from ".";
-import { EventEntry } from "../types/types";
+import { parseContentfulEvent, parseContentfulSpeaker } from ".";
+import { EventEntry, SpeakerEntry } from "../types/types";
 import coverImageParse from "./cover-image-parse";
 import { ConferencesEntry, ConferencesType } from "../types/types";
 
@@ -42,6 +42,7 @@ import { ConferencesEntry, ConferencesType } from "../types/types";
 export default function parseContentfulConferences(
   conferenceEntry: ConferencesEntry,
 ): ConferencesType {
+  
   const coverImage = coverImageParse({
     coverImage: conferenceEntry.fields.coverImage,
   });
@@ -49,6 +50,10 @@ export default function parseContentfulConferences(
   const events = conferenceEntry.fields.events.filter((event) =>
     event.sys.type === "Entry"
   ).map((event) => parseContentfulEvent(event as EventEntry));
+
+  const speakers = conferenceEntry.fields.speakers.filter((speaker) =>
+    speaker.sys.type === "Entry"
+  ).map((speaker) => parseContentfulSpeaker(speaker as SpeakerEntry));
 
   return {
     title: conferenceEntry.fields.title,
@@ -59,6 +64,7 @@ export default function parseContentfulConferences(
     venue: conferenceEntry.fields.venue,
     coverImage: coverImage,
     events: events,
+    speakers: speakers,
     // location: conferenceEntry.fields.location,
   };
 }
