@@ -4,8 +4,9 @@ import SpeakersDisplay from "./speaker-display";
 import { ConferencesType } from "@/contentful/types/types";
 
 export default function ConferenceDisplay(
-  { conference /* , grid */ }: {
-    conference: ConferencesType; /* , grid: string */
+  { grid, conference }: {
+    grid: string;
+    conference: ConferencesType;
   },
 ) {
   return (
@@ -16,7 +17,9 @@ export default function ConferenceDisplay(
         </h2>
         <span className="inline-flex h-1 bg-orange-500/80 w-3/4" />
       </span>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 mb-4 lg:mb-8">
+      <div
+        className={`grid grid-cols-1 md:${grid} gap-4 lg:gap-8 mb-4 lg:mb-8`}
+      >
         {conference.events.map((event) => (
           <Fragment key={event.slug}>
             <EventDisplay
@@ -33,4 +36,3 @@ export default function ConferenceDisplay(
     </div>
   );
 }
-// <div className={`grid grid-cols-1 md:${grid} gap-4 lg:gap-8 mb-4 lg:mb-8`}>
