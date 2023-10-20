@@ -34,7 +34,7 @@ export default function RichText(
         <h1 className="text-4xl mb-2 mt-8">{children}</h1>
       ),
       [BLOCKS.HEADING_2]: (_node: Block | Inline, children: ReactNode) => (
-        <h2 className="text-base sm:text-xl lg:text-2xl sm:mb-2 drop-shadow-md">
+        <h2 className="text-base sm:text-xl lg:text-2xl drop-shadow-md">
           {children}
         </h2>
       ),
@@ -59,7 +59,7 @@ export default function RichText(
         </h6>
       ),
       [BLOCKS.PARAGRAPH]: (_node: Block | Inline, children: ReactNode) => (
-        <p className="text-slate-800 text-justify mb-2 text-sm sm:text-base">
+        <p className="text-slate-800 text-justify text-sm sm:text-base mb-6">
           {children}
         </p>
       ),
@@ -68,11 +68,11 @@ export default function RichText(
           {children}
         </Quote>
       ),
-      // [BLOCKS.UL_LIST]: (_node: Block | Inline, children: ReactNode) => (
-      //   <ul>
-      //     {children}
-      //   </ul>
-      // ),
+      [BLOCKS.UL_LIST]: (_node: Block | Inline, children: ReactNode) => (
+        <ul className="-mt-4">
+          {children}
+        </ul>
+      ),
       [BLOCKS.LIST_ITEM]: (_node: Block | Inline, children: ReactNode) => (
         <ListItem>
           {children}
