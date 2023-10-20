@@ -53,10 +53,10 @@ export default function EventDisplay(props: EventDisplayProps) {
       <div className="flex gap-3">
         <Link
           href={`/events/${props.event.slug}`}
-          className="relative w-fit inline-flex group mt-3 button_padding bg-orange-500  text-white transition-all active:scale-95"
+          className="relative w-fit inline-flex group mt-3 button_padding bg-orange-500  text-white transition-all active:scale-95 items-center"
         >
           <span className="z-10">
-            Learn More
+            Learn&nbsp;More
           </span>
           <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-slate-950 transition-all ease-in-out z-0" />
         </Link>
@@ -64,7 +64,7 @@ export default function EventDisplay(props: EventDisplayProps) {
           href={props.registrationLink}
           target="_blank"
           rel="noreferrer"
-          className="relative w-fit inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95"
+          className="relative w-fit inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95 items-center"
         >
           <span className="z-10">
             Register
