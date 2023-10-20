@@ -32,7 +32,7 @@ export default function SpeakersDisplay(
             style={{
               opacity,
             }}
-            className="bg-slate-300 rounded-sm flex flex-col items-center relative p-4 text-center lg:w-3/4 mx-auto"
+            className="bg-slate-300 shadow-lg rounded-sm flex flex-col items-center relative p-4 text-center lg:w-3/4 mx-auto"
           >
             {speaker === null ? null : (
               <>
@@ -50,6 +50,7 @@ export default function SpeakersDisplay(
                     src={speaker.photo.src}
                     alt={speaker.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-contain"
                   />
                 </div>
@@ -69,7 +70,7 @@ export default function SpeakersDisplay(
         {side === true ? null : (
           <a.div
             style={{ opacity: opacity.to((o) => 1 - o) }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-1 overflow-x-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-x-auto"
           >
             {conference.speakers.map((speaker) => (
               <div
@@ -78,7 +79,7 @@ export default function SpeakersDisplay(
                   setSide((side) => !side);
                   setSpeaker(speaker);
                 }}
-                className="flex items-center bg-slate-300 rounded-sm cursor-pointer hover:bg-slate-400/70 transition-all"
+                className="flex items-center bg-slate-300 shadow-md rounded-sm cursor-pointer hover:bg-slate-400/70 transition-all"
               >
                 <div className="relative h-20 w-20">
                   <Image
