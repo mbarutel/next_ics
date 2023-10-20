@@ -3,14 +3,9 @@ import { ConferencesType } from "@/contentful/types/types";
 import EventDisplay from "./event-display";
 import SpeakersDisplay from "./speaker-display";
 
-
 export default function ConferenceDisplay(
-  { conference, grid }: { conference: ConferencesType, grid: string },
+  { conference }: { conference: ConferencesType },
 ) {
-  // const gridCols = conference.events.length % 2 === 0
-  //   ? "grid-cols-2"
-  //   : "grid-cols-3";
-
   return (
     <div>
       <span className="w-fit mb-5 flex flex-col gap-0">
@@ -19,7 +14,7 @@ export default function ConferenceDisplay(
         </h2>
         <span className="inline-flex h-1 bg-orange-500/80 w-3/4" />
       </span>
-      <div className={`grid grid-cols-1 md:${grid} gap-4 lg:gap-8 mb-4 lg:mb-8`}>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 mb-4 lg:mb-8">
         {conference.events.map((event) => (
           <Fragment key={event.slug}>
             <EventDisplay

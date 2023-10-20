@@ -38,7 +38,6 @@
     "cf-content-types-generator": "^2.12.2",
     "embla-carousel-autoplay": "^8.0.0-rc14",
     "embla-carousel-react": "^8.0.0-rc12",
-    "encoding": "^0.1.13",
     "tailwind-clip-path": "^1.0.0"
   }
 }

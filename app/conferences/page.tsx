@@ -26,13 +26,9 @@ export default async function page() {
           </h3>
           <div className="flex flex-col gap-12">
             {conferences.map((conference) => {
-              const gridCols = conference.events.length % 2 === 0
-                ? "grid-cols-2"
-                : "grid-cols-3";
-
               return (
                 <Fragment key={conference.slug}>
-                  <ConferenceDisplay conference={conference} grid={gridCols} />
+                  <ConferenceDisplay conference={conference} />
                 </Fragment>
               );
             })}
