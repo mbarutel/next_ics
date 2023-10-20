@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
-import { fetchConferences } from "@/contentful";
-import { draftMode } from "next/headers";
 import {
   CallToAction,
   ConferenceDisplay,
   Header,
   SubscribeEmailList,
 } from "@/components";
+import React, { Fragment } from "react";
+import { draftMode } from "next/headers";
+import { fetchConferences } from "@/contentful";
 
 export default async function page() {
   const conferences = await fetchConferences({
@@ -26,13 +26,12 @@ export default async function page() {
           </h3>
           <div className="flex flex-col gap-12">
             {conferences.map((conference) => {
-              const gridCols = conference.events.length % 2 === 0
-                ? "grid-cols-2"
-                : "grid-cols-3";
-
+              // const gridCols = conference.events.length % 2 === 0
+              //   ? "grid-cols-2"
+              //   : "grid-cols-3";
               return (
                 <Fragment key={conference.slug}>
-                  <ConferenceDisplay conference={conference} grid={gridCols} />
+                  <ConferenceDisplay conference={conference} /* grid={gridCols} */ />
                 </Fragment>
               );
             })}
