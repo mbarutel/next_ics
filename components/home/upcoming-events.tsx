@@ -8,12 +8,9 @@ export default function UpcomingEvents(
   return (
     <section className="pt-8 lg:pt-12">
       <div className="container flex flex-col">
-        <span className="w-fit mb-6 sm:mb-10 flex flex-col gap-2">
-          <h2 className="w-fit section_header text-orange-500">
-            Upcoming Events
-          </h2>
-          <span className="inline-flex h-1 bg-orange-500 w-3/4" />
-        </span>
+        <h2 className="w-fit section_header text-orange-500 mb-6 sm:mb-10">
+          Follow Upcoming Events
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {conferences.map((conference) => (
             <Fragment key={conference.slug}>

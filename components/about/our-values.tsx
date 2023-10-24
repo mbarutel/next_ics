@@ -7,15 +7,12 @@ export default function OurValues() {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="xl:py-20">
-            <span className="w-fit flex flex-col mb-4">
-              <h3
-                style={{ fontFamily: "Gabarito" }}
-                className="w-fit text-3xl lg:text-4xl mb-1 uppercase font-bold tracking-tight text-orange-500/90 text-right"
-              >
-                Our Values
-              </h3>
-              <span className="inline-flex h-1 bg-orange-500 w-3/4" />
-            </span>
+            <h3
+              style={{ fontFamily: "Gabarito" }}
+              className="w-fit text-3xl lg:text-4xl mb-4 uppercase font-bold tracking-tight text-orange-500/90 text-right"
+            >
+              Our Values
+            </h3>
             <p className="mb-2 text-justify">
               Our Koori CEO, Tom Callaghan, proudly hails from Kempsey in
               Dunghutti country, New South Wales, and is deeply committed to the

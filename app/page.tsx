@@ -16,10 +16,10 @@ export default async function Home() {
       <Header
         conferences={conferences}
       />
-      <About />
       <UpcomingEvents
         conferences={conferences}
       />
+      <About />
       <CallToAction />
       <SubscribeEmailList />
     </>

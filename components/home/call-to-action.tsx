@@ -7,12 +7,9 @@ export default function CallToAction() {
   return (
     <section className="pt-8 lg:pt-12">
       <div className="container">
-        <span className="w-fit mb-6 sm:mb-10 flex flex-col gap-2">
-          <h2 className="w-fit section_header text-orange-500">
-            Become Part of ICS
-          </h2>
-          <span className="inline-flex h-1 bg-orange-500 w-3/4" />
-        </span>
+        <h2 className="w-fit section_header text-orange-500 mb-6 sm:mb-10">
+          Become Part of ICS
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2 lg:gap-8">
           {cta.map((action, index) => (
             <Fragment key={index}>

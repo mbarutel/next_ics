@@ -10,15 +10,10 @@ export default function ConferenceDisplay(
 ) {
   return (
     <div>
-      <span className="w-fit mb-5 flex flex-col gap-0">
-        <h2 className="w-fit text-2xl font-semibold text-orange-500">
-          {conference.title}
-        </h2>
-        <span className="inline-flex h-1 bg-orange-500/80 w-3/4" />
-      </span>
-      <div
-        className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 mb-4 lg:mb-8"
-      >
+      <h2 className="w-fit text-2xl font-semibold text-orange-500 uppercase mb-5">
+        {conference.title}
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 mb-4 lg:mb-8">
         {conference.events.map((event) => (
           <Fragment key={event.slug}>
             <EventDisplay

@@ -13,15 +13,12 @@ export default function OurVision() {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="xl:py-20">
-            <span className="w-fit flex flex-col mb-4">
-              <h3
-                style={{ fontFamily: "Gabarito" }}
-                className="w-fit text-3xl lg:text-4xl mb-1 uppercase font-bold tracking-tight text-orange-500/90"
-              >
-                Our Vision
-              </h3>
-              <span className="inline-flex h-1 bg-orange-500 w-3/4" />
-            </span>
+            <h3
+              style={{ fontFamily: "Gabarito" }}
+              className="w-fit text-3xl lg:text-4xl mb-4 uppercase font-bold tracking-tight text-orange-500/90"
+            >
+              Our Vision
+            </h3>
             <p className="mb-2 text-justify">
               ICS stands as the foremost and most enduring professional event
               management company in First Nations Australia, distinguished by
