@@ -1,33 +1,12 @@
-import { parseContentfulConferences } from ".";
 import coverImageParse from "./cover-image-parse";
 import {
+  AgendaType,
   ConferenceInEventType,
   ConferencesEntry,
   EventEntry,
   EventType,
 } from "../types/types";
 
-// export default function parseContentfulEvent(
-//   eventEntry: EventEntry,
-// ): EventType | null {
-//   if (!eventEntry) {
-//     return null;
-//   }
-//
-//   const coverImage = coverImageParse({
-//     coverImage: eventEntry.fields.coverImage,
-//   });
-//
-//   return {
-//     title: eventEntry.fields.title,
-//     description: eventEntry.fields.description,
-//     content: eventEntry.fields.content,
-//     slug: eventEntry.fields.slug,
-//     tags: eventEntry.fields.tags,
-//     coverImage: coverImage,
-//     // media: conferenceEntry.fields.media,
-//   };
-// }
 function parseConferenceInEvent(
   conference: ConferencesEntry,
 ): ConferenceInEventType {
@@ -38,6 +17,10 @@ function parseConferenceInEvent(
     registrationLink: conference.fields.registrationLink,
   };
 }
+
+// function parseAgendaInEvent({ agenda }: { agenda: any }) {
+//   console.log(agenda);
+// }
 
 export default function parseContentfulEvent(
   eventEntry: EventEntry,
@@ -50,6 +33,10 @@ export default function parseContentfulEvent(
     eventEntry.fields.conference as ConferencesEntry,
   );
 
+  const agenda = eventEntry.fields.agenda === undefined
+    ? undefined
+    : eventEntry.fields.agenda as AgendaType[];
+
   return {
     title: eventEntry.fields.title,
     description: eventEntry.fields.description,
@@ -58,7 +45,7 @@ export default function parseContentfulEvent(
     tags: eventEntry.fields.tags,
     coverImage: coverImage,
     conference: conference,
+    agenda: agenda,
     // media: conferenceEntry.fields.media,
   };
 }
-

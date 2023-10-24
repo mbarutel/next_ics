@@ -1,6 +1,7 @@
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import {
+  Agenda,
   CallToAction,
   EventHeader,
   RichText,
@@ -33,15 +34,12 @@ export default async function page({ params }: EventPageProps) {
   return (
     <>
       <EventHeader event={eventPage} />
-      <section className="pt-8 lg:pt-12">
+      <section>
         <div className="container">
-          <h2 className="section_header text-center text-orange-500">
-            Agenda
-          </h2>
-          <h3 className="text-center mb-4 sm:mb-6 text-2xl sm:text-3xl italic text-orange-600 font-thin capitalize">
-            Building better future together
-          </h3>
           <RichText document={eventPage.content} />
+          {eventPage.agenda === undefined
+            ? null
+            : <Agenda agenda={eventPage.agenda} />}
         </div>
       </section>
       <CallToAction />

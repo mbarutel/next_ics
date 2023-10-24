@@ -85,6 +85,16 @@ export type ConferenceInEventType = {
   registrationLink: string;
 };
 
+export type AgendaRowType = {
+  time: string;
+  agenda: string[];
+};
+
+export type AgendaType = {
+  title: string;
+  row: AgendaRowType[];
+};
+
 export type EventType = {
   slug: string;
   title: string;
@@ -92,6 +102,7 @@ export type EventType = {
   coverImage: ContentImage;
   content: RichTextDocument;
   tags: string[] | undefined;
+  agenda: AgendaType[] | undefined;
   conference: ConferenceInEventType;
   // media: string[] | undefined;
 };

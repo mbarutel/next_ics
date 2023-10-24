@@ -11,7 +11,6 @@ export default function RichText(
     return null;
   }
 
-  // <article className="text-slate-700 md:px-16 lg:px-28 xl:px-36  bg-slate-300">
   const options = {
     renderMark: {
       [MARKS.BOLD]: (children: ReactNode) => {
@@ -26,40 +25,40 @@ export default function RichText(
     },
     renderNode: {
       [BLOCKS.DOCUMENT]: (_node: Block | Inline, children: ReactNode) => (
-        <article className="text-slate-700 px-2 py-4 sm:px-4 sm:py-6 xl:px-8 xl:py-10 mt-3 xl:mx-36 bg-slate-300 rounded-sm shadow-lg">
+        <article className="text-slate-700 px-2 py-4 sm:px-4 sm:py-6 xl:px-8 xl:py-10 max-w-4xl mx-auto bg-paper_gradient bg-[length:5px_5px] mt-6 shadow-lg">
           {children}
         </article>
       ),
-      [BLOCKS.HEADING_1]: (_node: Block | Inline, children: ReactNode) => (
-        <h1 className="text-4xl mb-2 mt-8">{children}</h1>
-      ),
+      // [BLOCKS.HEADING_1]: (_node: Block | Inline, children: ReactNode) => (
+      //   <h1 className="text-4xl mb-2 mt-8">{children}</h1>
+      // ),
       [BLOCKS.HEADING_2]: (_node: Block | Inline, children: ReactNode) => (
-        <h2 className="text-base sm:text-xl lg:text-2xl drop-shadow-md">
+        <h2 className="text-base sm:text-xl lg:text-2xl mb-2 font-semibold text-center">
           {children}
         </h2>
       ),
-      [BLOCKS.HEADING_3]: (_node: Block | Inline, children: ReactNode) => (
-        <h3 className="text-base sm:text-lg lg:text-xl sm:mb-2 drop-shadow-md">
-          {children}
-        </h3>
-      ),
-      [BLOCKS.HEADING_4]: (_node: Block | Inline, children: ReactNode) => (
-        <h4 className="text-base sm:text-lg lg:text-xl sm:mb-2 drop-shadow-md">
-          {children}
-        </h4>
-      ),
-      [BLOCKS.HEADING_5]: (_node: Block | Inline, children: ReactNode) => (
-        <h5 className="text-base sm:text-lg lg:text-xl sm:mb-2 drop-shadow-md">
-          {children}
-        </h5>
-      ),
-      [BLOCKS.HEADING_6]: (_node: Block | Inline, children: ReactNode) => (
-        <h6 className="text-center text-base sm:text-lg lg:text-xl sm:mb-2 drop-shadow-md">
-          {children}
-        </h6>
-      ),
+      // [BLOCKS.HEADING_3]: (_node: Block | Inline, children: ReactNode) => (
+      //   <h3 className="text-base sm:text-lg lg:text-xl sm:mb-2 drop-shadow-md">
+      //     {children}
+      //   </h3>
+      // ),
+      // [BLOCKS.HEADING_4]: (_node: Block | Inline, children: ReactNode) => (
+      //   <h4 className="text-base sm:text-lg lg:text-xl sm:mb-2 drop-shadow-md">
+      //     {children}
+      //   </h4>
+      // ),
+      // [BLOCKS.HEADING_5]: (_node: Block | Inline, children: ReactNode) => (
+      //   <h5 className="text-base sm:text-lg lg:text-xl sm:mb-2 drop-shadow-md">
+      //     {children}
+      //   </h5>
+      // ),
+      // [BLOCKS.HEADING_6]: (_node: Block | Inline, children: ReactNode) => (
+      //   <h6 className="text-center text-base sm:text-lg lg:text-xl sm:mb-2 drop-shadow-md">
+      //     {children}
+      //   </h6>
+      // ),
       [BLOCKS.PARAGRAPH]: (_node: Block | Inline, children: ReactNode) => (
-        <p className="text-slate-800 text-justify text-sm sm:text-base mb-6">
+        <p className="text-slate-800 text-justify text-sm sm:text-base mb-6 last:mb-0">
           {children}
         </p>
       ),
@@ -69,7 +68,7 @@ export default function RichText(
         </Quote>
       ),
       [BLOCKS.UL_LIST]: (_node: Block | Inline, children: ReactNode) => (
-        <ul className="-mt-4">
+        <ul className="mb-6 last:mb-0">
           {children}
         </ul>
       ),

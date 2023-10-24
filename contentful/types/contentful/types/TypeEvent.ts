@@ -10,6 +10,7 @@ export interface TypeEventFields {
     slug: EntryFieldTypes.Symbol;
     coverImage: EntryFieldTypes.AssetLink;
     conference: EntryFieldTypes.EntryLink<TypeConferencesSkeleton>;
+    agenda?: EntryFieldTypes.Object;
 }
 
 export type TypeEventSkeleton = EntrySkeletonType<TypeEventFields, "event">;
