@@ -9,7 +9,7 @@ export default function UpcomingEvents(
     <section className="pt-8 lg:pt-12">
       <div className="container flex flex-col">
         <h2 className="w-fit section_header text-orange-500 mb-6 sm:mb-10">
-          Follow Upcoming Events
+          Upcoming Events
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {conferences.map((conference) => (
