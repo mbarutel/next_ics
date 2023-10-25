@@ -4,7 +4,7 @@ import { Document as RichTextDocument } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { ListItem, Quote } from "../rich-text";
 
-export default function RichText(
+export default function EventContent(
   { document }: { document: RichTextDocument | null },
 ) {
   if (!document) {

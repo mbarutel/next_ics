@@ -52,7 +52,7 @@ export default function EventDisplay(props: EventDisplayProps) {
       <div className="w-full h-[2px] bg-black/80 my-3" />
       <div className="flex gap-3">
         <Link
-          href={`/events/${props.event.slug}`}
+          href={`/event/${props.event.slug}`}
           className="relative w-fit inline-flex group mt-3 button_padding bg-orange-500  text-white transition-all active:scale-95 items-center"
         >
           <span className="z-10">

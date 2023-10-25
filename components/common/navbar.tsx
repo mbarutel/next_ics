@@ -31,11 +31,10 @@ export default function Navbar() {
             />
           </span>
           <span
-            style={{ fontFamily: "Bungee Inline" }}
+            style={{ fontFamily: "Bungee Shade" }}
             className="flex flex-col text-xl sm:text-3xl text-slate-700"
           >
             ICS
-            <span className="w-full h-1 bg-slate-800/80" />
           </span>
         </Link>
         <button

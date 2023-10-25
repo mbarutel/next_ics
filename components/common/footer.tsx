@@ -43,19 +43,18 @@ export default function Footer() {
             <span className="text-xs sm:text-sm lg:text-base text-slate-600">
               ADDRESS:{" "}
               <span className="px-2 py-1 font-semibold">
-                8 Kiwi Court, Hervey Bay QLD, Australia 4655
+                {configs.contact.address}
               </span>
             </span>
           </div>
           <div className="hidden lg:block">
             <span className="w-fit mb-3 flex flex-col gap-1 mx-auto">
               <h2
-                style={{ fontFamily: "Bungee Inline" }}
-                className="text-lg sm:text-xl w-fit text-slate-800 text-center"
+                style={{ fontFamily: "Bungee Shade" }}
+                className="text-lg w-fit text-slate-800 text-center"
               >
                 Indigenous Conference Services
               </h2>
-              <span className="inline-flex h-1 bg-slate-800/90 w-3/4 mx-auto" />
             </span>
             <p className="text-sm text-center text-slate-600">
               We acknowledge the Traditional Owners and Custodians of the lands

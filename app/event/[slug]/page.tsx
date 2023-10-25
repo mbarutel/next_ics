@@ -4,7 +4,7 @@ import {
   Agenda,
   CallToAction,
   EventHeader,
-  RichText,
+  EventContent,
   SubscribeEmailList,
 } from "@/components";
 import { fetchEvent, fetchEvents } from "@/contentful";
@@ -36,7 +36,7 @@ export default async function page({ params }: EventPageProps) {
       <EventHeader event={eventPage} />
       <section>
         <div className="container">
-          <RichText document={eventPage.content} />
+          <EventContent document={eventPage.content} />
           {eventPage.agenda === undefined
             ? null
             : <Agenda agenda={eventPage.agenda} />}

@@ -27,17 +27,11 @@ export default function EventHeader(
         <div className="bg-slate-600 flex justify-center items-center py-5 sm:py-16">
           <div className="flex flex-col">
             <span className="bg-slate-100 h-24 lg:h-32 flex justify-center items-center px-8 lg:px-8">
-              <h1
-                style={{ fontFamily: "Passion One" }}
-                className="text-slate-700/90 text-xl lg:text-3xl text-center uppercase font-bold drop-shadow-md"
-              >
+              <h1 className="text-slate-700/90 text-xl lg:text-3xl text-center uppercase font-bold drop-shadow-md">
                 {event.title}
               </h1>
             </span>
-            <span
-              style={{ fontFamily: "Passion One" }}
-              className="bg-orange-500 h-24 lg:h-32 flex items-center text-center text-lg lg:text-2xl"
-            >
+            <span className="bg-orange-500 h-24 lg:h-32 flex items-center text-center text-lg lg:text-2xl">
               <span className="text-white w-fit mx-auto flex flex-col text-center drop-shadow-md">
                 {dayjs(event.conference.startDate).format("DD ")}-{" "}
                 {dayjs(event.conference.endDate).format("DD MMM, YYYY")}
