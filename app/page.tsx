@@ -1,5 +1,4 @@
 import {
-  About,
   CallToAction,
   Header,
   SubscribeEmailList,
@@ -19,7 +18,6 @@ export default async function Home() {
       <UpcomingEvents
         conferences={conferences}
       />
-      <About />
       <CallToAction />
       <SubscribeEmailList />
     </>

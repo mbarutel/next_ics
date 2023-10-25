@@ -51,11 +51,11 @@ export default function About() {
             </p>
 
             <Link
-              href="/about"
+              href="/conferences"
               className="relative inline-flex group button_padding bg-orange-500 text-sm sm:text-base transition-all active:scale-95 w-fit text-white"
             >
               <span className="z-10">
-                Read More
+                View Conferences
               </span>
               <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-slate-950 transition-all ease-in-out z-0" />
             </Link>
