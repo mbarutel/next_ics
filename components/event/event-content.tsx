@@ -25,7 +25,7 @@ export default function EventContent(
     },
     renderNode: {
       [BLOCKS.DOCUMENT]: (_node: Block | Inline, children: ReactNode) => (
-        <article className="text-slate-700 px-2 py-4 sm:px-4 sm:py-6 xl:px-8 xl:py-10 max-w-4xl mx-auto bg-paper_gradient bg-[length:5px_5px] mt-6 shadow-lg">
+        <article className="text-slate-700 px-2 py-4 sm:px-4 sm:py-6 xl:px-8 xl:py-10 max-w-4xl mx-auto bg-paper_gradient bg-[length:5px_5px] mt-6 shadow-lg rounded-md">
           {children}
         </article>
       ),

@@ -76,12 +76,12 @@ function EmailForm() {
           maxLength={500}
           placeholder="Email"
           onChange={(event) => setEmail(event.target.value)}
-          className="h-14 px-4 bg-black/40 backdrop-blur-md border-solid border-[1px] border-stone-500/60 transition-all w-20 text-white flex-grow"
+          className="h-14 px-4 bg-black/40 backdrop-blur-md border-solid border-[1px] border-stone-500/60 transition-all w-20 text-white flex-grow rounded-l-md"
         />
         <button
           type="submit"
           disabled={pending}
-          className="group flex flex-shrink items-center justify-center gap-2 bg-yellow-500 px-4 transition-all hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65"
+          className="group flex flex-shrink items-center justify-center gap-2 bg-yellow-500 px-4 transition-all hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65 rounded-r-md"
         >
           {pending
             ? (

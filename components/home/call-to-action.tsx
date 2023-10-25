@@ -27,14 +27,14 @@ function ActionCard(
   { title, description, button, image, form }: ActionCardProp,
 ) {
   return (
-    <div className="bg-slate-400/90 shadow-xl shadow-black/20 flex flex-col">
-      <div className="relative h-52 lg:h-96">
+    <div className="bg-slate-400/90 shadow-xl shadow-black/20 flex flex-col rounded-md overflow-hidden group">
+      <div className="relative h-52 lg:h-96 overflow-hidden">
         <Image
           src={image}
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
+          className="object-cover group-hover:scale-110 transition-all duration-500"
         />
       </div>
       <div className="px-3 pb-3 lg:px-6 lg:pb-6 mt-5 flex-grow flex flex-col">
@@ -47,12 +47,12 @@ function ActionCard(
         <p className="text-slate-200 lg:text-lg flex-grow mb-3">
           {description}
         </p>
-        <span className="inline-flex w-full h-[3px] bg-slate-800/80" />
+        <span className="inline-flex w-full h-[3px] bg-slate-800/80 rounded-full" />
         <Link
           href={form}
           target="_blank"
           rel="noreferrer"
-          className="relative inline-flex group mt-3 lg:mt-5 button_padding bg-slate-700  text-white transition-all active:scale-95 w-fit"
+          className="relative inline-flex group mt-3 lg:mt-5 button_padding bg-slate-700  text-white transition-all active:scale-95 w-fit rounded-md overflow-hidden"
         >
           <span className="z-10">
             {button}
