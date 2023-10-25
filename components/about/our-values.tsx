@@ -44,13 +44,13 @@ export default function OurValues() {
           <div className="relative h-full hidden sm:block">
             <span className="w-60 h-96 absolute bottom-0 right-0 bg-slate-600 rounded-sm" />
             <div className="absolute top-0 left-0 h-[90%] w-[90%]">
-              <div className="relative h-full">
+              <div className="relative h-full overflow-hidden">
                 <Image
                   src="/assets/images/aboriginal-art.webp"
                   fill
                   alt="Indigenous Health Conference"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover rounded-sm"
+                  className="object-cover rounded-sm hover:scale-110 transition-all duration-500"
                 />
               </div>
             </div>

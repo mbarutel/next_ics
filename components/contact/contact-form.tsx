@@ -12,13 +12,13 @@ export default function ContactForm() {
   return (
     <section className="pt-8 lg:pt-12">
       <div className="container grid sm:grid-cols-2 gap-4 lg:gap-8">
-        <div className="relative hidden sm:block">
+        <div className="relative hidden sm:block overflow-hidden">
           <Image
             src="/assets/images/contact-us.webp"
             alt="Contact us ICS"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover"
+            className="object-cover hover:scale-110 transition-all duration-500"
           />
         </div>
         <div>
