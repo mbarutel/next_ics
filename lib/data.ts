@@ -2,7 +2,7 @@ export const configs = {
   contact: {
     phone: "+61740009111",
     email: "admin@icsconferences.org",
-    address: "Seaford Entrace, Kewarra Beach QLD 4879",
+    address: "13 Seaford Entrance, Kewarra Beach QLD 4879",
   },
   defaultCoverImage: {
     src:

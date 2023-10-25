@@ -50,7 +50,7 @@ export default function OurVision() {
             <div className="absolute bottom-0 left-0 h-[90%] w-[90%]">
               <div className="relative h-full overflow-hidden">
                 <Image
-                  src="/assets/images/ics-founders.webp"
+                  src="/assets/images/image_vision.webp"
                   fill
                   alt="Indigenous Health Conference"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

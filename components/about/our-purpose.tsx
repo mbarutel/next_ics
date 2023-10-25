@@ -11,7 +11,7 @@ export default function OurPurpose() {
             <div className="absolute top-0 right-0 h-[90%] w-[90%]">
               <div className="relative h-full overflow-hidden">
                 <Image
-                  src="/assets/images/indigenous-conference-exhibits.webp"
+                  src="/assets/images/image_purpose.webp"
                   fill
                   alt="Indigenous Health Conference"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
