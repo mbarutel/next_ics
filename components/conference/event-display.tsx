@@ -16,7 +16,7 @@ export default function EventDisplay(props: EventDisplayProps) {
   dayjs.extend(localizedFormat);
 
   return (
-    <div className="grow flex flex-col bg-slate-300 p-4 shadow-lg">
+    <div className="grow flex flex-col bg-slate-300 p-4 shadow-lg rounded-md">
       <h3
         style={{ fontFamily: "Gabarito" }}
         className="text-2xl text-slate-800 mb-2"
@@ -31,7 +31,7 @@ export default function EventDisplay(props: EventDisplayProps) {
             fill
             priority={true}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-contain object-left-top"
+            className="object-contain object-left-top rounded-md"
           />
         </div>
         <p className="text-justify h-full">{props.event.description}</p>
@@ -53,7 +53,7 @@ export default function EventDisplay(props: EventDisplayProps) {
       <div className="flex gap-3">
         <Link
           href={`/event/${props.event.slug}`}
-          className="relative w-fit inline-flex group mt-3 button_padding bg-orange-500  text-white transition-all active:scale-95 items-center"
+          className="relative w-fit inline-flex group mt-3 button_padding bg-orange-500  text-white transition-all active:scale-95 items-center rounded-md overflow-hidden"
         >
           <span className="z-10">
             Learn&nbsp;More
@@ -64,7 +64,7 @@ export default function EventDisplay(props: EventDisplayProps) {
           href={props.registrationLink}
           target="_blank"
           rel="noreferrer"
-          className="relative w-fit inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95 items-center"
+          className="relative w-fit inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95 items-center rounded-md overflow-hidden"
         >
           <span className="z-10">
             Register

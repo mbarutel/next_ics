@@ -32,7 +32,7 @@ export default function SpeakersDisplay(
             style={{
               opacity,
             }}
-            className="bg-slate-300 shadow-lg rounded-sm flex flex-col items-center relative p-4 text-center lg:w-3/4 mx-auto"
+            className="bg-slate-300 shadow-lg rounded-md flex flex-col items-center relative p-4 text-center lg:w-3/4 mx-auto"
           >
             {speaker === null ? null : (
               <>
@@ -79,7 +79,7 @@ export default function SpeakersDisplay(
                   setSide((side) => !side);
                   setSpeaker(speaker);
                 }}
-                className="flex items-center bg-slate-300 shadow-md rounded-sm cursor-pointer hover:bg-slate-400/70 transition-all"
+                className="flex items-center bg-slate-300 shadow-md rounded-md cursor-pointer hover:bg-slate-400/70 transition-all"
               >
                 <div className="relative h-20 w-20">
                   <Image

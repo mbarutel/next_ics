@@ -70,7 +70,7 @@ function ConferenceInfo({ conference }: { conference: ConferencesType }) {
           href={conference.registrationLink}
           target="_blank"
           rel="noreferrer"
-          className="relative inline-flex group button_padding bg-orange-500 text-sm sm:text-base transition-all active:scale-95"
+          className="relative inline-flex group button_padding bg-orange-500 text-sm sm:text-base transition-all active:scale-95 rounded-md overflow-hidden"
         >
           <span className="z-10">
             Register
@@ -81,7 +81,7 @@ function ConferenceInfo({ conference }: { conference: ConferencesType }) {
           href={configs.forms.submitPaper}
           target="_blank"
           rel="noreferrer"
-          className="relative inline-flex group button_padding bg-slate-800 text-sm sm:text-base transition-all active:scale-95"
+          className="relative inline-flex group button_padding bg-slate-800 text-sm sm:text-base transition-all active:scale-95 rounded-md overflow-hidden"
         >
           <span className="z-10">
             Submit a paper
@@ -138,7 +138,7 @@ function Countdown({ startDate }: { startDate: string }) {
         )
         : (
           <>
-            <span className="flex flex-col button_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
+            <span className="flex flex-col button_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center rounded-tl-md">
               <span className="font-normal sm:font-semibold text-lg sm:text-xl">
                 {days}
               </span>

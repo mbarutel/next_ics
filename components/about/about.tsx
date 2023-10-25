@@ -8,7 +8,7 @@ export default function About() {
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 justify-center items-end">
           <div className="relative h-full hidden sm:block">
-            <span className="w-60 h-96 absolute top-0 left-0 bg-slate-600" />
+            <span className="w-60 h-96 absolute top-0 left-0 bg-slate-600 rounded-sm" />
             <div className="absolute bottom-0 right-0 h-[90%] w-[90%]">
               <div className="relative h-full">
                 <Image
@@ -17,7 +17,7 @@ export default function About() {
                   priority={true}
                   alt="Indigenous Health Conference"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover"
+                  className="object-cover rounded-l-sm rounded-tr-sm"
                 />
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function About() {
 
             <Link
               href="/conferences"
-              className="relative inline-flex group button_padding bg-orange-500 text-sm sm:text-base transition-all active:scale-95 w-fit text-white"
+              className="relative inline-flex group button_padding bg-orange-500 text-sm sm:text-base transition-all active:scale-95 w-fit text-white rounded-r-md overflow-hidden"
             >
               <span className="z-10">
                 View Conferences

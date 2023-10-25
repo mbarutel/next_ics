@@ -47,7 +47,7 @@ export default function Navbar() {
           {links.map((link) => (
             <li
               key={link.name}
-              className="relative px-4 py-3 group last:bg-orange-500 text-slate-800 last:text-white active:scale-95"
+              className="relative px-4 py-3 group last:bg-orange-500 text-slate-800 last:text-white active:scale-95 rounded-md"
             >
               <Link
                 href={link.path}
@@ -56,7 +56,7 @@ export default function Navbar() {
                 <span className="z-10">
                   {link.name}
                 </span>
-                <span className="absolute h-1 group-last:h-full w-0 left-0 bottom-0 group-hover:w-full bg-orange-500 group-last:bg-slate-900 transition-all ease-in-out z-0" />
+                <span className="absolute h-1 group-last:h-full w-0 left-0 bottom-0 group-hover:w-full bg-orange-500 group-last:bg-slate-900 transition-all ease-in-out z-0 rounded-md" />
               </Link>
             </li>
           ))}

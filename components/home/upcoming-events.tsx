@@ -43,7 +43,7 @@ function Events({ conference }: { conference: ConferencesType }) {
               <div className="w-full h-[2px] bg-black/80 my-3" />
               <Link
                 href={`/event/${event.slug}`}
-                className="relative w-fit inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95"
+                className="relative w-fit inline-flex group mt-3 button_padding bg-slate-700  text-white transition-all active:scale-95 rounded-md overflow-hidden"
               >
                 <span className="z-10">
                   Learn More
