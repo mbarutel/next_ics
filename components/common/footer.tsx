@@ -1,6 +1,11 @@
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { configs, links } from "@/lib/data";
+import {
+  AiOutlineMail,
+  AiOutlinePhone,
+  AiOutlinePushpin,
+} from "react-icons/ai";
 
 export default function Footer() {
   return (
@@ -15,7 +20,8 @@ export default function Footer() {
               Contacts
             </h3>
             <span className="text-xs sm:text-sm lg:text-base text-slate-600">
-              PHONE:{" "}
+              <span className="hidden sm:block sm:float-left">PHONE:{" "}</span>
+              <AiOutlinePhone className="float-left sm:hidden" />
               <Link
                 href={`tel:${configs.contact.phone}`}
                 className="group font-semibold"
@@ -27,7 +33,8 @@ export default function Footer() {
               </Link>
             </span>
             <span className="text-xs sm:text-sm lg:text-base text-slate-600">
-              EMAIL:{" "}
+              <span className="hidden sm:block sm:float-left">EMAIL:{" "}</span>
+              <AiOutlineMail className="float-left sm:hidden" />
               <Link
                 href={`mailto:${configs.contact.email}`}
                 target="_blank"
@@ -41,8 +48,9 @@ export default function Footer() {
               </Link>
             </span>
             <span className="text-xs sm:text-sm lg:text-base text-slate-600">
-              ADDRESS:{" "}
-              <span className="px-2 py-1 font-semibold">
+              <span className="hidden sm:block sm:float-left">ADDRESS:{" "}</span>
+              <AiOutlinePushpin className="float-left sm:hidden" />
+              <span className="pb-1 ml-1 font-semibold">
                 {configs.contact.address}
               </span>
             </span>
