@@ -32,7 +32,7 @@ export default function Header(
                 quality={100}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover z-0"
+                className="object-cover z-0 blur-[2px]"
               />
               <div className="relative container h-full">
                 <ConferenceInfo conference={conference} />
@@ -54,11 +54,11 @@ function ConferenceInfo({ conference }: { conference: ConferencesType }) {
     <div className="z-10 text-white absolute top-1/2 -translate-y-1/2 lg:translate-y-0 left-4">
       <h1
         style={{ fontFamily: "Gabarito" }}
-        className="uppercase text-xl sm:text-4xl sm:mb-4"
+        className="uppercase text-xl sm:text-4xl sm:mb-2"
       >
         {conference.title}
       </h1>
-      <span className="text-sm sm:text-base flex flex-col">
+      <span className="text-sm sm:text-base lg:text-xl flex flex-col w-fit p-3">
         <span>{conference.venue}</span>
         <span>
           {dayjs(conference.startDate).format("DD")} -{" "}
