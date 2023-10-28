@@ -18,6 +18,10 @@ export default function SpeakersDisplay(
     config: { mass: 5, tension: 500, friction: 100 },
   });
 
+  if (conference.speakers === undefined) {
+    return null;
+  }
+
   return (
     <div className="flex flex-col">
       <h3
