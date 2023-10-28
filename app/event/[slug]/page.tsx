@@ -4,7 +4,8 @@ import {
   Agenda,
   CallToAction,
   EventHeader,
-  EventContent,
+  Masterclass,
+  RichText,
   SubscribeEmailList,
 } from "@/components";
 import { fetchEvent, fetchEvents } from "@/contentful";
@@ -36,10 +37,17 @@ export default async function page({ params }: EventPageProps) {
       <EventHeader event={eventPage} />
       <section>
         <div className="container">
-          <EventContent document={eventPage.content} />
+          <div className="px-4 lg:px-6 pt-6 max-w-4xl mx-auto bg-slate-100 border bg-paper_gradient bg-[length:5px_5px] rounded-md mt-6">
+            <div className="pb-6">
+              <RichText document={eventPage.content} />
+            </div>
+          </div>
           {eventPage.agenda === undefined
             ? null
             : <Agenda agenda={eventPage.agenda} />}
+          {eventPage.conference.masterclass === undefined
+            ? null
+            : <Masterclass masterclass={eventPage.conference.masterclass} />}
         </div>
       </section>
       <CallToAction />

@@ -1,11 +1,11 @@
 import { Asset, UnresolvedLink } from "contentful";
-import { ContentImage } from "../types/types";
+import { ImageType } from "../types/types";
 
 export default function coverImageParse(
   { coverImage }: {
     coverImage: UnresolvedLink<"Asset"> | Asset<undefined, string> | undefined;
   },
-): ContentImage {
+): ImageType {
   if (!coverImage || !("fields" in coverImage)) {
     throw Error("Cover image must not be empty");
   }

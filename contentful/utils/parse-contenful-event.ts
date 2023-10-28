@@ -5,12 +5,27 @@ import {
   ConferencesEntry,
   EventEntry,
   EventType,
+  MasterclassEntry,
 } from "../types/types";
+import parseContentfulMasterClass from "./parse-contenful-masterclass";
 
 function parseConferenceInEvent(
   conference: ConferencesEntry,
 ): ConferenceInEventType {
+  let masterclasses;
+
+  if (conference.fields.masterclass !== undefined) {
+    masterclasses = conference.fields.masterclass.filter((masterclass) =>
+      masterclass.sys.type === "Entry"
+    ).map((masterclass) =>
+      parseContentfulMasterClass(masterclass as MasterclassEntry)
+    );
+  } else {
+    masterclasses = undefined;
+  }
+
   return {
+    masterclass: masterclasses,
     venue: conference.fields.venue,
     endDate: conference.fields.endDate,
     startDate: conference.fields.startDate,

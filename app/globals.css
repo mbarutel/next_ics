@@ -31,6 +31,10 @@ body {
   @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-wide;
 }
 
+.border {
+  @apply border-solid border-black/40 border-r-[1px] border-l-[1px] border-t-[1px] border-b-[3px] pb-[1px];
+}
+
 .button_padding {
   @apply px-4 py-3 md:px-6 md:py-4;
 }

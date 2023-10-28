@@ -1,19 +1,13 @@
 import {
   TypeConferencesSkeleton,
   TypeEventSkeleton,
+  TypeMasterclassSkeleton,
   TypeSpeakerSkeleton,
 } from "../types/contentful/types";
 import { Entry } from "contentful";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 
-export type ContentImage = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-};
-
-export type CoverImageType = {
+export type ImageType = {
   src: string;
   alt: string;
   width: number;
@@ -25,31 +19,13 @@ export type Location = {
   lon: number | undefined;
 };
 
-// Our simplified version of a ConferencePage.
-// We don't need all the data that Contentful gives us.
-export type ConferencePage = {
-  title: string;
-  content: RichTextDocument;
-  slug: string;
-  tags: string[] | undefined;
-  startDate: string;
-  endDate: string;
-  venueName: string;
-  venueAddress: Location;
-  // media: string[] | undefined;
-  description: string;
-  coverImage: ContentImage;
-};
-
-export type Conferences = {
-  month: string;
-  Conferences: ConferencePage[];
-};
-
-// -----------------------------------------------------
-
 export type ConferencesEntry = Entry<
   TypeConferencesSkeleton,
+  undefined,
+  string
+>;
+export type MasterclassEntry = Entry<
+  TypeMasterclassSkeleton,
   undefined,
   string
 >;
@@ -63,10 +39,18 @@ export type ConferencesType = {
   endDate: string;
   startDate: string;
   events: EventType[];
-  speakers: SpeakerType[];
+  coverImage: ImageType;
   registrationLink: string;
-  coverImage: CoverImageType;
+  speakers: SpeakerType[] | undefined;
+  masterclass: MasterclassType[] | undefined;
   // location: Location | undefined;
+};
+
+export type MasterclassType = {
+  title: string;
+  slug: string;
+  description: RichTextDocument;
+  video: string | undefined;
 };
 
 export type SpeakerType = {
@@ -74,7 +58,7 @@ export type SpeakerType = {
   slug: string;
   jobTitle: string;
   organization: string;
-  photo: CoverImageType;
+  photo: ImageType;
   biography: RichTextDocument;
 };
 
@@ -82,6 +66,7 @@ export type ConferenceInEventType = {
   venue: string;
   endDate: string;
   startDate: string;
+  masterclass: MasterclassType[] | undefined;
   registrationLink: string;
 };
 
@@ -99,21 +84,10 @@ export type EventType = {
   slug: string;
   title: string;
   description: string;
-  coverImage: ContentImage;
+  coverImage: ImageType;
   content: RichTextDocument;
   tags: string[] | undefined;
   agenda: AgendaType[] | undefined;
   conference: ConferenceInEventType;
   // media: string[] | undefined;
 };
-
-// export type EventPageType = {
-//   title: string;
-//   coverImage: ContentImage;
-//   description: string;
-//   content: RichTextDocument;
-//   conference: ConferencesType | null;
-//   tags: string[] | undefined;
-//   slug: string;
-//   media: string[] | undefined;
-// };

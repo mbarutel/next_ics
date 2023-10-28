@@ -12,8 +12,9 @@ import ConferenceDisplay from "./conference/conference-display";
 import ContactForm from "./contact/contact-form";
 import ExitDraftModeLink from "./common/exit-draft-mode-link";
 import Navbar from "./common/navbar";
-import EventContent from "./event/event-content";
+import RichText from "./common/rich-text";
 import Agenda from "./event/agenda";
+import Masterclass from "./conference/masterclass";
 
 export {
   About,
@@ -21,15 +22,16 @@ export {
   CallToAction,
   ConferenceDisplay,
   ContactForm,
-  EventContent,
   EventHeader,
   ExitDraftModeLink,
   Footer,
   Header,
+  Masterclass,
   Navbar,
   OurPurpose,
   OurValues,
   OurVision,
+  RichText,
   SubscribeEmailList,
   UpcomingEvents,
 };

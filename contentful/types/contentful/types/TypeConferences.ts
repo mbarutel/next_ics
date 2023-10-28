@@ -1,5 +1,6 @@
 import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
 import type { TypeEventSkeleton } from "./TypeEvent";
+import type { TypeMasterclassSkeleton } from "./TypeMasterclass";
 import type { TypeSpeakerSkeleton } from "./TypeSpeaker";
 
 export interface TypeConferencesFields {
@@ -13,6 +14,7 @@ export interface TypeConferencesFields {
     endDate: EntryFieldTypes.Date;
     slug: EntryFieldTypes.Symbol;
     speakers: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeSpeakerSkeleton>>;
+    masterclass?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeMasterclassSkeleton>>;
 }
 
 export type TypeConferencesSkeleton = EntrySkeletonType<TypeConferencesFields, "conferences">;
