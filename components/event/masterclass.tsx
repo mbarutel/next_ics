@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { MasterclassType } from "@/contentful/types/types";
 import { RichText } from "..";
-import ReactPlayer from "react-player/lazy";
+import { VideoPlayer } from "..";
 
 export default function Masterclass(
   { masterclass }: { masterclass: MasterclassType[] },
@@ -43,6 +43,7 @@ export default function Masterclass(
           >
             {option.title}
           </h2>
+          {option.asset && <VideoPlayer url={option.asset.src} />}
           <p className="text-justify text-sm sm:text-base my-4">
             We offer new and exciting innovation for our conferences. The third
             day is devoted to a professional development workshop or
@@ -56,11 +57,6 @@ export default function Masterclass(
             </span>
           </p>
           <RichText document={option.description} />
-          <div className="flex justify-center">
-            <ReactPlayer
-              url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-            />
-          </div>
         </div>
       </div>
     </div>

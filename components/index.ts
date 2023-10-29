@@ -14,8 +14,9 @@ import ExitDraftModeLink from "./common/exit-draft-mode-link";
 import Navbar from "./common/navbar";
 import RichText from "./common/rich-text";
 import Agenda from "./event/agenda";
-import Masterclass from "./conference/masterclass";
+import Masterclass from "./event/masterclass";
 import GoogleAnalytics from "./common/google-analytics";
+import VideoPlayer from "./common/video-player";
 
 export {
   About,
@@ -36,4 +37,5 @@ export {
   RichText,
   SubscribeEmailList,
   UpcomingEvents,
+  VideoPlayer
 };
