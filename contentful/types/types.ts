@@ -14,6 +14,11 @@ export type ImageType = {
   height: number;
 };
 
+export type AssetType = {
+  src: string;
+  alt: string;
+};
+
 export type Location = {
   lat: number | undefined;
   lon: number | undefined;
@@ -50,7 +55,7 @@ export type MasterclassType = {
   title: string;
   slug: string;
   description: RichTextDocument;
-  video: string | undefined;
+  asset: AssetType | undefined;
 };
 
 export type SpeakerType = {

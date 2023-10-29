@@ -4,7 +4,7 @@ export interface TypeMasterclassFields {
     title: EntryFieldTypes.Symbol;
     slug: EntryFieldTypes.Symbol;
     description: EntryFieldTypes.RichText;
-    video?: EntryFieldTypes.Symbol;
+    asset?: EntryFieldTypes.AssetLink;
 }
 
 export type TypeMasterclassSkeleton = EntrySkeletonType<TypeMasterclassFields, "masterclass">;

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { MasterclassType } from "@/contentful/types/types";
 import { RichText } from "..";
+import ReactPlayer from "react-player/lazy";
 
 export default function Masterclass(
   { masterclass }: { masterclass: MasterclassType[] },
@@ -55,6 +56,11 @@ export default function Masterclass(
             </span>
           </p>
           <RichText document={option.description} />
+          <div className="flex justify-center">
+            <ReactPlayer
+              url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+            />
+          </div>
         </div>
       </div>
     </div>
