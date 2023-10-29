@@ -3,7 +3,12 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import { draftMode } from "next/headers";
 import { Toaster } from "react-hot-toast";
-import { ExitDraftModeLink, Footer, Navbar } from "@/components";
+import {
+  ExitDraftModeLink,
+  Footer,
+  GoogleAnalytics,
+  Navbar,
+} from "@/components";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -28,6 +33,9 @@ export default function RootLayout({
             Draft mode is on! <ExitDraftModeLink className="underline" />
           </p>
         )}
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
+          ? <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+          : null}
         <main className="relative">
           <Navbar />
           {children}
