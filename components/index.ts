@@ -15,6 +15,7 @@ import Navbar from "./common/navbar";
 import RichText from "./common/rich-text";
 import Agenda from "./event/agenda";
 import Masterclass from "./conference/masterclass";
+import GoogleAnalytics from "./common/google-analytics";
 
 export {
   About,
@@ -25,6 +26,7 @@ export {
   EventHeader,
   ExitDraftModeLink,
   Footer,
+  GoogleAnalytics,
   Header,
   Masterclass,
   Navbar,
