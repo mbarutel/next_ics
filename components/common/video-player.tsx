@@ -1,6 +1,7 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
-import ReactPlayer from "react-player/lazy";
+import ReactPlayer from "react-player";
 
 export default function VideoPlayer({ url }: { url: string }) {
   const [hasWindow, setHasWindow] = useState(false);
