@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import dayjs from "dayjs";
 import { EventType } from "@/contentful/types/types";
+import { configs } from "@/lib/data";
 
 export default function EventHeader(
   { event }: { event: EventType },
@@ -44,17 +45,30 @@ export default function EventHeader(
                   {event.conference.venue}
                 </span>
               </span>
-              <Link
-                href={event.conference.registrationLink}
-                target="_blank"
-                rel="noreferrer"
-                className="relative ml-auto inline-flex w-fit group button_padding bg-orange-600 text-sm sm:text-base text-slate-200 transition-all active:scale-95 rounded-bl-md overflow-hidden"
-              >
-                <span className="z-10 drop-shadow-md">
-                  Register
-                </span>
-                <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-slate-800 transition-all ease-in-out z-0" />
-              </Link>
+              <div className="mt-5 flex justify-center gap-4">
+                <Link
+                  href={event.conference.registrationLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative inline-flex w-fit group button_padding bg-orange-600 text-sm sm:text-base text-slate-200 transition-all active:scale-95 overflow-hidden rounded-md"
+                >
+                  <span className="z-10 drop-shadow-md">
+                    Register
+                  </span>
+                  <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-slate-800 transition-all ease-in-out z-0" />
+                </Link>
+                <Link
+                  href={configs.forms.submitPaper}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative inline-flex w-fit group button_padding bg-slate-800 text-sm sm:text-base text-slate-200 transition-all active:scale-95 overflow-hidden rounded-md"
+                >
+                  <span className="z-10 drop-shadow-md">
+                    Submit a paper
+                  </span>
+                  <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-orange-600 transition-all ease-in-out z-0" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
