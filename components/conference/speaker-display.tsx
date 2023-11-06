@@ -25,8 +25,8 @@ export default function SpeakersDisplay(
   return (
     <div className="flex flex-col">
       <h3
-        style={{ fontFamily: "Gabarito" }}
-        className="text-2xl text-slate-800 mb-2 text-center"
+        style={{ fontFamily: "Abril Fatface" }}
+        className="text-2xl text-slate-800/90 mb-2 text-center"
       >
         Speakers
       </h3>
@@ -58,10 +58,7 @@ export default function SpeakersDisplay(
                     className="object-contain"
                   />
                 </div>
-                <h4
-                  style={{ fontFamily: "Gabarito" }}
-                  className="text-xl text-slate-700"
-                >
+                <h4 className="text-xl text-slate-700 font-semibold">
                   {speaker.name}
                 </h4>
                 <h5 className="text-slate-600">{speaker.jobTitle}</h5>
@@ -94,10 +91,7 @@ export default function SpeakersDisplay(
                   />
                 </div>
                 <span>
-                  <h4
-                    style={{ fontFamily: "Gabarito" }}
-                    className="text-slate-700"
-                  >
+                  <h4 className="text-slate-700 font-semibold">
                     {speaker.name}
                   </h4>
                   <small className="flex -mt-1 text-sm text-slate-600">

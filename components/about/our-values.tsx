@@ -8,12 +8,12 @@ export default function OurValues() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="xl:py-20">
             <h3
-              style={{ fontFamily: "Gabarito" }}
+              style={{ fontFamily: "Abril Fatface" }}
               className="w-fit text-3xl lg:text-4xl mb-4 uppercase font-bold tracking-tight text-orange-500/90 text-right"
             >
               Our Values
             </h3>
-            <p className="mb-2 text-justify">
+            <p className="mb-2 text-justify text-slate-800/80">
               Our Koori CEO, Tom Callaghan, proudly hails from Kempsey in
               Dunghutti country, New South Wales, and is deeply committed to the
               cause of closing the gap in Indigenous health. At ICS, we
@@ -28,7 +28,7 @@ export default function OurValues() {
               and independence from political agendas, ensuring secure funding
               for our initiatives aimed at advancing Indigenous health.
             </p>
-            <p className="text-justify">
+            <p className="text-justify text-slate-800/80">
               We refrain from involvement in government politics, with no desire
               to establish a profile that could disrupt or conflict with any
               community group's philosophies or beliefs. Our exclusive goal is

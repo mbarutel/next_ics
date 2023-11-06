@@ -22,12 +22,12 @@ export default function OurPurpose() {
           </div>
           <div className="xl:py-20">
             <h3
-              style={{ fontFamily: "Gabarito" }}
+              style={{ fontFamily: "Abril Fatface" }}
               className="w-fit text-3xl lg:text-4xl mb-4 uppercase font-bold tracking-tight text-orange-500/90 text-right"
             >
               Our Purpose
             </h3>
-            <p className="mb-2 text-justify">
+            <p className="mb-2 text-justify text-slate-800/80">
               At ICS, we are unwavering in our belief that education serves as a
               powerful catalyst for driving positive change. Our dedicated
               mission revolves around advancing Indigenous health and
@@ -41,7 +41,7 @@ export default function OurPurpose() {
               upholds grassroots principles, furthering the cause of Indigenous
               health.
             </p>
-            <p className="text-justify">
+            <p className="text-justify text-slate-800/80">
               At the heart of our company lies our profound commitment to our
               people and Indigenous culture. The ICS team is deeply immersed in
               First Nations affairs, both professionally and personally,

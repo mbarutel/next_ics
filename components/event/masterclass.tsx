@@ -16,7 +16,7 @@ export default function Masterclass(
     <div className="max-w-4xl mx-auto bg-paper_gradient bg-[length:5px_5px] px-2 py-4 sm:px-4 sm:py-6 xl:px-8 xl:py-10 mt-6 border rounded-md">
       <div>
         <h3
-          style={{ fontFamily: "Gabarito" }}
+          style={{ fontFamily: "Abril Fatface" }}
           className="mb-3 text-3xl text-slate-700 uppercase ml-3"
         >
           Masterclass

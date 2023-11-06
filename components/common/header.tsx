@@ -53,12 +53,15 @@ function ConferenceInfo({ conference }: { conference: ConferencesType }) {
   return (
     <div className="z-10 text-white absolute top-1/2 -translate-y-1/2 lg:translate-y-0 left-4">
       <h1
-        style={{ fontFamily: "Gabarito" }}
-        className="uppercase text-xl sm:text-4xl sm:mb-2"
+        style={{ fontFamily: "Abril Fatface" }}
+        className="uppercase text-xl sm:text-4xl sm:mb-3"
       >
         {conference.title}
       </h1>
-      <span className="text-sm sm:text-base lg:text-xl flex flex-col w-fit p-3">
+      <span
+        style={{ fontFamily: "Abril Fatface" }}
+        className="text-sm sm:text-base lg:text-xl flex flex-col w-fit pl-2"
+      >
         <span>{conference.venue}</span>
         <span>
           {dayjs(conference.startDate).format("DD")} -{" "}
@@ -129,7 +132,9 @@ function Countdown({ startDate }: { startDate: string }) {
   }, [startDate]);
 
   return (
-    <div className="z-10 absolute bottom-0 right-0 flex text-white cursor-default">
+    <div 
+      style={{fontFamily:"Gabarito"}}
+      className="z-10 absolute bottom-0 right-0 flex text-white cursor-default">
       {conferenceTime
         ? (
           <span className="sm:px-8 sm:py-6 bg-slate-600 sm:text-2xl italic uppercase">

@@ -8,7 +8,10 @@ export default function UpcomingEvents(
   return (
     <section className="pt-8 lg:pt-12">
       <div className="container flex flex-col">
-        <h2 className="w-fit section_header text-orange-500 mb-6 sm:mb-10">
+        <h2
+          style={{ fontFamily: "Abril Fatface" }}
+          className="w-fit section_header text-orange-500 mb-6 sm:mb-10"
+        >
           Upcoming Events
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -32,14 +35,19 @@ function Events({ conference }: { conference: ConferencesType }) {
         } else {
           return (
             <div key={event.slug} className="flex flex-col">
-              <h4 className="mb-2">{conference.title}</h4>
+              <h4
+                style={{ fontFamily: "Abril Fatface" }}
+                className="mb-2 text-slate-800/70"
+              >
+                {conference.title}
+              </h4>
               <h3
-                style={{ fontFamily: "Gabarito" }}
+                style={{ fontFamily: "Abril Fatface" }}
                 className="text-2xl text-slate-800 mb-4"
               >
                 {event.title}
               </h3>
-              <p className="flex-grow text-justify">{event.description}</p>
+              <p className="flex-grow text-justify text-slate-800/80">{event.description}</p>
               <div className="w-full h-[2px] bg-black/80 my-3" />
               <Link
                 href={`/event/${event.slug}`}

@@ -12,11 +12,11 @@ export default function Footer() {
     <footer className="pt-5 pb-2 lg:pt-8">
       <div className="container flex flex-col">
         <div className="grid grid-cols-2 lg:grid-cols-3 lg:gap-8 sm:mb-4">
-          <div className="flex flex-col">
-            <h3
-              style={{ fontFamily: "Gabarito" }}
-              className="text-lg uppercase text-slate-800/80"
-            >
+          <div
+            style={{ fontFamily: "Gabarito" }}
+            className="flex flex-col"
+          >
+            <h3 className="text-lg uppercase text-slate-800/80">
               Contacts
             </h3>
             <span className="text-xs sm:text-sm lg:text-base text-slate-600">
@@ -48,7 +48,9 @@ export default function Footer() {
               </Link>
             </span>
             <span className="text-xs sm:text-sm lg:text-base text-slate-600">
-              <span className="hidden sm:block sm:float-left">ADDRESS:{" "}</span>
+              <span className="hidden sm:block sm:float-left">
+                ADDRESS:{" "}
+              </span>
               <AiOutlinePushpin className="float-left sm:hidden" />
               <span className="pb-1 ml-1 font-semibold">
                 {configs.contact.address}
@@ -56,7 +58,7 @@ export default function Footer() {
             </span>
           </div>
           <div className="hidden lg:block">
-            <span className="w-fit mb-3 flex flex-col gap-1 mx-auto">
+            <span className="w-fit mb-1 flex flex-col gap-1 mx-auto">
               <h2
                 style={{ fontFamily: "Bungee Shade" }}
                 className="text-lg w-fit text-slate-800 text-center"
@@ -70,11 +72,11 @@ export default function Footer() {
               Elders past, present, and emerging.
             </p>
           </div>
-          <div className="flex flex-col text-right">
-            <h3
-              style={{ fontFamily: "Gabarito" }}
-              className="text-lg uppercase text-slate-800/80"
-            >
+          <div
+            style={{ fontFamily: "Gabarito" }}
+            className="flex flex-col text-right"
+          >
+            <h3 className="text-lg uppercase text-slate-800/80">
               Links
             </h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-2 w-fit ml-auto">
@@ -84,7 +86,7 @@ export default function Footer() {
                     href={link.path}
                     className="group text-slate-700 text-xs sm:text-sm lg:text-base"
                   >
-                    <span className="relative pb-1">
+                    <span className="relative pb-1 pl-2">
                       {link.name}
                       <span className="absolute h-1 w-0 right-0 bottom-0 group-hover:w-full group-focus:w-full group-active:scale-95 bg-slate-800 transition-all ease-in-out" />
                     </span>
@@ -94,7 +96,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <small className="italic mx-auto lg:text-lg font-thin">
+        <small className="italic mx-auto text-sm font-thin">
           ©&nbsp;Indigenous&nbsp;Conference&nbsp;Services&nbsp;2023
         </small>
       </div>

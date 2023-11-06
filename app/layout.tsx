@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+// import { Lato } from "next/font/google";
+import { Merriweather } from "next/font/google";
 import { draftMode } from "next/headers";
 import { Toaster } from "react-hot-toast";
 import {
@@ -10,9 +11,13 @@ import {
   Navbar,
 } from "@/components";
 
-const lato = Lato({
+// const lato = Lato({
+//   subsets: ["latin"],
+//   weight: ["100", "400", "700", "900"],
+// });
+const merriweather = Merriweather({
   subsets: ["latin"],
-  weight: ["100", "400", "700", "900"],
+  weight: ["400", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth no-scrollbar">
-      <body className={`${lato.className}`}>
+      <body className={`${merriweather.className}`}>
         {draftMode().isEnabled && (
           <p className="py-4 px-[6vw] z-[999]">
             Draft mode is on! <ExitDraftModeLink className="underline" />

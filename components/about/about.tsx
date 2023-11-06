@@ -23,13 +23,16 @@ export default function About() {
             </div>
           </div>
           <div className="flex flex-col relative sm:pt-10 lg:pt-16">
-            <h2 className="sm:ml-6 section_header text-orange-500">
+            <h2
+              style={{ fontFamily: "Abril Fatface" }}
+              className="sm:ml-6 section_header text-orange-500"
+            >
               About ICS
             </h2>
             <h3 className="sm:ml-6 tracking-tight text-lg md:text-xl uppercase text-slate-800/80 mb-1 sm:mb-4 lg:mb-6">
               Indigenous Conference Services
             </h3>
-            <p className="sm:ml-6 mb-3 sm:mb-6 text-justify">
+            <p className="sm:ml-6 mb-3 sm:mb-6 text-justify text-slate-800/80">
               ICS, an Indigenous-owned enterprise committed to closing the gap
               in Indigenous health and well-being, operates independently and
               without government funding. Our mission centers on prioritizing

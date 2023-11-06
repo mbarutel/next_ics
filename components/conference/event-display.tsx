@@ -18,8 +18,8 @@ export default function EventDisplay(props: EventDisplayProps) {
   return (
     <div className="grow flex flex-col bg-slate-300 p-4 shadow-lg rounded-md">
       <h3
-        style={{ fontFamily: "Gabarito" }}
-        className="text-2xl text-slate-800 mb-2"
+        style={{ fontFamily: "Abril Fatface" }}
+        className="text-xl text-slate-800 mb-2"
       >
         {props.event.title}
       </h3>
@@ -34,7 +34,9 @@ export default function EventDisplay(props: EventDisplayProps) {
             className="object-contain object-left-top rounded-md"
           />
         </div>
-        <p className="text-justify h-full">{props.event.description}</p>
+        <p className="text-justify h-full text-slate-800/80">
+          {props.event.description}
+        </p>
       </div>
 
       <div
