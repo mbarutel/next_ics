@@ -66,7 +66,7 @@ export default function Footer() {
                 Indigenous Conference Services
               </h2>
             </span>
-            <p className="text-sm text-center text-slate-600">
+            <p className="text-xs text-center text-slate-600">
               We acknowledge the Traditional Owners and Custodians of the lands
               on which we work, live, and create. We pay our respects to their
               Elders past, present, and emerging.
@@ -76,10 +76,10 @@ export default function Footer() {
             style={{ fontFamily: "Gabarito" }}
             className="flex flex-col text-right"
           >
-            <h3 className="text-lg uppercase text-slate-800/80">
+            <h3 className="uppercase text-slate-800/80">
               Links
             </h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-2 w-fit ml-auto">
+            <div className="grid grid-cols-2 gap-1 lg:gap-2 w-fit ml-auto">
               {links.map((link, index) => (
                 <Fragment key={index}>
                   <Link
