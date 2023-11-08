@@ -10,7 +10,10 @@ export default function ConferenceDisplay(
 ) {
   return (
     <div>
-      <h2 className="w-fit text-2xl font-semibold text-orange-500 uppercase mb-5">
+      <h2
+        style={{ fontFamily: "Abril Fatface" }}
+        className="w-fit text-2xl font-semibold text-orange-500 uppercase mb-5"
+      >
         {conference.title}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 lg:mb-8">

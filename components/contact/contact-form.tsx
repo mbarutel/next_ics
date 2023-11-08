@@ -22,7 +22,10 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <h2 className="w-fit section_header text-orange-500 mb-2 lg:mb-3">
+          <h2
+            style={{ fontFamily: "Abril Fatface" }}
+            className="w-fit section_header text-orange-500 mb-2 lg:mb-3"
+          >
             Contact Us
           </h2>
           <small className="text-sm lg:text-base text-slate-700">

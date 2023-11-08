@@ -58,10 +58,13 @@ export default function SpeakersDisplay(
                     className="object-contain"
                   />
                 </div>
-                <h4 className="text-xl text-slate-700 font-semibold">
+                <h4
+                  style={{ fontFamily: "Abril Fatface" }}
+                  className="text-xl text-slate-700 font-semibold tracking-wide"
+                >
                   {speaker.name}
                 </h4>
-                <h5 className="text-slate-600">{speaker.jobTitle}</h5>
+                <h5 className="text-slate-600 font-semibold">{speaker.jobTitle}</h5>
                 <h5 className="text-slate-600 mb-3">{speaker.organization}</h5>
                 <SpeakerRichText document={speaker.biography} />
               </>

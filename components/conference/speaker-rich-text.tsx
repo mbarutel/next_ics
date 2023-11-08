@@ -24,7 +24,7 @@ export default function SpeakerRichText(
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node: Block | Inline, children: ReactNode) => (
-        <p className="text-slate-800 text-justify">{children}</p>
+        <p className="text-slate-800/80 text-justify">{children}</p>
       ),
     },
   };
