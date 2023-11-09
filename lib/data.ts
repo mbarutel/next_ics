@@ -10,7 +10,7 @@ export const configs = {
     exhibitor:
       "https://docs.google.com/forms/d/e/1FAIpQLScRpsjKM0uqOmpJjurxMQZbz2o37_F_Gm9aR7PAXS9J-9U3tw/viewform",
     sponsor:
-      "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURDE3WU0yN0M2VzRCQzNTMEVYUkdKRlBTVi4u",
+      "https://docs.google.com/forms/d/e/1FAIpQLSfxgCZqk-OtuZvo8sx_cY65ccKg74-FZrGCLLfavJwIEp9n_A/viewform",
   },
 } as const;
 
