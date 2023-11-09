@@ -13,9 +13,9 @@ export const configs = {
   },
   forms: {
     registration:
-      "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdUNkRXNktIN1o4T1pGNFJDUEYwV1FBS1I5RS4u",
+      "https://docs.google.com/forms/d/e/1FAIpQLSe-8xH9Ee8FvO5uF_Uq2bRYa5lIdAEN8buDzHMuElDW_DvkAw/viewform",
     submitPaper:
-      "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURDA4VDFPTlgzVU01OUtBM0pCSkRBWFU0OS4u",
+      "https://docs.google.com/forms/d/e/1FAIpQLScR8xcw0IrdVy60HHTD2ECZijXKWtyQyq3S3oEuYRw8m33XWA/viewform",
     exhibitor:
       "https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__ZvvzOdURU5XVUZNTk1KVzRCSUM3VVc0OTM0VVYyUC4u",
     sponsor:
