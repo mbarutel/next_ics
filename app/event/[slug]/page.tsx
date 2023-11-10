@@ -47,7 +47,9 @@ export default async function page({ params }: EventPageProps) {
               ? null
               : <Masterclass masterclass={eventPage.conference.masterclass} />}
           </div>
-          <ScrollBottons />
+          {eventPage.agenda && eventPage.conference.masterclass && (
+            <ScrollBottons />
+          )}
         </article>
         <EventFooter />
       </ActiveSectionContextProvider>
