@@ -13,8 +13,8 @@ export default function Masterclass(
   );
 
   return (
-    <div className="max-w-4xl mx-auto bg-paper_gradient bg-[length:5px_5px] px-2 py-4 sm:px-4 sm:py-6 xl:px-8 xl:py-10 mt-6 border rounded-md">
-      <div>
+    <section id="masterclass" className="px-2">
+      <div className="px-4 lg:px-6 pt-6 max-w-4xl mx-auto bg-slate-100 border bg-paper_gradient bg-[length:5px_5px] rounded-md mt-6">
         <h3
           style={{ fontFamily: "Abril Fatface" }}
           className="mb-3 text-3xl text-slate-700 uppercase ml-3"
@@ -59,6 +59,6 @@ export default function Masterclass(
           <RichText document={option.description} />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

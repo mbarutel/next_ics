@@ -35,27 +35,42 @@ export default function RichText(
         </h1>
       ),
       [BLOCKS.HEADING_2]: (_node: Block | Inline, children: ReactNode) => (
-        <h2 className="text-lg sm:text-xl lg:text-2xl mb-1">
+        <h2
+          style={{ fontFamily: "Gabarito" }}
+          className="text-lg sm:text-xl lg:text-2xl mb-1 text-slate-800/80"
+        >
           {children}
         </h2>
       ),
       [BLOCKS.HEADING_3]: (_node: Block | Inline, children: ReactNode) => (
-        <h3 className="text-lg sm:text-xl lg:text-2xl mb-1">
+        <h3
+          style={{ fontFamily: "Gabarito" }}
+          className="text-lg sm:text-xl lg:text-2xl mb-1 text-slate-800/80"
+        >
           {children}
         </h3>
       ),
       [BLOCKS.HEADING_4]: (_node: Block | Inline, children: ReactNode) => (
-        <h4 className="text-lg sm:text-xl lg:text-2xl mb-1">
+        <h4
+          style={{ fontFamily: "Gabarito" }}
+          className="text-lg sm:text-xl lg:text-2xl mb-1 text-slate-800/80"
+        >
           {children}
         </h4>
       ),
       [BLOCKS.HEADING_5]: (_node: Block | Inline, children: ReactNode) => (
-        <h5 className="text-lg sm:text-xl lg:text-2xl mb-1">
+        <h5
+          style={{ fontFamily: "Gabarito" }}
+          className="text-lg sm:text-xl lg:text-2xl mb-1 text-slate-800/80"
+        >
           {children}
         </h5>
       ),
       [BLOCKS.HEADING_6]: (_node: Block | Inline, children: ReactNode) => (
-        <h6 className="text-lg sm:text-xl lg:text-2xl mb-1">
+        <h6
+          style={{ fontFamily: "Gabarito" }}
+          className="text-lg sm:text-xl lg:text-2xl mb-1 text-slate-800/80"
+        >
           {children}
         </h6>
       ),

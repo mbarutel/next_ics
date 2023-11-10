@@ -59,3 +59,22 @@ export const links = [
     path: "/contact",
   },
 ] as const;
+
+export const eventLinks = [
+  {
+    name: "Banner",
+    hash: "#banner",
+  },
+  {
+    name: "Agenda",
+    hash: "#agenda",
+  },
+  {
+    name: "Masterclass",
+    hash: "#masterclass",
+  },
+  {
+    name: "Footer",
+    hash: "#footer",
+  },
+] as const;

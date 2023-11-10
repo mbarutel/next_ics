@@ -17,12 +17,14 @@ import Agenda from "./event/agenda";
 import Masterclass from "./event/masterclass";
 import GoogleAnalytics from "./common/google-analytics";
 import VideoPlayer from "./common/video-player";
+import ConferenceText from "./event/conference-text";
 
 export {
   About,
   Agenda,
   CallToAction,
   ConferenceDisplay,
+  ConferenceText,
   ContactForm,
   EventHeader,
   ExitDraftModeLink,
@@ -37,5 +39,5 @@ export {
   RichText,
   SubscribeEmailList,
   UpcomingEvents,
-  VideoPlayer
+  VideoPlayer,
 };
