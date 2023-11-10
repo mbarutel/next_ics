@@ -20,8 +20,10 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
             <button
               key={index}
               onClick={() => setDay(item)}
-              className={`px-5 py-1 text-white transition-all hover:bg-slate-900 active:scale-95 rounded-md ${
-                item.title === day.title ? "bg-slate-700" : "bg-slate-500"
+              className={`px-5 py-1 transition-all hover:bg-slate-900 hover:text-white active:scale-95 border-solid border-black/60 border-t-2 border-r-2 border-l-2 border-b-4 rounded-md ${
+                item.title === day.title
+                  ? "bg-slate-500 text-white"
+                  : "text-slate-800"
               }`}
             >
               {item.title}
