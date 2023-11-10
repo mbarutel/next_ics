@@ -62,8 +62,8 @@ export const links = [
 
 export const eventLinks = [
   {
-    name: "Banner",
-    hash: "#banner",
+    name: "Event",
+    hash: "#event",
   },
   {
     name: "Agenda",

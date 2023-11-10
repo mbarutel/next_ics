@@ -9,8 +9,8 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
   const { ref } = useSectionInView("Agenda");
 
   return (
-    <section ref={ref} id="agenda" className="px-2 scroll-mt-20">
-      <div className="px-4 lg:px-6 py-6 max-w-4xl mx-auto bg-slate-100 border bg-paper_gradient bg-[length:5px_5px] rounded-md mt-6">
+    <section ref={ref} id="agenda" className="scroll-mt-20 mt-6">
+      <div className="px-4 lg:px-6 py-6 max-w-4xl mx-auto bg-slate-100 border bg-paper_gradient bg-[length:5px_5px] rounded-md">
         <h3
           style={{ fontFamily: "Abril Fatface" }}
           className="mb-3 text-3xl text-slate-700 uppercase ml-3"
@@ -22,7 +22,7 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
             <button
               key={index}
               onClick={() => setDay(item)}
-              className={`px-5 py-1 transition-all hover:bg-slate-900 hover:text-white active:scale-95 border-solid border-black/60 border-t-2 border-r-2 border-l-2 border-b-4 rounded-md ${
+              className={`text-sm md:text-base px-5 py-1 transition-all hover:bg-slate-900 hover:text-white active:scale-95 border-solid border-black/60 border-t-2 border-r-2 border-l-2 border-b-4 rounded-md ${
                 item.title === day.title
                   ? "bg-slate-500 text-white"
                   : "text-slate-800"
@@ -43,6 +43,7 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
                 {row.agenda.map((item, index) => (
                   <span
                     key={index}
+                    className="text-sm md:text-base"
                   >
                     {item}
                   </span>

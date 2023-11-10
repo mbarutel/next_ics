@@ -8,7 +8,8 @@ import React, { Fragment } from "react";
 import { BiSolidCircle } from "react-icons/bi";
 
 export default function ScrollBottons() {
-  const { activeSection, setActiveSection } = useActiveSectionContext();
+  const { activeSection, setActiveSection, setTimeOfLastClick } =
+    useActiveSectionContext();
 
   console.log(activeSection);
 
@@ -18,9 +19,13 @@ export default function ScrollBottons() {
         <Fragment key={link.hash}>
           <Link
             href={link.hash}
-            onClick={() => setActiveSection(link.name)}
-            className={clsx("text-lg", {
+            onClick={() => {
+              setTimeOfLastClick(Date.now());
+              setActiveSection(link.name);
+            }}
+            className={clsx("text-base md:text-lg transition-all ease-in-out", {
               "text-orange-500": activeSection === link.name,
+              "text-slate-800/80": activeSection !== link.name,
             })}
           >
             <BiSolidCircle />

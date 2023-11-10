@@ -6,17 +6,15 @@ import Link from "next/link";
 import dayjs from "dayjs";
 import { EventType } from "@/contentful/types/types";
 import { configs } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
 
 export default function EventHeader(
   { event }: { event: EventType },
 ) {
   const localizedFormat = require("dayjs/plugin/localizedFormat");
-  const { ref } = useSectionInView("Banner");
   dayjs.extend(localizedFormat);
 
   return (
-    <section ref={ref} id="banner" className="pt-16 pl-2 max-w-4xl mx-auto">
+    <section className="pt-16 px-2 max-w-4xl mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 rounded-b-md overflow-hidden shadow-md">
         <div className="relative h-full bg-gradient-radial flex justify-center items-center">
           <div className="relative h-56 w-full sm:h-3/4 sm:w-1/2 hidden sm:block">

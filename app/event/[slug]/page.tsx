@@ -35,9 +35,9 @@ export default async function page({ params }: EventPageProps) {
 
   return (
     <>
+      <EventHeader event={eventPage} />
       <ActiveSectionContextProvider>
-        <EventHeader event={eventPage} />
-        <article className="static max-w-4xl mx-auto px-2 sm:px-0 flex mt-6">
+        <article className="static px-2 max-w-4xl mx-auto flex gap-1 mt-6">
           <div>
             <ConferenceText event={eventPage} />
             {eventPage.agenda === undefined
