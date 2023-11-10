@@ -2,13 +2,15 @@
 
 import React, { useState } from "react";
 import { AgendaType } from "@/contentful/types/types";
+import { useSectionInView } from "@/lib/hooks";
 
 export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
   const [day, setDay] = useState<AgendaType>(agenda[0]);
+  const { ref } = useSectionInView("Agenda");
 
   return (
-    <section id="agenda" className="px-2">
-      <div className="px-4 lg:px-6 pt-6 max-w-4xl mx-auto bg-slate-100 border bg-paper_gradient bg-[length:5px_5px] rounded-md mt-6">
+    <section ref={ref} id="agenda" className="px-2 scroll-mt-20">
+      <div className="px-4 lg:px-6 py-6 max-w-4xl mx-auto bg-slate-100 border bg-paper_gradient bg-[length:5px_5px] rounded-md mt-6">
         <h3
           style={{ fontFamily: "Abril Fatface" }}
           className="mb-3 text-3xl text-slate-700 uppercase ml-3"

@@ -18,6 +18,8 @@ import Masterclass from "./event/masterclass";
 import GoogleAnalytics from "./common/google-analytics";
 import VideoPlayer from "./common/video-player";
 import ConferenceText from "./event/conference-text";
+import ScrollBottons from "./event/scroll-buttons";
+import EventFooter from "./event/event-footer";
 
 export {
   About,
@@ -26,6 +28,7 @@ export {
   ConferenceDisplay,
   ConferenceText,
   ContactForm,
+  EventFooter,
   EventHeader,
   ExitDraftModeLink,
   Footer,
@@ -37,6 +40,7 @@ export {
   OurValues,
   OurVision,
   RichText,
+  ScrollBottons,
   SubscribeEmailList,
   UpcomingEvents,
   VideoPlayer,

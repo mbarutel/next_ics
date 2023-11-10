@@ -32,7 +32,7 @@ body {
 }
 
 .border {
-  @apply border-solid border-black/40 border-r-[1px] border-l-[1px] border-t-[1px] border-b-[3px] pb-[1px];
+  @apply border-solid border-black/40 border-r-[1px] border-l-[1px] border-t-[1px] border-b-[3px];
 }
 
 .button_padding {

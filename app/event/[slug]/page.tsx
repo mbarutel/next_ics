@@ -2,13 +2,14 @@ import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import {
   Agenda,
-  CallToAction,
   ConferenceText,
+  EventFooter,
   EventHeader,
   Masterclass,
-  SubscribeEmailList,
+  ScrollBottons,
 } from "@/components";
 import { fetchEvent, fetchEvents } from "@/contentful";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 
 type EventPageParams = {
   slug: string;
@@ -34,16 +35,22 @@ export default async function page({ params }: EventPageProps) {
 
   return (
     <>
-      <EventHeader event={eventPage} />
-      <ConferenceText event={eventPage} />
-      {eventPage.agenda === undefined
-        ? null
-        : <Agenda agenda={eventPage.agenda} />}
-      {eventPage.conference.masterclass === undefined
-        ? null
-        : <Masterclass masterclass={eventPage.conference.masterclass} />}
-      <CallToAction />
-      <SubscribeEmailList />
+      <ActiveSectionContextProvider>
+        <EventHeader event={eventPage} />
+        <article className="static max-w-4xl mx-auto px-2 sm:px-0 flex mt-6">
+          <div>
+            <ConferenceText event={eventPage} />
+            {eventPage.agenda === undefined
+              ? null
+              : <Agenda agenda={eventPage.agenda} />}
+            {eventPage.conference.masterclass === undefined
+              ? null
+              : <Masterclass masterclass={eventPage.conference.masterclass} />}
+          </div>
+          <ScrollBottons />
+        </article>
+        <EventFooter />
+      </ActiveSectionContextProvider>
     </>
   );
 }

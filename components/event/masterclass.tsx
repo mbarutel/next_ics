@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { MasterclassType } from "@/contentful/types/types";
 import { RichText } from "..";
 import { VideoPlayer } from "..";
+import { useSectionInView } from "@/lib/hooks";
 
 export default function Masterclass(
   { masterclass }: { masterclass: MasterclassType[] },
@@ -11,10 +12,11 @@ export default function Masterclass(
   const [option, setOption] = useState<MasterclassType>(
     masterclass[0],
   );
+  const { ref } = useSectionInView("Masterclass");
 
   return (
-    <section id="masterclass" className="px-2">
-      <div className="px-4 lg:px-6 pt-6 max-w-4xl mx-auto bg-slate-100 border bg-paper_gradient bg-[length:5px_5px] rounded-md mt-6">
+    <section ref={ref} id="masterclass" className="px-2 scroll-mt-20">
+      <div className="px-4 lg:px-6 py-6 max-w-4xl mx-auto bg-slate-100 border bg-paper_gradient bg-[length:5px_5px] rounded-md mt-6">
         <h3
           style={{ fontFamily: "Abril Fatface" }}
           className="mb-3 text-3xl text-slate-700 uppercase ml-3"
