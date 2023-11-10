@@ -31,7 +31,7 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
           ))}
         </div>
         <div className="grid grid-cols-1 gap-4 relative">
-          <div className="w-[2px] h-[101%] bg-orange-500/60 absolute top-1/2 -translate-y-1/2 left-[65px] sm:left-[87px]" />
+          <div className="w-[3px] h-full bg-orange-500/50 absolute top-1/2 -translate-y-1/2 left-[65px] sm:left-[87px]" />
           {day.row.map((row, index) => (
             <div key={index} className="flex gap-5">
               <span className="uppercase text-slate-500 min-w-[3.5rem] sm:min-w-[5rem] flex items-center text-sm sm:text-lg">
