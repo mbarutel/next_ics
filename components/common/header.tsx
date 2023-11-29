@@ -80,17 +80,20 @@ function ConferenceInfo({ conference }: { conference: ConferencesType }) {
           </span>
           <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-slate-950 transition-all ease-in-out z-0" />
         </Link>
-        <Link
-          href={configs.forms.submitPaper}
-          target="_blank"
-          rel="noreferrer"
-          className="relative inline-flex group button_padding bg-slate-800 text-sm sm:text-base transition-all active:scale-95 rounded-md overflow-hidden"
-        >
-          <span className="z-10">
-            Submit a paper
-          </span>
-          <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-orange-500 transition-all ease-in-out z-0" />
-        </Link>
+        {conference.submitPaperLink &&
+          (
+            <Link
+              href={configs.forms.submitPaper}
+              target="_blank"
+              rel="noreferrer"
+              className="relative inline-flex group button_padding bg-slate-800 text-sm sm:text-base transition-all active:scale-95 rounded-md overflow-hidden"
+            >
+              <span className="z-10">
+                Submit a paper
+              </span>
+              <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-orange-500 transition-all ease-in-out z-0" />
+            </Link>
+          )}
       </span>
     </div>
   );
@@ -132,9 +135,10 @@ function Countdown({ startDate }: { startDate: string }) {
   }, [startDate]);
 
   return (
-    <div 
-      style={{fontFamily:"Gabarito"}}
-      className="z-10 absolute bottom-0 right-0 flex text-white cursor-default">
+    <div
+      style={{ fontFamily: "Gabarito" }}
+      className="z-10 absolute bottom-0 right-0 flex text-white cursor-default"
+    >
       {conferenceTime
         ? (
           <span className="sm:px-8 sm:py-6 bg-slate-600 sm:text-2xl italic uppercase">

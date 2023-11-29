@@ -2,7 +2,6 @@
 
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { eventLinks } from "@/lib/data";
-import clsx from "clsx";
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { BiSolidSquareRounded, BiSquareRounded } from "react-icons/bi";

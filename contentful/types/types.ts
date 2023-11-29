@@ -46,6 +46,7 @@ export type ConferencesType = {
   events: EventType[];
   coverImage: ImageType;
   registrationLink: string;
+  submitPaperLink: string | undefined;
   speakers: SpeakerType[] | undefined;
   masterclass: MasterclassType[] | undefined;
   // location: Location | undefined;
@@ -73,6 +74,7 @@ export type ConferenceInEventType = {
   startDate: string;
   masterclass: MasterclassType[] | undefined;
   registrationLink: string;
+  submitPaperLink: string | undefined;
 };
 
 export type AgendaRowType = {

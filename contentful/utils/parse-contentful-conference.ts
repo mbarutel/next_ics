@@ -7,28 +7,27 @@ import parseContentfulMasterClass from "./parse-contenful-masterclass";
 export default function parseContentfulConferences(
   conferenceEntry: ConferencesEntry,
 ): ConferencesType {
-  
   const coverImage = coverImageParse({
     coverImage: conferenceEntry.fields.coverImage,
   });
 
-  const events = conferenceEntry.fields.events.filter((event) =>
-    event.sys.type === "Entry"
-  ).map((event) => parseContentfulEvent(event as EventEntry));
+  const fields = conferenceEntry.fields;
+
+  const events = fields.events.filter((event) => event.sys.type === "Entry")
+    .map((event) => parseContentfulEvent(event as EventEntry));
 
   let speakers;
   let masterclasses;
 
-  if (conferenceEntry.fields.speakers !== undefined) {
-    speakers = conferenceEntry.fields.speakers.filter((speaker) =>
-      speaker.sys.type === "Entry"
-    ).map((speaker) => parseContentfulSpeaker(speaker as SpeakerEntry));
+  if (fields.speakers !== undefined) {
+    speakers = fields.speakers.filter((speaker) => speaker.sys.type === "Entry")
+      .map((speaker) => parseContentfulSpeaker(speaker as SpeakerEntry));
   } else {
     speakers = undefined;
   }
 
-  if (conferenceEntry.fields.masterclass !== undefined) {
-    masterclasses = conferenceEntry.fields.masterclass.filter((masterclass) =>
+  if (fields.masterclass !== undefined) {
+    masterclasses = fields.masterclass.filter((masterclass) =>
       masterclass.sys.type === "Entry"
     ).map((masterclass) =>
       parseContentfulMasterClass(masterclass as MasterclassEntry)
@@ -38,16 +37,17 @@ export default function parseContentfulConferences(
   }
 
   return {
-    title: conferenceEntry.fields.title,
-    slug: conferenceEntry.fields.slug,
-    registrationLink: conferenceEntry.fields.registrationLink,
-    startDate: conferenceEntry.fields.startDate,
-    endDate: conferenceEntry.fields.endDate,
-    venue: conferenceEntry.fields.venue,
+    title: fields.title,
+    slug: fields.slug,
+    registrationLink: fields.registrationLink,
+    submitPaperLink: fields.submitAPaperLink,
+    startDate: fields.startDate,
+    endDate: fields.endDate,
+    venue: fields.venue,
     coverImage: coverImage,
     events: events,
     speakers: speakers,
-    masterclass: masterclasses
+    masterclass: masterclasses,
     // location: conferenceEntry.fields.location,
   };
 }

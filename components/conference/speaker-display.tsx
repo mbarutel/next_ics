@@ -64,7 +64,9 @@ export default function SpeakersDisplay(
                 >
                   {speaker.name}
                 </h4>
-                <h5 className="text-slate-600 font-semibold">{speaker.jobTitle}</h5>
+                <h5 className="text-slate-600 font-semibold">
+                  {speaker.jobTitle}
+                </h5>
                 <h5 className="text-slate-600 mb-3">{speaker.organization}</h5>
                 <SpeakerRichText document={speaker.biography} />
               </>
@@ -90,6 +92,7 @@ export default function SpeakersDisplay(
                     src={speaker.photo.src}
                     alt={speaker.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-contain"
                   />
                 </div>

@@ -30,12 +30,9 @@ function parseConferenceInEvent(
     endDate: conference.fields.endDate,
     startDate: conference.fields.startDate,
     registrationLink: conference.fields.registrationLink,
+    submitPaperLink: conference.fields.submitAPaperLink,
   };
 }
-
-// function parseAgendaInEvent({ agenda }: { agenda: any }) {
-//   console.log(agenda);
-// }
 
 export default function parseContentfulEvent(
   eventEntry: EventEntry,

@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import EventDisplay from "./event-display";
 import SpeakersDisplay from "./speaker-display";
 import { ConferencesType } from "@/contentful/types/types";
+import clsx from "clsx";
 
 export default function ConferenceDisplay(
   { conference }: {
@@ -16,7 +17,15 @@ export default function ConferenceDisplay(
       >
         {conference.title}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 lg:mb-8">
+      <div
+        className={clsx("grid grid-cols-1 gap-4 mb-4 lg:mb-8", {
+          "lg:grid-cols-1": conference.events.length === 1,
+        }, {
+          "lg:grid-cols-2": (conference.events.length % 2) === 0,
+        }, {
+          "lg:grid-cols-3": conference.events.length >= 3,
+        })}
+      >
         {conference.events.map((event) => (
           <Fragment key={event.slug}>
             <EventDisplay
@@ -29,7 +38,8 @@ export default function ConferenceDisplay(
           </Fragment>
         ))}
       </div>
-      <SpeakersDisplay conference={conference} />
+      {conference.speakers &&
+        <SpeakersDisplay conference={conference} />}
     </div>
   );
 }

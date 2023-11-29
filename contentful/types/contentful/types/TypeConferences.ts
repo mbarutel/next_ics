@@ -13,8 +13,9 @@ export interface TypeConferencesFields {
     startDate: EntryFieldTypes.Date;
     endDate: EntryFieldTypes.Date;
     slug: EntryFieldTypes.Symbol;
-    speakers: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeSpeakerSkeleton>>;
+    speakers?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeSpeakerSkeleton>>;
     masterclass?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeMasterclassSkeleton>>;
+    submitAPaperLink?: EntryFieldTypes.Symbol;
 }
 
 export type TypeConferencesSkeleton = EntrySkeletonType<TypeConferencesFields, "conferences">;
