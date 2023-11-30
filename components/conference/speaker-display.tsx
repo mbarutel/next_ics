@@ -76,7 +76,7 @@ export default function SpeakersDisplay(
         {side === true ? null : (
           <a.div
             style={{ opacity: opacity.to((o) => 1 - o) }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-2 overflow-x-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4"
           >
             {conference.speakers.map((speaker) => (
               <div
@@ -85,9 +85,9 @@ export default function SpeakersDisplay(
                   setSide((side) => !side);
                   setSpeaker(speaker);
                 }}
-                className="flex items-center bg-slate-300 shadow-md rounded-md cursor-pointer hover:bg-slate-400/70 transition-all"
+                className="flex items-center bg-slate-300 shadow-md rounded-md cursor-pointer hover:bg-slate-400/70 transition-all py-2"
               >
-                <div className="relative h-20 w-20">
+                <div className="relative h-20 min-w-[5rem]">
                   <Image
                     src={speaker.photo.src}
                     alt={speaker.name}
@@ -96,11 +96,17 @@ export default function SpeakersDisplay(
                     className="object-contain"
                   />
                 </div>
-                <span>
-                  <h4 className="text-slate-700 font-semibold">
+                <span className="grid grid-cols-1 ml-2">
+                  <h4
+                    style={{ fontFamily: "Gabarito" }}
+                    className="text-slate-700/90 font-bold"
+                  >
                     {speaker.name}
                   </h4>
-                  <small className="flex -mt-1 text-sm text-slate-600">
+                  <small className="text-sm text-slate-700/80 font-semibold">
+                    {speaker.organization}
+                  </small>
+                  <small className="text-sm text-slate-600">
                     {speaker.jobTitle}
                   </small>
                 </span>
