@@ -9,6 +9,8 @@ export default function ConferenceDisplay(
     conference: ConferencesType;
   },
 ) {
+  const length = conference.events.length;
+
   return (
     <div>
       <h2
@@ -19,11 +21,11 @@ export default function ConferenceDisplay(
       </h2>
       <div
         className={clsx("grid grid-cols-1 gap-4 mb-4 lg:mb-8", {
-          "lg:grid-cols-1": conference.events.length === 1,
+          "lg:grid-cols-1": length === 1,
         }, {
-          "lg:grid-cols-2": (conference.events.length % 2) === 0,
+          "lg:grid-cols-2": (length % 2) === 0,
         }, {
-          "lg:grid-cols-3": conference.events.length >= 3,
+          "lg:grid-cols-3": length >= 3,
         })}
       >
         {conference.events.map((event) => (
