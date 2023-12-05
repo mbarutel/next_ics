@@ -14,7 +14,7 @@ export default function UpcomingEvents(
         >
           Upcoming Events
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3">
           {conferences.map((conference) => (
             <Fragment key={conference.slug}>
               <Events conference={conference} />
@@ -34,7 +34,7 @@ function Events({ conference }: { conference: ConferencesType }) {
           return null;
         } else {
           return (
-            <div key={event.slug} className="flex flex-col">
+            <div key={event.slug} className="flex flex-col rounded-lg shadow-lg p-4 bg-stone-100">
               <h4
                 style={{ fontFamily: "Abril Fatface" }}
                 className="mb-2 text-slate-800/70"
