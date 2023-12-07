@@ -1,22 +1,25 @@
 import {
   ConferencesEntry,
-  ConferencesSectionType,
+  ConferenceType,
   EventCardType,
   EventEntry,
+  MasterclassEntry,
+  MasterclassType,
   SpeakerCardType,
   SpeakerEntry,
 } from "../types/types";
 import {
   TypeEventSkeleton,
+  TypeMasterclassSkeleton,
   TypeSpeakerSkeleton,
 } from "../types/contentful/types";
 import { Entry, UnresolvedLink } from "contentful";
 import parserEventCard from "./parser-event-card";
 import parserSpeakerCard from "./parser-speaker-card";
 
-export default function parserConferenceSection(
+export default function parserConferenceEntry(
   conferenceEntry: ConferencesEntry,
-): ConferencesSectionType {
+): ConferenceType {
   return {
     slug: conferenceEntry.fields.slug,
     title: conferenceEntry.fields.title,
@@ -25,12 +28,15 @@ export default function parserConferenceSection(
     endDate: conferenceEntry.fields.endDate,
     registrationLink: conferenceEntry.fields.registrationLink,
     submitPaperLink: conferenceEntry.fields.submitAPaperLink,
-    events: parseEventCards(conferenceEntry.fields.events),
-    speakers: parseSpeakerCards(conferenceEntry.fields.speakers),
+    events: parseEventsInConference(conferenceEntry.fields.events),
+    speakers: parseSpeakersInConference(conferenceEntry.fields.speakers),
+    masterclass: parseMasterclassesInConference(
+      conferenceEntry.fields.masterclass,
+    ),
   };
 }
 
-function parseEventCards(
+function parseEventsInConference(
   events:
     (UnresolvedLink<"Entry"> | Entry<TypeEventSkeleton, undefined, string>)[],
 ): EventCardType[] {
@@ -42,7 +48,7 @@ function parseEventCards(
   }
 }
 
-function parseSpeakerCards(
+function parseSpeakersInConference(
   speakers:
     | (
       | UnresolvedLink<"Entry">
@@ -57,3 +63,21 @@ function parseSpeakerCards(
     return [];
   }
 }
+
+// function parseMasterclassesInConference(
+//   masterclasses:
+//     | (
+//       | UnresolvedLink<"Entry">
+//       | Entry<TypeMasterclassSkeleton, undefined, string>
+//     )[]
+//     | undefined,
+// ): MasterclassType[] {
+//   if (masterclasses) {
+//     return masterclasses.filter((masterclass) =>
+//       masterclass.sys.type === "Entry"
+//     )
+//       .map((masterclass) => parserSpeakerCard(masterclass as MasterclassEntry));
+//   } else {
+//     return [];
+//   }
+// }

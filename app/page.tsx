@@ -4,11 +4,16 @@ import {
   SubscribeEmailList,
   UpcomingEvents,
 } from "@/components";
-
-import { fetchConferences } from "@/contentful";
+import { Conference } from "@/contentful/services/conferences";
+import { draftMode } from "next/headers";
 
 export default async function Home() {
-  const conferences = await fetchConferences({ preview: false });
+  const conferenceInstance = new Conference({
+    preview: draftMode().isEnabled,
+    parser: parseContentfulHeader,
+  });
+
+  const conferences = await conferenceInstance.getConferences();
 
   return (
     <>

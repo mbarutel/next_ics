@@ -6,6 +6,7 @@ import {
 } from "../types/contentful/types";
 import { Entry } from "contentful";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
+import { Omit } from "@react-spring/web";
 
 export type ConferencesEntry = Entry<
   TypeConferencesSkeleton,
@@ -31,50 +32,78 @@ export type SpeakerEntry = Entry<TypeSpeakerSkeleton, undefined, string>;
 //   lat: number | undefined;
 //   lon: number | undefined;
 // };
-
-type ConferenceBaseType = {
+export type ConferenceType = {
   slug: string;
   title: string;
   venue: string;
   endDate: string;
   startDate: string;
+  coverImage: AssetType;
+  events: EventCardType[];
+  speakers: SpeakerType[];
   registrationLink: string;
+  masterclass: MasterclassType[];
   submitPaperLink: string | undefined;
 };
 
-export type ConferencesHeaderType = ConferenceBaseType & {
-  coverImage: AssetType;
-};
+// type ConferenceBaseType = {
+//   slug: string;
+//   title: string;
+//   venue: string;
+//   endDate: string;
+//   startDate: string;
+//   registrationLink: string;
+//   submitPaperLink: string | undefined;
+// };
+//
+// export type ConferencesHeaderType = ConferenceBaseType & {
+//   coverImage: AssetType;
+// };
+//
+// export type ConferencesSectionType = ConferenceBaseType & {
+//   events: EventCardType[];
+//   speakers: SpeakerType[];
+// };
 
-export type ConferencesSectionType = ConferenceBaseType & {
-  events: EventCardType[];
-  speakers: SpeakerType[];
-};
+// export type ConferenceInEventType = ConferenceBaseType & {
+//   masterclass: MasterclassType[];
+// };
+export type ConferenceInEventType = Omit<
+  ConferencesType,
+  "slug" | "tite" | "events" | "coverImage" | "speakers"
+>;
 
-export type ConferenceInEventType = ConferenceBaseType & {
-  masterclass: MasterclassType[];
-};
-
-type EventBaseType = {
+type EventType = {
   slug: string;
   title: string;
-  description: string;
   tags: string[];
-};
-
-export type EventCardType = EventBaseType & {
   description: string;
-  coverImage: AssetType;
-};
-
-export type EventArticleType = EventBaseType & {
-  description: string;
+  agenda: AgendaType[];
   coverImage: AssetType;
   content: RichTextDocument;
-  tags: string[] | undefined;
-  agenda: AgendaType[] | undefined;
-  conference: ConferenceInEventType;
+  conference: ConferenceInEventType | undefined;
 };
+
+// type EventBaseType = {
+//   slug: string;
+//   title: string;
+//   description: string;
+//   tags: string[];
+// };
+//
+// export type EventCardType = EventBaseType & {
+//   description: string;
+//   coverImage: AssetType;
+// };
+//
+// export type EventArticleType = EventBaseType & {
+//   description: string;
+//   coverImage: AssetType;
+//   content: RichTextDocument;
+//   tags: string[] | undefined;
+//   agenda: AgendaType[] | undefined;
+//   conference: ConferenceInEventType;
+// };
 
 export type AssetType = {
   src: string;
@@ -107,18 +136,16 @@ export type AgendaType = {
   row: AgendaRowType[];
 };
 
-export type EventType = {
-  slug: string;
-  title: string;
-  description: string;
-  coverImage: AssetType;
-  content: RichTextDocument;
-  tags: string[] | undefined;
-  agenda: AgendaType[] | undefined;
-  conference: ConferenceInEventType;
-};
-
-
+// export type EventType = {
+//   slug: string;
+//   title: string;
+//   description: string;
+//   coverImage: AssetType;
+//   content: RichTextDocument;
+//   tags: string[] | undefined;
+//   agenda: AgendaType[] | undefined;
+//   conference: ConferenceInEventType;
+// };
 
 // export type ConferencesType = {
 //   slug: string;
