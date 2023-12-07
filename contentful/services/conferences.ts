@@ -2,6 +2,7 @@ import { contentfulClient } from "../client";
 import { ConferencesType } from "../types/types";
 import { parseContentfulConferences } from "../utils";
 import { TypeConferencesSkeleton } from "../types/contentful/types/TypeConferences";
+import { ContentfulClientApi } from "contentful";
 
 // Fetch all of the CONFERENCES
 export async function fetchConferences(
@@ -36,4 +37,28 @@ export async function fetchConference(
     return null;
   }
   return parseContentfulConferences(conferenceResult.items[0]);
+}
+
+class Conference {
+  private client: ContentfulClientApi<undefined>;
+
+  constructor({ preview }: { preview: boolean }) {
+    this.client = contentfulClient({ preview });
+  }
+
+  public getConference(): string {
+    return this._name;
+  }
+
+  public setName(name: string): void {
+    this._name = name;
+  }
+
+  public getAge(): number {
+    return this._age;
+  }
+
+  public setAge(age: number): void {
+    this._age = age;
+  }
 }

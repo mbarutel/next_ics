@@ -5,9 +5,10 @@ export default function coverImageParse(
   { coverImage }: {
     coverImage: UnresolvedLink<"Asset"> | Asset<undefined, string> | undefined;
   },
-): ImageType {
+): ImageType | undefined {
+  console.log(coverImage);
   if (!coverImage || !("fields" in coverImage)) {
-    throw Error("Cover image must not be empty");
+    return undefined;
   }
 
   return {

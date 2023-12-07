@@ -7,23 +7,6 @@ import {
 import { Entry } from "contentful";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 
-export type ImageType = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-};
-
-export type AssetType = {
-  src: string;
-  alt: string;
-};
-
-export type Location = {
-  lat: number | undefined;
-  lon: number | undefined;
-};
-
 export type ConferencesEntry = Entry<
   TypeConferencesSkeleton,
   undefined,
@@ -36,6 +19,52 @@ export type MasterclassEntry = Entry<
 >;
 export type EventEntry = Entry<TypeEventSkeleton, undefined, string>;
 export type SpeakerEntry = Entry<TypeSpeakerSkeleton, undefined, string>;
+
+export type ImageType = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+// export type AssetType = {
+//   src: string;
+//   alt: string;
+// };
+export type AssetType = ImageType;
+
+// export type Location = {
+//   lat: number | undefined;
+//   lon: number | undefined;
+// };
+
+type ConferenceBaseType = {
+  slug: string;
+  title: string;
+  venue: string;
+  endDate: string;
+  startDate: string;
+  registrationLink: string;
+  submitPaperLink: string | undefined;
+};
+
+export type ConferencesHeaderType = ConferenceBaseType & {
+  coverImage: ImageType;
+};
+
+export type ConferencesDisplayType = ConferenceBaseType & {
+  events: EventType[];
+  speakers: SpeakerType[] | undefined;
+  masterclass: MasterclassType[] | undefined;
+};
+
+export type ConferenceInEventType = ConferenceBaseType & {
+  masterclass: MasterclassType[] | undefined;
+};
+
+export type ConferencesContentfulType = ConferenceBaseType & {
+  coverImage: ImageType;
+};
 
 export type ConferencesType = {
   slug: string;
@@ -52,6 +81,20 @@ export type ConferencesType = {
   // location: Location | undefined;
 };
 
+// export type ConferenceInEventType = {
+//   venue: string;
+//   endDate: string;
+//   startDate: string;
+//   masterclass: MasterclassType[] | undefined;
+//   registrationLink: string;
+//   submitPaperLink: string | undefined;
+// };
+
+// export type ConferenceInEventType = Omit<
+//   ConferencesType,
+//   "slug" | "tite" | "events" | "coverImage" | "speakers"
+// >;
+
 export type MasterclassType = {
   title: string;
   slug: string;
@@ -66,15 +109,6 @@ export type SpeakerType = {
   organization: string;
   photo: ImageType;
   biography: RichTextDocument;
-};
-
-export type ConferenceInEventType = {
-  venue: string;
-  endDate: string;
-  startDate: string;
-  masterclass: MasterclassType[] | undefined;
-  registrationLink: string;
-  submitPaperLink: string | undefined;
 };
 
 export type AgendaRowType = {
