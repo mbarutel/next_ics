@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
-import { ConferencesType } from "@/contentful/types/types";
 import Link from "next/link";
+import React, { Fragment } from "react";
+import { ConferenceType } from "@/lib/types";
 
 export default function UpcomingEvents(
-  { conferences }: { conferences: ConferencesType[] },
+  { conferences }: { conferences: ConferenceType[] },
 ) {
   return (
     <section className="pt-8 lg:pt-12">
@@ -26,7 +26,7 @@ export default function UpcomingEvents(
   );
 }
 
-function Events({ conference }: { conference: ConferencesType }) {
+function Events({ conference }: { conference: ConferenceType }) {
   return (
     <>
       {conference.events.map((event) => {
@@ -34,7 +34,10 @@ function Events({ conference }: { conference: ConferencesType }) {
           return null;
         } else {
           return (
-            <div key={event.slug} className="flex flex-col rounded-lg shadow-lg p-4 bg-stone-100">
+            <div
+              key={event.slug}
+              className="flex flex-col rounded-lg shadow-lg p-4 bg-stone-100"
+            >
               <h4
                 style={{ fontFamily: "Abril Fatface" }}
                 className="mb-2 text-slate-800/70"
@@ -47,7 +50,9 @@ function Events({ conference }: { conference: ConferencesType }) {
               >
                 {event.title}
               </h3>
-              <p className="flex-grow text-justify text-slate-800/80">{event.description}</p>
+              <p className="flex-grow text-justify text-slate-800/80">
+                {event.description}
+              </p>
               <div className="w-full h-[2px] bg-black/80 my-3" />
               <Link
                 href={`/event/${event.slug}`}

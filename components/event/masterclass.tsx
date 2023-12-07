@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MasterclassType } from "@/contentful/types/types";
+import { MasterclassType } from "@/lib/types";
 import { RichText } from "..";
 import { VideoPlayer } from "..";
 import { useSectionInView } from "@/lib/hooks";

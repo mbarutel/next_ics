@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { AgendaType } from "@/contentful/types/types";
+import { AgendaType } from "@/lib/types";
 import { useSectionInView } from "@/lib/hooks";
 
 export default function Agenda({ agenda }: { agenda: AgendaType[] }) {

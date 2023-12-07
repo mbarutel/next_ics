@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import EventDisplay from "./event-display";
 import SpeakersDisplay from "./speaker-display";
-import { ConferencesType } from "@/contentful/types/types";
+import { ConferenceType } from "@/lib/types";
 import clsx from "clsx";
 
 export default function ConferenceDisplay(
   { conference }: {
-    conference: ConferencesType;
+    conference: ConferenceType;
   },
 ) {
   const length = conference.events.length;

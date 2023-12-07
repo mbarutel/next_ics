@@ -2,13 +2,12 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { a, useSpring } from "@react-spring/web";
-import { ConferencesType } from "@/contentful/types/types";
-import { SpeakerType } from "@/contentful/types/types";
+import { ConferenceType, SpeakerType } from "@/lib/types";
 import SpeakerRichText from "./speaker-rich-text";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function SpeakersDisplay(
-  { conference }: { conference: ConferencesType },
+  { conference }: { conference: ConferenceType },
 ) {
   const [side, setSide] = useState(false);
   const [speaker, setSpeaker] = useState<SpeakerType | null>(null);

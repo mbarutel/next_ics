@@ -2,7 +2,7 @@
 
 import React from "react";
 import { RichText } from "..";
-import { EventType } from "@/contentful/types/types";
+import { EventType } from "@/lib/types";
 import { useSectionInView } from "@/lib/hooks";
 
 export default function ConferenceText(

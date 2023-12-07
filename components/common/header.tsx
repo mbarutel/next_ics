@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { ConferencesType } from "@/contentful/types/types";
+import { ConferenceType } from "@/lib/types";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import dayjs from "dayjs";
 import { configs } from "@/lib/data";
 
 export default function Header(
-  { conferences }: { conferences: ConferencesType[] },
+  { conferences }: { conferences: ConferenceType[] },
 ) {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 8000, stopOnMouseEnter: true, stopOnInteraction: false }),
@@ -46,7 +46,7 @@ export default function Header(
   );
 }
 
-function ConferenceInfo({ conference }: { conference: ConferencesType }) {
+function ConferenceInfo({ conference }: { conference: ConferenceType }) {
   const localizedFormat = require("dayjs/plugin/localizedFormat");
   dayjs.extend(localizedFormat);
 
