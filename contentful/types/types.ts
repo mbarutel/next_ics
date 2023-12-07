@@ -20,18 +20,12 @@ export type MasterclassEntry = Entry<
 export type EventEntry = Entry<TypeEventSkeleton, undefined, string>;
 export type SpeakerEntry = Entry<TypeSpeakerSkeleton, undefined, string>;
 
-export type ImageType = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-};
-
-// export type AssetType = {
+// export type ImageType = {
 //   src: string;
 //   alt: string;
+//   width: number;
+//   height: number;
 // };
-export type AssetType = ImageType;
 
 // export type Location = {
 //   lat: number | undefined;
@@ -49,51 +43,43 @@ type ConferenceBaseType = {
 };
 
 export type ConferencesHeaderType = ConferenceBaseType & {
-  coverImage: ImageType;
+  coverImage: AssetType;
 };
 
-export type ConferencesDisplayType = ConferenceBaseType & {
-  events: EventType[];
-  speakers: SpeakerType[] | undefined;
-  masterclass: MasterclassType[] | undefined;
+export type ConferencesSectionType = ConferenceBaseType & {
+  events: EventCardType[];
+  speakers: SpeakerType[];
 };
 
 export type ConferenceInEventType = ConferenceBaseType & {
-  masterclass: MasterclassType[] | undefined;
+  masterclass: MasterclassType[];
 };
 
-export type ConferencesContentfulType = ConferenceBaseType & {
-  coverImage: ImageType;
-};
-
-export type ConferencesType = {
+type EventBaseType = {
   slug: string;
   title: string;
-  venue: string;
-  endDate: string;
-  startDate: string;
-  events: EventType[];
-  coverImage: ImageType;
-  registrationLink: string;
-  submitPaperLink: string | undefined;
-  speakers: SpeakerType[] | undefined;
-  masterclass: MasterclassType[] | undefined;
-  // location: Location | undefined;
+  description: string;
+  tags: string[];
 };
 
-// export type ConferenceInEventType = {
-//   venue: string;
-//   endDate: string;
-//   startDate: string;
-//   masterclass: MasterclassType[] | undefined;
-//   registrationLink: string;
-//   submitPaperLink: string | undefined;
-// };
+export type EventCardType = EventBaseType & {
+  description: string;
+  coverImage: AssetType;
+};
 
-// export type ConferenceInEventType = Omit<
-//   ConferencesType,
-//   "slug" | "tite" | "events" | "coverImage" | "speakers"
-// >;
+export type EventArticleType = EventBaseType & {
+  description: string;
+  coverImage: AssetType;
+  content: RichTextDocument;
+  tags: string[] | undefined;
+  agenda: AgendaType[] | undefined;
+  conference: ConferenceInEventType;
+};
+
+export type AssetType = {
+  src: string;
+  alt: string;
+};
 
 export type MasterclassType = {
   title: string;
@@ -102,12 +88,12 @@ export type MasterclassType = {
   asset: AssetType | undefined;
 };
 
-export type SpeakerType = {
+export type SpeakerCardType = {
   name: string;
   slug: string;
   jobTitle: string;
   organization: string;
-  photo: ImageType;
+  photo: AssetType;
   biography: RichTextDocument;
 };
 
@@ -125,10 +111,40 @@ export type EventType = {
   slug: string;
   title: string;
   description: string;
-  coverImage: ImageType;
+  coverImage: AssetType;
   content: RichTextDocument;
   tags: string[] | undefined;
   agenda: AgendaType[] | undefined;
   conference: ConferenceInEventType;
-  // media: string[] | undefined;
 };
+
+
+
+// export type ConferencesType = {
+//   slug: string;
+//   title: string;
+//   venue: string;
+//   endDate: string;
+//   startDate: string;
+//   events: EventType[];
+//   coverImage: ImageType;
+//   registrationLink: string;
+//   submitPaperLink: string | undefined;
+//   speakers: SpeakerType[] | undefined;
+//   masterclass: MasterclassType[] | undefined;
+//   location: Location | undefined;
+// };
+
+// export type ConferenceInEventType = {
+//   venue: string;
+//   endDate: string;
+//   startDate: string;
+//   masterclass: MasterclassType[] | undefined;
+//   registrationLink: string;
+//   submitPaperLink: string | undefined;
+// };
+
+// export type ConferenceInEventType = Omit<
+//   ConferencesType,
+//   "slug" | "tite" | "events" | "coverImage" | "speakers"
+// >;

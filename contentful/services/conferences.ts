@@ -39,26 +39,42 @@ export async function fetchConference(
   return parseContentfulConferences(conferenceResult.items[0]);
 }
 
-class Conference {
+// This class includes the methods to request
+export class Conference {
   private client: ContentfulClientApi<undefined>;
+  private parser: Function;
 
-  constructor({ preview }: { preview: boolean }) {
+  constructor({ preview, parser }: { preview: boolean; parser: Function }) {
     this.client = contentfulClient({ preview });
+    this.parser = parser;
   }
 
-  public getConference(): string {
-    return this._name;
+  public async getConference(slug: string): Promise<ConferencesType | null> {
+    const conferenceResult = await this.client.getEntries<
+      TypeConferencesSkeleton
+    >({
+      content_type: "conferences",
+      "fields.slug": slug,
+      include: 2,
+    });
+
+    if (conferenceResult.items.length === 0) {
+      return null;
+    }
+    return this.parser(conferenceResult.items[0]);
   }
 
-  public setName(name: string): void {
-    this._name = name;
-  }
+  public async getConferences(): Promise<ConferencesType[]> {
+    const conferenceResult = await this.client.getEntries<
+      TypeConferencesSkeleton
+    >({
+      content_type: "conferences",
+      include: 2,
+      order: ["fields.startDate"],
+    });
 
-  public getAge(): number {
-    return this._age;
-  }
-
-  public setAge(age: number): void {
-    this._age = age;
+    return conferenceResult.items.map((conferenceEntry) =>
+      this.parser(conferenceEntry)
+    );
   }
 }

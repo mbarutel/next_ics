@@ -6,12 +6,15 @@ import {
 } from "@/components";
 import React, { Fragment } from "react";
 import { draftMode } from "next/headers";
-import { fetchConferences } from "@/contentful";
+import { Conference } from "@/contentful/services/conferences";
+import parseContentfulHeader from "@/contentful/utils/parser-conference-header";
 
 export default async function page() {
-  const conferences = await fetchConferences({
+  const conferenceInstance = new Conference({
     preview: draftMode().isEnabled,
+    parser: parseContentfulHeader,
   });
+  const conferences = await conferenceInstance.getConferences();
 
   return (
     <>
