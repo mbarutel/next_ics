@@ -5,6 +5,7 @@ import { a, useSpring } from "@react-spring/web";
 import { ConferenceType, SpeakerType } from "@/lib/types";
 import SpeakerRichText from "./speaker-rich-text";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import clsx from "clsx";
 
 export default function SpeakersDisplay(
   { conference }: { conference: ConferenceType },
@@ -75,7 +76,10 @@ export default function SpeakersDisplay(
         {side === true ? null : (
           <a.div
             style={{ opacity: opacity.to((o) => 1 - o) }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4 max-h-[40rem] overflow-y-auto pb-1"
+            className={clsx(
+              "grid grid-cols-1 gap-y-2 gap-x-4 max-h-[25rem] sm:max-h-[40rem] overflow-y-auto pb-1",
+              { "sm:grid-cols-2": conference.speakers.length > 3 },
+            )}
           >
             {conference.speakers.map((speaker) => (
               <div

@@ -16,32 +16,32 @@ export default function EventDisplay(props: EventDisplayProps) {
   dayjs.extend(localizedFormat);
 
   return (
-    <div className="grow flex flex-col bg-slate-300 p-4 shadow-lg rounded-md">
-      <h3
-        style={{ fontFamily: "Abril Fatface" }}
-        className="text-xl text-slate-800 mb-2"
-      >
-        {props.event.title}
-      </h3>
+    <div className="grow flex flex-col bg-slate-300 shadow-lg rounded-md">
       <div className="grow">
-        <div className="h-64 w-32 sm:h-72 float-left mr-2 relative">
+        <div className="h-80 w-52 float-left mr-2 relative overflow-hidden rounded-tl-md">
           <Image
             fill
             priority={true}
             alt={props.event.poster.alt}
             src={props.event.poster.src}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-contain object-left-top rounded-md"
+            className="object-cover hover:scale-110 duration-200 object-top"
           />
         </div>
-        <p className="text-justify h-full text-slate-800/80">
+        <h3
+          style={{ fontFamily: "Abril Fatface" }}
+          className="text-xl text-slate-800 text-center mt-3 px-2"
+        >
+          {props.event.title}
+        </h3>
+        <p className="text-justify text-slate-800/80 p-5">
           {props.event.description}
         </p>
       </div>
 
       <div
         style={{ fontFamily: "Gabarito" }}
-        className="flex justify-between uppercase text-slate-800/70 mt-4 text-sm lg:text-lg"
+        className="flex justify-between uppercase text-slate-800/70 mt-4 text-sm lg:text-lg px-5"
       >
         <span className="flex">
           {dayjs(props.startDate).format("DD ")}-{" "}
@@ -52,7 +52,7 @@ export default function EventDisplay(props: EventDisplayProps) {
         </span>
       </div>
       <div className="w-full h-[2px] bg-black/80 my-3" />
-      <div className="flex gap-3">
+      <div className="flex gap-3 px-1 pb-1">
         <Link
           href={`/event/${props.event.slug}`}
           className="relative w-fit inline-flex group mt-3 button_padding bg-orange-500  text-white transition-all active:scale-95 items-center rounded-md overflow-hidden"
