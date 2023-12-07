@@ -6,26 +6,10 @@ import {
 } from "@/contentful/types/contentful/types";
 import { Entry } from "contentful";
 import { eventLinks } from "./data";
+import { Omit } from "@react-spring/web";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 
 export type SectionName = typeof eventLinks[number]["name"];
-
-export type ImageType = {
-  src: string;
-  alt: string;
-};
-
-// export type AssetType = {
-//   src: string;
-//   alt: string;
-// };
-//
-export type AssetType = ImageType;
-
-export type Location = {
-  lat: number | undefined;
-  lon: number | undefined;
-};
 
 export type ConferencesEntry = Entry<
   TypeConferencesSkeleton,
@@ -40,19 +24,39 @@ export type MasterclassEntry = Entry<
 export type EventEntry = Entry<TypeEventSkeleton, undefined, string>;
 export type SpeakerEntry = Entry<TypeSpeakerSkeleton, undefined, string>;
 
-export type ConferencesType = {
+export type ConferenceType = {
   slug: string;
   title: string;
   venue: string;
   endDate: string;
   startDate: string;
+  coverImage: AssetType;
   events: EventType[];
-  coverImage: ImageType;
+  speakers: SpeakerType[];
   registrationLink: string;
+  masterclass: MasterclassType[];
   submitPaperLink: string | undefined;
-  speakers: SpeakerType[] | undefined;
-  masterclass: MasterclassType[] | undefined;
-  // location: Location | undefined;
+};
+
+export type EventType = {
+  slug: string;
+  title: string;
+  tags: string[];
+  description: string;
+  agenda: AgendaType[];
+  poster: AssetType;
+  content: RichTextDocument;
+  conference: ConferenceInEventType | undefined;
+};
+
+export type ConferenceInEventType = Omit<
+  ConferenceType,
+  "slug" | "tite" | "events" | "coverImage" | "speakers"
+>;
+
+export type AssetType = {
+  src: string;
+  alt: string;
 };
 
 export type MasterclassType = {
@@ -66,18 +70,9 @@ export type SpeakerType = {
   name: string;
   slug: string;
   jobTitle: string;
+  photo: AssetType;
   organization: string;
-  photo: ImageType;
   biography: RichTextDocument;
-};
-
-export type ConferenceInEventType = {
-  venue: string;
-  endDate: string;
-  startDate: string;
-  masterclass: MasterclassType[] | undefined;
-  registrationLink: string;
-  submitPaperLink: string | undefined;
 };
 
 export type AgendaRowType = {
@@ -88,9 +83,4 @@ export type AgendaRowType = {
 export type AgendaType = {
   title: string;
   row: AgendaRowType[];
-};
-
-export type EventType = {
-  slug: string;
-  title: string;
 };

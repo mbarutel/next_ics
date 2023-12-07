@@ -1,4 +1,4 @@
-import { SpeakerCardType, SpeakerEntry } from "../types/types";
+import { SpeakerCardType, SpeakerEntry } from "@/lib/types";
 import imageParse from "./image-parse";
 
 export default function parserSpeakerCard(

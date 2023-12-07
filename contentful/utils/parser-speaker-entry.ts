@@ -1,15 +1,13 @@
-import coverImageParse from "./cover-image-parse";
-import { SpeakerEntry, SpeakerType } from "../types/types";
+import { SpeakerEntry, SpeakerType } from "@/lib/types";
+import parseAssetEntry from "./parser-asset-entry";
 
-export default function parseContentfulSpeaker(
+export default function parserSpeakerEntry(
   speakerEntry: SpeakerEntry,
 ): SpeakerType {
-  const photo = coverImageParse({
-    coverImage: speakerEntry.fields.photo,
-  });
-
   return {
-    photo: photo,
+    photo: parseAssetEntry({
+      coverImage: speakerEntry.fields.photo,
+    }),
     slug: speakerEntry.fields.slug,
     name: speakerEntry.fields.name,
     jobTitle: speakerEntry.fields.jobTitle,

@@ -7,7 +7,7 @@ import {
   MasterclassType,
   SpeakerCardType,
   SpeakerEntry,
-} from "../types/types";
+} from "@/lib/types";
 import {
   TypeEventSkeleton,
   TypeMasterclassSkeleton,

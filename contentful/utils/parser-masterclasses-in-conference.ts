@@ -1,6 +1,6 @@
 import { Entry, UnresolvedLink } from "contentful";
+import { MasterclassEntry, MasterclassType } from "@/lib/types";
 import { TypeMasterclassSkeleton } from "../types/contentful/types";
-import { MasterclassEntry, MasterclassType } from "../types/types";
 import parseContentfulMasterClass from "./parse-contenful-masterclass";
 
 export default function parserMasterclassesInConference(

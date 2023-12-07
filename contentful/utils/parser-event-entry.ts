@@ -4,8 +4,8 @@ import {
   ConferenceInEventType,
   EventEntry,
   EventType,
-} from "../types/types";
-import imageParse from "./image-parse";
+} from "@/lib/types";
+import parserAssetEntry from "./parser-asset-entry";
 import { TypeConferencesSkeleton } from "../types/contentful/types";
 import parserMasterclassesInConference from "./parser-masterclasses-in-conference";
 
@@ -17,7 +17,7 @@ export default function parserEventCard(
     title: eventEntry.fields.title,
     description: eventEntry.fields.description,
     tags: eventEntry.fields.tags ? eventEntry.fields.tags : [],
-    coverImage: imageParse({ asset: eventEntry.fields.coverImage }),
+    poster: parserAssetEntry({ asset: eventEntry.fields.coverImage }),
     content: eventEntry.fields.content,
     agenda: parseAgenda(eventEntry.fields.agenda),
     conference: parseConferenceInEvent(eventEntry.fields.conference),
@@ -46,6 +46,7 @@ function parseConferenceInEvent(
 ): ConferenceInEventType | undefined {
   if ("fields" in conference) {
     return {
+      title: conference.fields.title,
       venue: conference.fields.venue,
       endDate: conference.fields.endDate,
       startDate: conference.fields.startDate,
