@@ -1,14 +1,17 @@
 "use client";
 
+import dayjs from "dayjs";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import dayjs from "dayjs";
-import { EventType } from "@/contentful/types/types";
 import { configs } from "@/lib/data";
+import { ConferenceType, EventType } from "@/lib/types";
 
+type EventHeaderProp = Omit<EventType, "conference"> & {
+  conference: ConferenceType;
+};
 export default function EventHeader(
-  { event }: { event: EventType },
+  { event }: { event: EventHeaderProp },
 ) {
   const localizedFormat = require("dayjs/plugin/localizedFormat");
   dayjs.extend(localizedFormat);
@@ -19,7 +22,7 @@ export default function EventHeader(
         <div className="relative h-full bg-gradient-radial flex justify-center items-center">
           <div className="relative h-56 w-full hidden md:block">
             <Image
-              src={event.coverImage.src}
+              src={event.poster.src}
               alt="Event Cover Image"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

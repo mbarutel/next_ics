@@ -1,11 +1,4 @@
-// import coverImageParse from "./cover-image-parse";
-// import parseContentfulConferences from "./parse-contentful-conference";
-// import parseContentfulEvent from "./parse-contenful-event";
-// import parseContentfulSpeaker from "./parse-contentful-speaker";
-//
-// export {
-//   coverImageParse,
-//   parseContentfulConferences,
-//   parseContentfulEvent,
-//   parseContentfulSpeaker,
-// };
+import parserConferenceEntry from "./parser-conference-entry";
+import parserEventEntry from "./parser-event-entry";
+
+export { parserConferenceEntry, parserEventEntry };

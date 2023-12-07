@@ -1,38 +1,41 @@
-import { contentfulClient } from "../client";
-import { EventType } from "../types/types";
+import { EventType } from "@/lib/types";
+import contentfulClient from "../client/client";
+import { ContentfulClientApi } from "contentful";
 import { TypeEventSkeleton } from "../types/contentful/types";
-import { parseContentfulEvent } from "../utils";
 
-// Fetch all of the EVENTS
-export async function fetchEvents(
-  { preview }: { preview: boolean },
-): Promise<EventType[]> {
-  const contenful = contentfulClient({ preview });
+// This class includes the methods to request
+export class Event {
+  private client: ContentfulClientApi<undefined>;
+  private parser: Function;
 
-  const eventResult = await contenful.getEntries<TypeEventSkeleton>({
-    content_type: "event",
-    include: 2,
-  });
-
-  return eventResult.items.map((eventEntry) =>
-    parseContentfulEvent(eventEntry) as EventType
-  );
-}
-
-// Fetch EVENT based on the slug
-export async function fetchEvent(
-  { slug, preview }: { slug: string; preview: boolean },
-): Promise<EventType | null> {
-  const contenful = contentfulClient({ preview });
-
-  const eventResult = await contenful.getEntries<TypeEventSkeleton>({
-    content_type: "event",
-    "fields.slug": slug,
-    include: 2,
-  });
-
-  if (eventResult.items.length === 0) {
-    return null;
+  constructor({ preview, parser }: { preview: boolean; parser: Function }) {
+    this.client = contentfulClient({ preview });
+    this.parser = parser;
   }
-  return parseContentfulEvent(eventResult.items[0]);
+
+  public async getEvent(slug: string): Promise<EventType | null> {
+    const eventResult = await this.client.getEntries<
+      TypeEventSkeleton
+    >({
+      content_type: "event",
+      "fields.slug": slug,
+      include: 2,
+    });
+
+    if (eventResult.items.length === 0) {
+      return null;
+    }
+    return this.parser(eventResult.items[0]);
+  }
+
+  public async getEvents(): Promise<EventType[]> {
+    const eventResult = await this.client.getEntries<
+      TypeEventSkeleton
+    >({
+      content_type: "event",
+      include: 2,
+    });
+
+    return eventResult.items.map((eventEntry) => this.parser(eventEntry));
+  }
 }

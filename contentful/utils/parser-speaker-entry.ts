@@ -1,12 +1,12 @@
 import { SpeakerEntry, SpeakerType } from "@/lib/types";
-import parseAssetEntry from "./parser-asset-entry";
+import parseAsset from "./parser-asset";
 
 export default function parserSpeakerEntry(
   speakerEntry: SpeakerEntry,
 ): SpeakerType {
   return {
-    photo: parseAssetEntry({
-      coverImage: speakerEntry.fields.photo,
+    photo: parseAsset({
+      asset: speakerEntry.fields.photo,
     }),
     slug: speakerEntry.fields.slug,
     name: speakerEntry.fields.name,

@@ -1,8 +1,8 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { EventType } from "@/contentful/types/types";
 import dayjs from "dayjs";
+import Link from "next/link";
+import Image from "next/image";
+import { EventType } from "@/lib/types";
 
 type EventDisplayProps = {
   event: EventType;
@@ -26,10 +26,10 @@ export default function EventDisplay(props: EventDisplayProps) {
       <div className="grow">
         <div className="h-64 w-32 sm:h-72 float-left mr-2 relative">
           <Image
-            src={props.event.coverImage}
-            alt="Conferences Australia"
             fill
             priority={true}
+            alt={props.event.poster.alt}
+            src={props.event.poster.src}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-contain object-left-top rounded-md"
           />

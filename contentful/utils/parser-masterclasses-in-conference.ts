@@ -1,7 +1,7 @@
 import { Entry, UnresolvedLink } from "contentful";
 import { MasterclassEntry, MasterclassType } from "@/lib/types";
 import { TypeMasterclassSkeleton } from "../types/contentful/types";
-import parseContentfulMasterClass from "./parse-contenful-masterclass";
+import parserMasterclassEntry from "./parser-masterclass-entry";
 
 export default function parserMasterclassesInConference(
   masterclasses:
@@ -16,7 +16,7 @@ export default function parserMasterclassesInConference(
       masterclass.sys.type === "Entry"
     )
       .map((masterclass) =>
-        parseContentfulMasterClass(masterclass as MasterclassEntry)
+        parserMasterclassEntry(masterclass as MasterclassEntry)
       );
   } else {
     return [];

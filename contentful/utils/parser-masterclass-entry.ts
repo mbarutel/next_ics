@@ -1,10 +1,10 @@
 import { MasterclassEntry, MasterclassType } from "@/lib/types";
-import parseAsset from "./parse-asset";
+import parserAsset from "./parser-asset";
 
-export default function parseContentfulMasterClass(
+export default function parserMasterclassEntry(
   masterclassEntry: MasterclassEntry,
 ): MasterclassType {
-  const asset = parseAsset({ asset: masterclassEntry.fields.asset });
+  const asset = parserAsset({ asset: masterclassEntry.fields.asset });
 
   return {
     title: masterclassEntry.fields.title,

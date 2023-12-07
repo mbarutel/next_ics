@@ -1,7 +1,7 @@
 import { Asset, UnresolvedLink } from "contentful";
 import { AssetType } from "@/lib/types";
 
-export default function parserAssetEntry(
+export default function parserAsset(
   { asset }: {
     asset: UnresolvedLink<"Asset"> | Asset<undefined, string> | undefined;
   },

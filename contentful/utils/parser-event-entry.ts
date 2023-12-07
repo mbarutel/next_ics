@@ -5,11 +5,11 @@ import {
   EventEntry,
   EventType,
 } from "@/lib/types";
-import parserAssetEntry from "./parser-asset-entry";
+import parserAsset from "./parser-asset";
 import { TypeConferencesSkeleton } from "../types/contentful/types";
 import parserMasterclassesInConference from "./parser-masterclasses-in-conference";
 
-export default function parserEventCard(
+export default function parserEventEntry(
   eventEntry: EventEntry,
 ): EventType {
   return {
@@ -17,7 +17,7 @@ export default function parserEventCard(
     title: eventEntry.fields.title,
     description: eventEntry.fields.description,
     tags: eventEntry.fields.tags ? eventEntry.fields.tags : [],
-    poster: parserAssetEntry({ asset: eventEntry.fields.coverImage }),
+    poster: parserAsset({ asset: eventEntry.fields.coverImage }),
     content: eventEntry.fields.content,
     agenda: parseAgenda(eventEntry.fields.agenda),
     conference: parseConferenceInEvent(eventEntry.fields.conference),

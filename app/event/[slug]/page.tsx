@@ -8,48 +8,57 @@ import {
   Masterclass,
   ScrollBottons,
 } from "@/components";
-import { fetchEvent, fetchEvents } from "@/contentful";
+import { Event } from "@/contentful/services/event";
+import { parserEventEntry } from "@/contentful/utils";
 import ActiveSectionContextProvider from "@/context/active-section-context";
+import { ConferenceType } from "@/lib/types";
 
 type EventPageParams = {
   slug: string;
 };
 export async function generateStaticParams(): Promise<EventPageParams[]> {
-  const eventPages = await fetchEvents({ preview: false });
+  const eventInstance = new Event({
+    preview: false,
+    parser: parserEventEntry,
+  });
 
-  return eventPages.map((page) => ({ slug: page.slug }));
+  return await eventInstance.getEvents();
 }
 
 type EventPageProps = {
   params: EventPageParams;
 };
 export default async function page({ params }: EventPageProps) {
-  const eventPage = await fetchEvent({
-    slug: params.slug,
+  const eventInstance = new Event({
     preview: draftMode().isEnabled,
+    parser: parserEventEntry,
   });
 
-  if (!eventPage) {
+  const eventPage = await eventInstance.getEvent(params.slug);
+
+  if (!eventPage || !eventPage.conference) {
     return notFound();
   }
 
   return (
     <>
-      <EventHeader event={eventPage} />
+      <EventHeader
+        event={{
+          ...eventPage,
+          conference: eventPage.conference as ConferenceType,
+        }}
+      />
       <ActiveSectionContextProvider>
         <article className="static px-2 max-w-4xl mx-auto flex gap-1 mt-6">
           <div>
             <ConferenceText event={eventPage} />
-            {eventPage.agenda === undefined
-              ? null
-              : <Agenda agenda={eventPage.agenda} />}
-            {eventPage.conference.masterclass === undefined
-              ? null
-              : <Masterclass masterclass={eventPage.conference.masterclass} />}
+            {eventPage.agenda.length &&
+              <Agenda agenda={eventPage.agenda} />}
+            {eventPage.conference && eventPage.conference.masterclass.length &&
+              <Masterclass masterclass={eventPage.conference.masterclass} />}
           </div>
-          {eventPage.agenda && eventPage.conference.masterclass && (
-            <ScrollBottons />
-          )}
+          {eventPage.agenda.length && eventPage.conference &&
+            eventPage.conference.masterclass.length && <ScrollBottons />}
         </article>
         <EventFooter />
       </ActiveSectionContextProvider>
