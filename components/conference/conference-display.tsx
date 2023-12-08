@@ -15,17 +15,13 @@ export default function ConferenceDisplay(
     <div>
       <h2
         style={{ fontFamily: "Abril Fatface" }}
-        className="w-fit text-2xl font-semibold text-orange-500 uppercase mb-5"
+        className="w-fit text-3xl lg:text-4xl font-semibold text-orange-500 uppercase mb-5 lg:mb-7"
       >
         {conference.title}
       </h2>
       <div
-        className={clsx("grid grid-cols-1 gap-4 mb-4 lg:mb-8", {
-          "lg:grid-cols-1": length === 1,
-        }, {
-          "lg:grid-cols-2": (length % 2) === 0,
-        }, {
-          "lg:grid-cols-3": length >= 3,
+        className={clsx("grid md:grid-cols-2 grid-cols-1 gap-4 mb-4 lg:mb-8", {
+          "xl:grid-cols-3": length >= 3,
         })}
       >
         {conference.events.map((event) => (
@@ -40,7 +36,7 @@ export default function ConferenceDisplay(
           </Fragment>
         ))}
       </div>
-      {conference.speakers &&
+      {conference.speakers.length > 0 &&
         <SpeakersDisplay conference={conference} />}
     </div>
   );

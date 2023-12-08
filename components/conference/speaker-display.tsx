@@ -5,7 +5,6 @@ import { a, useSpring } from "@react-spring/web";
 import { ConferenceType, SpeakerType } from "@/lib/types";
 import SpeakerRichText from "./speaker-rich-text";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import clsx from "clsx";
 
 export default function SpeakersDisplay(
   { conference }: { conference: ConferenceType },
@@ -26,7 +25,7 @@ export default function SpeakersDisplay(
     <div className="flex flex-col">
       <h3
         style={{ fontFamily: "Abril Fatface" }}
-        className="text-2xl text-slate-800/90 mb-2 text-center"
+        className="text-2xl lg:text-4xl text-slate-800/90 mb-3 lg:mb-5"
       >
         Speakers
       </h3>
@@ -76,10 +75,7 @@ export default function SpeakersDisplay(
         {side === true ? null : (
           <a.div
             style={{ opacity: opacity.to((o) => 1 - o) }}
-            className={clsx(
-              "grid grid-cols-1 gap-y-2 gap-x-4 max-h-[25rem] sm:max-h-[40rem] overflow-y-auto pb-1",
-              { "sm:grid-cols-2": conference.speakers.length > 3 },
-            )}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4 max-h-[25rem] sm:max-h-[40rem] overflow-y-auto pb-1"
           >
             {conference.speakers.map((speaker) => (
               <div
@@ -90,7 +86,7 @@ export default function SpeakersDisplay(
                 }}
                 className="flex items-center bg-slate-300 shadow-md rounded-md cursor-pointer hover:bg-slate-400/70 transition-all py-2"
               >
-                <div className="relative h-20 min-w-[5rem]">
+                <div className="relative h-20 min-w-[5rem] ml-2">
                   <Image
                     src={speaker.photo.src}
                     alt={speaker.name}

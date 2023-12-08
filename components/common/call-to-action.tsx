@@ -13,7 +13,7 @@ export default function CallToAction() {
         >
           Become Part of ICS
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2">
           {cta.map((action, index) => (
             <Fragment key={index}>
               <ActionCard {...action} />
@@ -30,8 +30,8 @@ function ActionCard(
   { title, description, button, image, form }: ActionCardProp,
 ) {
   return (
-    <div className="bg-slate-400/90 shadow-xl shadow-black/20 flex flex-col rounded-md overflow-hidden group">
-      <div className="relative h-52 lg:h-96 overflow-hidden">
+    <div className="bg-slate-400/90 shadow-xl shadow-black/20 flex flex-col rounded-md overflow-hidden last:text-red-400">
+      <div className="relative h-52 lg:h-64 xl:h-96 overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -40,14 +40,14 @@ function ActionCard(
           className="object-cover group-hover:scale-110 transition-all duration-500"
         />
       </div>
-      <div className="px-3 pb-3 lg:px-6 lg:pb-6 mt-5 flex-grow flex flex-col">
+      <div className="px-3 pb-3 lg:px-6 lg:pb-6 mt-4 flex-grow flex flex-col">
         <h3
           style={{ fontFamily: "Abril Fatface" }}
-          className="text-slate-950/80 text-2xl mb-1 lg:mb-3"
+          className="text-slate-950/80 text-2xl"
         >
           {title}
         </h3>
-        <p className="text-slate-200 flex-grow mb-3">
+        <p className="text-slate-200 flex-grow mt-1 mb-3">
           {description}
         </p>
         <span className="inline-flex w-full h-[3px] bg-slate-800/80 rounded-full" />

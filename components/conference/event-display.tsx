@@ -18,7 +18,7 @@ export default function EventDisplay(props: EventDisplayProps) {
   return (
     <div className="grow flex flex-col bg-slate-300 shadow-lg rounded-md">
       <div className="grow">
-        <div className="h-80 w-52 float-left mr-2 relative overflow-hidden rounded-tl-md">
+        <div className="h-80 w-52 float-left mr-2 relative overflow-hidden rounded-tl-md border-r-slate-900/80 border-b-slate-900/80 border-[2px]">
           <Image
             fill
             priority={true}

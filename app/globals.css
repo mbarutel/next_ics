@@ -36,5 +36,9 @@ body {
 }
 
 .button_padding {
-  @apply px-4 py-3 md:px-6 md:py-4;
+  @apply px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4;
+}
+
+.countdown_padding {
+  @apply px-3 py-1 sm:px-5 sm:py-1 lg:px-6 lg:py-4;
 }

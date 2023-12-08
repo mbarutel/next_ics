@@ -17,9 +17,9 @@ export default function Header(
   ]);
 
   return (
-    <header className="cursor-grab mx-auto max-w-[90rem]">
+    <header className="cursor-grab mx-auto sm:max-w-[90rem]">
       <div ref={emblaRef} className="overflow-hidden">
-        <div className="flex h-[25rem] sm:h-[35rem] lg:h-[60rem]">
+        <div className="flex h-[30rem] sm:h-[35rem] lg:h-[60rem]">
           {conferences.map((conference) => (
             <div
               key={conference.slug}
@@ -49,25 +49,37 @@ export default function Header(
 function ConferenceInfo({ conference }: { conference: ConferenceType }) {
   const localizedFormat = require("dayjs/plugin/localizedFormat");
   dayjs.extend(localizedFormat);
+  const title: string[] = conference.title.trim().split(" ");
 
   return (
-    <div className="z-10 text-white absolute top-1/2 -translate-y-1/2 lg:translate-y-0 left-4">
-      <h1
-        style={{ fontFamily: "Abril Fatface" }}
-        className="uppercase text-xl sm:text-4xl sm:mb-3"
-      >
-        {conference.title}
-      </h1>
-      <span
-        style={{ fontFamily: "Abril Fatface" }}
-        className="text-sm sm:text-base lg:text-xl flex flex-col w-fit pl-2"
-      >
-        <span>{conference.venue}</span>
-        <span>
-          {dayjs(conference.startDate).format("DD")} -{" "}
-          {dayjs(conference.endDate).format("DD MMM, YYYY")}
+    <div className="z-10 text-white absolute top-1/2 -translate-y-1/2 left-4">
+      <div className="max-w-4xl">
+        <h1
+          style={{ fontFamily: "Abril Fatface" }}
+          className="uppercase text-2xl sm:text-4xl md:text-5xl lg:text-6xl sm:mb-3 flex flex-wrap gap-x-1 sm:gap-x-2 gap-y-[2px]"
+        >
+          {title.map((text, index) => (
+            <span
+              key={index}
+              className="bg-slate-800/50 backdrop-blur-md rounded-md shadow-md px-2 py-1"
+            >
+              {text}
+            </span>
+          ))}
+        </h1>
+        <span
+          style={{ fontFamily: "Abril Fatface" }}
+          className="text-sm sm:text-base md:text-xl lg:text-3xl flex flex-col mt-1"
+        >
+          <span className="mb-1 uppercase bg-orange-500/50 backdrop-blur-md rounded-md w-fit px-2 py-1">
+            {dayjs(conference.startDate).format("DD")} -{" "}
+            {dayjs(conference.endDate).format("DD MMMM, YYYY")}
+          </span>
+          <span className="bg-orange-500/50 backdrop-blur-md rounded-md w-fit px-2 py-1">
+            {conference.venue}
+          </span>
         </span>
-      </span>
+      </div>
       <span className="flex gap-1 sm:gap-3 mt-3 text-white">
         <Link
           href={conference.registrationLink}
@@ -147,25 +159,25 @@ function Countdown({ startDate }: { startDate: string }) {
         )
         : (
           <>
-            <span className="flex flex-col button_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center rounded-tl-md">
+            <span className="flex flex-col countdown_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center rounded-tl-md">
               <span className="font-normal sm:font-semibold text-lg sm:text-xl">
                 {days}
               </span>
               <span className="text-xs uppercase -mt-1 sm:mt-0">days</span>
             </span>
-            <span className="flex flex-col button_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
+            <span className="flex flex-col countdown_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
               <span className="font-normal sm:font-semibold text-lg sm:text-xl">
                 {hours}
               </span>
               <span className="text-xs uppercase -mt-1 sm:mt-0">hours</span>
             </span>
-            <span className="flex flex-col button_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
+            <span className="flex flex-col countdown_padding bg-slate-600 border-solid border-r-[1px] border-stone-200/50 text-center">
               <span className="font-normal sm:font-semibold text-lg sm:text-xl">
                 {minutes}
               </span>
               <span className="text-xs uppercase -mt-1 sm:mt-0">minutes</span>
             </span>
-            <span className="flex flex-col button_padding bg-slate-600 text-center">
+            <span className="flex flex-col countdown_padding bg-slate-600 text-center">
               <span className="font-normal sm:font-semibold text-lg sm:text-xl">
                 {seconds}
               </span>
