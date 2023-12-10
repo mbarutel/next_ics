@@ -10,7 +10,7 @@ export default function parserConferenceDate(
   }
 
   return {
-    startDate,
-    endDate,
+    startDate: new Date(startDate),
+    endDate: new Date(endDate),
   };
 }
