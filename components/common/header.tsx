@@ -36,7 +36,8 @@ export default function Header(
               />
               <div className="relative container h-full">
                 <ConferenceInfo conference={conference} />
-                <Countdown startDate={conference.startDate} />
+                {conference.date &&
+                  <Countdown startDate={conference.date.startDate} />}
               </div>
             </div>
           ))}
@@ -72,8 +73,18 @@ function ConferenceInfo({ conference }: { conference: ConferenceType }) {
           className="text-sm sm:text-base md:text-xl lg:text-3xl flex flex-col mt-1"
         >
           <span className="mb-1 uppercase bg-orange-500/50 backdrop-blur-md rounded-md w-fit px-2 py-1">
-            {dayjs(conference.startDate).format("DD")} -{" "}
-            {dayjs(conference.endDate).format("DD MMMM, YYYY")}
+            {conference.date
+              ? (
+                <>
+                  {dayjs(conference.date.startDate).format("DD")} -{" "}
+                  {dayjs(conference.date.endDate).format("DD MMMM, YYYY")}
+                </>
+              )
+              : (
+                <>
+                  Date to be announced
+                </>
+              )}
           </span>
           <span className="bg-orange-500/50 backdrop-blur-md rounded-md w-fit px-2 py-1">
             {conference.venue}
@@ -111,7 +122,7 @@ function ConferenceInfo({ conference }: { conference: ConferenceType }) {
   );
 }
 
-function Countdown({ startDate }: { startDate: string }) {
+function Countdown({ startDate }: { startDate: Date }) {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);

@@ -42,8 +42,21 @@ export default function EventHeader(
             </span>
             <span className="bg-orange-500 py-6 flex items-center text-center text-lg lg:text-xl font-semibold px-3">
               <span className="text-white w-fit mx-auto flex flex-col text-left drop-shadow-md">
-                {dayjs(event.conference.startDate).format("DD ")}-{" "}
-                {dayjs(event.conference.endDate).format("DD MMM, YYYY")}
+                {event.conference.date
+                  ? (
+                    <>
+                      {dayjs(event.conference.date.startDate).format("DD ")}-
+                      {" "}
+                      {dayjs(event.conference.date.endDate).format(
+                        "DD MMM, YYYY",
+                      )}
+                    </>
+                  )
+                  : (
+                    <>
+                      Date to be announced
+                    </>
+                  )}
               </span>
               <span className="text-white w-fit mx-auto drop-shadow-md text-right">
                 {event.conference.venue}

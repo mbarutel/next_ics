@@ -6,8 +6,12 @@ import { EventType } from "@/lib/types";
 
 type EventDisplayProps = {
   event: EventType;
-  startDate: string;
-  endDate: string;
+  // startDate: string;
+  // endDate: string;
+  date: {
+    startDate: Date;
+    endDate: Date;
+  } | undefined;
   venue: string;
   registrationLink: string;
 };
@@ -44,8 +48,18 @@ export default function EventDisplay(props: EventDisplayProps) {
         className="flex justify-between uppercase text-slate-800/70 mt-4 text-sm lg:text-lg px-5"
       >
         <span className="flex">
-          {dayjs(props.startDate).format("DD ")}-{" "}
-          {dayjs(props.endDate).format("DD MMMM")}
+          {props.date
+            ? (
+              <>
+                {dayjs(props.date.startDate).format("DD ")}-{" "}
+                {dayjs(props.date.endDate).format("DD MMMM")}
+              </>
+            )
+            : (
+              <>
+                Date to be announced
+              </>
+            )}
         </span>
         <span>
           {props.venue}

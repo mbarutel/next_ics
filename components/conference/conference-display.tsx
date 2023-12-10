@@ -28,8 +28,7 @@ export default function ConferenceDisplay(
           <Fragment key={event.slug}>
             <EventDisplay
               event={event}
-              startDate={conference.startDate}
-              endDate={conference.endDate}
+              date={conference.date}
               venue={conference.venue}
               registrationLink={conference.registrationLink}
             />

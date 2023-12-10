@@ -28,8 +28,10 @@ export type ConferenceType = {
   slug: string;
   title: string;
   venue: string;
-  endDate: string;
-  startDate: string;
+  date: {
+    startDate: Date;
+    endDate: Date;
+  } | undefined;
   coverImage: AssetType;
   events: EventType[];
   speakers: SpeakerType[];

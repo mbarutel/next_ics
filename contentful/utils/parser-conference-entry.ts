@@ -1,20 +1,16 @@
-import {
-  TypeEventSkeleton,
-  TypeSpeakerSkeleton,
-} from "../types/contentful/types";
+import { TypeEventSkeleton } from "../types/contentful/types";
 import {
   ConferencesEntry,
   ConferenceType,
   EventEntry,
   EventType,
-  SpeakerEntry,
-  SpeakerType,
 } from "@/lib/types";
 import { Entry, UnresolvedLink } from "contentful";
 import parserAsset from "./parser-asset";
 import parserEventEntry from "./parser-event-entry";
 import parserSpeakerInConference from "./parser-speaker-in-conference";
 import parserMasterclassesInConference from "./parser-masterclasses-in-conference";
+import parserConferenceDate from "./parser-conference-date";
 
 export default function parserConferenceEntry(
   conferenceEntry: ConferencesEntry,
@@ -23,8 +19,10 @@ export default function parserConferenceEntry(
     slug: conferenceEntry.fields.slug,
     title: conferenceEntry.fields.title,
     venue: conferenceEntry.fields.venue,
-    startDate: conferenceEntry.fields.startDate,
-    endDate: conferenceEntry.fields.endDate,
+    date: parserConferenceDate({
+      startDate: conferenceEntry.fields.startDate,
+      endDate: conferenceEntry.fields.endDate,
+    }),
     registrationLink: conferenceEntry.fields.registrationLink,
     submitPaperLink: conferenceEntry.fields.submitAPaperLink,
     events: parseEventsInConference(conferenceEntry.fields.events),
@@ -47,4 +45,3 @@ function parseEventsInConference(
     return [];
   }
 }
-
