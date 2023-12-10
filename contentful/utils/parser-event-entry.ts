@@ -8,6 +8,7 @@ import {
 import parserAsset from "./parser-asset";
 import { TypeConferencesSkeleton } from "../types/contentful/types";
 import parserMasterclassesInConference from "./parser-masterclasses-in-conference";
+import parserConferenceDate from "./parser-conference-date";
 
 export default function parserEventEntry(
   eventEntry: EventEntry,
@@ -48,8 +49,10 @@ function parseConferenceInEvent(
     return {
       title: conference.fields.title,
       venue: conference.fields.venue,
-      endDate: conference.fields.endDate,
-      startDate: conference.fields.startDate,
+      date: parserConferenceDate({
+        startDate: conference.fields.startDate,
+        endDate: conference.fields.endDate,
+      }),
       registrationLink: conference.fields.registrationLink,
       submitPaperLink: conference.fields.submitAPaperLink,
       masterclass: parserMasterclassesInConference(
