@@ -1,7 +1,9 @@
 import {
   CallToAction,
   Header,
+  LandingHeader,
   SubscribeEmailList,
+  UpcomingConferences,
   UpcomingEvents,
 } from "@/components";
 import { draftMode } from "next/headers";
@@ -27,10 +29,8 @@ export default async function Home() {
 
   return (
     <>
-      <Header
-        conferences={conferences}
-      />
-      <UpcomingEvents
+      <LandingHeader />
+      <UpcomingConferences
         conferences={conferences}
       />
       <CallToAction />

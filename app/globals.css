@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee+Shade&family=Gabarito:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Bungee+Shade&family=Gabarito:wght@600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -20,7 +20,11 @@
 }
 
 body {
-  @apply bg-stone-200;
+  @apply bg-[#FFFAFF] text-[#30323D];
+}
+
+section {
+  @apply pt-8 lg:pt-12;
 }
 
 .container {

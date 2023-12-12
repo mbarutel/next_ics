@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth no-scrollbar">
-      <body className={`${lato.className}`}>
+      <body className={lato.className}>
         {draftMode().isEnabled && (
           <p className="py-4 px-[6vw] z-[999]">
             Draft mode is on! <ExitDraftModeLink className="underline" />

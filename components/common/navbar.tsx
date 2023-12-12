@@ -14,7 +14,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full top-0 left-0 z-[999] bg-stone-200">
+    <nav className="fixed w-full top-0 left-0 z-[999] bg-zinc-200">
       <div className="container h-16 flex justify-between items-center">
         <Link
           href="/"

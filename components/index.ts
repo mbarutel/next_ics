@@ -20,6 +20,8 @@ import VideoPlayer from "./common/video-player";
 import ConferenceText from "./event/conference-text";
 import ScrollBottons from "./event/scroll-buttons";
 import EventFooter from "./event/event-footer";
+import UpcomingConferences from "./upcoming-conferences";
+import LandingHeader from "./landing-header";
 
 export {
   About,
@@ -34,6 +36,7 @@ export {
   Footer,
   GoogleAnalytics,
   Header,
+  LandingHeader,
   Masterclass,
   Navbar,
   OurPurpose,
@@ -42,6 +45,7 @@ export {
   RichText,
   ScrollBottons,
   SubscribeEmailList,
+  UpcomingConferences,
   UpcomingEvents,
   VideoPlayer,
 };
