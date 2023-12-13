@@ -1,16 +1,15 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import { Inter } from "next/font/google";
 import { draftMode } from "next/headers";
 import { Toaster } from "react-hot-toast";
 import {
   ExitDraftModeLink,
   Footer,
   GoogleAnalytics,
-  Navbar,
 } from "@/components";
 
-const lato = Lato({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "400", "700", "900"],
 });
@@ -27,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth no-scrollbar">
-      <body className={lato.className}>
+      <body className={inter.className}>
         {draftMode().isEnabled && (
           <p className="py-4 px-[6vw] z-[999]">
             Draft mode is on! <ExitDraftModeLink className="underline" />

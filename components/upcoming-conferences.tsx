@@ -10,7 +10,7 @@ export default function UpcomingConferences(
   { conferences }: { conferences: ConferenceType[] },
 ) {
   return (
-    <section>
+    <section className="bg-neutral-950">
       <div className="container">
         <SectionHeaderText text={"Upcoming Conferences"} />
         <div className="grid grid-cols-2 xl:gap-y-6 gap-x-16">

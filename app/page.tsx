@@ -1,11 +1,10 @@
 import {
   CallToAction,
-  Header,
   LandingHeader,
   SubscribeEmailList,
   UpcomingConferences,
-  UpcomingEvents,
 } from "@/components";
+import NavBar from "@/components/nav-bar";
 import { draftMode } from "next/headers";
 import { parserConferenceEntry } from "@/contentful/utils";
 import { Conference } from "@/contentful/services/conferences";
@@ -30,6 +29,7 @@ export default async function Home() {
   return (
     <>
       <LandingHeader />
+      <NavBar />
       <UpcomingConferences
         conferences={conferences}
       />

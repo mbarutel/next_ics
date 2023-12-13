@@ -51,12 +51,12 @@ export const links = [
     path: "/about",
   },
   {
-    name: "Conferences",
-    path: "/conferences",
+    name: "Contact",
+    path: "/contact",
   },
   {
-    name: "Contact Us",
-    path: "/contact",
+    name: "Conferences",
+    path: "/conferences",
   },
 ] as const;
 
