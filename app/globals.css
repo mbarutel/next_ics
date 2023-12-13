@@ -20,7 +20,7 @@
 }
 
 body {
-  @apply bg-[#FFFAFF] text-[#30323D];
+  @apply bg-black text-white;
 }
 
 section {
@@ -28,7 +28,7 @@ section {
 }
 
 .container {
-  @apply px-4 mx-auto max-w-[90rem] sm:px-6 2xl:px-0;
+  @apply px-4 mx-auto max-w-[90rem] sm:px-6 2xl:px-0 relative z-0;
 }
 
 .section_header {
@@ -45,4 +45,30 @@ section {
 
 .countdown_padding {
   @apply px-3 py-1 sm:px-5 sm:py-1 lg:px-6 lg:py-4;
+}
+
+.flex_col {
+  @apply flex flex-col;
+}
+
+.flex_end {
+  @apply flex justify-center items-end;
+}
+
+/* Header Grid */
+
+.header_grid {
+  @apply bg-gradient-to-r from-rose-100 to-teal-100 rounded-lg flex_end p-4 cursor-default;
+}
+
+.header_grid_text {
+  @apply text-stone-950/80 lowercase font-semibold text-lg leading-none;
+}
+
+.header_grid_empty {
+  @apply header_grid !bg-gradient-to-r !from-yellow-200 !via-yellow-300 !to-yellow-400;
+}
+
+.header_grid_effects {
+  @apply hover:rotate-6 hover:scale-110 transition-all duration-300 hover:shadow-lg hover:shadow-white/30;
 }

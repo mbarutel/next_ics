@@ -4,7 +4,7 @@ import { ConferenceType } from "@/lib/types";
 import Link from "next/link";
 import { configs } from "@/lib/data";
 import Image from "next/image";
-import SectionHeader from "./section-header";
+import SectionHeaderText from "./section-header-text";
 
 export default function UpcomingConferences(
   { conferences }: { conferences: ConferenceType[] },
@@ -12,7 +12,7 @@ export default function UpcomingConferences(
   return (
     <section>
       <div className="container">
-        <SectionHeader text={"Upcoming Conferences"} />
+        <SectionHeaderText text={"Upcoming Conferences"} />
         <div className="grid grid-cols-2 xl:gap-y-6 gap-x-16">
           {conferences.map((conference) => (
             <div

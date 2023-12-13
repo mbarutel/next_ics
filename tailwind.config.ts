@@ -15,6 +15,9 @@ const config: Config = {
         "paper_gradient": "linear-gradient(90deg, snow 1px, #f0f0f0 1px);",
       },
     },
+    // variants: {
+    //   animation: ["responsive", "motion-safe", "motion-reduce"],
+    // },
   },
   plugins: [
     require("tailwind-clip-path"),

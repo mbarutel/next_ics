@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SectionHeader({ text }: { text: string }) {
+export default function SectionHeaderText({ text }: { text: string }) {
   return (
     <h2
       style={{ fontFamily: "Abril Fatface" }}
