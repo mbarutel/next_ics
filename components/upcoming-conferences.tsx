@@ -1,8 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import dayjs from "dayjs";
 import { ConferenceType } from "@/lib/types";
 import Link from "next/link";
-import { configs } from "@/lib/data";
 import Image from "next/image";
 import SectionHeaderText from "./section-header-text";
 
@@ -10,55 +9,72 @@ export default function UpcomingConferences(
   { conferences }: { conferences: ConferenceType[] },
 ) {
   return (
-    <section className="bg-neutral-950">
+    <section>
       <div className="container">
-        <SectionHeaderText text={"Upcoming Conferences"} />
-        <div className="grid grid-cols-2 xl:gap-y-6 gap-x-16">
+        <SectionHeaderText
+          text={"Upcoming Conferences"}
+          subText={"INDIGENOUS CONFERENCE SERVICES stands as a fully Indigenous-owned enterprise, maintaining complete independence from government funding bodies."}
+        />
+        <div className="grid grid-cols-2 xl:gap-6">
           {conferences.map((conference) => (
-            <div
-              style={{ fontFamily: "Anton" }}
+            <Fragment
               key={conference.slug}
-              className="group flex flex-col bg-white xl:h-72 rounded-md overflow-hidden border border-gray-200"
             >
-              <div className="grow grid grid-cols-3">
-                <div className="relative group-even:order-1">
-                  <Image
-                    src={conference.coverImage.src}
-                    alt={conference.coverImage.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="group-even:text-right flex flex-col h-full pb-3 relative col-span-2 p-3">
-                  <Image
-                    src="/assets/images/conference-bg.webp"
-                    alt="Conference Aboriginal Art"
-                    fill
-                    className="object-cover opacity-20 z-10 grayscale"
-                  />
-                  <span className="grow z-20">
-                    <h2 className="xl:text-3xl font-semibold tracking-wide text-slate-800/90">
-                      {conference.title}
-                    </h2>
-                  </span>
-                  <Date date={conference.date} />
-                  <span className="z-20">
-                    <h4 className="xl:text-2xl text-orange-500">
-                      {conference.venue}
-                    </h4>
-                  </span>
-                </div>
-              </div>
-              <Links
-                slug={conference.slug}
-                registration={conference.registrationLink}
-                submitAPaper={configs.forms.submitPaper}
-              />
-            </div>
+              <ConferenceCard {...conference} />
+            </Fragment>
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ConferenceCard(conference: ConferenceType) {
+  return (
+    <Link
+      style={{ fontFamily: "Anton" }}
+      href={`/conference/${conference.slug}`}
+      className="group relative h-56 group transition-all duration-200 rounded-sm overflow-hidden"
+    >
+      <Image
+        src={conference.coverImage.src}
+        alt={conference.coverImage.alt}
+        fill
+        className="object-cover grayscale group-hover:grayscale-0"
+      />
+      <div className="upcoming_conference_info_wrap whitespace-nowrap">
+        <span className="w-fit group-odd:pr-4 group-even:pl-4 text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:via-yellow-300 group-hover:to-yellow-200 group-hover:max-w-[28rem] pt-2">
+          <h3 className="xl:text-3xl group-hover:whitespace-normal transition group-hover:text-white divide-white divide-y">
+            {conference.title}
+          </h3>
+          <Date date={conference.date} />
+          <h4 className="xl:text-xl whitespace-nowrap transition">
+            {conference.venue}
+          </h4>
+        </span>
+        <Links
+          slug={conference.slug}
+          registration={conference.registrationLink}
+          submitAPaper={conference.submitPaperLink}
+        />
+        <SpinningIcon />
+      </div>
+    </Link>
+  );
+}
+
+function SpinningIcon() {
+  return (
+    <div className="absolute left-1/2 -translate-x-1/2 translate-y-1/2 bottom-0 hidden group-hover:block z-10">
+      <div className="relative h-96 w-96">
+        <Image
+          src="/assets/images/conference-card-icon.svg"
+          alt="Aboriginal Conferences"
+          fill
+          className="object-cover grayscale opacity-20 animate-[spin_10s_linear_infinite]"
+        />
+      </div>
+    </div>
   );
 }
 
@@ -67,11 +83,11 @@ function Date(
 ) {
   return (
     <span className="z-20">
-      <h4 className="xl:text-2xl tracking-wider text-orange-500">
+      <h4 className="xl:text-xl whitespace-nowrap transition">
         {date
           ? (
             <>
-              {dayjs(date.startDate).format("DD - ")}
+              {dayjs(date.startDate).format("DD-")}
               {dayjs(date.endDate).format("DD MMM YY")}
             </>
           )
@@ -89,27 +105,29 @@ function Links({
   slug,
   registration,
   submitAPaper,
-}: { slug: string; registration: string; submitAPaper: string }) {
+}: { slug: string; registration: string; submitAPaper: string | undefined }) {
   return (
-    <div className="grid grid-cols-3 text-xl bg-slate-600 text-white/90">
+    <div className="flex gap-3 text-lg bg-black text-white/90 mt-auto z-20">
       <Link
         href={`/conferences/${slug}`}
-        className="text-center hover:bg-slate-800 hover:text-white xl:py-5 transition active:scale-95 active:rounded-bl-md duration-75"
+        className="text-center hover:bg-slate-800 hover:text-white xl:py-2 transition active:scale-95 active:rounded-bl-md duration-75 px-3"
       >
         View Events
       </Link>
       <Link
         href={registration}
-        className="text-center hover:bg-slate-800 hover:text-white xl:py-5 transition active:scale-95 duration-75"
+        className="text-center hover:bg-slate-800 hover:text-white xl:py-2 transition active:scale-95 duration-75 px-3"
       >
         Registration
       </Link>
-      <Link
-        href={submitAPaper}
-        className="text-center hover:bg-slate-800 hover:text-white xl:py-5 transition active:scale-95 active:rounded-br-md duration-75"
-      >
-        Submit A Paper
-      </Link>
+      {submitAPaper && (
+        <Link
+          href={submitAPaper}
+          className="text-center hover:bg-slate-800 hover:text-white xl:py-2 transition active:scale-95 active:rounded-br-md duration-75 px-3"
+        >
+          Submit A Paper
+        </Link>
+      )}
     </div>
   );
 }

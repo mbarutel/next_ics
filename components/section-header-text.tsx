@@ -1,12 +1,17 @@
 import React from "react";
 
-export default function SectionHeaderText({ text }: { text: string }) {
+export default function SectionHeaderText(
+  { text, subText }: { text: string; subText: string | undefined },
+) {
   return (
-    <h2
-      style={{ fontFamily: "Abril Fatface" }}
-      className="w-fit font-extrabold text-5xl uppercase tracking-wide mb-6 sm:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-rose-100 to-teal-100"
-    >
-      {text}
-    </h2>
+    <div className="py-5">
+      <h2
+        style={{ fontFamily: "Abril Fatface" }}
+        className="section_header tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-rose-100 to-teal-100"
+      >
+        {text}
+      </h2>
+      {subText && <p className="section_sub_header">{subText}</p>}
+    </div>
   );
 }

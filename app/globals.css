@@ -35,6 +35,10 @@ body {
   @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-wide;
 }
 
+.section_sub_header {
+  @apply text-lg font-thin text-right mt-5;
+}
+
 .border {
   @apply border-solid border-black/40 border-r-[1px] border-l-[1px] border-t-[1px] border-b-[3px];
 }
@@ -67,6 +71,14 @@ body {
   @apply transition-all ease-in-out duration-300;
 }
 
+.gradient {
+  @apply from-yellow-400 via-yellow-300 to-yellow-200;
+}
+
+.gradient_secondary {
+  @apply !from-yellow-700 !via-yellow-600 !to-yellow-500;
+}
+
 /* Navigation Bar */
 
 .nav_links {
@@ -74,13 +86,13 @@ body {
 }
 
 .nav_span {
-  @apply absolute w-0 h-full z-10 from-yellow-400 via-yellow-300 to-yellow-200 transition;
+  @apply absolute w-0 h-full z-10 gradient transition;
 }
 
 /* Header Grid */
 
 .header_grid {
-  @apply bg-gradient-to-tr from-yellow-700 via-yellow-600 to-yellow-500 rounded-lg flex_end p-4 cursor-default;
+  @apply bg-gradient-to-tr gradient rounded-lg flex_end p-4 cursor-default;
 }
 
 .header_grid_text {
@@ -88,9 +100,15 @@ body {
 }
 
 .header_grid_empty {
-  @apply header_grid !bg-gradient-to-r !from-yellow-400 !via-yellow-300 !to-yellow-200;
+  @apply header_grid !bg-gradient-to-r gradient_secondary;
 }
 
 .header_grid_effects {
   @apply hover:rotate-6 hover:scale-110 transition-all duration-300 hover:shadow-lg hover:shadow-black/30;
+}
+
+/* Upcoming Conferences */
+
+.upcoming_conference_info_wrap {
+  @apply absolute group-odd:right-0 group-odd:text-right group-even:left-0 group-odd:clip-path-polygon-[100%_0,_30%_0,_40%_100%,_100%_100%] group-even:clip-path-polygon-[0_0,_70%_0,_60%_100%,_0_100%] w-0 group-hover:w-full overflow-hidden transition bg-zinc-800 h-full flex flex-col group-even:items-start group-odd:items-end justify-center text-transparent;
 }
