@@ -28,7 +28,7 @@ body {
 /* } */
 
 .container {
-  @apply px-4 mx-auto max-w-[90rem] sm:px-6 2xl:px-0 relative z-0;
+  @apply px-2 xl:mx-auto max-w-[90rem] relative z-0;
 }
 
 .section_header {
@@ -92,7 +92,7 @@ body {
 /* Header Grid */
 
 .header_grid {
-  @apply bg-gradient-to-tr gradient rounded-lg flex_end p-4 cursor-default;
+  @apply bg-gradient-to-tr gradient rounded-lg p-4 cursor-default;
 }
 
 .header_grid_text {

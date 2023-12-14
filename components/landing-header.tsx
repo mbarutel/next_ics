@@ -4,10 +4,12 @@ import React from "react";
 export default function LandingHeader() {
   return (
     <header>
-      <div className="container mt-7 md:h-[45rem] z-10">
-        <SpinningBackground />
-        <TitleAndSubTitle />
-        <GridHeader />
+      <div className="container">
+        <div className="relative mt-7 xl:h-[45rem] lg:h-[35rem] h-[30rem] z-10">
+          <SpinningBackground />
+          <TitleAndSubTitle />
+          <GridHeader />
+        </div>
       </div>
     </header>
   );
@@ -15,7 +17,7 @@ export default function LandingHeader() {
 
 function SpinningBackground() {
   return (
-    <div className="overflow-hidden relative h-full rounded-tl-lg">
+    <div className="overflow-hidden relative h-full rounded-lg">
       <div className="absolute left-1/4 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10">
         <div className="relative h-[72rem] w-[72rem] rounded-full overflow-hidden">
           <Image
@@ -52,30 +54,32 @@ function TitleAndSubTitle() {
 
 function GridHeader() {
   return (
-    <div className="grid grid-cols-6 gap-3 z-20 absolute inset-0">
-      <div className="header_grid_empty col-start-3 col-end-6" />
-      <div className="header_grid header_grid_effects">
+    <div className="hidden md:grid xl:grid-cols-6 lg:grid-cols-5 grid-cols-4 gap-3 z-20 absolute inset-0">
+      <div className="header_grid_empty hidden lg:block xl:col-start-3 xl:col-end-6 lg:col-start-3 lg:col-end-5" />
+      <div className="header_grid header_grid_effects flex_end lg:col-auto col-start-4 col-end-5">
         <h3 className="header_grid_text">
           Proudly presented, formulated, designed and organised by First Nations
           Peoples
         </h3>
       </div>
-      <div className="header_grid header_grid_effects col-start-5 col-end-6">
+      <div className="header_grid_empty col-start-3 col-end-4 lg:hidden" />
+      <div className="header_grid header_grid_effects flex_end xl:col-start-5 xl:col-end-6 lg:col-start-4 lg:col-end-5 col-start-4 col-end-5">
         <h3 className="header_grid_text">
           encompassing Aboriginal people, Torres Strait Islander people, and the
           Mob
         </h3>
       </div>
-      <div className="header_grid_empty" />
-      <div className="header_grid header_grid_effects col-start-4 col-end-5">
+      <div className="header_grid_empty hidden lg:block" />
+      <div className="header_grid_empty col-start-1 col-end-3 lg:col-span-2 xl:hidden" />
+      <div className="header_grid header_grid_effects flex_end xl:col-start-4 xl:col-end-5 lg:col-start-3 lg:col-end-4">
         <h3 className="header_grid_text">
           The IMPOSSIBLE IS THE NEXT STEP FOR OUR JOURNEY
         </h3>
       </div>
-      <div className="header_grid_empty row-start-3 row-end-5 col-start-5 col-end-5" />
-      <div className="header_grid_empty" />
-      <div className="header_grid_empty col-start-1 col-end-5" />
-      <div className="header_grid header_grid_effects">
+      <div className="header_grid_empty hidden xl:block xl:row-start-3 xl:row-end-5 xl:col-start-5 xl:col-end-5" />
+      <div className="header_grid_empty hidden xl:block" />
+      <div className="header_grid_empty hidden lg:block xl:col-start-1 xl:col-end-5" />
+      <div className="header_grid header_grid_effects flex_end">
         <h3 className="header_grid_text">
           Hosted by First Nations Health Professionals and Indigenous Conference
           Organizers
