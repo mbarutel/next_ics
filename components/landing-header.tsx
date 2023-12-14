@@ -5,7 +5,7 @@ export default function LandingHeader() {
   return (
     <header>
       <div className="container">
-        <div className="relative mt-7 xl:h-[45rem] lg:h-[35rem] h-[30rem] z-10">
+        <div className="relative mt-7 xl:h-[45rem] lg:h-[35rem] md:h-[30rem] sm:h-[25rem] h-[20rem] z-10">
           <SpinningBackground />
           <TitleAndSubTitle />
           <GridHeader />
@@ -34,15 +34,17 @@ function SpinningBackground() {
 
 function TitleAndSubTitle() {
   return (
-    <div className="absolute left-5 top-1/4 -translate-y-1/2 z-20">
-      <h1 className="flex_col font-extrabold text-6xl w-fit">
+    <div className="absolute left-1/2 sm:left-5 top-1/2 sm:top-1/3 lg:top-1/4 -translate-y-1/2 -translate-x-1/2 sm:translate-x-0 z-20">
+      <h1 className="flex_col font-extrabold text-5xl xl:text-6xl w-fit">
         <span>Indigenous</span>
-        <span>Conference</span>
-        <span>Services</span>
+        <span className="flex sm:flex-col gap-3">
+          <span>Conference</span>
+          <span>Services</span>
+        </span>
         <span className="h-2 w-full bg-white rounded-full my-3" />
       </h1>
-      <p className="flex_col">
-        <span>ICS wishes to invite you and your Team for the interest</span>
+      <p className="flex_col text-base sm:text-sm lg:text-base max-w-1/2">
+        <span>ICS wishes to invite you and your team for the interest</span>
         <span className="-mt-1">
           in humanities and improving outcomes for First
         </span>
@@ -54,7 +56,7 @@ function TitleAndSubTitle() {
 
 function GridHeader() {
   return (
-    <div className="hidden md:grid xl:grid-cols-6 lg:grid-cols-5 grid-cols-4 gap-3 z-20 absolute inset-0">
+    <div className="hidden sm:grid xl:grid-cols-6 lg:grid-cols-5 grid-cols-4 gap-3 z-20 absolute inset-0">
       <div className="header_grid_empty hidden lg:block xl:col-start-3 xl:col-end-6 lg:col-start-3 lg:col-end-5" />
       <div className="header_grid header_grid_effects flex_end lg:col-auto col-start-4 col-end-5">
         <h3 className="header_grid_text">
@@ -62,7 +64,7 @@ function GridHeader() {
           Peoples
         </h3>
       </div>
-      <div className="header_grid_empty col-start-3 col-end-4 lg:hidden" />
+      <div className="header_grid_empty col-start-3 col-end-4 hidden md:block lg:hidden" />
       <div className="header_grid header_grid_effects flex_end xl:col-start-5 xl:col-end-6 lg:col-start-4 lg:col-end-5 col-start-4 col-end-5">
         <h3 className="header_grid_text">
           encompassing Aboriginal people, Torres Strait Islander people, and the

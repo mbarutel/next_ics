@@ -54,11 +54,6 @@ function ConferenceCard(conference: ConferenceType) {
             {conference.venue}
           </h4>
         </span>
-        <Links
-          slug={conference.slug}
-          registration={conference.registrationLink}
-          submitAPaper={conference.submitPaperLink}
-        />
         <SpinningIcon />
       </div>
     </Link>
@@ -103,7 +98,7 @@ function Date(
   );
 }
 
-function Links({
+function CallToActionButtons({ // This is causing hydration error
   slug,
   registration,
   submitAPaper,
