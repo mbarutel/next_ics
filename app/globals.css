@@ -36,7 +36,7 @@ body {
 }
 
 .section_sub_header {
-  @apply text-lg font-thin mt-5;
+  @apply text-lg font-medium mt-5 text-white/90;
 }
 
 .border {
@@ -82,11 +82,15 @@ body {
 /* Navigation Bar */
 
 .nav_links {
-  @apply relative text-4xl font-extrabold outline-none h-20 flex_center hover:text-black px-3 transition rounded overflow-hidden;
+  @apply relative text-4xl font-extrabold outline-none h-16 flex_center hover:text-black px-3 transition rounded overflow-hidden;
 }
 
 .nav_span {
   @apply absolute w-0 h-full z-10 gradient transition;
+}
+
+.nav_dropdown {
+  @apply text-2xl font-semibold px-4 divide-white divide-y-2;
 }
 
 /* Header Grid */

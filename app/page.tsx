@@ -31,7 +31,7 @@ export default async function Home() {
     <>
       <LandingHeader />
       <Announcement />
-      <NavBar />
+      <NavBar conferences={conferences} />
       <UpcomingConferences
         conferences={conferences}
       />

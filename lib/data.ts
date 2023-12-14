@@ -54,10 +54,6 @@ export const links = [
     name: "Contact",
     path: "/contact",
   },
-  {
-    name: "Conferences",
-    path: "/conferences",
-  },
 ] as const;
 
 export const eventLinks = [
