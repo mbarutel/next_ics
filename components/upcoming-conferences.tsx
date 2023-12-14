@@ -15,7 +15,7 @@ export default function UpcomingConferences(
           text={"Upcoming Conferences"}
           subText={"INDIGENOUS CONFERENCE SERVICES stands as a fully Indigenous-owned enterprise, maintaining complete independence from government funding bodies."}
         />
-        <div className="grid grid-cols-2 xl:gap-6">
+        <div className="grid grid-cols-2 gap-2">
           {conferences.map((conference) => (
             <Fragment
               key={conference.slug}
@@ -32,7 +32,6 @@ export default function UpcomingConferences(
 function ConferenceCard(conference: ConferenceType) {
   return (
     <Link
-      style={{ fontFamily: "Anton" }}
       href={`/conference/${conference.slug}`}
       className="group relative h-56 group transition-all duration-200 rounded-sm overflow-hidden"
     >
@@ -40,15 +39,18 @@ function ConferenceCard(conference: ConferenceType) {
         src={conference.coverImage.src}
         alt={conference.coverImage.alt}
         fill
-        className="object-cover grayscale group-hover:grayscale-0"
+        className="object-cover grayscale-[75%] transition group-hover:grayscale-0"
       />
       <div className="upcoming_conference_info_wrap whitespace-nowrap">
-        <span className="w-fit group-odd:pr-4 group-even:pl-4 text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:via-yellow-300 group-hover:to-yellow-200 group-hover:max-w-[28rem] pt-2">
-          <h3 className="xl:text-3xl group-hover:whitespace-normal transition group-hover:text-white divide-white divide-y">
+        <span className="w-fit group-odd:pr-4 group-even:pl-4 text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:via-yellow-300 group-hover:to-yellow-200 group-hover:max-w-[28rem] pt-2 z-20">
+          <h3
+            style={{ fontFamily: "Abril Fatface" }}
+            className="xl:text-3xl group-hover:whitespace-normal transition group-hover:text-white divide-white divide-y"
+          >
             {conference.title}
           </h3>
           <Date date={conference.date} />
-          <h4 className="xl:text-xl whitespace-nowrap transition">
+          <h4 className="xl:text-xl whitespace-nowrap transition font-semibold">
             {conference.venue}
           </h4>
         </span>
@@ -83,7 +85,7 @@ function Date(
 ) {
   return (
     <span className="z-20">
-      <h4 className="xl:text-xl whitespace-nowrap transition">
+      <h4 className="xl:text-xl whitespace-nowrap transition font-semibold">
         {date
           ? (
             <>
@@ -107,7 +109,7 @@ function Links({
   submitAPaper,
 }: { slug: string; registration: string; submitAPaper: string | undefined }) {
   return (
-    <div className="flex gap-3 text-lg bg-black text-white/90 mt-auto z-20">
+    <div className="flex text-lg bg-black text-white/90 mt-auto z-20">
       <Link
         href={`/conferences/${slug}`}
         className="text-center hover:bg-slate-800 hover:text-white xl:py-2 transition active:scale-95 active:rounded-bl-md duration-75 px-3"

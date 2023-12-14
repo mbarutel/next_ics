@@ -6,7 +6,7 @@ export default function Announcement() {
     <section>
       <div className="container relative w-full h-12 my-3 rounded-lg overflow-hidden">
         <Image
-          src="/assets/images/abobackground5-ai.svg"
+          src="/assets/images/art-bg.svg"
           alt="divider"
           fill
           className="object-cover opacity-40 grayscale"

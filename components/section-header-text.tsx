@@ -1,7 +1,12 @@
 import React from "react";
+import clsx from "clsx";
 
 export default function SectionHeaderText(
-  { text, subText }: { text: string; subText: string | undefined },
+  { text, subText, secondary = false }: {
+    text: string;
+    subText: string | undefined;
+    secondary?: boolean;
+  },
 ) {
   return (
     <div className="py-5">
@@ -11,7 +16,15 @@ export default function SectionHeaderText(
       >
         {text}
       </h2>
-      {subText && <p className="section_sub_header">{subText}</p>}
+      {subText && (
+        <p
+          className={clsx("section_sub_header text-right", {
+            "!text-left": secondary === true,
+          })}
+        >
+          {subText}
+        </p>
+      )}
     </div>
   );
 }

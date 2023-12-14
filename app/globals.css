@@ -36,7 +36,7 @@ body {
 }
 
 .section_sub_header {
-  @apply text-lg font-thin text-right mt-5;
+  @apply text-lg font-thin mt-5;
 }
 
 .border {
@@ -111,4 +111,10 @@ body {
 
 .upcoming_conference_info_wrap {
   @apply absolute group-odd:right-0 group-odd:text-right group-even:left-0 group-odd:clip-path-polygon-[100%_0,_30%_0,_40%_100%,_100%_100%] group-even:clip-path-polygon-[0_0,_70%_0,_60%_100%,_0_100%] w-0 group-hover:w-full overflow-hidden transition bg-zinc-800 h-full flex flex-col group-even:items-start group-odd:items-end justify-center text-transparent;
+}
+
+/* Footer */
+
+.footer_grid_header {
+  @apply uppercase font-bold text-xl;
 }
