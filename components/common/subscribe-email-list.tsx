@@ -8,7 +8,7 @@ import React, { FormEvent, useState } from "react";
 export default function SubscribeEmailList() {
   return (
     <section className="pt-2">
-      <div className="mx-auto max-w-[90rem] relative h-[30rem] rounded-md overflow-hidden shadow-xl">
+      <div className="mx-auto max-w-[90rem] relative h-[30rem] rounded-sm overflow-hidden shadow-xl">
         <Image
           src="/assets/images/email-subscribe-bg.webp"
           alt="Subscribe to our email list"

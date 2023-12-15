@@ -5,7 +5,7 @@ export default function LandingHeader() {
   return (
     <header>
       <div className="container">
-        <div className="relative mt-7 xl:h-[45rem] lg:h-[35rem] md:h-[30rem] sm:h-[25rem] h-[20rem] z-10">
+        <div className="relative mt-2 xl:mt-4 xl:h-[45rem] lg:h-[35rem] md:h-[30rem] sm:h-[25rem] h-[20rem] z-10">
           <SpinningBackground />
           <TitleAndSubTitle />
           <GridHeader />
@@ -35,7 +35,7 @@ function SpinningBackground() {
 function TitleAndSubTitle() {
   return (
     <div className="absolute left-1/2 sm:left-5 top-1/2 sm:top-1/3 lg:top-1/4 -translate-y-1/2 -translate-x-1/2 sm:translate-x-0 z-20">
-      <h1 className="flex_col font-extrabold text-5xl xl:text-6xl w-fit">
+      <h1 className="flex_col font-extrabold text-4xl xl:text-6xl w-fit">
         <span>Indigenous</span>
         <span className="flex sm:flex-col gap-3">
           <span>Conference</span>
@@ -43,12 +43,9 @@ function TitleAndSubTitle() {
         </span>
         <span className="h-2 w-full bg-white rounded-full my-3" />
       </h1>
-      <p className="flex_col text-base sm:text-sm lg:text-base max-w-1/2">
-        <span>ICS wishes to invite you and your team for the interest</span>
-        <span className="-mt-1">
-          in humanities and improving outcomes for First
-        </span>
-        <span className="-mt-1">Nations people to our next event</span>
+      <p className="text-base sm:text-sm lg:text-base max-w-[25rem]">
+        ICS wishes to invite you and your team for the interest in humanities
+        and improving outcomes for First Nations people to our next event
       </p>
     </div>
   );

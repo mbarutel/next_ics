@@ -15,7 +15,8 @@ export default function UpcomingConferences(
           text={"Upcoming Conferences"}
           subText={"INDIGENOUS CONFERENCE SERVICES stands as a fully Indigenous-owned enterprise, maintaining complete independence from government funding bodies."}
         />
-        <div className="grid grid-cols-2 gap-2">
+        <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-y-2 gap-x-4">
+          <div className="hidden xl:block absolute h-full top-0 left-1/2 -translate-x-1/2 w-1 bg-gradient-to-t gradient rounded-full opacity-90" />
           {conferences.map((conference) => (
             <Fragment
               key={conference.slug}
@@ -31,38 +32,37 @@ export default function UpcomingConferences(
 
 function ConferenceCard(conference: ConferenceType) {
   return (
-    <Link
-      href={`/conference/${conference.slug}`}
-      className="group relative h-56 group transition-all duration-200 rounded-sm overflow-hidden"
-    >
+    <div className="group relative h-48 md:h-56 group transition-all duration-200 rounded-sm overflow-hidden">
       <Image
         src={conference.coverImage.src}
         alt={conference.coverImage.alt}
         fill
         className="object-cover grayscale-[75%] transition group-hover:grayscale-0"
       />
-      <div className="upcoming_conference_info_wrap whitespace-nowrap">
-        <span className="w-fit group-odd:pr-4 group-even:pl-4 text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:via-yellow-300 group-hover:to-yellow-200 group-hover:max-w-[28rem] pt-2 z-20">
-          <h3
-            style={{ fontFamily: "Abril Fatface" }}
-            className="xl:text-3xl group-hover:whitespace-normal transition group-hover:text-white divide-white divide-y"
-          >
+      <div className="absolute group-odd:right-0 group-even:left-0 group-odd:clip-path-polygon-[100%_0,_10%_0,_20%_100%,_100%_100%] md:group-odd:clip-path-polygon-[100%_0,_30%_0,_40%_100%,_100%_100%] group-even:clip-path-polygon-[0_0,_90%_0,_80%_100%,_0_100%] md:group-even:clip-path-polygon-[0_0,_70%_0,_60%_100%,_0_100%] w-0 group-hover:w-full overflow-hidden transition_config bg-zinc-800 h-full text-transparent whitespace-nowrap flex_col justify-between">
+        <div className="group-odd:pr-4 group-odd:ml-auto group-odd:text-right group-even:pl-4 text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:via-yellow-300 group-hover:to-yellow-200 group-hover:max-w-[28rem] pt-2 z-20 w-[15rem] md:w-fit">
+          <h3 className="text-xl sm:text-3xl font-semibold group-even:ml-auto uppercase !tracking-tight !leading-none group-hover:whitespace-normal transition group-hover:text-white">
             {conference.title}
           </h3>
           <Date date={conference.date} />
-          <h4 className="xl:text-xl whitespace-nowrap transition font-semibold">
+          <h4 className="-mt-1 md:mt-0 text-base md:text-xl whitespace-nowrap group-hover:whitespace-normal transition font-semibold">
             {conference.venue}
           </h4>
-        </span>
+        </div>
+        <CallToActionButtons
+          slug={conference.slug}
+          registration={conference.registrationLink}
+          submitAPaper={conference.submitPaperLink}
+        />
         <SpinningIcon />
       </div>
-    </Link>
+    </div>
   );
 }
 
 function SpinningIcon() {
   return (
-    <div className="absolute left-1/2 -translate-x-1/2 translate-y-1/2 bottom-0 hidden group-hover:block z-10">
+    <div className="absolute left-1/2 -translate-x-1/2 translate-y-1/2 bottom-0 hidden group-hover:block z-0">
       <div className="relative h-96 w-96">
         <Image
           src="/assets/images/conference-card-icon.svg"
@@ -80,7 +80,7 @@ function Date(
 ) {
   return (
     <span className="z-20">
-      <h4 className="xl:text-xl whitespace-nowrap transition font-semibold">
+      <h4 className="text-base md:text-xl whitespace-nowrap font-semibold">
         {date
           ? (
             <>
@@ -98,31 +98,37 @@ function Date(
   );
 }
 
-function CallToActionButtons({ // This is causing hydration error
+function CallToActionButtons({
   slug,
   registration,
   submitAPaper,
 }: { slug: string; registration: string; submitAPaper: string | undefined }) {
   return (
-    <div className="flex text-lg bg-black text-white/90 mt-auto z-20">
+    <div className="flex text-sm sm:text-lg bg-black text-white/90 mt-auto z-40 w-fit group-odd:ml-auto">
       <Link
         href={`/conferences/${slug}`}
-        className="text-center hover:bg-slate-800 hover:text-white xl:py-2 transition active:scale-95 active:rounded-bl-md duration-75 px-3"
+        className="group text-center hover:bg-slate-800 hover:text-white py-2 transition active:scale-95 active:rounded-bl-md duration-75 px-2 sm:px-3"
       >
-        View Events
+        <span className="group-active:scale-95 transition">
+          View Events
+        </span>
       </Link>
       <Link
         href={registration}
-        className="text-center hover:bg-slate-800 hover:text-white xl:py-2 transition active:scale-95 duration-75 px-3"
+        className="group text-center hover:bg-slate-800 hover:text-white py-2 transition active:scale-95 duration-75 px-1 sm:px-3"
       >
-        Registration
+        <span className="group-active:scale-95 transition">
+          Registration
+        </span>
       </Link>
       {submitAPaper && (
         <Link
           href={submitAPaper}
-          className="text-center hover:bg-slate-800 hover:text-white xl:py-2 transition active:scale-95 active:rounded-br-md duration-75 px-3"
+          className="group text-center hover:bg-slate-800 hover:text-white py-2 transition active:scale-95 active:rounded-br-md duration-75 px-1 sm:px-3"
         >
-          Submit A Paper
+          <span className="group-active:scale-95 transition">
+            Submit A Paper
+          </span>
         </Link>
       )}
     </div>

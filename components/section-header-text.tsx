@@ -21,7 +21,7 @@ export default function SectionHeaderText(
       </h2>
       {subText && (
         <p
-          className={clsx("section_sub_header text-right", {
+          className={clsx("section_sub_header md:text-right", {
             "!text-left": secondary === true,
           })}
         >
