@@ -64,7 +64,7 @@ export default function NavBar(
                 {conferences.map((conference) => (
                   <Fragment key={conference.slug}>
                     <Link
-                      href={`/conferences/${conference.slug}`}
+                      href={`/conference/${conference.slug}`}
                       className="nav_dropdown bg-gradient-to-r gradient bg-clip-text hover:text-transparent transition"
                     >
                       <span>
@@ -144,7 +144,7 @@ export default function NavBar(
             {conferences.map((conference) => (
               <Fragment key={conference.slug}>
                 <Link
-                  href={`/conferences/${conference.slug}`}
+                  href={`/conference/${conference.slug}`}
                   className="font-medium leading-none text-lg"
                 >
                   {conference.title}

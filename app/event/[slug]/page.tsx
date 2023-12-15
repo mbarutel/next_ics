@@ -42,23 +42,20 @@ export default async function page({ params }: EventPageProps) {
 
   return (
     <>
-      <EventHeader
-        event={{
-          ...eventPage,
-          conference: eventPage.conference as ConferenceType,
-        }}
-      />
       <ActiveSectionContextProvider>
-        <article className="static px-2 max-w-4xl mx-auto flex gap-1 mt-6">
-          <div>
-            <ConferenceText event={eventPage} />
-            {eventPage.agenda.length &&
-              <Agenda agenda={eventPage.agenda} />}
-            {eventPage.conference && eventPage.conference.masterclass.length &&
-              <Masterclass masterclass={eventPage.conference.masterclass} />}
+        <article>
+          <div className="container flex gap-2">
+            <div>
+              <ConferenceText event={eventPage} />
+              {eventPage.agenda.length &&
+                <Agenda agenda={eventPage.agenda} />}
+              {eventPage.conference &&
+                eventPage.conference.masterclass.length &&
+                <Masterclass masterclass={eventPage.conference.masterclass} />}
+            </div>
+            {eventPage.agenda.length && eventPage.conference &&
+              eventPage.conference.masterclass.length && <ScrollBottons />}
           </div>
-          {eventPage.agenda.length && eventPage.conference &&
-            eventPage.conference.masterclass.length && <ScrollBottons />}
         </article>
         <EventFooter />
       </ActiveSectionContextProvider>

@@ -13,7 +13,7 @@ export default function ScrollBottons() {
   console.log(activeSection);
 
   return (
-    <div className="sticky h-fit top-1/3 right-2 z-[899] flex flex-col rounded-md bg-white/80 backdrop-blur-[0.5rem] px-1 gap-3 py-2">
+    <div className="sticky h-screen top-1/3 right-2 z-[899] flex flex-col rounded-md bg-white/80 backdrop-blur-[0.5rem] px-1 gap-3 py-2">
       {eventLinks.map((link) => (
         <Fragment key={link.hash}>
           <Link

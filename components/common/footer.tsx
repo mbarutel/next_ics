@@ -11,21 +11,23 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="pt-2">
-      <div className="container rounded-sm overflow-hidden flex flex-col">
-        <Image
-          src="/assets/images/art-bg.svg"
-          alt="Announcements"
-          fill
-          className="object-cover opacity-20 grayscale z-0"
-        />
-        <div className="grid grid-cols-2 lg:grid-cols-3 lg:gap-8 mb-2 px-6 pt-4 z-10">
-          <Links />
-          <Acknowledgement />
-          <Contacts />
+      <div className="container">
+        <div className="relative rounded-sm overflow-hidden flex flex-col">
+          <Image
+            src="/assets/images/art-bg.svg"
+            alt="Announcements"
+            fill
+            className="object-cover opacity-20 grayscale z-0"
+          />
+          <div className="grid grid-cols-2 lg:grid-cols-3 lg:gap-8 mb-2 px-6 pt-4 z-10">
+            <Links />
+            <Acknowledgement />
+            <Contacts />
+          </div>
+          <small className="italic mx-auto text-sm">
+            ©&nbsp;Indigenous&nbsp;Conference&nbsp;Services&nbsp;2023
+          </small>
         </div>
-        <small className="italic mx-auto text-sm">
-          ©&nbsp;Indigenous&nbsp;Conference&nbsp;Services&nbsp;2023
-        </small>
       </div>
     </footer>
   );

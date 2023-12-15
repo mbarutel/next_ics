@@ -11,7 +11,8 @@ import EventHeader from "./event/event-header";
 import ConferenceDisplay from "./conference/conference-display";
 import ContactForm from "./contact/contact-form";
 import ExitDraftModeLink from "./common/exit-draft-mode-link";
-import Navbar from "./common/navbar";
+import NavBar from "./nav-bar";
+import ConferenceEvents from "./conference-events";
 import RichText from "./common/rich-text";
 import Agenda from "./event/agenda";
 import Masterclass from "./event/masterclass";
@@ -22,12 +23,15 @@ import ScrollBottons from "./event/scroll-buttons";
 import EventFooter from "./event/event-footer";
 import UpcomingConferences from "./upcoming-conferences";
 import LandingHeader from "./landing-header";
+import ConferenceHeader from "./conference-header";
 
 export {
   About,
   Agenda,
   CallToAction,
   ConferenceDisplay,
+  ConferenceEvents,
+  ConferenceHeader,
   ConferenceText,
   ContactForm,
   EventFooter,
@@ -38,7 +42,7 @@ export {
   Header,
   LandingHeader,
   Masterclass,
-  Navbar,
+  NavBar,
   OurPurpose,
   OurValues,
   OurVision,

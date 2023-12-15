@@ -16,7 +16,7 @@ export default function Masterclass(
 
   return (
     <section ref={ref} id="masterclass" className="scroll-mt-20 mt-6">
-      <div className="px-4 lg:px-6 py-6 max-w-4xl mx-auto bg-slate-100 border bg-paper_gradient bg-[length:5px_5px] rounded-md">
+      <div>
         <h3
           style={{ fontFamily: "Abril Fatface" }}
           className="mb-3 text-3xl text-slate-700 uppercase ml-3"

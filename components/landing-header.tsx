@@ -1,34 +1,17 @@
-import Image from "next/image";
 import React from "react";
+import SpinningBackground from "./spinning-header";
 
 export default function LandingHeader() {
   return (
     <header>
       <div className="container">
-        <div className="relative mt-2 xl:mt-4 xl:h-[45rem] lg:h-[35rem] md:h-[30rem] sm:h-[25rem] h-[20rem] z-10">
+        <div className="relative mt-2 header_height z-10">
           <SpinningBackground />
           <TitleAndSubTitle />
           <GridHeader />
         </div>
       </div>
     </header>
-  );
-}
-
-function SpinningBackground() {
-  return (
-    <div className="overflow-hidden relative h-full rounded-lg">
-      <div className="absolute left-1/4 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10">
-        <div className="relative h-[72rem] w-[72rem] rounded-full overflow-hidden">
-          <Image
-            src="/assets/images/header-bg.svg"
-            alt="Conference Aboriginal Art"
-            fill
-            className="object-cover z-10 opacity-20 grayscale animate-[spin_10s_linear_infinite]"
-          />
-        </div>
-      </div>
-    </div>
   );
 }
 

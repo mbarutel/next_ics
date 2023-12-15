@@ -31,6 +31,18 @@ body {
   @apply px-2 xl:mx-auto max-w-[90rem] relative z-0;
 }
 
+.header_height {
+  @apply xl:h-[45rem] lg:h-[35rem] md:h-[30rem] sm:h-[25rem] h-[20rem];
+}
+
+.header_sizes {
+  @apply xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl text-4xl;
+}
+
+.header_subtext {
+  @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-wide;
+}
+
 .section_header {
   @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-wide;
 }
@@ -48,7 +60,7 @@ body {
 }
 
 .countdown_padding {
-  @apply px-3 py-1 sm:px-5 sm:py-1 lg:px-6 lg:py-4;
+  @apply px-3 py-1 sm:px-5 sm:py-1 lg:px-10 lg:py-2;
 }
 
 .flex_col {

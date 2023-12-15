@@ -8,15 +8,17 @@ import React, { FormEvent, useState } from "react";
 export default function SubscribeEmailList() {
   return (
     <section className="pt-2">
-      <div className="mx-auto max-w-[90rem] relative h-[30rem] rounded-sm overflow-hidden shadow-xl">
-        <Image
-          src="/assets/images/email-subscribe-bg.webp"
-          alt="Subscribe to our email list"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
-        />
-        <EmailForm />
+      <div className="container">
+        <div className="relative h-[30rem] rounded-sm overflow-hidden">
+          <Image
+            src="/assets/images/email-subscribe-bg.webp"
+            alt="Subscribe to our email list"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover"
+          />
+          <EmailForm />
+        </div>
       </div>
     </section>
   );
@@ -58,9 +60,10 @@ function EmailForm() {
 
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center container">
-      <h2 
-        style={{fontFamily: "Abril Fatface"}}
-        className="section_header text-white mb-2 lg:mb-5">
+      <h2
+        style={{ fontFamily: "Abril Fatface" }}
+        className="section_header text-white mb-2 lg:mb-5"
+      >
         Join Our Conference
       </h2>
       <p className="text-center text-white/80 mb-4">

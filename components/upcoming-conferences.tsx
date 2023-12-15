@@ -106,7 +106,7 @@ function CallToActionButtons({
   return (
     <div className="flex text-sm sm:text-lg bg-black text-white/90 mt-auto z-40 w-fit group-odd:ml-auto">
       <Link
-        href={`/conferences/${slug}`}
+        href={`/conference/${slug}`}
         className="group text-center hover:bg-slate-800 hover:text-white py-2 transition active:scale-95 active:rounded-bl-md duration-75 px-2 sm:px-3"
       >
         <span className="group-active:scale-95 transition">
