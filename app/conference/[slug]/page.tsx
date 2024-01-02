@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
-import { parserConferenceEntry, parserEventEntry } from "@/contentful/utils";
+import { parserConferenceEntry } from "@/contentful/utils";
 import { Conference } from "@/contentful/services/conferences";
 import {
   CallToAction,

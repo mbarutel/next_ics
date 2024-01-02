@@ -11,7 +11,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="pt-2">
-      <div className="container">
+      <div className="section_container">
         <div className="relative rounded-sm overflow-hidden flex flex-col">
           <Image
             src="/assets/images/art-bg.svg"

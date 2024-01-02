@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { ConferenceType } from "@/lib/types";
-import Link from "next/link";
+
 import dayjs from "dayjs";
-import { configs } from "@/lib/data";
+import Image from "next/image";
+import { AssetType, ConferenceType } from "@/lib/types";
+import HeaderFormLinks from "./header-form-links";
+import React, { useEffect, useState } from "react";
 import SpinningBackground from "./spinning-header";
 
 export default function ConferenceHeader(
@@ -11,72 +12,32 @@ export default function ConferenceHeader(
 ) {
   return (
     <header>
-      <div className="container">
-        <div className="header_height relative">
+      <div className="section_container">
+        <div className="header_wrapper">
           <ConferenceInfo {...conference} />
           {conference.date &&
             <Countdown startDate={conference.date.startDate} />}
           <SpinningBackground />
-          <FormLinks
-            registration={conference.registrationLink}
-            submitAPaper={conference.submitPaperLink}
-          />
         </div>
       </div>
     </header>
   );
 }
 
-function FormLinks(
-  { registration, submitAPaper }: {
-    registration: string;
-    submitAPaper: string | undefined;
-  },
-) {
-  return (
-    <div className="absolute bottom-0 right-2 flex gap-2 text-white z-40">
-      <Link
-        href={registration}
-        target="_blank"
-        rel="noreferrer"
-        className="relative inline-flex group button_padding bg-zinc-900 text-base font-medium transition-all active:scale-95 rounded-sm overflow-hidden text-white hover:text-black"
-      >
-        <span className="z-10">
-          Register
-        </span>
-        <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-gradient-to-r gradient transition_config z-0" />
-      </Link>
-      {submitAPaper &&
-        (
-          <Link
-            href={configs.forms.submitPaper}
-            target="_blank"
-            rel="noreferrer"
-            className="relative inline-flex group button_padding bg-gradient-to-r gradient text-sm sm:text-base transition_config active:scale-95 rounded-sm overflow-hidden text-black hover:text-white"
-          >
-            <span className="z-10">
-              Submit a paper
-            </span>
-            <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full bg-zinc-900 transition_config z-0" />
-          </Link>
-        )}
-    </div>
-  );
-}
-
 function ConferenceInfo(conference: ConferenceType) {
   return (
     <div className="z-40 absolute top-1/2 -translate-y-1/2 left-4">
-      <div className="md:max-w-[75%]">
-        <h1 className="uppercase font-extrabold header_sizes">
-          {conference.title}
-        </h1>
-        <DateText date={conference.date} />
-        <br />
-        <span className="header_subtext">
-          {conference.venue}
-        </span>
-      </div>
+      <h1 className="uppercase font-extrabold header_sizes">
+        {conference.title}
+      </h1>
+      <DateText date={conference.date} />
+      <h2 className="header_subtext">
+        {conference.venue}
+      </h2>
+      <HeaderFormLinks
+        registration={conference.registrationLink}
+        submitAPaper={conference.submitPaperLink}
+      />
     </div>
   );
 }
@@ -88,7 +49,7 @@ function DateText(
   dayjs.extend(localizedFormat);
 
   return (
-    <span className="header_subtext">
+    <h2 className="header_subtext">
       {date
         ? (
           <>
@@ -101,7 +62,7 @@ function DateText(
             Date to be announced
           </>
         )}
-    </span>
+    </h2>
   );
 }
 

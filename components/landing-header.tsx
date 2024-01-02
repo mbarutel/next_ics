@@ -4,7 +4,7 @@ import SpinningBackground from "./spinning-header";
 export default function LandingHeader() {
   return (
     <header>
-      <div className="container">
+      <div className="section_container">
         <div className="relative mt-2 header_height z-10">
           <SpinningBackground />
           <TitleAndSubTitle />

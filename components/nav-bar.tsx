@@ -21,8 +21,8 @@ export default function NavBar(
   });
 
   return (
-    <nav className="sticky top-0 z-20 py-2 bg-black">
-      <div className="container !overflow-visible">
+    <nav className="sticky top-0 z-[999] py-2 bg-black">
+      <div className="section_container !overflow-visible">
         {/* Medium Upwards */}
         <div className="hidden md:block ">
           <div className="flex flex-wrap">

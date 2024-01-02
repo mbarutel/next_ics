@@ -27,8 +27,16 @@ body {
 /*   @apply ; */
 /* } */
 
-.container {
-  @apply px-2 xl:mx-auto max-w-[90rem] relative z-0;
+/* .container { */
+/*   @apply px-2 xl:mx-auto max-w-[90rem] relative z-0; */
+/* } */
+
+.section_container {
+  @apply container xl:mx-auto;
+}
+
+.header_wrapper {
+  @apply relative header_height rounded-md overflow-hidden;
 }
 
 .header_height {
@@ -40,7 +48,7 @@ body {
 }
 
 .header_subtext {
-  @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-wide;
+  @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-wide mb-2;
 }
 
 .section_header {

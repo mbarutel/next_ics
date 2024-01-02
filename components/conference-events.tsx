@@ -7,7 +7,7 @@ import SectionHeaderText from "./section-header-text";
 export default function ConferenceEvents({ events }: { events: EventType[] }) {
   return (
     <section>
-      <div className="container">
+      <div className="section_container">
         <SectionHeaderText
           text="Upcoming Events"
           subText="100% Proudly presented, formulated, designed and organised

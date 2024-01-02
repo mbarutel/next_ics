@@ -7,7 +7,7 @@ export default function UpcomingEvents(
 ) {
   return (
     <section className="pt-8 lg:pt-12">
-      <div className="container flex flex-col">
+      <div className="section_container flex flex-col">
         <h2
           style={{ fontFamily: "Abril Fatface" }}
           className="w-fit section_header text-orange-500 mb-6 sm:mb-10"

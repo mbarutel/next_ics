@@ -7,7 +7,7 @@ import SectionHeaderText from "../section-header-text";
 export default function CallToAction() {
   return (
     <section className="pt-8 lg:pt-12">
-      <div className="container">
+      <div className="section_container">
         <SectionHeaderText
           text="Become Part of ICS"
           subText="ICS is based upon the principles of maintaining our own Cultural identity whilst striving for our own self-determination"
@@ -29,14 +29,14 @@ function ActionCard(
   { title, description, button, image, form }: ActionCardProp,
 ) {
   return (
-    <div className="group bg-zinc-800 flex flex-col rounded-sm overflow-hidden">
+    <div className="bg-zinc-800 flex flex-col rounded-sm overflow-hidden">
       <div className="relative h-52 overflow-hidden">
         <Image
           src={image}
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover group-hover:scale-110 transition-all duration-500"
+          className="object-cover hover:scale-110 transition-all duration-500"
         />
       </div>
       <div className="px-3 pb-3 lg:px-6 lg:pb-6 mt-4 flex-grow flex flex-col">

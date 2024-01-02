@@ -10,7 +10,7 @@ export default function UpcomingConferences(
 ) {
   return (
     <section>
-      <div className="container">
+      <div className="section_container">
         <SectionHeaderText
           text={"Upcoming Conferences"}
           subText={"INDIGENOUS CONFERENCE SERVICES stands as a fully Indigenous-owned enterprise, maintaining complete independence from government funding bodies."}
@@ -52,7 +52,6 @@ function ConferenceCard(conference: ConferenceType) {
         <CallToActionButtons
           slug={conference.slug}
           registration={conference.registrationLink}
-          submitAPaper={conference.submitPaperLink}
         />
         <SpinningIcon />
       </div>
@@ -101,8 +100,7 @@ function Date(
 function CallToActionButtons({
   slug,
   registration,
-  submitAPaper,
-}: { slug: string; registration: string; submitAPaper: string | undefined }) {
+}: { slug: string; registration: string }) {
   return (
     <div className="flex text-sm sm:text-lg bg-black text-white/90 mt-auto z-40 w-fit group-odd:ml-auto">
       <Link
@@ -121,16 +119,6 @@ function CallToActionButtons({
           Registration
         </span>
       </Link>
-      {submitAPaper && (
-        <Link
-          href={submitAPaper}
-          className="group text-center hover:bg-slate-800 hover:text-white py-2 transition active:scale-95 active:rounded-br-md duration-75 px-1 sm:px-3"
-        >
-          <span className="group-active:scale-95 transition">
-            Submit A Paper
-          </span>
-        </Link>
-      )}
     </div>
   );
 }

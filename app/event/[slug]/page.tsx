@@ -12,6 +12,7 @@ import { Event } from "@/contentful/services/event";
 import { parserEventEntry } from "@/contentful/utils";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import { ConferenceType } from "@/lib/types";
+import Announcement from "@/components/announcement";
 
 type EventPageParams = {
   slug: string;
@@ -43,6 +44,8 @@ export default async function page({ params }: EventPageProps) {
   return (
     <>
       <ActiveSectionContextProvider>
+        <EventHeader {...eventPage} />
+        <Announcement />
         <article>
           <div className="container flex gap-2">
             <div>
