@@ -61,7 +61,6 @@ function EmailForm() {
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center container">
       <h2
-        style={{ fontFamily: "Abril Fatface" }}
         className="section_header text-white mb-2 lg:mb-5"
       >
         Join Our Conference
@@ -86,14 +85,14 @@ function EmailForm() {
         <button
           type="submit"
           disabled={pending}
-          className="group flex flex-shrink items-center justify-center gap-2 bg-yellow-500 px-4 transition-all hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65 rounded-r-md"
+          className="group flex flex-shrink items-center justify-center gap-2 bg-gradient-to-r gradient px-4 transition-all hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65 rounded-r-md"
         >
           {pending
             ? (
               <span className="h-5 w-5 animate-spin rounded-full border-b-2 border-stone-400" />
             )
             : (
-              <span className="flex items-center gap-2 text-slate-800 group-hover:text-white">
+              <span className="flex items-center gap-2 text-black">
                 Submit{" "}
                 <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
                 {" "}

@@ -52,7 +52,7 @@ body {
 }
 
 .section_header {
-  @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-wide;
+  @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-normal;
 }
 
 .section_sub_header {

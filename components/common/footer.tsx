@@ -54,7 +54,7 @@ function Links() {
       <h3 className="footer_grid_header">
         Links
       </h3>
-      <div className="grid grid-cols-2 gap-1 lg:gap-2 w-fit mr-auto">
+      <div className="grid grid-cols-1 lg:gap-1 w-fit mr-auto">
         {links.map((link, index) => (
           <Fragment key={index}>
             <Link

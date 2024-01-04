@@ -11,7 +11,6 @@ export default function SectionHeaderText(
   return (
     <div className="py-5">
       <h2
-        style={{ fontFamily: "Abril Fatface" }}
         className={clsx(
           "section_header tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-rose-100 to-teal-100",
           { "!text-right": secondary === true },
