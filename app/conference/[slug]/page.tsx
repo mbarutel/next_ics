@@ -3,13 +3,14 @@ import { notFound } from "next/navigation";
 import { parserConferenceEntry } from "@/contentful/utils";
 import { Conference } from "@/contentful/services/conferences";
 import {
+  NavBar,
   CallToAction,
+  Announcement,
   ConferenceEvents,
   ConferenceHeader,
-  NavBar,
   SubscribeEmailList,
+  SpeakersDisplay,
 } from "@/components";
-import Announcement from "@/components/announcement";
 
 type ConferencePageParams = {
   slug: string;
@@ -33,6 +34,7 @@ export default async function page({ params }: ConferencePageProps) {
   });
 
   const conferences = await conferenceInstance.getConferences();
+
   const conferencePage = conferences.find((conference) =>
     conference.slug === params.slug
   );
@@ -47,6 +49,7 @@ export default async function page({ params }: ConferencePageProps) {
       <ConferenceHeader {...conferencePage} />
       <Announcement />
       <ConferenceEvents events={conferencePage.events} />
+      <SpeakersDisplay speakers={conferencePage.speakers} />
       <CallToAction />
       <SubscribeEmailList />
     </>

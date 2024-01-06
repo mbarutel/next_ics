@@ -13,8 +13,8 @@ import ContactForm from "./contact-form";
 import ExitDraftModeLink from "./common/exit-draft-mode-link";
 import NavBar from "./nav-bar";
 import ConferenceEvents from "./conference-events";
-// import Agenda from "./event/agenda";
-// import Masterclass from "./event/masterclass";
+import Agenda from "./agenda";
+import Masterclass from "./masterclass";
 import GoogleAnalytics from "./common/google-analytics";
 import VideoPlayer from "./common/video-player";
 // import ConferenceText from "./event/conference-text";
@@ -25,11 +25,12 @@ import LandingHeader from "./landing-header";
 import ConferenceHeader from "./conference-header";
 import EventText from "./event-text";
 import Announcement from "./announcement";
+import SpeakersDisplay from "./speaker-display";
 
 export {
   About,
+  Agenda,
   Announcement,
-  // Agenda,
   CallToAction,
   ConferenceDisplay,
   ConferenceEvents,
@@ -38,18 +39,19 @@ export {
   ContactForm,
   // EventFooter,
   EventHeader,
+  EventText,
   ExitDraftModeLink,
   Footer,
   GoogleAnalytics,
   Header,
   LandingHeader,
-  // Masterclass,
+  Masterclass,
   NavBar,
   OurPurpose,
   OurValues,
   OurVision,
-  EventText,
   ScrollBottons,
+  SpeakersDisplay,
   SubscribeEmailList,
   UpcomingConferences,
   UpcomingEvents,

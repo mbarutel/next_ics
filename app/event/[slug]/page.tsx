@@ -1,12 +1,14 @@
-import {
-  Announcement,
-  EventHeader,
-  EventText,
-} from "@/components";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { Event } from "@/contentful/services/event";
 import { parserEventEntry } from "@/contentful/utils";
+import {
+  Agenda,
+  Announcement,
+  EventHeader,
+  EventText,
+  Masterclass,
+} from "@/components";
 
 type EventPageParams = {
   slug: string;
@@ -36,6 +38,12 @@ export default async function page({ params }: EventPageProps) {
     return notFound();
   }
 
+  const agenda = eventPage.agenda.length > 0 ? eventPage.agenda : null;
+  const masterclasses =
+    eventPage.conference && eventPage.conference.masterclass.length > 0
+      ? eventPage.conference.masterclass
+      : null;
+
   return (
     <>
       <EventHeader {...eventPage} />
@@ -43,6 +51,8 @@ export default async function page({ params }: EventPageProps) {
       <article>
         <div className="section_container">
           <EventText event={eventPage} />
+          {agenda && <Agenda agenda={agenda} />}
+          {masterclasses && <Masterclass masterclass={masterclasses} />}
         </div>
       </article>
     </>
