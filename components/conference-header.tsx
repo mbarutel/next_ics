@@ -1,11 +1,11 @@
 "use client";
 
 import dayjs from "dayjs";
-import Image from "next/image";
-import { AssetType, ConferenceType } from "@/lib/types";
+import { ConferenceType } from "@/lib/types";
 import HeaderFormLinks from "./header-form-links";
 import React, { useEffect, useState } from "react";
 import SpinningBackground from "./spinning-header";
+import HeaderDate from "./header-date";
 
 export default function ConferenceHeader(
   conference: ConferenceType,
@@ -27,11 +27,11 @@ export default function ConferenceHeader(
 function ConferenceInfo(conference: ConferenceType) {
   return (
     <div className="z-40 absolute top-1/2 -translate-y-1/2 left-4">
-      <h1 className="uppercase font-extrabold header_sizes">
+      <h1 className="uppercase font-extrabold header_sizes mb-2">
         {conference.title}
       </h1>
-      <DateText date={conference.date} />
-      <h2 className="header_subtext">
+      <HeaderDate date={conference.date} />
+      <h2 className="header_subtext -mt-3">
         {conference.venue}
       </h2>
       <HeaderFormLinks
@@ -39,30 +39,6 @@ function ConferenceInfo(conference: ConferenceType) {
         submitAPaper={conference.submitPaperLink}
       />
     </div>
-  );
-}
-
-function DateText(
-  { date }: { date: undefined | { startDate: Date; endDate: Date } },
-) {
-  const localizedFormat = require("dayjs/plugin/localizedFormat");
-  dayjs.extend(localizedFormat);
-
-  return (
-    <h2 className="header_subtext">
-      {date
-        ? (
-          <>
-            {dayjs(date.startDate).format("DD")} -{" "}
-            {dayjs(date.endDate).format("DD MMMM, YYYY")}
-          </>
-        )
-        : (
-          <>
-            Date to be announced
-          </>
-        )}
-    </h2>
   );
 }
 

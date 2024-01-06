@@ -1,18 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { ConferenceType, EventType } from "@/lib/types";
-import Link from "next/link";
-import dayjs from "dayjs";
-import { configs } from "@/lib/data";
+import React from "react";
+import HeaderDate from "./header-date";
+import { EventType } from "@/lib/types";
 import SpinningBackground from "./spinning-header";
+import HeaderFormLinks from "./header-form-links";
 
 export default function EventHeader(
   event: EventType,
 ) {
   return (
     <header>
-      <div className="container">
+      <div className="section_container">
         <div className="header_height relative">
           <EventInfo {...event} />
           <SpinningBackground />
@@ -31,9 +30,16 @@ function EventInfo(event: EventType) {
         </h1>
         {event.conference &&
           (
-            <span className="header_subtext">
-              {event.conference.venue}
-            </span>
+            <>
+              <HeaderDate date={event.conference.date} />
+              <h2 className="header_subtext -mt-3">
+                {event.conference.venue}
+              </h2>
+              <HeaderFormLinks
+                registration={event.conference.registrationLink}
+                submitAPaper={event.conference.submitPaperLink}
+              />
+            </>
           )}
       </div>
     </div>

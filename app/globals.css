@@ -32,7 +32,7 @@ body {
 /* } */
 
 .section_container {
-  @apply container xl:mx-auto;
+  @apply container mx-auto;
 }
 
 .header_wrapper {

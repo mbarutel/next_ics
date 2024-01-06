@@ -41,8 +41,6 @@ export default async function page({ params }: ConferencePageProps) {
     return notFound();
   }
 
-  console.log(conferencePage);
-
   return (
     <>
       <NavBar conferences={conferences} />
