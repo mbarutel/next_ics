@@ -13,40 +13,42 @@ import ContactForm from "./contact/contact-form";
 import ExitDraftModeLink from "./common/exit-draft-mode-link";
 import NavBar from "./nav-bar";
 import ConferenceEvents from "./conference-events";
-import RichText from "./common/rich-text";
-import Agenda from "./event/agenda";
-import Masterclass from "./event/masterclass";
+// import Agenda from "./event/agenda";
+// import Masterclass from "./event/masterclass";
 import GoogleAnalytics from "./common/google-analytics";
 import VideoPlayer from "./common/video-player";
-import ConferenceText from "./event/conference-text";
+// import ConferenceText from "./event/conference-text";
 import ScrollBottons from "./event/scroll-buttons";
-import EventFooter from "./event/event-footer";
+// import EventFooter from "./event/event-footer";
 import UpcomingConferences from "./upcoming-conferences";
 import LandingHeader from "./landing-header";
 import ConferenceHeader from "./conference-header";
+import EventText from "./event-text";
+import Announcement from "./announcement";
 
 export {
   About,
-  Agenda,
+  Announcement,
+  // Agenda,
   CallToAction,
   ConferenceDisplay,
   ConferenceEvents,
   ConferenceHeader,
-  ConferenceText,
+  // ConferenceText,
   ContactForm,
-  EventFooter,
+  // EventFooter,
   EventHeader,
   ExitDraftModeLink,
   Footer,
   GoogleAnalytics,
   Header,
   LandingHeader,
-  Masterclass,
+  // Masterclass,
   NavBar,
   OurPurpose,
   OurValues,
   OurVision,
-  RichText,
+  EventText,
   ScrollBottons,
   SubscribeEmailList,
   UpcomingConferences,
