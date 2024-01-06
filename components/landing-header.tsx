@@ -5,7 +5,7 @@ export default function LandingHeader() {
   return (
     <header>
       <div className="section_container">
-        <div className="relative mt-2 header_height z-10">
+        <div className="relative header_wrapper">
           <SpinningBackground />
           <TitleAndSubTitle />
           <GridHeader />

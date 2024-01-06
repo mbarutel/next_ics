@@ -12,7 +12,7 @@ export default function EventHeader(
   return (
     <header>
       <div className="section_container">
-        <div className="header_height relative">
+        <div className="header_wrapper">
           <EventInfo {...event} />
           <SpinningBackground />
         </div>

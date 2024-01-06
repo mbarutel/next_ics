@@ -9,7 +9,7 @@ import OurValues from "./about/our-values";
 import OurVision from "./about/our-vision";
 import EventHeader from "./event-header";
 import ConferenceDisplay from "./conference/conference-display";
-import ContactForm from "./contact/contact-form";
+import ContactForm from "./contact-form";
 import ExitDraftModeLink from "./common/exit-draft-mode-link";
 import NavBar from "./nav-bar";
 import ConferenceEvents from "./conference-events";

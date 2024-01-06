@@ -36,7 +36,7 @@ body {
 }
 
 .header_wrapper {
-  @apply relative header_height rounded-md overflow-hidden;
+  @apply relative mt-2 header_height rounded-sm overflow-hidden;
 }
 
 .header_height {
@@ -141,4 +141,10 @@ body {
 
 .footer_grid_header {
   @apply uppercase font-bold text-xl;
+}
+
+/* About Page */
+
+.image_hover {
+  @apply hover:scale-110 transition duration-500;
 }

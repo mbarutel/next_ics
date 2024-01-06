@@ -4,16 +4,13 @@ import Image from "next/image";
 export default function OurValues() {
   return (
     <section className="pt-8 lg:pt-12">
-      <div className="container">
+      <div className="section_container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="xl:py-20">
-            <h3
-              style={{ fontFamily: "Abril Fatface" }}
-              className="w-fit text-3xl lg:text-4xl mb-4 uppercase font-bold tracking-tight text-orange-500/90 text-right"
-            >
+            <h3 className="section_header">
               Our Values
             </h3>
-            <p className="mb-2 text-justify text-slate-800/80">
+            <p className="mt-1 sm:mt-4 mb-2 text-justify">
               Our Koori CEO, Tom Callaghan, proudly hails from Kempsey in
               Dunghutti country, New South Wales, and is deeply committed to the
               cause of closing the gap in Indigenous health. At ICS, we
@@ -28,7 +25,7 @@ export default function OurValues() {
               and independence from political agendas, ensuring secure funding
               for our initiatives aimed at advancing Indigenous health.
             </p>
-            <p className="text-justify text-slate-800/80">
+            <p className="text-justify">
               We refrain from involvement in government politics, with no desire
               to establish a profile that could disrupt or conflict with any
               community group's philosophies or beliefs. Our exclusive goal is
@@ -42,9 +39,9 @@ export default function OurValues() {
             </p>
           </div>
           <div className="relative h-full hidden sm:block">
-            <span className="w-60 h-96 absolute bottom-0 right-0 bg-slate-600 rounded-sm" />
+            <span className="w-60 h-96 absolute bottom-0 right-0 bg-gradient-to-l gradient rounded-md" />
             <div className="absolute top-0 left-0 h-[90%] w-[90%]">
-              <div className="relative h-full overflow-hidden">
+              <div className="relative h-full rounded-md overflow-hidden">
                 <Image
                   src="/assets/images/aboriginal-art.webp"
                   fill

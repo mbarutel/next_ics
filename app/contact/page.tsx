@@ -1,5 +1,5 @@
 import React from "react";
-import { ContactForm, Header } from "@/components";
+import { ContactForm, Header, LandingHeader, NavBar } from "@/components";
 import { Conference } from "@/contentful/services/conferences";
 import { parserConferenceEntry } from "@/contentful/utils";
 import { draftMode } from "next/headers";
@@ -22,7 +22,8 @@ export default async function page() {
   const conferences = await conferenceInstance.getConferences();
   return (
     <>
-      <Header conferences={conferences} />
+      <LandingHeader />
+      <NavBar conferences={conferences} />
       <ContactForm />
     </>
   );

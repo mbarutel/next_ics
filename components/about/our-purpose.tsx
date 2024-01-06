@@ -4,30 +4,27 @@ import Image from "next/image";
 export default function OurPurpose() {
   return (
     <section className="pt-8 lg:pt-12">
-      <div className="container">
+      <div className="section_container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="relative h-full hidden sm:block">
-            <span className="w-60 h-96 absolute bottom-0 left-0 bg-slate-600 rounded-sm" />
+            <span className="w-60 h-96 absolute bottom-0 left-0 bg-gradient-to-r gradient rounded-md" />
             <div className="absolute top-0 right-0 h-[90%] w-[90%]">
-              <div className="relative h-full overflow-hidden">
+              <div className="relative h-full rounded-md overflow-hidden">
                 <Image
                   src="/assets/images/image_purpose.webp"
                   fill
                   alt="Indigenous Health Conference"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover rounded-sm hover:scale-110 transition-all duration-500"
+                  className="object-cover image_hover"
                 />
               </div>
             </div>
           </div>
           <div className="xl:py-20">
-            <h3
-              style={{ fontFamily: "Abril Fatface" }}
-              className="w-fit text-3xl lg:text-4xl mb-4 uppercase font-bold tracking-tight text-orange-500/90 text-right"
-            >
+            <h3 className="section_header">
               Our Purpose
             </h3>
-            <p className="mb-2 text-justify text-slate-800/80">
+            <p className="mt-1 sm:mt-4 mb-2 text-justify">
               At ICS, we are unwavering in our belief that education serves as a
               powerful catalyst for driving positive change. Our dedicated
               mission revolves around advancing Indigenous health and
@@ -41,7 +38,7 @@ export default function OurPurpose() {
               upholds grassroots principles, furthering the cause of Indigenous
               health.
             </p>
-            <p className="text-justify text-slate-800/80">
+            <p className="text-justify">
               At the heart of our company lies our profound commitment to our
               people and Indigenous culture. The ICS team is deeply immersed in
               First Nations affairs, both professionally and personally,

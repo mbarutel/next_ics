@@ -4,16 +4,13 @@ import Image from "next/image";
 export default function OurVision() {
   return (
     <section className="pt-8 lg:pt-12">
-      <div className="container">
+      <div className="section_container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="xl:py-20">
-            <h3
-              style={{ fontFamily: "Abril Fatface" }}
-              className="w-fit text-3xl lg:text-4xl mb-4 uppercase font-bold tracking-tight text-orange-500/90"
-            >
+            <h3 className="section_header">
               Our Vision
             </h3>
-            <p className="mb-2 text-justify text-slate-800/80">
+            <p className="mt-1 sm:mt-4 mb-2 text-justify">
               ICS stands as the foremost and most enduring professional event
               management company in First Nations Australia, distinguished by
               our independence from government funding. Our unwavering
@@ -21,7 +18,7 @@ export default function OurVision() {
               with our rich heritage, propels us to consistently deliver the
               highest standard of professional event management services.
             </p>
-            <p className="mb-2 text-justify text-slate-800/80">
+            <p className="mb-2 text-justify">
               At the heart of our organization lies our people and culture,
               individuals deeply dedicated to advancing First Nations affairs
               both in their professional roles and personal experiences. Over
@@ -32,7 +29,7 @@ export default function OurVision() {
               rooted in our mission to promote Indigenous health and close the
               gap.
             </p>
-            <p className="text-justify text-slate-800/80">
+            <p className="text-justify">
               ICS boasts an impressive track record, having flawlessly managed
               conferences hosting up to 6,500 delegates, organized festivals
               with attendance exceeding 70,000 over two days, and facilitated
@@ -46,15 +43,15 @@ export default function OurVision() {
             </p>
           </div>
           <div className="relative h-full hidden sm:block">
-            <span className="w-60 h-96 absolute top-0 right-0 bg-slate-600 rounded-sm" />
+            <span className="w-60 h-96 absolute top-0 right-0 bg-gradient-to-l gradient rounded-md" />
             <div className="absolute bottom-0 left-0 h-[90%] w-[90%]">
-              <div className="relative h-full overflow-hidden">
+              <div className="relative h-full rounded-md overflow-hidden">
                 <Image
                   src="/assets/images/image_vision.webp"
                   fill
                   alt="Indigenous Health Conference"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover object-top rounded-sm hover:scale-110 transition-all duration-500"
+                  className="object-cover object-top image_hover"
                 />
               </div>
             </div>

@@ -1,6 +1,5 @@
 import {
   Announcement,
-  Footer,
   EventHeader,
   EventText,
 } from "@/components";
