@@ -19,24 +19,24 @@
 
 /* Scrollbar Width */
 ::-webkit-scrollbar {
-    width: 7px;
+  width: 7px;
 }
- 
+
 /* Scrollbar Track */
 ::-webkit-scrollbar-track {
-    background: #888;
-    border-radius: 5px;
+  background: #888;
+  border-radius: 5px;
 }
- 
+
 /* Scrollbar Handle */
 ::-webkit-scrollbar-thumb {
-    background: #000;
-    border-radius: 5px;
+  background: #222;
+  border-radius: 5px;
 }
- 
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
 /* General */
@@ -49,7 +49,7 @@ body {
 }
 
 .header_wrapper {
-  @apply relative mt-2 header_height rounded-sm overflow-hidden;
+  @apply relative mt-2 header_height rounded-sm;
 }
 
 .header_height {
@@ -160,4 +160,9 @@ body {
 
 .image_hover {
   @apply hover:scale-110 transition duration-500;
+}
+
+/* Event Page */
+.tab_button {
+  @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-normal px-4 py-2;
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import dayjs from "dayjs";
 import { ConferenceType } from "@/lib/types";
 import HeaderFormLinks from "./header-form-links";
 import React, { useEffect, useState } from "react";

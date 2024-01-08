@@ -7,7 +7,7 @@ export default function OurPurpose() {
       <div className="section_container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="relative h-full hidden sm:block">
-            <span className="w-60 h-96 absolute bottom-0 left-0 bg-gradient-to-r gradient rounded-md" />
+            <span className="w-60 h-96 absolute bottom-0 left-0 bg-gradient-to-r gradient_secondary rounded-md" />
             <div className="absolute top-0 right-0 h-[90%] w-[90%]">
               <div className="relative h-full rounded-md overflow-hidden">
                 <Image

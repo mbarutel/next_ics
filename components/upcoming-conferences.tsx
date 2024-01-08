@@ -107,7 +107,7 @@ function CallToActionButtons({
         href={`/conference/${slug}`}
         className="group text-center hover:bg-slate-800 hover:text-white py-2 transition active:scale-95 active:rounded-bl-md duration-75 px-2 sm:px-3"
       >
-        <span className="group-active:scale-95 transition">
+        <span className="group-active:scale-95 transition font-semibold">
           View Events
         </span>
       </Link>
@@ -115,7 +115,7 @@ function CallToActionButtons({
         href={registration}
         className="group text-center hover:bg-slate-800 hover:text-white py-2 transition active:scale-95 duration-75 px-1 sm:px-3"
       >
-        <span className="group-active:scale-95 transition">
+        <span className="group-active:scale-95 transition font-semibold">
           Registration
         </span>
       </Link>

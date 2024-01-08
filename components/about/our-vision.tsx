@@ -43,7 +43,7 @@ export default function OurVision() {
             </p>
           </div>
           <div className="relative h-full hidden sm:block">
-            <span className="w-60 h-96 absolute top-0 right-0 bg-gradient-to-l gradient rounded-md" />
+            <span className="w-60 h-96 absolute top-0 right-0 bg-gradient-to-l gradient_secondary rounded-md" />
             <div className="absolute bottom-0 left-0 h-[90%] w-[90%]">
               <div className="relative h-full rounded-md overflow-hidden">
                 <Image

@@ -7,8 +7,8 @@ export default function EventText(
 ) {
 
   return (
-    <section className="bg-stone-800/80 py-10 px-7 rounded-sm">
+    <>
       <RichText document={event.content} />
-    </section>
+    </>
   );
 }

@@ -3,11 +3,9 @@ import { notFound } from "next/navigation";
 import { Event } from "@/contentful/services/event";
 import { parserEventEntry } from "@/contentful/utils";
 import {
-  Agenda,
   Announcement,
   EventHeader,
-  EventText,
-  Masterclass,
+  EventInformation,
 } from "@/components";
 
 type EventPageParams = {
@@ -38,23 +36,12 @@ export default async function page({ params }: EventPageProps) {
     return notFound();
   }
 
-  const agenda = eventPage.agenda.length > 0 ? eventPage.agenda : null;
-  const masterclasses =
-    eventPage.conference && eventPage.conference.masterclass.length > 0
-      ? eventPage.conference.masterclass
-      : null;
-
   return (
     <>
       <EventHeader {...eventPage} />
       <Announcement />
-      <article>
-        <div className="section_container">
-          <EventText event={eventPage} />
-          {agenda && <Agenda agenda={agenda} />}
-          {masterclasses && <Masterclass masterclass={masterclasses} />}
-        </div>
-      </article>
+      <EventInformation {...eventPage} />
     </>
   );
 }
+

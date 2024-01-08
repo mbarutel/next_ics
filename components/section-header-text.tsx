@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 
 export default function SectionHeaderText(
-  { text, subText, secondary = false }: {
+  { text, subText = undefined, secondary = false }: {
     text: string;
     subText: string | undefined;
     secondary?: boolean;

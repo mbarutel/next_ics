@@ -26,6 +26,7 @@ import ConferenceHeader from "./conference-header";
 import EventText from "./event-text";
 import Announcement from "./announcement";
 import SpeakersDisplay from "./speaker-display";
+import EventInformation from "./event-information";
 
 export {
   About,
@@ -39,6 +40,7 @@ export {
   ContactForm,
   // EventFooter,
   EventHeader,
+  EventInformation,
   EventText,
   ExitDraftModeLink,
   Footer,

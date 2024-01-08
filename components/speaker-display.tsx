@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
-import { a, useSpring } from "@react-spring/web";
-import { ConferenceType, SpeakerType } from "@/lib/types";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 import RichText from "./rich-text";
+import React, { useState } from "react";
+import { SpeakerType } from "@/lib/types";
+import { a, useSpring } from "@react-spring/web";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import SectionHeaderText from "./section-header-text";
 
 export default function SpeakersDisplay(
@@ -25,7 +25,7 @@ export default function SpeakersDisplay(
   return (
     <section>
       <div className="section_container flex flex-col">
-        <SectionHeaderText text="Speakers" />
+        <SectionHeaderText text="Speakers" subText={undefined} />
         <div>
           {/* Grid */}
           {side === true ? null : (
@@ -40,8 +40,15 @@ export default function SpeakersDisplay(
                     setSide((side) => !side);
                     setSpeaker(speaker);
                   }}
-                  className="flex items-center rounded-sm cursor-pointer"
+                  className="relative flex items-center rounded-sm cursor-pointer border-2 border-zinc-600 bg-zinc-800"
                 >
+                  <Image
+                    src="/assets/images/aboriginal_pattern.svg"
+                    alt="pattern"
+                    fill
+                    className="object-cover z-0 grayscale opacity-5"
+                  />
+
                   <div className="relative h-20 min-w-[5rem] ml-2">
                     <Image
                       src={speaker.photo.src}
@@ -51,29 +58,35 @@ export default function SpeakersDisplay(
                       className="object-contain"
                     />
                   </div>
-                  <span className="grid grid-cols-1 ml-2">
-                    <h4 className="font-bold">
+                  <div className="flex_col ml-2">
+                    <h4 className="font-bold text-xl">
                       {speaker.name}
                     </h4>
-                    <small className="font-semibold">
+                    <h3 className="-mt-0.5 font-medium">
                       {speaker.organization}
-                    </small>
-                    <small className="font-semibold">
+                    </h3>
+                    <h3 className="-mt-1 font-medium">
                       {speaker.jobTitle}
-                    </small>
-                  </span>
+                    </h3>
+                  </div>
                 </div>
               ))}
             </a.div>
           )}
-          {/* Speajer Information */}
+          {/* Speaker Information */}
           {side === false ? null : (
             <a.div
               style={{
                 opacity,
               }}
-              className="bg-slate-300 shadow-lg rounded-md flex flex-col items-center relative p-4 text-center lg:w-3/4 mx-auto"
+              className="rounded-sm relative max-w-[50rem] min-h-[40rem] px-10 py-4 mx-auto border-2 border-zinc-600 bg-zinc-800"
             >
+              <Image
+                src="/assets/images/aboriginal_pattern.svg"
+                alt="pattern"
+                fill
+                className="object-cover z-0 grayscale opacity-5"
+              />
               {speaker === null ? null : (
                 <>
                   <button
@@ -81,29 +94,33 @@ export default function SpeakersDisplay(
                       setSide((side) => !side);
                       setSpeaker(null);
                     }}
-                    className="absolute top-3 right-3 text-slate-600 text-4xl hover:scale-105 active:scale-95 transition-all"
+                    className="absolute top-3 right-3 text-4xl hover:scale-105 active:scale-95 transition text-yellow-400"
                   >
                     <AiOutlineCloseCircle />
                   </button>
-                  <div className="relative h-36 w-36">
-                    <Image
-                      src={speaker.photo.src}
-                      alt={speaker.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-contain"
-                    />
+                  <div className="bg-black/80 shadow-lg shadow-black/50 p-5 rounded-md flex_col items-center w-fit mx-auto mb-5">
+                    <div className="relative h-36 w-36">
+                      <Image
+                        src={speaker.photo.src}
+                        alt={speaker.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-contain"
+                      />
+                    </div>
+                    <h4 className="text-2xl font-bold mb-2">
+                      {speaker.name}
+                    </h4>
+                    <h5 className="font-semibold">
+                      {speaker.jobTitle}
+                    </h5>
+                    <h5 className="mb-3 -mt-1">
+                      {speaker.organization}
+                    </h5>
                   </div>
-                  <h4 className="text-xl text-slate-700 font-semibold tracking-wide">
-                    {speaker.name}
-                  </h4>
-                  <h5 className="text-slate-600 font-semibold">
-                    {speaker.jobTitle}
-                  </h5>
-                  <h5 className="text-slate-600 mb-3">
-                    {speaker.organization}
-                  </h5>
-                  <RichText document={speaker.biography} />
+                  <div className="bg-black/80 shadow-lg shadow-black/50 p-5 rounded-md">
+                    <RichText document={speaker.biography} />
+                  </div>
                 </>
               )}
             </a.div>

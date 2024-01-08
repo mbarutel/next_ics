@@ -59,7 +59,7 @@ export default function NavBar(
                   height: dropdownAnimation.height,
                   opacity: dropdownAnimation.opacity,
                 }}
-                className="absolute top-full flex_col gap-3 pl-2 py-4 rounded-md mt-3 bg-black"
+                className="absolute top-full flex_col gap-3 pl-2 py-4 rounded-md mt-3 bg-black shadow-lg shadow-black/70"
               >
                 {conferences.map((conference) => (
                   <Fragment key={conference.slug}>

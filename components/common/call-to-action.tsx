@@ -40,10 +40,7 @@ function ActionCard(
         />
       </div>
       <div className="px-3 pb-3 lg:px-6 lg:pb-6 mt-4 flex-grow flex flex-col">
-        <h3
-          style={{ fontFamily: "Abril Fatface" }}
-          className="text-2xl uppercase"
-        >
+        <h3 className="text-2xl font-bold uppercase">
           {title}
         </h3>
         <p className="flex-grow mt-1 mb-3">
