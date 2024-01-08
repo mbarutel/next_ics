@@ -26,23 +26,22 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
           </button>
         ))}
       </div>
-      <div className="relative flex_col gap-2">
-        <div className="w-[5px] h-full bg-gradient-to-b gradient absolute top-1/2 -translate-y-1/2 left-[65px] sm:left-[87px]" />
+      <div className="relative flex_col gap-4">
         {day.row.map((row, index) => (
-          <div key={index} className="flex gap-5">
-            <span className="uppercase min-w-[3.5rem] sm:min-w-[5rem] flex items-center text-lg font-semibold">
+          <div key={index} className="flex gap-7 text-lg">
+            <div className="uppercase min-w-[3.5rem] sm:min-w-[5rem] flex items-center">
               {row.time}
-            </span>
-            <span className="flex flex-col w-full py-4 px-3 border-solid border-black/60 border-t-2 border-r-2 border-l-2 border-b-4 rounded-md">
+            </div>
+            <div className="flex_col grow border-[1px] px-4 py-1 border-white/90 rounded-md">
               {row.agenda.map((item, index) => (
                 <span
                   key={index}
-                  className="text-sm md:text-base"
+                  className="font-semibold"
                 >
                   {item}
                 </span>
               ))}
-            </span>
+            </div>
           </div>
         ))}
       </div>

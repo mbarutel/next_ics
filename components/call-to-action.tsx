@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { cta } from "@/lib/data";
 import React, { Fragment } from "react";
-import SectionHeaderText from "../section-header-text";
+import SectionHeaderText from "./section-header-text";
 
 export default function CallToAction() {
   return (

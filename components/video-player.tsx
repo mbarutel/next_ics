@@ -17,8 +17,8 @@ export default function VideoPlayer({ url }: { url: string }) {
   }
 
   return (
-    <div className="py-6 hidden md:block">
+    <>
       <ReactPlayer url={url} controls={true} className="mx-auto w-full" />
-    </div>
+    </>
   );
 }

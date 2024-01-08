@@ -4,6 +4,7 @@ import RichText from "./rich-text";
 import React, { useState } from "react";
 import VideoPlayer from "./video-player";
 import { MasterclassType } from "@/lib/types";
+import clsx from "clsx";
 
 export default function Masterclass(
   { masterclass }: { masterclass: MasterclassType[] },
@@ -13,44 +14,41 @@ export default function Masterclass(
   );
 
   return (
-    <section className="scroll-mt-20 mt-6">
-      <div>
-        <h3
-          style={{ fontFamily: "Abril Fatface" }}
-          className="mb-3 text-3xl text-slate-700 uppercase ml-3"
-        >
-          Masterclass
-        </h3>
-        <div className="flex flex-wrap gap-3 mb-8">
-          {masterclass.map((item, index) => (
-            <button
-              key={index}
-              onClick={() => setOption(item)}
-              className={`text-sm md:text-base px-5 py-1 transition-all hover:bg-slate-900 hover:text-white active:scale-95 border-solid border-black/60 border-t-2 border-r-2 border-l-2 border-b-4 rounded-md ${
-                item.title === option.title
-                  ? "bg-slate-500 text-white"
-                  : "text-slate-800"
-              }`}
+    <>
+      <div className="flex gap-5 mb-8">
+        {masterclass.map((item, index) => (
+          <button
+            key={index}
+            onClick={() => setOption(item)}
+            className="text-2xl uppercase font-bold tracking-tight"
+          >
+            <span
+              className={clsx({
+                "border-b-[7px] border-yellow-400": item.title === option.title,
+              })}
             >
               {item.title}
-            </button>
-          ))}
-        </div>
-        <div className="text-slate-800">
-          <h2
-            style={{ fontFamily: "Gabarito" }}
-            className="text-xl font-semibold"
-          >
-            {option.title}
-          </h2>
-          {option.asset && <VideoPlayer url={option.asset.src} />}
+            </span>
+          </button>
+        ))}
+      </div>
+      <div
+        className={clsx("grid grid-cols-1", { "!grid-cols-2": option.asset })}
+      >
+        {option.asset &&
+          (
+            <div className="hidden md:block my-auto">
+              <VideoPlayer url={option.asset.src} />
+            </div>
+          )}
+        <div>
           <p className="text-justify text-sm sm:text-base my-4">
             We offer new and exciting innovation for our conferences. The third
             day is devoted to a professional development workshop or
             masterclass. As such, we have introduced several exciting networking
             and professional development innovations which is an extra cost for
             your chosen masterclass.{" "}
-            <span className="italic">
+            <span className="italic underline">
               Day 3 is optional so please make sure you complete your
               registration form with the masterclass included if you intend to
               attend.
@@ -59,6 +57,6 @@ export default function Masterclass(
           <RichText document={option.description} />
         </div>
       </div>
-    </section>
+    </>
   );
 }

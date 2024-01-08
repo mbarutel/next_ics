@@ -47,26 +47,14 @@ function ConferenceCard(event: EventType) {
       <p className="text-justify text-white/90 font-medium leading-tight max-h-[20rem] overflow-y-auto p-2 mt-2 mb-4 z-10">
         {event.description}
       </p>
-      <div className="grid grid-cols-3 gap-1 px-1 mb-1 mt-auto z-10">
-        <Link
-          href={`/event/${event.slug}`}
-          className="text-center text-lg font-bold bg-black/90 hover:bg-gradient-to-b gradient hover:text-black transition_config rounded-sm py-4 active:scale-95"
-        >
-          Read More
-        </Link>
-        <Link
-          href={`/event/${event.slug}/#agenda`}
-          className="text-center text-lg font-bold bg-black/90 hover:bg-gradient-to-b gradient hover:text-black transition_config rounded-sm py-4 active:scale-95"
-        >
-          View Agenda
-        </Link>
-        <Link
-          href={`/event/${event.slug}/#masterclass`}
-          className="text-center text-lg font-bold bg-black/90 hover:bg-gradient-to-b gradient hover:text-black transition_config rounded-sm py-4 active:scale-95"
-        >
-          Masterclass
-        </Link>
-      </div>
+      <Link
+        target="_blank"
+        rel="noreferer"
+        href={`/event/${event.slug}`}
+        className="w-full mt-auto z-10 text-center text-lg font-bold bg-black/90 hover:bg-gradient-to-b gradient hover:text-black transition_config rounded-sm py-4 active:scale-95"
+      >
+        Read More
+      </Link>
     </div>
   );
 }
