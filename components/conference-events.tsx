@@ -8,10 +8,7 @@ export default function ConferenceEvents({ events }: { events: EventType[] }) {
   return (
     <section>
       <div className="section_container">
-        <SectionHeaderText
-          text="Upcoming Events"
-          subText="100% Proudly presented, formulated, designed and organised by first nations people"
-        />
+        <SectionHeaderText text="Upcoming Events" />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {events.map((event) => (
             <Fragment key={event.slug}>

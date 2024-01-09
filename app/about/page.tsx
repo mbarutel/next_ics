@@ -29,8 +29,8 @@ export default async function page() {
   const conferences = await conferenceInstance.getConferences();
   return (
     <>
-      <LandingHeader />
       <NavBar conferences={conferences} />
+      <LandingHeader />
       <About />
       <AboutVision />
       <AboutPurpose />

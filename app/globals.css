@@ -49,11 +49,11 @@ body {
 }
 
 .header_wrapper {
-  @apply relative mt-2 header_height rounded-sm;
+  @apply relative header_height rounded-sm;
 }
 
 .header_height {
-  @apply xl:h-[45rem] lg:h-[35rem] md:h-[30rem] h-[30rem];
+  @apply lg:h-[50rem] md:h-[30rem] h-[30rem];
 }
 
 .header_sizes {
@@ -89,7 +89,7 @@ body {
 }
 
 .flex_end {
-  @apply flex justify-center items-end;
+  @apply flex items-end;
 }
 
 .flex_center {
@@ -109,35 +109,36 @@ body {
 }
 
 .gradient_secondary {
-  @apply !from-yellow-700 !via-yellow-600 !to-yellow-500;
+  @apply from-yellow-700 via-yellow-600 to-yellow-500;
 }
 
 /* Navigation Bar */
 
 .nav_links {
-  @apply relative text-4xl font-extrabold outline-none h-16 flex_center hover:text-black px-3 transition rounded overflow-hidden;
+  @apply relative text-3xl uppercase outline-none h-16 flex_center px-3 transition hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-300 hover:to-yellow-200;
 }
 
-.nav_span {
-  @apply absolute w-0 h-full z-10 gradient transition;
-}
+/* .nav_span { */
+/*   @apply absolute w-0 h-full z-10 gradient transition; */
+/* } */
+/**/
 
 .nav_dropdown {
-  @apply text-2xl font-semibold px-4 divide-white divide-y-2;
+  @apply text-2xl px-4;
 }
 
 /* Header Grid */
 
 .header_grid {
-  @apply bg-gradient-to-tr gradient rounded-lg p-4 cursor-default;
+  @apply rounded-lg p-4 cursor-default;
 }
 
-.header_grid_text {
-  @apply text-black/80 lowercase font-semibold text-sm lg:text-base !leading-none;
+.header_grid_with_text {
+  @apply header_grid bg-gradient-to-tr gradient text-black/80 lowercase font-medium text-sm lg:text-base !leading-none;
 }
 
 .header_grid_empty {
-  @apply header_grid !bg-gradient-to-r gradient_secondary;
+  @apply header_grid bg-gradient-to-tr gradient_secondary;
 }
 
 .header_grid_effects {

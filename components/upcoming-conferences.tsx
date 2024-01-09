@@ -9,12 +9,9 @@ export default function UpcomingConferences(
   { conferences }: { conferences: ConferenceType[] },
 ) {
   return (
-    <section>
+    <section id="conferences">
       <div className="section_container">
-        <SectionHeaderText
-          text={"Upcoming Conferences"}
-          subText={"INDIGENOUS CONFERENCE SERVICES stands as a fully Indigenous-owned enterprise, maintaining complete independence from government funding bodies."}
-        />
+        <SectionHeaderText text={"Upcoming Conferences"} />
         <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-y-2 gap-x-4">
           <div className="hidden xl:block absolute h-full top-0 left-1/2 -translate-x-1/2 w-1 bg-gradient-to-t gradient rounded-full opacity-90" />
           {conferences.map((conference) => (

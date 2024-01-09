@@ -12,7 +12,7 @@ export default function ContactForm() {
   return (
     <section>
       <div className="section_container grid sm:grid-cols-2 gap-2">
-        <div className="relative hidden sm:block rounded-md overflow-hidden">
+        <div className="relative hidden sm:block rounded-sm overflow-hidden">
           <Image
             src="/assets/images/contact-us.webp"
             alt="Contact us ICS"

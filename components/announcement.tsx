@@ -5,7 +5,7 @@ export default function Announcement() {
   return (
     <section>
       <div className="section_container">
-        <div className="relative h-6 md:h-8 lg:h-10 xl:h-12 my-1 lg:my-2 rounded-sm overflow-hidden">
+        <div className="relative h-6 md:h-8 lg:h-10 xl:h-12 mt-1 lg:mt-2 rounded-sm overflow-hidden">
           <Image
             src="/assets/images/art-bg.svg"
             alt="divider"

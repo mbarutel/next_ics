@@ -7,6 +7,7 @@ import { Fragment } from "react";
 import { a, useSpring } from "@react-spring/web";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Image from "next/image";
+import clsx from "clsx";
 
 export default function NavBar(
   { conferences }: { conferences: ConferenceType[] },
@@ -25,41 +26,34 @@ export default function NavBar(
       <div className="section_container !overflow-visible">
         {/* Medium Upwards */}
         <div className="hidden md:block ">
-          <div className="flex flex-wrap">
+          <div className="flex justify-center">
             {links.map((link) => (
               <Link
                 key={link.name}
                 href={link.path}
-                className="nav_links group"
+                className="nav_links"
               >
-                <span className="nav_span group-hover:w-1/2 left-0 bg-gradient-to-r" />
-                <span className="z-20 group-active:scale-95 transition-transform">
-                  {link.name}
-                </span>
-                <span className="nav_span group-hover:w-1/2 right-0 bg-gradient-to-l" />
+                {link.name}
               </Link>
             ))}
-            <div className="relative grow">
+            <div className="relative">
               <button
                 type="button"
-                className="nav_links group"
+                className="nav_links"
                 onClick={() =>
                   setConferencesOpen((currentState) => !currentState)}
+                onMouseEnter={() => setConferencesOpen(true)}
+                onMouseLeave={() => setConferencesOpen(false)}
               >
-                <span className="nav_span group-hover:w-1/2 left-0 bg-gradient-to-r" />
-                <span className="z-20 group-active:scale-95 transition-transform">
-                  Conferences
-                </span>
-                <span className="nav_span group-hover:w-1/2 right-0 bg-gradient-to-l" />
+                Conferences
               </button>
-              <a.div
-                style={{
-                  overflow: "hidden",
-                  y: dropdownAnimation.y,
-                  height: dropdownAnimation.height,
-                  opacity: dropdownAnimation.opacity,
-                }}
-                className="absolute top-full flex_col gap-3 pl-2 py-4 rounded-md mt-3 bg-black shadow-lg shadow-black/70"
+              <div
+                onMouseEnter={() => setConferencesOpen(true)}
+                onMouseLeave={() => setConferencesOpen(false)}
+                className={clsx(
+                  "absolute top-full right-0 flex_col gap-3 pl-2 py-4 rounded-b-md bg-black shadow-lg shadow-black/70 w-[30rem]",
+                  { "!hidden": !conferencesOpen },
+                )}
               >
                 {conferences.map((conference) => (
                   <Fragment key={conference.slug}>
@@ -67,13 +61,11 @@ export default function NavBar(
                       href={`/conference/${conference.slug}`}
                       className="nav_dropdown bg-gradient-to-r gradient bg-clip-text hover:text-transparent transition"
                     >
-                      <span>
-                        {conference.title}
-                      </span>
+                      {conference.title}
                     </Link>
                   </Fragment>
                 ))}
-              </a.div>
+              </div>
             </div>
           </div>
         </div>
