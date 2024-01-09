@@ -1,11 +1,11 @@
 import React from "react";
 import {
   About,
+  AboutPurpose,
+  AboutValues,
+  AboutVision,
   LandingHeader,
   NavBar,
-  OurPurpose,
-  OurValues,
-  OurVision,
 } from "@/components";
 import { Conference } from "@/contentful/services/conferences";
 import { parserConferenceEntry } from "@/contentful/utils";
@@ -32,9 +32,9 @@ export default async function page() {
       <LandingHeader />
       <NavBar conferences={conferences} />
       <About />
-      <OurVision />
-      <OurPurpose />
-      <OurValues />
+      <AboutVision />
+      <AboutPurpose />
+      <AboutValues />
     </>
   );
 }

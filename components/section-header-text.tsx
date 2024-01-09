@@ -9,10 +9,10 @@ export default function SectionHeaderText(
   },
 ) {
   return (
-    <div className="py-5">
+    <div className="py-2 md:py-5">
       <h2
         className={clsx(
-          "section_header tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-rose-100 to-teal-100",
+          "section_header leading-none text-transparent bg-clip-text bg-gradient-to-r from-rose-100 to-teal-100",
           { "!text-right": secondary === true },
         )}
       >

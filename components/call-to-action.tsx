@@ -6,7 +6,7 @@ import SectionHeaderText from "./section-header-text";
 
 export default function CallToAction() {
   return (
-    <section className="pt-8 lg:pt-12">
+    <section>
       <div className="section_container">
         <SectionHeaderText
           text="Become Part of ICS"

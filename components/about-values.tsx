@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export default function OurValues() {
+export default function AboutValues() {
   return (
     <section className="pt-8 lg:pt-12">
       <div className="section_container">

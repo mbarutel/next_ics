@@ -15,12 +15,12 @@ export default function Masterclass(
 
   return (
     <>
-      <div className="flex gap-5 mb-8">
+      <div className="event_button_wrapper mb-4 md:mb-8">
         {masterclass.map((item, index) => (
           <button
             key={index}
             onClick={() => setOption(item)}
-            className="text-2xl uppercase font-bold tracking-tight"
+            className="event_button_text font-bold text-left"
           >
             <span
               className={clsx({
@@ -33,7 +33,9 @@ export default function Masterclass(
         ))}
       </div>
       <div
-        className={clsx("grid grid-cols-1", { "!grid-cols-2": option.asset })}
+        className={clsx("grid grid-cols-1", {
+          "2xl:!grid-cols-2": option.asset,
+        })}
       >
         {option.asset &&
           (
@@ -42,7 +44,7 @@ export default function Masterclass(
             </div>
           )}
         <div>
-          <p className="text-justify text-sm sm:text-base my-4">
+          <p className="text-justify mb-4">
             We offer new and exciting innovation for our conferences. The third
             day is devoted to a professional development workshop or
             masterclass. As such, we have introduced several exciting networking

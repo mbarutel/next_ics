@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { AgendaType, EventType, MasterclassType } from "@/lib/types";
-import { Agenda, EventText, Masterclass } from ".";
 import clsx from "clsx";
+import React, { useState } from "react";
+import { Agenda, EventText, Masterclass } from ".";
+import { AgendaType, EventType, MasterclassType } from "@/lib/types";
 
 export default function EventInformation(event: EventType) {
   const [tab, setTab] = useState<"Information" | "Agenda" | "Masterclass">(
@@ -38,7 +38,7 @@ export default function EventInformation(event: EventType) {
           agenda={agenda}
           masterclass={masterclasses}
         />
-        <section className="bg-stone-800/80 py-5 px-7 rounded-sm">
+        <section className="bg-stone-800/80 py-5 px-3 sm:px-7 rounded-sm">
           {content}
         </section>
       </div>
@@ -56,8 +56,11 @@ type TabsProps = {
 };
 function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
   return (
-    <div className="flex gap-2 mb-4">
-      <button onClick={() => setTab("Information")} className="tab_button">
+    <div className="event_button_wrapper mb-3 sm:mb-4">
+      <button
+        onClick={() => setTab("Information")}
+        className="event_tab_text font-extrabold"
+      >
         <span
           className={clsx({
             "border-b-[7px] border-yellow-400": tab === "Information",
@@ -67,7 +70,10 @@ function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
         </span>
       </button>
       {agenda && (
-        <button onClick={() => setTab("Agenda")} className="tab_button">
+        <button
+          onClick={() => setTab("Agenda")}
+          className="event_tab_text font-extrabold"
+        >
           <span
             className={clsx({
               "border-b-[7px] border-yellow-400": tab === "Agenda",
@@ -78,7 +84,10 @@ function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
         </button>
       )}
       {masterclass && (
-        <button onClick={() => setTab("Masterclass")} className="tab_button">
+        <button
+          onClick={() => setTab("Masterclass")}
+          className="event_tab_text font-extrabold"
+        >
           <span
             className={clsx({
               "border-b-[7px] border-yellow-400": tab === "Masterclass",

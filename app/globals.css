@@ -45,7 +45,7 @@ body {
 }
 
 .section_container {
-  @apply container mx-auto;
+  @apply container mx-auto px-1;
 }
 
 .header_wrapper {
@@ -53,7 +53,7 @@ body {
 }
 
 .header_height {
-  @apply xl:h-[45rem] lg:h-[35rem] md:h-[30rem] sm:h-[25rem] h-[20rem];
+  @apply xl:h-[45rem] lg:h-[35rem] md:h-[30rem] h-[30rem];
 }
 
 .header_sizes {
@@ -69,7 +69,7 @@ body {
 }
 
 .section_sub_header {
-  @apply xl:text-lg lg:text-base md:text-sm text-left text-xs font-medium xl:mt-3 lg:mt-2 text-white/90 leading-none;
+  @apply xl:text-lg lg:text-base md:text-sm text-left text-xs font-medium xl:mt-3 lg:mt-2 text-white/90;
 }
 
 .border {
@@ -163,6 +163,15 @@ body {
 }
 
 /* Event Page */
-.tab_button {
-  @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-normal px-4 py-2;
+
+.event_tab_text {
+  @apply text-lg sm:text-2xl lg:text-4xl uppercase leading-none tracking-tight;
+}
+
+.event_button_text {
+  @apply text-base sm:text-xl lg:text-3xl uppercase leading-none tracking-tight;
+}
+
+.event_button_wrapper {
+  @apply flex flex-wrap gap-x-2 sm:gap-x-3 lg:gap-x-5 gap-y-3;
 }

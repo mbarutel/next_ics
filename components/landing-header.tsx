@@ -26,7 +26,7 @@ function TitleAndSubTitle() {
         </span>
         <span className="h-2 w-full bg-white rounded-full my-3" />
       </h1>
-      <p className="text-base sm:text-sm lg:text-base max-w-[25rem]">
+      <p className="text-base sm:text-sm lg:text-base max-w-[25rem] leading-none">
         ICS wishes to invite you and your team for the interest in humanities
         and improving outcomes for First Nations people to our next event
       </p>

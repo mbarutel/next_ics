@@ -145,7 +145,7 @@ export default function NavBar(
               <Fragment key={conference.slug}>
                 <Link
                   href={`/conference/${conference.slug}`}
-                  className="font-medium leading-none text-lg"
+                  className="font-semibold leading-none text-lg"
                 >
                   {conference.title}
                 </Link>

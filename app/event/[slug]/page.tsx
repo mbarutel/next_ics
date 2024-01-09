@@ -4,8 +4,10 @@ import { Event } from "@/contentful/services/event";
 import { parserEventEntry } from "@/contentful/utils";
 import {
   Announcement,
+  CallToAction,
   EventHeader,
   EventInformation,
+  SubscribeEmailList,
 } from "@/components";
 
 type EventPageParams = {
@@ -41,7 +43,8 @@ export default async function page({ params }: EventPageProps) {
       <EventHeader {...eventPage} />
       <Announcement />
       <EventInformation {...eventPage} />
+      <CallToAction />
+      <SubscribeEmailList />
     </>
   );
 }
-

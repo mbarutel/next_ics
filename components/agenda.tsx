@@ -9,12 +9,12 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
 
   return (
     <>
-      <div className="flex gap-5 mb-8">
+      <div className="event_button_wrapper mb-4 md:mb-8">
         {agenda.map((item, index) => (
           <button
             key={index}
             onClick={() => setDay(item)}
-            className="text-2xl uppercase font-bold tracking-tight"
+            className="event_button_text font-bold text-left"
           >
             <span
               className={clsx({
@@ -28,15 +28,15 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
       </div>
       <div className="relative flex_col gap-4">
         {day.row.map((row, index) => (
-          <div key={index} className="flex gap-7 text-lg">
-            <div className="uppercase min-w-[3.5rem] sm:min-w-[5rem] flex items-center">
+          <div key={index} className="flex gap-2 text-lg">
+            <div className="uppercase min-w-[5.5rem] flex items-center">
               {row.time}
             </div>
             <div className="flex_col grow border-[1px] px-4 py-1 border-white/90 rounded-md">
               {row.agenda.map((item, index) => (
                 <span
                   key={index}
-                  className="font-semibold"
+                  className="text-sm sm:text-base font-semibold"
                 >
                   {item}
                 </span>

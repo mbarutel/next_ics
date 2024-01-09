@@ -9,7 +9,7 @@ export default function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-yellow-500 text-black hover:text-white transition-all outline-none buttonEffect hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65 rounded-md"
+      className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-gradient-to-r gradient_secondary transition outline-none disabled:scale-100 disabled:bg-opacity-65 rounded-md"
     >
       {pending
         ? (
@@ -18,7 +18,7 @@ export default function SubmitButton() {
         : (
           <>
             Submit{" "}
-            <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <FaPaperPlane className="text-xs opacity-70 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
             {" "}
           </>
         )}
