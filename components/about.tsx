@@ -1,11 +1,10 @@
-import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 
 export default function About() {
   return (
-    <section>
-      <div className="section_container mt-2 md:mt-5">
+    <section className="section_top_margin">
+      <div className="section_container">
         <div className="grid grid-cols-1 sm:grid-cols-2 justify-center items-end">
           <div className="relative h-full hidden sm:block">
             <span className="w-60 h-96 absolute top-0 left-0 bg-gradient-to-r gradient_secondary rounded-md" />

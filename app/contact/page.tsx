@@ -1,8 +1,15 @@
 import React from "react";
-import { Announcement, ContactForm, LandingHeader, NavBar } from "@/components";
-import { Conference } from "@/contentful/services/conferences";
-import { parserConferenceEntry } from "@/contentful/utils";
+import {
+  NavBar,
+  ContactForm,
+  Announcement,
+  CallToAction,
+  LandingHeader,
+  SubscribeEmailList,
+} from "@/components";
 import { draftMode } from "next/headers";
+import { parserConferenceEntry } from "@/contentful/utils";
+import { Conference } from "@/contentful/services/conferences";
 
 export async function generateStaticParams() {
   const conferenceInstance = new Conference({
@@ -26,6 +33,8 @@ export default async function page() {
       <LandingHeader />
       <Announcement />
       <ContactForm />
+      <CallToAction />
+      <SubscribeEmailList />
     </>
   );
 }

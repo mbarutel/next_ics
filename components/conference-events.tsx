@@ -6,7 +6,7 @@ import SectionHeaderText from "./section-header-text";
 
 export default function ConferenceEvents({ events }: { events: EventType[] }) {
   return (
-    <section>
+    <section className="section_top_margin">
       <div className="section_container">
         <SectionHeaderText text="Upcoming Events" />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">

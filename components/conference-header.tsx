@@ -77,7 +77,7 @@ function Countdown({ startDate }: { startDate: Date }) {
   }, [startDate]);
 
   return (
-    <div className="z-40 absolute bottom-0 left-0 flex text-white cursor-default">
+    <div className="z-40 absolute bottom-0 left-0 flex text-white cursor-default rounded-bl-md rounded-tr-md overflow-hidden">
       {conferenceTime ? null : (
         <>
           <span className="flex flex-col countdown_padding bg-zinc-900 border-solid border-r-[1px] border-stone-200/50 text-center">

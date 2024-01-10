@@ -23,7 +23,7 @@ export default function SpeakersDisplay(
   }
 
   return (
-    <section>
+    <section className="section_top_margin">
       <div className="section_container flex flex-col">
         <SectionHeaderText text="Speakers" />
         <div>

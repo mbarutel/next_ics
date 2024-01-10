@@ -22,7 +22,7 @@ export default function NavBar(
   });
 
   return (
-    <nav className="sticky top-0 z-[999] py-2 bg-black">
+    <nav className="sticky top-0 z-[999] py-2 bg-stone-900">
       <div className="section_container !overflow-visible">
         {/* Medium Upwards */}
         <div className="hidden md:block ">
@@ -51,7 +51,7 @@ export default function NavBar(
                 onMouseEnter={() => setConferencesOpen(true)}
                 onMouseLeave={() => setConferencesOpen(false)}
                 className={clsx(
-                  "absolute top-full right-0 flex_col gap-3 pl-2 py-4 rounded-b-md bg-black shadow-lg shadow-black/70 w-[30rem]",
+                  "absolute top-full right-0 flex_col gap-3 pl-2 py-4 rounded-b-md bg-stone-900 shadow-lg shadow-black/70 w-[40rem]",
                   { "!hidden": !conferencesOpen },
                 )}
               >

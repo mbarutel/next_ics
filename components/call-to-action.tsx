@@ -6,7 +6,7 @@ import SectionHeaderText from "./section-header-text";
 
 export default function CallToAction() {
   return (
-    <section>
+    <section className="section_top_margin">
       <div className="section_container">
         <SectionHeaderText text="Become Part of ICS" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2">

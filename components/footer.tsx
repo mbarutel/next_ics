@@ -17,7 +17,7 @@ export default function Footer() {
             src="/assets/images/conference-bg.webp"
             alt="Announcements"
             fill
-            className="object-cover opacity-10 grayscale z-0"
+            className="object-cover opacity-5 grayscale z-0"
           />
           <div className="grid grid-cols-2 lg:grid-cols-3 lg:gap-8 mb-2 px-6 pt-4 z-10">
             <Links />
