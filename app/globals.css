@@ -49,7 +49,7 @@ body {
 }
 
 .section_top_margin {
-  @apply xl:mt-10;
+  @apply xl:mt-10 lg:mt-8 md:mt-6 sm:mt-4 mt-2;
 }
 
 .header_wrapper {
@@ -61,7 +61,7 @@ body {
 }
 
 .header_sizes {
-  @apply xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl text-4xl;
+  @apply xl:text-7xl lg:text-6xl md:text-5xl text-4xl;
 }
 
 .header_subtext {

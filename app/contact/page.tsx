@@ -1,10 +1,10 @@
 import React from "react";
 import {
-  NavBar,
-  ContactForm,
   Announcement,
   CallToAction,
+  ContactForm,
   LandingHeader,
+  NavBar,
   SubscribeEmailList,
 } from "@/components";
 import { draftMode } from "next/headers";

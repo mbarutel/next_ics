@@ -19,7 +19,7 @@ export default function LandingHeader() {
 function TitleAndSubTitle() {
   return (
     <div className="absolute flex_col left-5 top-1/2 xl:top-1/3 -translate-y-1/2 z-40">
-      <h1 className="flex_col uppercase font-extrabold text-6xl w-fit">
+      <h1 className="flex_col uppercase font-extrabold text-5xl sm:text-6xl w-fit">
         <span>Indigenous</span>
         <span>Conference</span>
         <span>Services</span>
