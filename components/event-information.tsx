@@ -30,7 +30,7 @@ export default function EventInformation(event: EventType) {
       break;
   }
   return (
-    <article>
+    <article className="section_top_margin">
       <div className="section_container">
         <Tabs
           tab={tab}

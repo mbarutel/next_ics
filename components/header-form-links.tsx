@@ -13,7 +13,7 @@ export default function HeaderFormLinks(
       <Link
         href={registration}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className="relative inline-flex group button_padding bg-zinc-900 text-base font-medium transition-all active:scale-95 rounded-sm overflow-hidden text-white hover:text-black"
       >
         <span className="z-10">

@@ -108,6 +108,8 @@ function CallToActionButtons({
       </Link>
       <Link
         href={registration}
+        target="_blank"
+        rel="noopener noreferrer"
         className="group text-center hover:bg-slate-800 hover:text-white py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"
       >
         Registration

@@ -1,14 +1,16 @@
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { Event } from "@/contentful/services/event";
-import { parserEventEntry } from "@/contentful/utils";
+import { parserConferenceEntry, parserEventEntry } from "@/contentful/utils";
 import {
   Announcement,
   CallToAction,
   EventHeader,
   EventInformation,
+  NavBar,
   SubscribeEmailList,
 } from "@/components";
+import { Conference } from "@/contentful/services/conferences";
 
 type EventPageParams = {
   slug: string;
@@ -32,14 +34,22 @@ export default async function page({ params }: EventPageProps) {
     parser: parserEventEntry,
   });
 
+  const conferenceInstance = new Conference({
+    preview: draftMode().isEnabled,
+    parser: parserConferenceEntry,
+  });
+
   const eventPage = await eventInstance.getEvent(params.slug);
 
   if (!eventPage || !eventPage.conference) {
     return notFound();
   }
 
+  const conferences = await conferenceInstance.getConferences();
+
   return (
     <>
+      <NavBar conferences={conferences} />
       <EventHeader {...eventPage} />
       <Announcement />
       <EventInformation {...eventPage} />

@@ -32,11 +32,11 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
             <div className="uppercase min-w-[5.5rem] flex items-center">
               {row.time}
             </div>
-            <div className="flex_col grow border-[1px] px-4 py-1 border-white/90 rounded-md">
+            <div className="flex_col grow border-[1px] px-4 py-1 border-white/80 rounded-md">
               {row.agenda.map((item, index) => (
                 <span
                   key={index}
-                  className="text-sm sm:text-base font-semibold"
+                  className="text-sm sm:text-base lg:text-lg font-semibold border-white/90"
                 >
                   {item}
                 </span>
