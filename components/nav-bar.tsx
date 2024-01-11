@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { links } from "@/lib/data";
 import Link from "next/link";
 import { ConferenceType } from "@/lib/types";
@@ -13,6 +13,7 @@ export default function NavBar(
   { conferences }: { conferences: ConferenceType[] },
 ) {
   const [conferencesOpen, setConferencesOpen] = useState<boolean>(false);
+  // const [timeOfLastClick, setTimeOfLastClick] = useState<number>(0);
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
   const dropdownAnimation = useSpring({
     y: conferencesOpen ? 0 : -10,
@@ -20,6 +21,12 @@ export default function NavBar(
     transform: mobileNavOpen ? "translateX(0)" : "translateX(-100%)",
     opacity: conferencesOpen ? 1 : 0,
   });
+
+  // useEffect(() => {
+  //   if (Date.now() - timeOfLastClick > 1000) {
+  //     setConferencesOpen((currentState) => !currentState);
+  //   }
+  // }, [timeOfLastClick]);
 
   return (
     <>
@@ -42,8 +49,14 @@ export default function NavBar(
                 <button
                   type="button"
                   className="nav_links"
-                  onClick={() =>
-                    setConferencesOpen((currentState) => !currentState)}
+                  onClick={() => {
+                    // setTimeOfLastClick(Date.now());
+                    setConferencesOpen((currentState) => !currentState);
+                  }}
+                  // onTouchStart={() => {
+                  //   setTimeOfLastClick(Date.now());
+                  //   setConferencesOpen((currentState) => !currentState);
+                  // }}
                   onMouseEnter={() => setConferencesOpen(true)}
                   onMouseLeave={() => setConferencesOpen(false)}
                 >
@@ -52,8 +65,6 @@ export default function NavBar(
                 <div
                   onMouseEnter={() => setConferencesOpen(true)}
                   onMouseLeave={() => setConferencesOpen(false)}
-                  onTouchStart={() =>
-                    setConferencesOpen((currentState) => !currentState)}
                   className={clsx(
                     "absolute top-full right-0 flex_col gap-3 pl-2 py-4 rounded-b-md bg-stone-900 shadow-lg shadow-black/70 w-[40rem]",
                     { "!hidden": !conferencesOpen },
@@ -126,8 +137,8 @@ export default function NavBar(
               className="font-extrabold text-white/90 text-3xl uppercase"
               onClick={() =>
                 setConferencesOpen((currentState) => !currentState)}
-              onTouchStart={() =>
-                setConferencesOpen((currentState) => !currentState)}
+              // onTouchStart={() =>
+              //   setConferencesOpen((currentState) => !currentState)}
             >
               Conferences
             </button>
