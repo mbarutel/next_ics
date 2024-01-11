@@ -15,7 +15,7 @@ export default function Masterclass(
 
   return (
     <>
-      <div className="event_button_wrapper mb-4 md:mb-8">
+      <div className="flex flex-wrap gap-x-3 gap-y-3 mb-4 md:mb-8">
         {masterclass.map((item, index) => (
           <button
             key={index}

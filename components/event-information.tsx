@@ -56,12 +56,16 @@ type TabsProps = {
 };
 function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
   return (
-    <div className="event_button_wrapper">
+    <div className="event_tabs_wrapper">
       <button
         onClick={() => setTab("Information")}
         className={clsx(
-          "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3",
-          { "bg-gradient-to-r gradient text-stone-800 rounded-md sm:rounded-b-none": tab === "Information" },
+          "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3 rounded-md sm:rounded-b-none",
+          {
+            "bg-gradient-to-r gradient text-stone-800 rounded-md sm:rounded-b-none":
+              tab === "Information",
+              "sm:border-b-2 sm:border-stone-900" : tab !== "Information",
+          },
         )}
       >
         Information
@@ -69,7 +73,14 @@ function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
       {agenda && (
         <button
           onClick={() => setTab("Agenda")}
-          className="event_tab_text font-extrabold py-3"
+          className={clsx(
+            "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3 rounded-md sm:rounded-b-none",
+            {
+              "bg-gradient-to-r gradient text-stone-800 rounded-md sm:rounded-b-none":
+                tab === "Agenda",
+              "sm:border-b-2 sm:border-stone-900" : tab !== "Agenda",
+            },
+          )}
         >
           Agenda
         </button>
@@ -77,7 +88,14 @@ function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
       {masterclass && (
         <button
           onClick={() => setTab("Masterclass")}
-          className="event_tab_text font-extrabold py-3"
+          className={clsx(
+            "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3 rounded-md sm:rounded-b-none",
+            {
+              "bg-gradient-to-r gradient text-stone-800 rounded-md sm:rounded-b-none":
+                tab === "Masterclass",
+              "sm:border-b-2 sm:border-stone-900" : tab !== "Masterclass",
+            },
+          )}
         >
           Masterclass
         </button>

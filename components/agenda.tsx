@@ -9,7 +9,7 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
 
   return (
     <>
-      <div className="event_button_wrapper mb-4 md:mb-8">
+      <div className="flex flex-wrap gap-x-3 gap-y-3 mb-4 md:mb-8">
         {agenda.map((item, index) => (
           <button
             key={index}
@@ -26,6 +26,7 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
           </button>
         ))}
       </div>
+      <h3 className="p-4 mb-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 rounded-md">Be advised that the agenda is subject to change</h3>
       <div className="relative flex_col gap-4">
         {day.row.map((row, index) => (
           <div key={index} className="flex gap-2 text-lg">

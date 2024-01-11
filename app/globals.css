@@ -175,6 +175,6 @@ body {
   @apply text-base sm:text-xl lg:text-3xl uppercase leading-none tracking-tight;
 }
 
-.event_button_wrapper {
-  @apply flex flex-wrap gap-x-2 sm:gap-x-3 lg:gap-x-5 gap-y-3;
+.event_tabs_wrapper {
+  @apply flex flex-wrap gap-x-1 gap-y-1 mb-2 sm:mb-0;
 }
