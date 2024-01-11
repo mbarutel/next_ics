@@ -102,10 +102,10 @@ function CallToActionButtons({
   registration,
 }: { slug: string; registration: string }) {
   return (
-    <div className="absolute bottom-0 group-odd:right-1 group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
+    <div className="absolute bottom-1 group-odd:right-1 group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
       <Link
         href={`/conference/${slug}`}
-        className="group text-center bg-gradient-to-r rounded-t-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-2 sm:px-3"
+        className="text-center bg-gradient-to-r rounded-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-2 sm:px-3"
       >
         View Events
       </Link>
@@ -113,7 +113,7 @@ function CallToActionButtons({
         href={registration}
         target="_blank"
         rel="noopener noreferrer"
-        className="group text-center bg-gradient-to-r rounded-t-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"
+        className="text-center bg-gradient-to-r rounded-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"
       >
         Registration
       </Link>
