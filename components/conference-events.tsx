@@ -28,6 +28,7 @@ function ConferenceCard(event: EventType) {
         src="/assets/images/aboriginal_pattern.svg"
         alt="pattern"
         fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="object-cover z-0 grayscale opacity-5"
       />
       <div className="grid grid-cols-2 min-h-[15rem] z-10">
@@ -37,6 +38,7 @@ function ConferenceCard(event: EventType) {
             src={event.poster.src}
             alt={event.poster.alt}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-contain"
           />
         </div>
@@ -46,8 +48,6 @@ function ConferenceCard(event: EventType) {
       </p>
       <div className="w-full mt-auto z-10 flex gap-1 p-1">
         <Link
-          target="_blank"
-          rel="noreferer"
           href={`/event/${event.slug}`}
           className="grow py-2 text-center text-lg font-bold bg-black/90  hover:bg-gradient-to-b gradient hover:text-black transition_config rounded-sm active:scale-95"
         >

@@ -9,6 +9,8 @@ export default function SpinningBackground() {
             src="/assets/images/header-bg.svg"
             alt="Conference Aboriginal Art"
             fill
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover z-10 opacity-20 grayscale animate-[spin_10s_linear_infinite]"
           />
         </div>
@@ -16,4 +18,3 @@ export default function SpinningBackground() {
     </div>
   );
 }
-

@@ -34,6 +34,7 @@ function ConferenceCard(conference: ConferenceType) {
         src={conference.coverImage.src}
         alt={conference.coverImage.alt}
         fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="object-cover grayscale-[75%] transition_config group-hover:grayscale-0"
       />
       <div className="conference_card_info_wrap conference_card_orientation">
@@ -67,6 +68,7 @@ function AboriginalIcon() {
           src="/assets/images/conference-card-icon.svg"
           alt="Aboriginal Conferences"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover grayscale opacity-20"
         />
       </div>

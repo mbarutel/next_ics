@@ -10,6 +10,7 @@ export default function Announcement() {
             src="/assets/images/art-bg.svg"
             alt="divider"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover opacity-40 grayscale"
           />
         </div>

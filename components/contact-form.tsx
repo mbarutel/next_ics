@@ -11,8 +11,8 @@ import { sendEmail } from "@/actions/send-email";
 export default function ContactForm() {
   return (
     <section className="section_top_margin">
-      <div className="section_container grid sm:grid-cols-2 gap-2">
-        <div className="relative hidden sm:block rounded-sm overflow-hidden">
+      <div className="section_container grid lg:grid-cols-2 gap-2">
+        <div className="relative hidden lg:block rounded-sm overflow-hidden">
           <Image
             src="/assets/images/contact-us.webp"
             alt="Contact us ICS"

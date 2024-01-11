@@ -46,6 +46,7 @@ export default function SpeakersDisplay(
                     src="/assets/images/aboriginal_pattern.svg"
                     alt="pattern"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover z-0 grayscale opacity-5"
                   />
 
@@ -85,6 +86,7 @@ export default function SpeakersDisplay(
                 src="/assets/images/aboriginal_pattern.svg"
                 alt="pattern"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover z-0 grayscale opacity-5"
               />
               {speaker === null ? null : (
