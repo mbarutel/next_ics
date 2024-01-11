@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
 import dayjs from "dayjs";
-import { ConferenceType } from "@/lib/types";
 import Link from "next/link";
 import Image from "next/image";
+import React, { Fragment } from "react";
+import { ConferenceType } from "@/lib/types";
 import SectionHeaderText from "./section-header-text";
 
 export default function UpcomingConferences(
@@ -37,7 +37,10 @@ function ConferenceCard(conference: ConferenceType) {
         className="object-cover grayscale-[75%] transition_config group-hover:grayscale-0"
       />
       <div className="conference_card_info_wrap conference_card_orientation">
-        <div className="group-odd:pr-4 group-odd:ml-auto group-odd:text-right group-even:pl-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 max-w-[28rem] pt-2 z-20 w-[15rem] md:w-fit">
+        <Link
+          href={`/conference/${conference.slug}`}
+          className="group-odd:pr-4 group-odd:ml-auto group-odd:text-right group-even:pl-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 max-w-[28rem] pt-2 z-20 w-[15rem] md:w-fit active:scale-95 transition_config"
+        >
           <h3 className="text-xl sm:text-3xl font-semibold group-even:ml-auto uppercase !tracking-tight !leading-none transition text-white mb-1">
             {conference.title}
           </h3>
@@ -45,13 +48,13 @@ function ConferenceCard(conference: ConferenceType) {
           <h4 className="-mt-2 text-base md:text-xl whitespace-nowrap group-hover:whitespace-normal transition font-semibold">
             {conference.venue}
           </h4>
-        </div>
-        <CallToActionButtons
-          slug={conference.slug}
-          registration={conference.registrationLink}
-        />
+        </Link>
         <AboriginalIcon />
       </div>
+      <CallToActionButtons
+        slug={conference.slug}
+        registration={conference.registrationLink}
+      />
     </div>
   );
 }
@@ -99,10 +102,10 @@ function CallToActionButtons({
   registration,
 }: { slug: string; registration: string }) {
   return (
-    <div className="flex text-sm sm:text-lg bg-black text-white/90 mt-auto z-40 w-fit group-odd:ml-auto">
+    <div className="absolute bottom-0 group-odd:right-1 group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
       <Link
         href={`/conference/${slug}`}
-        className="group text-center hover:bg-slate-800 hover:text-white py-2 transition_config active:translate-y-1 duration-100 px-2 sm:px-3"
+        className="group text-center bg-gradient-to-r rounded-t-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-2 sm:px-3"
       >
         View Events
       </Link>
@@ -110,7 +113,7 @@ function CallToActionButtons({
         href={registration}
         target="_blank"
         rel="noopener noreferrer"
-        className="group text-center hover:bg-slate-800 hover:text-white py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"
+        className="group text-center bg-gradient-to-r rounded-t-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"
       >
         Registration
       </Link>

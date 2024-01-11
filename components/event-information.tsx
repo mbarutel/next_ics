@@ -56,45 +56,30 @@ type TabsProps = {
 };
 function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
   return (
-    <div className="event_button_wrapper mb-3 sm:mb-4">
+    <div className="event_button_wrapper">
       <button
         onClick={() => setTab("Information")}
-        className="event_tab_text font-extrabold"
+        className={clsx(
+          "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3",
+          { "bg-gradient-to-r gradient text-stone-800 rounded-md sm:rounded-b-none": tab === "Information" },
+        )}
       >
-        <span
-          className={clsx({
-            "border-b-[7px] border-yellow-400": tab === "Information",
-          })}
-        >
-          Information
-        </span>
+        Information
       </button>
       {agenda && (
         <button
           onClick={() => setTab("Agenda")}
-          className="event_tab_text font-extrabold"
+          className="event_tab_text font-extrabold py-3"
         >
-          <span
-            className={clsx({
-              "border-b-[7px] border-yellow-400": tab === "Agenda",
-            })}
-          >
-            Agenda
-          </span>
+          Agenda
         </button>
       )}
       {masterclass && (
         <button
           onClick={() => setTab("Masterclass")}
-          className="event_tab_text font-extrabold"
+          className="event_tab_text font-extrabold py-3"
         >
-          <span
-            className={clsx({
-              "border-b-[7px] border-yellow-400": tab === "Masterclass",
-            })}
-          >
-            Masterclass
-          </span>
+          Masterclass
         </button>
       )}
     </div>

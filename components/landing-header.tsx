@@ -31,9 +31,9 @@ function TitleAndSubTitle() {
       </p>
       <Link
         href="/#conferences"
-        className="rounded-md w-fit bg-gradient-to-r gradient px-7 py-4 mt-4 text-black uppercase hover:scale-105 active:scale-95 transition_config"
+        className="rounded-md w-fit bg-gradient-to-r gradient px-7 py-4 mt-4 text-black/90 font-semibold uppercase hover:scale-105 active:scale-95 transition_config"
       >
-        Conferences
+        To Our Conferences
       </Link>
     </div>
   );
