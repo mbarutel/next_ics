@@ -52,6 +52,8 @@ export default function NavBar(
                 <div
                   onMouseEnter={() => setConferencesOpen(true)}
                   onMouseLeave={() => setConferencesOpen(false)}
+                  onTouchStart={() =>
+                    setConferencesOpen((currentState) => !currentState)}
                   className={clsx(
                     "absolute top-full right-0 flex_col gap-3 pl-2 py-4 rounded-b-md bg-stone-900 shadow-lg shadow-black/70 w-[40rem]",
                     { "!hidden": !conferencesOpen },
@@ -77,7 +79,7 @@ export default function NavBar(
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center h-full transition active:scale-95 bg-gradient-radial gradient px-3 py-2 rounded-md"
+              className="flex items-center h-full transition active:scale-95 bg-gradient-to-r gradient px-3 py-2 rounded-md"
             >
               <span className="relative w-8 h-full">
                 <Image
@@ -123,6 +125,8 @@ export default function NavBar(
               type="button"
               className="font-extrabold text-white/90 text-3xl uppercase"
               onClick={() =>
+                setConferencesOpen((currentState) => !currentState)}
+              onTouchStart={() =>
                 setConferencesOpen((currentState) => !currentState)}
             >
               Conferences
