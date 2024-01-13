@@ -11,13 +11,7 @@ export function InputField(
   },
 ) {
   return (
-    <div className="flex_col gap-1">
-      <Field
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        className="field_input"
-      />
+    <div className="flex_col">
       {touched && error && (
         <div className="flex items-center gap-1 text-red-600 font-medium">
           <span className="text-xl">
@@ -26,6 +20,12 @@ export function InputField(
           {error}
         </div>
       )}
+      <Field
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        className="field_input"
+      />
     </div>
   );
 }

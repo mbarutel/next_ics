@@ -3,6 +3,7 @@
 import { Fragment } from "react";
 import { ParticipantType } from "@/lib/types";
 import { ErrorMessage, Field, FieldArray } from "formik";
+import { RiErrorWarningFill } from "react-icons/ri";
 
 export default function ExtraParticipants(
   { extraParticipants }: {
@@ -42,40 +43,41 @@ export default function ExtraParticipants(
   );
 }
 
+type ParticipantFieldProps = {
+  name: string;
+  position: string;
+  remove: Function;
+  index: number;
+};
 function ParticipantField(
-  { name, position, remove, index }: {
-    name: string;
-    position: string;
-    remove: Function;
-    index: number;
-  },
+  { name, position, remove, index }: ParticipantFieldProps,
 ) {
   return (
-    <div className="grid grid-cols-1 gap-1 sm:grid-cols-3 mb-2">
-      <div className="flex flex-col sm:gap-2">
-        <Field
-          name={name}
-          type="text"
-          placeholder="Full Name"
-          className="field_input"
-        />
+    <div className="grid grid-cols-1 sm:grid-cols-3 mb-2">
+      <span className="text-red-600 font-medium sm:col-start-1 sm:col-end-2">
         <ErrorMessage
           name={name}
           component="div"
         />
-      </div>
-      <div className="flex flex-col sm:gap-2">
-        <Field
-          type="text"
-          name={position}
-          placeholder="Position"
-          className="field_input"
-        />
+      </span>
+      <Field
+        name={name}
+        type="text"
+        placeholder="Full Name"
+        className="field_input sm:col-start-1 sm:col-end-2"
+      />
+      <span className="text-red-600 font-medium sm:col-start-2 sm:col-end-3 sm:row-start-1">
         <ErrorMessage
           name={position}
           component="div"
         />
-      </div>
+      </span>
+      <Field
+        type="text"
+        name={position}
+        placeholder="Position"
+        className="field_input sm:col-start-2 sm:col-end-3"
+      />
       <button
         type="button"
         onClick={() => remove(index)}
