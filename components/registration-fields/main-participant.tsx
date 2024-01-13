@@ -14,7 +14,7 @@ export default function MainParticipant(
   return (
     <div>
       <h2 className="question_title">Personal Details</h2>
-      <div className="flex_col sm:gap-3">
+      <div className="flex_col sm:gap-1">
         <InputField
           name="name"
           type="text"

@@ -12,7 +12,7 @@ export default function ExtraParticipants(
 ) {
   return (
     <div className="question_wrapper">
-      <h2 className="question_title mb-2 sm:mb-6">Extra Participants</h2>
+      <h2 className="question_title">Extra Participants</h2>
       <FieldArray name="extraParticipants">
         {({ remove, push }) => (
           <div>
@@ -32,7 +32,7 @@ export default function ExtraParticipants(
               onClick={() => {
                 push({ name: "", position: "" });
               }}
-              className="w-full bg-gradient-to-r gradient py-2 rounded-md text-black justify-center"
+              className="w-full bg-gradient-to-r gradient field_input"
             >
               Add Delegate
             </button>
@@ -53,7 +53,7 @@ function ParticipantField(
   { name, position, remove, index }: ParticipantFieldProps,
 ) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 mb-2">
+    <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-1 mb-1">
       <span className="text-red-600 font-medium sm:col-start-1 sm:col-end-2">
         <ErrorMessage
           name={name}
