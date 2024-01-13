@@ -112,7 +112,7 @@ function CallToActionButtons({
         View Events
       </Link>
       <Link
-        href={registration}
+        href={`/registration/${slug}`}
         target="_blank"
         rel="noopener noreferrer"
         className="text-center bg-gradient-to-r rounded-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"

@@ -20,6 +20,7 @@ import EventText from "./event-text";
 import Announcement from "./announcement";
 import SpeakersDisplay from "./speaker-display";
 import EventInformation from "./event-information";
+import RegistrationForm from "./registration-form";
 
 export {
   About,
@@ -41,6 +42,7 @@ export {
   LandingHeader,
   Masterclass,
   NavBar,
+  RegistrationForm,
   SpeakersDisplay,
   SubscribeEmailList,
   UpcomingConferences,

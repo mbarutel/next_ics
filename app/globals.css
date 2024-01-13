@@ -178,3 +178,12 @@ body {
 .event_tabs_wrapper {
   @apply flex flex-wrap gap-x-1 gap-y-1 mb-2 sm:mb-0;
 }
+
+/* Registration Form */
+.field_input {
+  @apply p-3 text-lg rounded-sm text-black;
+}
+
+.question_title {
+  @apply text-4xl mb-2 sm:mb-4;
+}

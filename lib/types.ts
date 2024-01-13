@@ -86,3 +86,63 @@ export type AgendaType = {
   title: string;
   row: AgendaRowType[];
 };
+
+// Registration Form Types
+
+export type PriceChoiceType = {
+  price: number;
+  dueDate: Date;
+};
+
+export type ParticipantType = {
+  name: string;
+  email: string;
+  position: string;
+};
+
+export type MainParticipantType = ParticipantType & {
+  phone: string;
+};
+
+export type DinnerParticipantType = {
+  name: string;
+  diet: string;
+};
+
+export type RegistrationType = {
+  conference: string;
+  events: string[];
+  company: string;
+  address: string;
+  discount: string;
+  referral: string;
+  agreement: boolean;
+  accomodation: number;
+  price: PriceChoiceType;
+  masterclass: string | null;
+  mainParticipant: MainParticipantType;
+  extraParticipants: ParticipantType[];
+  dinnerParticipants: DinnerParticipantType[];
+};
+
+export type FormValuesType = {
+  name: string;
+  company: string;
+  position: string;
+  phone: string;
+  email: string;
+  address: string;
+  events: [];
+  extraParticipants: [];
+  price: {
+    fee: number | null;
+    dueDate: Date | null;
+  };
+  dinnerParticipants: [];
+  masterclass: string;
+  accomodation: number;
+  discount: string;
+  referral: string;
+  agreement: boolean;
+};
+
