@@ -56,21 +56,42 @@ export const links = [
   },
 ] as const;
 
-export const eventLinks = [
+export const referralOptions = [
+  "Manager, Family, Friend or Colleague",
+  "Email newsletter",
+  "Social media (Facebook, Twitter, etc)",
+  "Our website",
+  "Koori Mail",
+  "Other",
+] as const;
+
+export const accomodationOption = [
   {
-    name: "Event",
-    hash: "#event",
+    label: "No, Thank you",
+    value: 0,
   },
   {
-    name: "Agenda",
-    hash: "#agenda",
+    label: "Yes, one (1) night",
+    value: 1,
   },
   {
-    name: "Masterclass",
-    hash: "#masterclass",
+    label: "Yes, two (2) nights",
+    value: 2,
   },
   {
-    name: "Footer",
-    hash: "#footer",
+    label: "Yes, three (3) nights",
+    value: 3,
   },
+  {
+    label: "Yes, four (4) nights",
+    value: 4,
+  },
+] as const;
+
+export const dietaryOptions = [
+  "Normal",
+  "Diabetic",
+  "Vegetarian",
+  "Gluten Free",
+  "Other",
 ] as const;

@@ -181,9 +181,9 @@ body {
 
 /* Registration Form */
 .field_input {
-  @apply p-3 text-lg rounded-sm text-black;
+  @apply p-2 text-lg rounded-md text-black border focus:outline-none focus:border-blue-500;
 }
 
 .question_title {
-  @apply text-4xl mb-2 sm:mb-4;
+  @apply text-4xl mb-2 sm:mb-4 capitalize;
 }

@@ -6,6 +6,8 @@ import MainParticipant from "./main-participant";
 import { Form, FormikErrors, FormikTouched } from "formik";
 import { ConferenceType, FormValuesType } from "@/lib/types";
 import ExtraParticipants from "./extra-participants";
+import { Events } from "./events";
+import Dinner from "./dinner";
 
 type FormikFormProps = {
   review: boolean;
@@ -33,11 +35,26 @@ export default function FormFields(
   return (
     <Form>
       <div style={{ display: review === false ? "block" : "hidden" }}>
+        <Events
+          errors={errors}
+          touched={touched}
+          choices={values.events}
+          events={conference.events}
+          setFieldValue={setFieldValue}
+        />
+
         <MainParticipant
           errors={errors}
           touched={touched}
         />
         <ExtraParticipants extraParticipants={values.extraParticipants} />
+
+        <Dinner
+          name={values.name}
+          setFieldValue={setFieldValue}
+          participants={values.extraParticipants}
+          dinnerParticipants={values.dinnerParticipants}
+        />
       </div>
       <SubmissionButton
         review={review}

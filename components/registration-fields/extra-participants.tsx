@@ -3,7 +3,6 @@
 import { Fragment } from "react";
 import { ParticipantType } from "@/lib/types";
 import { ErrorMessage, Field, FieldArray } from "formik";
-import { RiErrorWarningFill } from "react-icons/ri";
 
 export default function ExtraParticipants(
   { extraParticipants }: {
