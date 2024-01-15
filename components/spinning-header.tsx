@@ -11,7 +11,7 @@ export default function SpinningBackground() {
             fill
             priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover z-10 opacity-20 grayscale animate-[spin_10s_linear_infinite]"
+            className="object-cover z-10 opacity-20 grayscale animate-[spin_20s_linear_infinite]"
           />
         </div>
       </div>

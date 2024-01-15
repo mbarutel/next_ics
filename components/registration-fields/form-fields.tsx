@@ -9,6 +9,9 @@ import ExtraParticipants from "./extra-participants";
 import { Events } from "./events";
 import Dinner from "./dinner";
 import Masterclass from "./masterclass";
+import Accomodation from "./accomodation";
+import DiscountQuestion from "./discount";
+import Agreement from "./agreement";
 
 type FormikFormProps = {
   review: boolean;
@@ -48,6 +51,7 @@ export default function FormFields(
           errors={errors}
           touched={touched}
         />
+
         <ExtraParticipants extraParticipants={values.extraParticipants} />
 
         <Dinner
@@ -63,6 +67,22 @@ export default function FormFields(
           choice={values.masterclass}
           setFieldValue={setFieldValue}
           masterclasses={conference.masterclass}
+        />
+
+        <Accomodation
+          errors={errors}
+          touched={touched}
+          choice={values.accomodation}
+          setFieldValue={setFieldValue}
+        />
+
+        <DiscountQuestion />
+
+        <Agreement
+          errors={errors}
+          touched={touched}
+          choice={values.agreement}
+          setFieldValue={setFieldValue}
         />
       </div>
       <SubmissionButton

@@ -5,17 +5,18 @@ import type { TypeSpeakerSkeleton } from "./TypeSpeaker";
 
 export interface TypeConferencesFields {
     title: EntryFieldTypes.Symbol;
-    coverImage: EntryFieldTypes.AssetLink;
-    registrationLink: EntryFieldTypes.Symbol;
-    events: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeEventSkeleton>>;
-    venue: EntryFieldTypes.Symbol;
-    location?: EntryFieldTypes.Location;
+    slug: EntryFieldTypes.Symbol;
     startDate?: EntryFieldTypes.Date;
     endDate?: EntryFieldTypes.Date;
-    slug: EntryFieldTypes.Symbol;
+    venue: EntryFieldTypes.Symbol;
+    coverImage: EntryFieldTypes.AssetLink;
+    events: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeEventSkeleton>>;
     speakers?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeSpeakerSkeleton>>;
     masterclass?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeMasterclassSkeleton>>;
     submitAPaperLink?: EntryFieldTypes.Symbol;
+    externalForm?: EntryFieldTypes.Symbol;
+    prices?: EntryFieldTypes.Object;
+    registrationLink: EntryFieldTypes.Symbol;
 }
 
 export type TypeConferencesSkeleton = EntrySkeletonType<TypeConferencesFields, "conferences">;

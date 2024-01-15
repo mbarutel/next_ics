@@ -5,11 +5,11 @@ import {
   TypeSpeakerSkeleton,
 } from "@/contentful/types/contentful/types";
 import { Entry } from "contentful";
-import { eventLinks } from "./data";
+// import { eventLinks } from "./data";
 import { Omit } from "@react-spring/web";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 
-export type SectionName = typeof eventLinks[number]["name"];
+// export type SectionName = typeof eventLinks[number]["name"];
 
 export type ConferencesEntry = Entry<
   TypeConferencesSkeleton,
@@ -23,6 +23,17 @@ export type MasterclassEntry = Entry<
 >;
 export type EventEntry = Entry<TypeEventSkeleton, undefined, string>;
 export type SpeakerEntry = Entry<TypeSpeakerSkeleton, undefined, string>;
+
+export type PriceType = {
+  dinner: number;
+  masterclass: number;
+  walkIn: number;
+  student: number;
+  base: {
+    price: number;
+    dueDate: Date;
+  }[];
+};
 
 export type ConferenceType = {
   slug: string;
@@ -38,6 +49,8 @@ export type ConferenceType = {
   registrationLink: string;
   masterclass: MasterclassType[];
   submitPaperLink: string | undefined;
+  externalForm: string | undefined;
+  prices: PriceType | undefined;
 };
 
 export type EventType = {
@@ -145,4 +158,3 @@ export type FormValuesType = {
   referral: string;
   agreement: boolean;
 };
-
