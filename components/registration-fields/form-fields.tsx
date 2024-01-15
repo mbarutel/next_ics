@@ -8,6 +8,7 @@ import { ConferenceType, FormValuesType } from "@/lib/types";
 import ExtraParticipants from "./extra-participants";
 import { Events } from "./events";
 import Dinner from "./dinner";
+import Masterclass from "./masterclass";
 
 type FormikFormProps = {
   review: boolean;
@@ -54,6 +55,14 @@ export default function FormFields(
           setFieldValue={setFieldValue}
           participants={values.extraParticipants}
           dinnerParticipants={values.dinnerParticipants}
+        />
+
+        <Masterclass
+          errors={errors}
+          touched={touched}
+          choice={values.masterclass}
+          setFieldValue={setFieldValue}
+          masterclasses={conference.masterclass}
         />
       </div>
       <SubmissionButton

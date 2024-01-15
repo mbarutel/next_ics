@@ -3,8 +3,9 @@
 import clsx from "clsx";
 import Select from "react-select";
 import { dietaryOptions } from "@/lib/data";
-import React, { Fragment, useEffect, useState } from "react";
+import { customStyles } from "./select-style";
 import { ErrorMessage, Field, FieldArray } from "formik";
+import React, { Fragment, useEffect, useState } from "react";
 import { DinnerParticipantType, ParticipantType } from "@/lib/types";
 
 export default function Dinner({
@@ -82,23 +83,25 @@ export default function Dinner({
         <div className="mt-6">
           <FieldArray name="dinnerParticipants">
             {({ remove, push }) => (
-              <div>
-                {dinnerParticipants.length > 0 &&
-                  dinnerParticipants.map((participant, index) => (
-                    <Fragment key={index}>
-                      <DinnerParticipantField
-                        name={`dinnerParticipants.${index}.name`}
-                        position={`dinnerParticipants.${index}.diet`}
-                        options={options}
-                        push={push}
-                        remove={remove}
-                        setFieldValue={setFieldValue}
-                        setSelected={setSelected}
-                        index={index}
-                        participant={participant}
-                      />
-                    </Fragment>
-                  ))}
+              <>
+                <div className="mb-2">
+                  {dinnerParticipants.length > 0 &&
+                    dinnerParticipants.map((participant, index) => (
+                      <Fragment key={index}>
+                        <DinnerParticipantField
+                          name={`dinnerParticipants.${index}.name`}
+                          position={`dinnerParticipants.${index}.diet`}
+                          options={options}
+                          push={push}
+                          remove={remove}
+                          setFieldValue={setFieldValue}
+                          setSelected={setSelected}
+                          index={index}
+                          participant={participant}
+                        />
+                      </Fragment>
+                    ))}
+                </div>
                 <button
                   type="button"
                   onClick={() => {
@@ -108,7 +111,7 @@ export default function Dinner({
                 >
                   Add Dinner Participant
                 </button>
-              </div>
+              </>
             )}
           </FieldArray>
         </div>
@@ -133,49 +136,16 @@ type DinnerParticipantFieldProps = {
 };
 function DinnerParticipantField(
   {
-    name,
-    position,
     remove,
     setFieldValue,
     options,
-    push,
     setSelected,
     index,
     participant,
   }: DinnerParticipantFieldProps,
 ) {
-  const customStyles = {
-    control: (provided: Record<string, unknown>, state: any) => ({
-      ...provided,
-      padding: "6px 0",
-      boxShadow: "none",
-      borderColor: "none",
-      "&:hover": {
-        color: "#60B3D1",
-      },
-      border: state.isFocused ? "1.5px solid #60B3D1" : "1.5px solid #cbd5e1",
-    }),
-    option: (styles: any, state: any) => ({
-      ...styles,
-      color: "#000",
-      backgroundColor: state.isSelected ? "#60B3D1" : styles.color,
-      borderBottom: "1px solid rgba(0, 0, 0, 0.125)",
-      "&:hover": {
-        backgroundColor: "#60B3D1",
-      },
-    }),
-    input: (base: any) => ({
-      ...base,
-      "input:focus": {
-        boxShadow: "none",
-        border: "1px solid #60B3D1",
-      },
-    }),
-    menuPortal: (base: any) => ({ ...base, zIndex: 9999 }),
-  };
-
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 mb-2">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-1">
       <span className="text-red-600 font-medium sm:col-start-1 sm:col-end-2">
         <ErrorMessage
           name={`dinnerParticipants.${index}.name`}
