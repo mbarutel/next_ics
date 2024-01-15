@@ -34,18 +34,18 @@ const FormValidation = Yup.object().shape({
       diet: Yup.string().required("Required"),
     }),
   ),
-  fee: Yup.object().shape({
-    price: Yup.number().required("Required"),
-    dueDate: Yup.date().nullable(),
-  }),
-  masterclass: Yup.string()
-    .required("Required"),
-  accomodation: Yup.string()
-    .required("Required"),
-  referral: Yup.string()
-    .required("Required"),
-  agreement: Yup.boolean()
-    .oneOf([true], "Must Agree"),
+  // price: Yup.object().shape({
+  //   priceChoice: Yup.number().required("Required"),
+  //   dueDate: Yup.date().nullable(),
+  // }),
+  // masterclass: Yup.string()
+  //   .required("Required"),
+  // accomodation: Yup.string()
+  //   .required("Required"),
+  // referral: Yup.string()
+  //   .required("Required"),
+  // agreement: Yup.boolean()
+  //   .oneOf([true], "Must Agree"),
 });
 
 export default FormValidation;

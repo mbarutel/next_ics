@@ -42,7 +42,7 @@ export default function Accomodation(
         onChange={(event) => {
           setFieldValue("accomodation", event?.value);
         }}
-        className="z-40"
+        className="z-20"
         styles={customStyles}
       />
     </div>

@@ -55,7 +55,7 @@ export default function Masterclass(
           setFieldValue("masterclass", event?.value);
         }}
         styles={customStyles}
-        className="z-40"
+        className="z-30"
       />
     </div>
   );

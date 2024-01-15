@@ -54,7 +54,7 @@ function ConferenceCard(conference: ConferenceType) {
       </div>
       <CallToActionButtons
         slug={conference.slug}
-        registration={conference.registrationLink}
+        registration={conference.formLink}
       />
     </div>
   );
@@ -102,7 +102,7 @@ function Date(
 function CallToActionButtons({
   slug,
   registration,
-}: { slug: string; registration: string }) {
+}: { slug: string; registration: string | undefined }) {
   return (
     <div className="absolute bottom-1 group-odd:right-1 group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
       <Link
@@ -111,14 +111,16 @@ function CallToActionButtons({
       >
         View Events
       </Link>
-      <Link
-        href={`/registration/${slug}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-center bg-gradient-to-r rounded-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"
-      >
-        Registration
-      </Link>
+      {registration && (
+        <Link
+          href={registration}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-center bg-gradient-to-r rounded-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"
+        >
+          Registration
+        </Link>
+      )}
     </div>
   );
 }

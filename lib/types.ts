@@ -46,10 +46,10 @@ export type ConferenceType = {
   coverImage: AssetType;
   events: EventType[];
   speakers: SpeakerType[];
-  registrationLink: string;
+  registrationLink: string; // Will be irrelevant soon
   masterclass: MasterclassType[];
   submitPaperLink: string | undefined;
-  externalForm: string | undefined;
+  formLink: string | undefined;
   prices: PriceType | undefined;
 };
 
@@ -148,7 +148,7 @@ export type FormValuesType = {
   events: [];
   extraParticipants: [];
   price: {
-    fee: number | null;
+    priceChoice: number;
     dueDate: Date | null;
   };
   dinnerParticipants: [];

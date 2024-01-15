@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { draftMode } from "next/headers";
-import { FormikForm, RegistrationForm } from "@/components";
+import { RegistrationForm } from "@/components";
 import { notFound } from "next/navigation";
 import { parserConferenceEntry } from "@/contentful/utils";
 import { Conference } from "@/contentful/services/conferences";
@@ -32,36 +32,48 @@ export default async function page({ params }: ConferenceInfoProps) {
     return notFound();
   }
 
-  // if (!conference.fees) {
-  //   return (
-  //     <div>
-  //       <h2>Registration form is not yet ready</h2>
-  //     </div>
-  //   );
-  // }
+  const content = conference.prices
+    ? FormReady({ conference })
+    : FormNotReady();
 
   return (
     <>
       <section>
         <div className="section_container">
-          <div className="py-6">
-            <h1 className="text-2xl sm:text-5xl font-bold mb-2">
-              Registration {conference.title}
-            </h1>
-            {conference.date &&
-              (
-                <div className="flex_col gap-2 text-xl">
-                  <span>
-                    {dayjs(conference.date.startDate).format("DD")} -{" "}
-                    {dayjs(conference.date.endDate).format("DD MMM, YYYY")}
-                  </span>
-                  <span className="-mt-2">{conference.venue}</span>
-                </div>
-              )}
-          </div>
-          <RegistrationForm {...conference} />
+          {content}
         </div>
       </section>
+    </>
+  );
+}
+
+function FormNotReady() {
+  return (
+    <>
+      <h1>Registration form is not yet ready</h1>
+    </>
+  );
+}
+
+function FormReady({ conference }: { conference: Conference }) {
+  return (
+    <>
+      <div className="py-6">
+        <h1 className="text-2xl sm:text-5xl font-bold mb-2">
+          Registration {conference.title}
+        </h1>
+        {conference.date &&
+          (
+            <div className="flex_col gap-2 text-xl">
+              <span>
+                {dayjs(conference.date.startDate).format("DD")} -{" "}
+                {dayjs(conference.date.endDate).format("DD MMM, YYYY")}
+              </span>
+              <span className="-mt-2">{conference.venue}</span>
+            </div>
+          )}
+      </div>
+      <RegistrationForm {...conference} />
     </>
   );
 }

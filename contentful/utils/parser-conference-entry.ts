@@ -1,20 +1,23 @@
-import { TypeEventSkeleton } from "../types/contentful/types";
 import {
   ConferencesEntry,
   ConferenceType,
   EventEntry,
   EventType,
+  PriceType,
 } from "@/lib/types";
-import { Entry, UnresolvedLink } from "contentful";
 import parserAsset from "./parser-asset";
+import { Entry, UnresolvedLink } from "contentful";
 import parserEventEntry from "./parser-event-entry";
+import parserConferenceDate from "./parser-conference-date";
+import { TypeEventSkeleton } from "../types/contentful/types";
 import parserSpeakerInConference from "./parser-speaker-in-conference";
 import parserMasterclassesInConference from "./parser-masterclasses-in-conference";
-import parserConferenceDate from "./parser-conference-date";
 
 export default function parserConferenceEntry(
   conferenceEntry: ConferencesEntry,
 ): ConferenceType {
+  const prices = parseConferencePrices(conferenceEntry.fields.prices);
+
   return {
     slug: conferenceEntry.fields.slug,
     title: conferenceEntry.fields.title,
@@ -31,7 +34,57 @@ export default function parserConferenceEntry(
     masterclass: parserMasterclassesInConference(
       conferenceEntry.fields.masterclass,
     ),
+    formLink: prices
+      ? `/registration/${conferenceEntry.fields.slug}`
+      : conferenceEntry.fields.externalForm,
+    prices: parseConferencePrices(conferenceEntry.fields.prices),
   };
+}
+
+function parseConferencePrices(object: unknown): PriceType | undefined {
+  const parsedPrice = object as PriceType;
+
+  if (
+    !parsedPrice || !("student" in parsedPrice) ||
+    !("walkIn" in parsedPrice) ||
+    !("base" in parsedPrice) ||
+    !("dinner" in parsedPrice) ||
+    !("masterclass" in parsedPrice)
+  ) {
+    console.log("Conference Price Parsing Error: Lacking Property");
+    return undefined;
+  }
+
+  if (
+    typeof parsedPrice.walkIn !== "number" ||
+    typeof parsedPrice.student !== "number" ||
+    typeof parsedPrice.dinner !== "number" ||
+    typeof parsedPrice.masterclass !== "number" ||
+    !Array.isArray(parsedPrice.base)
+  ) {
+    console.log("Conference Price Parsing Error: Wrong Type");
+    return undefined;
+  }
+
+  for (let i = 0; i < parsedPrice.base.length; i++) {
+    if (
+      !parsedPrice.base[i] || !("price" in parsedPrice.base[i]) ||
+      !("dueDate" in parsedPrice.base[i])
+    ) {
+      console.log(
+        "Conference Price Parsing Error: Incorrect Base Price Property",
+      );
+      return undefined;
+    }
+    if (
+      typeof parsedPrice.base[i].price !== "number" ||
+      typeof parsedPrice.base[i].dueDate !== "string"
+    ) {
+      console.log("Conference Price Parsing Error: Incorrect Base Price Type");
+      return undefined;
+    }
+  }
+  return parsedPrice;
 }
 
 function parseEventsInConference(

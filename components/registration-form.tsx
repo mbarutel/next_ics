@@ -6,69 +6,69 @@ import React, { useState } from "react";
 // import FormQuestions from "./form-questions";
 import { Formik, FormikHelpers } from "formik";
 import FormFields from "./registration-fields/form-fields";
+import { ConferenceType, FormValuesType } from "@/lib/types";
 import FormValidation from "./registration-fields/form-validation";
-import { ConferenceType, FormValuesType, RegistrationType } from "@/lib/types";
-
 
 export default function RegistrationForm(conference: ConferenceType) {
   const [review, setReview] = useState<boolean>(false);
 
-  // const handleOnSubmit = async (
-  //   { values }: { values: ValuesType },
-  // ) => {
-  //   try {
-  //     const rawResponse = await fetch("/api/registration", {
-  //       method: "POST",
-  //       headers: {
-  //         "Accept": "application/json",
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         ...values,
-  //         conference: conference.title,
-  //       }),
-  //     });
-  //
-  //     const response = await rawResponse.json();
-  //
-  //     if ("error" in response) {
-  //       toast.error(response.error);
-  //       return;
-  //     }
-  //
-  //     try {
-  //       const body = JSON.stringify({
-  //         ...values,
-  //         conference: conference.title,
-  //         prices: {
-  //           dinner: conference.fees?.dinner,
-  //           masterclass: conference.fees?.masterclass,
-  //         },
-  //       });
-  //       const rawXeroResponse = await fetch("/api/xero", {
-  //         method: "POST",
-  //         body,
-  //       });
-  //
-  //       const response = await rawXeroResponse.json();
-  //
-  //       if ("error" in response) {
-  //         toast.error(response.error);
-  //         return;
-  //       } else {
-  //         toast.success("Registration Successful");
-  //       }
-  //     } catch (error) {
-  //       if (error instanceof Error) {
-  //         console.log(error.message);
-  //       }
-  //     }
-  //   } catch (error) {
-  //     if (error instanceof Error) {
-  //       console.log(error.message);
-  //     }
-  //   }
-  // };
+  const handleOnSubmit = async (
+    { values }: { values: ValuesType },
+  ) => {
+    console.log("hello before trying");
+    try {
+      const rawResponse = await fetch("/api/registration", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...values,
+          conference: conference.title,
+        }),
+      });
+
+      const response = await rawResponse.json();
+
+      if ("error" in response) {
+        toast.error(response.error);
+        return;
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log(error.message);
+      }
+    }
+
+    // try {
+    //   const body = JSON.stringify({
+    //     ...values,
+    //     conference: conference.title,
+    //     prices: {
+    //       dinner: conference.fees?.dinner,
+    //       masterclass: conference.fees?.masterclass,
+    //     },
+    //   });
+    //   const rawXeroResponse = await fetch("/api/xero", {
+    //     method: "POST",
+    //     body,
+    //   });
+    //
+    //   const response = await rawXeroResponse.json();
+    //
+    //   if ("error" in response) {
+    //     toast.error(response.error);
+    //     return;
+    //   } else {
+    //     toast.success("Registration Successful");
+    //   }
+    // } catch (error) {
+    //   if (error instanceof Error) {
+    //     console.log(error.message);
+    //   }
+    // }
+  };
 
   return (
     <div>
@@ -82,7 +82,7 @@ export default function RegistrationForm(conference: ConferenceType) {
           address: "",
           events: [],
           extraParticipants: [],
-          price: { fee: null, dueDate: null },
+          price: { priceChoice: 0, dueDate: null },
           dinnerParticipants: [],
           masterclass: "",
           accomodation: 0,
@@ -95,14 +95,15 @@ export default function RegistrationForm(conference: ConferenceType) {
           values: FormValuesType,
           { setSubmitting }: FormikHelpers<FormValuesType>,
         ) => {
-          if (review === false) {
-            setReview(true);
-            return;
-          }
+          // if (review === false) {
+          //   setReview(true);
+          //   return;
+          // }
 
           // Need to convert Values type to registrations type
+          console.log("helllllo");
           setSubmitting(true);
-          // await handleOnSubmit({ values });
+          await handleOnSubmit({ values });
           // redirect("/");
           console.log(values);
           setSubmitting(false);

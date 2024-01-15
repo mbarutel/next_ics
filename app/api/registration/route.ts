@@ -32,6 +32,7 @@ export async function POST(
       auth,
       version: "v4",
     });
+    console.log(body);
 
     const date = new Date();
     const events = body.events.join("\n");
@@ -78,6 +79,7 @@ export async function POST(
       message: "Registration Success!",
     }, { status: 201 });
   } catch (error: unknown) {
+    console.log("error happened");
     if (error instanceof Error) {
       return NextResponse.json({
         error: "Registration unsuccesful. Please try again later.",
