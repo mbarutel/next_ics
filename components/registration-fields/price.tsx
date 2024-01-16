@@ -1,12 +1,10 @@
 "use client";
 
-// import { FeeType } from "@/contentful/types/types";
+import React from "react";
+import dayjs from "dayjs";
+import EmptyWarning from "./empty-warning";
 import { FormValuesType, PriceType } from "@/lib/types";
 import { Field, FormikErrors, FormikTouched } from "formik";
-import React from "react";
-import { CiWarning } from "react-icons/ci";
-import clsx from "clsx";
-import dayjs from "dayjs";
 
 export default function Price(
   { errors, touched, prices, priceChoice, setFieldValue, defaultDueDate }: {
@@ -24,24 +22,20 @@ export default function Price(
 
   return (
     <div className="question_wrapper">
-      <div className="flex justify-between mb-2 sm:mb-6">
-        <h2 className="question_title">Registration Fee</h2>
-        {errors.price && touched.price
-          ? (
-            <div className="validation_message">
-              <CiWarning />
-              {errors.price.fee}
-            </div>
-          )
-          : null}
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-7 gap-y-2">
+      <h2 className="question_title">Registration Fee</h2>
+      <EmptyWarning
+        text={errors.price?.dueDate as string}
+        error={errors.price?.dueDate}
+        touched={errors.price?.dueDate}
+      />
+      <div className="grid grid-cols-1">
         <button
           type="button"
           onClick={() => (setFieldValue("price", {
             priceChoice: prices.student,
             dueDate: new Date(defaultDueDate),
           }))}
+          className="flex items-center justify-start gap-1"
         >
           <Field
             type="radio"
@@ -54,11 +48,9 @@ export default function Price(
               });
             }}
           />
-          Student Price:{" "}
-          <span className="font-semibold">
-            AU${prices.student}
-          </span>
+          Student Price: AU${prices.student}
         </button>
+
         {prices.base.map((item, index) => {
           const now = new Date();
           const dueDate = new Date(item.dueDate);
@@ -74,6 +66,7 @@ export default function Price(
                 priceChoice: item.price,
                 dueDate: dueDate,
               }))}
+              className="flex items-center justify-start gap-1"
             >
               <Field
                 type="radio"
@@ -87,18 +80,18 @@ export default function Price(
                 }}
               />
               Before{" "}
-              <span className="font-semibold capitalize">
-                {dayjs(item.dueDate).format("DD, MMM YYYY")}: AU${item.price}
-              </span>
+              {dayjs(item.dueDate).format("DD, MMM YYYY")}: AU${item.price}
             </button>
           );
         })}
+
         <button
           type="button"
           onClick={() => (setFieldValue("price", {
             priceChoice: prices.walkIn,
             dueDate: new Date(defaultDueDate),
           }))}
+          className="flex items-center justify-start gap-1"
         >
           <Field
             type="radio"
@@ -111,10 +104,7 @@ export default function Price(
               });
             }}
           />
-          Walk-in Price:{" "}
-          <span className="font-semibold">
-            AU${prices.walkIn}
-          </span>
+          Walk-in Price: AU${prices.walkIn}
         </button>
       </div>
     </div>

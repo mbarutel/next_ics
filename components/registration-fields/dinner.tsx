@@ -98,6 +98,7 @@ export default function Dinner({
                           setSelected={setSelected}
                           index={index}
                           participant={participant}
+                          participants={dinnerParticipants}
                         />
                       </Fragment>
                     ))}
@@ -133,6 +134,7 @@ type DinnerParticipantFieldProps = {
   setFieldValue: Function;
   setSelected: Function;
   participant: DinnerParticipantType;
+  participants: DinnerParticipantType[];
 };
 function DinnerParticipantField(
   {
@@ -142,11 +144,12 @@ function DinnerParticipantField(
     setSelected,
     index,
     participant,
+    participants
   }: DinnerParticipantFieldProps,
 ) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-1">
-      <span className="text-red-600 font-medium sm:col-start-1 sm:col-end-2">
+      <span className="validation_text sm:col-start-1 sm:col-end-2">
         <ErrorMessage
           name={`dinnerParticipants.${index}.name`}
           component="div"
@@ -158,7 +161,7 @@ function DinnerParticipantField(
         placeholder="Full Name"
         className="field_input sm:col-start-1 sm:col-end-2"
       />
-      <span className="text-red-600 font-medium sm:col-start-2 sm:col-end-3 sm:row-start-1">
+      <span className="validation_text sm:col-start-2 sm:col-end-3 sm:row-start-1">
         <ErrorMessage
           name={`dinnerParticipants.${index}.diet`}
           component="div"
@@ -181,7 +184,8 @@ function DinnerParticipantField(
       <button
         type="button"
         onClick={() => {
-          if (index === 0) {
+          console.log(participants)
+          if (participants.length === 0) {
             setSelected(false);
           }
           remove(index);

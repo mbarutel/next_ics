@@ -7,6 +7,7 @@ import { accomodationOption } from "@/lib/data";
 import { FormikErrors, FormikTouched } from "formik";
 import { FormValuesType } from "@/lib/types";
 import { customStyles } from "./select-style";
+import EmptyWarning from "./empty-warning";
 
 export default function Accomodation(
   { choice, setFieldValue, errors, touched }: {
@@ -26,14 +27,11 @@ export default function Accomodation(
       <h2 className="question_title mb-2 sm:mb-6">
         Do you want to receive a quote for hotel accommodation?
       </h2>
-      {errors.accomodation && touched.accomodation
-        ? (
-          <div className="validation_message">
-            <CiWarning />
-            {errors.accomodation}
-          </div>
-        )
-        : null}
+      <EmptyWarning
+        text={errors.accomodation as string}
+        error={errors.accomodation}
+        touched={touched.accomodation}
+      />
       <Select
         options={options}
         instanceId="accomodation"

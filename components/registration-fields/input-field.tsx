@@ -1,5 +1,5 @@
 import { Field } from "formik";
-import { RiErrorWarningFill } from "react-icons/ri";
+import EmptyWarning from "./empty-warning";
 
 export function InputField(
   { name, type, placeholder, error, touched }: {
@@ -12,14 +12,7 @@ export function InputField(
 ) {
   return (
     <div className="flex_col">
-      {touched && error && (
-        <div className="flex items-center gap-1 text-red-600 font-medium">
-          <span className="text-xl">
-            <RiErrorWarningFill />
-          </span>
-          {error}
-        </div>
-      )}
+      <EmptyWarning text={error as string} error={error} touched={touched} />
       <Field
         name={name}
         type={type}

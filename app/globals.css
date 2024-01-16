@@ -184,6 +184,14 @@ body {
   @apply p-2 text-lg rounded-md text-black border focus:outline-none focus:border-blue-500;
 }
 
+.question_wrapper {
+  @apply py-4;
+}
+
 .question_title {
-  @apply text-4xl mb-2 sm:mb-4 capitalize;
+  @apply text-2xl capitalize;
+}
+
+.validation_text {
+  @apply text-red-600 font-medium;
 }

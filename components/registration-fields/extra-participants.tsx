@@ -53,19 +53,19 @@ function ParticipantField(
 ) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-1 mb-1">
-      <span className="text-red-600 font-medium sm:col-start-1 sm:col-end-2">
+      <div className="validation_text sm:col-start-1 sm:col-end-2">
         <ErrorMessage
           name={name}
           component="div"
         />
-      </span>
+      </div>
       <Field
         name={name}
         type="text"
         placeholder="Full Name"
         className="field_input sm:col-start-1 sm:col-end-2"
       />
-      <span className="text-red-600 font-medium sm:col-start-2 sm:col-end-3 sm:row-start-1">
+      <span className="validation_text sm:col-start-2 sm:col-end-3 sm:row-start-1">
         <ErrorMessage
           name={position}
           component="div"

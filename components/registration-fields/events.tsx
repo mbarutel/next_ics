@@ -5,14 +5,15 @@ import Image from "next/image";
 import { CiWarning } from "react-icons/ci";
 import { EventType, FormValuesType } from "@/lib/types";
 import { FormikErrors, FormikTouched } from "formik";
+import EmptyWarning from "./empty-warning";
 
 export function Events(
   { errors, touched, choices, events, setFieldValue }: {
-    errors: FormikErrors<FormValuesType>;
-    touched: FormikTouched<FormValuesType>;
     choices: string[];
     events: EventType[];
     setFieldValue: Function;
+    errors: FormikErrors<FormValuesType>;
+    touched: FormikTouched<FormValuesType>;
   },
 ) {
   const onHandleClick = (eventCard: EventType) => {
@@ -31,17 +32,14 @@ export function Events(
 
   return (
     <div className="question_wrapper">
-      <h2 className="question_title mb-2 sm:mb-6">
-        Please Select which events you want to participate
+      <h2 className="question_title">
+        Select Your Preferred Events
       </h2>
-      {errors.events && touched.events
-        ? (
-          <div className="validation_message mb-2">
-            <CiWarning />
-            {errors.events}
-          </div>
-        )
-        : null}
+      <EmptyWarning
+        text={errors.events as string}
+        error={errors.events}
+        touched={touched.events}
+      />
       <div id="events-group">
         <div
           role="group"

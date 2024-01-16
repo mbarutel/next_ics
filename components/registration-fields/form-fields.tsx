@@ -33,13 +33,11 @@ export default function FormFields(
     errors,
     touched,
     setFieldValue,
-    review,
-    setReview,
   }: FormikFormProps,
 ) {
   return (
-    <Form>
-      <div style={{ display: review === false ? "block" : "hidden" }}>
+    <div className="bg-neutral-400 rounded-md px-5 lg:col-span-2">
+      <Form>
         <Events
           errors={errors}
           touched={touched}
@@ -61,7 +59,7 @@ export default function FormFields(
           prices={conference.prices}
           priceChoice={values.price.priceChoice}
           setFieldValue={setFieldValue}
-          defaultDueDate={conference.date?.startDate}
+          defaultDueDate={conference.date?.startDate.toString()}
         />
 
         <Dinner
@@ -94,47 +92,26 @@ export default function FormFields(
           choice={values.agreement}
           setFieldValue={setFieldValue}
         />
-      </div>
 
-      {/* Submit Buttons */}
-      <div className="flex gap-2">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="bg-green-200 rounded-sm border px-4 py-2 mt-4 text-slate-800/80 hover:scale-105 focus:scale-105 active:scale-95 transition ease-in-out font-semibold min-w-[8rem] flex justify-center"
-        >
-          {isSubmitting
-            ? (
-              <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-slate-800" />
-            )
-            : (
-              <span>
-                Submit
-              </span>
-            )}
-        </button>
-      </div>
-    </Form>
+        {/* Submit Buttons */}
+        <div className="flex gap-2">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="bg-green-200 rounded-sm border px-4 py-2 mt-4 text-slate-800/80 hover:scale-105 focus:scale-105 active:scale-95 transition ease-in-out font-semibold min-w-[8rem] flex justify-center"
+          >
+            {isSubmitting
+              ? (
+                <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-slate-800" />
+              )
+              : (
+                <span>
+                  Submit
+                </span>
+              )}
+          </button>
+        </div>
+      </Form>
+    </div>
   );
 }
-//
-// function SubmissionButton(
-//   { review, setReview, isSubmitting }: {
-//     review: boolean;
-//     setReview: Function;
-//     isSubmitting: boolean;
-//   },
-// ) {
-//   return (
-// <button
-//   type="button"
-//   className={clsx(
-//     "bg-sky-200 rounded-sm border px-4 py-2 mt-4 text-slate-800/80 hover:scale-105 focus:scale-105 active:scale-95 transition ease-in-out font-semibold min-w-[8rem] flex justify-center",
-//     { "hidden": review === false },
-//   )}
-//   onClick={() => setReview(!review)}
-// >
-//   Make Changes
-// </button>
-//   );
-// }

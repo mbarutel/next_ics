@@ -2,10 +2,10 @@
 
 import React from "react";
 import Select from "react-select";
-import { CiWarning } from "react-icons/ci";
 import { FormikErrors, FormikTouched } from "formik";
 import { FormValuesType, MasterclassType } from "@/lib/types";
 import { customStyles } from "./select-style";
+import EmptyWarning from "./empty-warning";
 
 export default function Masterclass(
   { choice, masterclasses, errors, touched, setFieldValue }: {
@@ -36,14 +36,11 @@ export default function Masterclass(
         <h2 className="question_title">
           Post-Conference Masterclass
         </h2>
-        {errors.accomodation && touched.accomodation
-          ? (
-            <div className="validation_message">
-              <CiWarning />
-              {errors.accomodation}
-            </div>
-          )
-          : null}
+        <EmptyWarning
+          text={errors.masterclass as string}
+          error={errors.masterclass}
+          touched={touched.masterclass}
+        />
       </div>
       <p className="question_description mb-2 sm:mb-6">AU$350</p>
       <Select
