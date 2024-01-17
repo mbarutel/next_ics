@@ -3,6 +3,7 @@
 import { Fragment } from "react";
 import { ParticipantType } from "@/lib/types";
 import { ErrorMessage, Field, FieldArray } from "formik";
+import QuestionTitle from "./question-title";
 
 export default function ExtraParticipants(
   { extraParticipants }: {
@@ -11,7 +12,7 @@ export default function ExtraParticipants(
 ) {
   return (
     <div className="question_wrapper">
-      <h2 className="question_title">Extra Participants</h2>
+      <QuestionTitle>Extra Participants</QuestionTitle>
       <FieldArray name="extraParticipants">
         {({ remove, push }) => (
           <div>

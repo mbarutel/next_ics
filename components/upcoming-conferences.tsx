@@ -69,7 +69,7 @@ function AboriginalIcon() {
           alt="Aboriginal Conferences"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover grayscale opacity-20"
+          className="object-cover grayscale opacity-10"
         />
       </div>
     </div>
@@ -107,7 +107,7 @@ function CallToActionButtons({
     <div className="absolute bottom-1 group-odd:right-1 group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
       <Link
         href={`/conference/${slug}`}
-        className="text-center bg-gradient-to-r rounded-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-2 sm:px-3"
+        className="group-odd:order-1 bg-black text-white rounded-sm hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-2 sm:px-3"
       >
         View Events
       </Link>
@@ -116,7 +116,7 @@ function CallToActionButtons({
           href={registration}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-center bg-gradient-to-r rounded-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"
+          className="bg-gradient-to-r rounded-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"
         >
           Registration
         </Link>

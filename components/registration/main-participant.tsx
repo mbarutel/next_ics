@@ -4,6 +4,7 @@ import React from "react";
 import { FormValuesType } from "@/lib/types";
 import { FormikErrors, FormikTouched } from "formik";
 import { InputField } from "./input-field";
+import QuestionTitle from "./question-title";
 
 export default function MainParticipant(
   { errors, touched }: {
@@ -13,12 +14,12 @@ export default function MainParticipant(
 ) {
   return (
     <div>
-      <h2 className="question_title">Personal Details</h2>
+      <QuestionTitle>Personal Details</QuestionTitle>
       <div className="flex_col sm:gap-1">
         <InputField
           name="name"
           type="text"
-          placeholder="Name"
+          label="Full Name"
           error={errors.name}
           touched={touched.name}
         />
@@ -26,7 +27,7 @@ export default function MainParticipant(
         <InputField
           name="company"
           type="text"
-          placeholder="Company"
+          label="Company"
           error={errors.company}
           touched={touched.company}
         />
@@ -34,7 +35,7 @@ export default function MainParticipant(
         <InputField
           name="position"
           type="text"
-          placeholder="Position"
+          label="Position"
           error={errors.position}
           touched={touched.position}
         />
@@ -42,7 +43,7 @@ export default function MainParticipant(
         <InputField
           name="phone"
           type="text"
-          placeholder="Phone"
+          label="Phone"
           error={errors.phone}
           touched={touched.phone}
         />
@@ -50,7 +51,7 @@ export default function MainParticipant(
         <InputField
           name="email"
           type="text"
-          placeholder="Email"
+          label="Email"
           error={errors.email}
           touched={touched.email}
         />
@@ -58,7 +59,7 @@ export default function MainParticipant(
         <InputField
           name="address"
           type="text"
-          placeholder="Address"
+          label="Address"
           error={errors.address}
           touched={touched.address}
         />

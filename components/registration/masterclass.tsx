@@ -6,6 +6,7 @@ import { FormikErrors, FormikTouched } from "formik";
 import { FormValuesType, MasterclassType } from "@/lib/types";
 import { customStyles } from "./select-style";
 import EmptyWarning from "./empty-warning";
+import QuestionTitle from "./question-title";
 
 export default function Masterclass(
   { choice, masterclasses, errors, touched, setFieldValue }: {
@@ -32,17 +33,15 @@ export default function Masterclass(
 
   return (
     <div>
-      <div>
-        <h2 className="question_title">
-          Post-Conference Masterclass
-        </h2>
+      <div className="flex gap-1">
         <EmptyWarning
           text={errors.masterclass as string}
           error={errors.masterclass}
           touched={touched.masterclass}
         />
+        <QuestionTitle>Post-Conference Masterclass</QuestionTitle>
       </div>
-      <p className="question_description mb-2 sm:mb-6">AU$350</p>
+      <p className="-mt-2 mb-2">AU$350 Per Session</p>
       <Select
         options={options}
         name="masterclass"
@@ -52,7 +51,6 @@ export default function Masterclass(
           setFieldValue("masterclass", event?.value);
         }}
         styles={customStyles}
-        className="z-30"
       />
     </div>
   );

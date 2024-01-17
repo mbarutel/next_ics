@@ -5,9 +5,10 @@ import dayjs from "dayjs";
 import EmptyWarning from "./empty-warning";
 import { FormValuesType, PriceType } from "@/lib/types";
 import { Field, FormikErrors, FormikTouched } from "formik";
+import QuestionTitle from "./question-title";
 
 export default function Price(
-  { errors, touched, prices, priceChoice, setFieldValue, defaultDueDate }: {
+  { errors, prices, priceChoice, setFieldValue, defaultDueDate }: {
     prices: PriceType | undefined;
     priceChoice: number;
     setFieldValue: Function;
@@ -22,12 +23,14 @@ export default function Price(
 
   return (
     <div className="question_wrapper">
-      <h2 className="question_title">Registration Fee</h2>
-      <EmptyWarning
-        text={errors.price?.dueDate as string}
-        error={errors.price?.dueDate}
-        touched={errors.price?.dueDate}
-      />
+      <div className="flex gap-1">
+        <EmptyWarning
+          text={errors.price?.dueDate as string}
+          error={errors.price?.dueDate}
+          touched={errors.price?.dueDate}
+        />
+        <QuestionTitle>Registration Fee</QuestionTitle>
+      </div>
       <div className="grid grid-cols-1">
         <button
           type="button"

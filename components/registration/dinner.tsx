@@ -7,6 +7,7 @@ import { customStyles } from "./select-style";
 import { ErrorMessage, Field, FieldArray } from "formik";
 import React, { Fragment, useEffect, useState } from "react";
 import { DinnerParticipantType, ParticipantType } from "@/lib/types";
+import QuestionTitle from "./question-title";
 
 export default function Dinner({
   name,
@@ -51,8 +52,8 @@ export default function Dinner({
 
   return (
     <div className="question_wrapper">
-      <h2 className="question_title">Conference Networking Dinner</h2>
-      <p className="question_description mb-2 sm:mb-6">AU$150 Per Person</p>
+      <QuestionTitle>Conference Networking Dinner</QuestionTitle>
+      <p className="-mt-2 mb-2">AU$150 Per Person</p>
       <div className="grid grid-cols-2 gap-2">
         <button
           type="button"
@@ -80,7 +81,7 @@ export default function Dinner({
         </button>
       </div>
       {selected === false ? null : (
-        <div className="mt-6">
+        <div className="mt-2 border-t-4 border-stone-700/80">
           <FieldArray name="dinnerParticipants">
             {({ remove, push }) => (
               <>
@@ -144,7 +145,7 @@ function DinnerParticipantField(
     setSelected,
     index,
     participant,
-    participants
+    participants,
   }: DinnerParticipantFieldProps,
 ) {
   return (
@@ -179,13 +180,13 @@ function DinnerParticipantField(
           )
         )}
         styles={customStyles}
-        className="sm:col-start-2 sm:col-end-3 z-40"
+        className="sm:col-start-2 sm:col-end-3"
       />
       <button
         type="button"
         onClick={() => {
-          console.log(participants)
-          if (participants.length === 0) {
+          console.log(participants);
+          if (participants.length === 1) {
             setSelected(false);
           }
           remove(index);

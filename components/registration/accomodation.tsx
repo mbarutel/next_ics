@@ -2,12 +2,12 @@
 
 import React from "react";
 import Select from "react-select";
-import { CiWarning } from "react-icons/ci";
 import { accomodationOption } from "@/lib/data";
 import { FormikErrors, FormikTouched } from "formik";
 import { FormValuesType } from "@/lib/types";
 import { customStyles } from "./select-style";
 import EmptyWarning from "./empty-warning";
+import QuestionTitle from "./question-title";
 
 export default function Accomodation(
   { choice, setFieldValue, errors, touched }: {
@@ -24,9 +24,7 @@ export default function Accomodation(
 
   return (
     <div className="question_wrapper">
-      <h2 className="question_title mb-2 sm:mb-6">
-        Do you want to receive a quote for hotel accommodation?
-      </h2>
+      <QuestionTitle>Accomodation</QuestionTitle>
       <EmptyWarning
         text={errors.accomodation as string}
         error={errors.accomodation}
@@ -40,7 +38,6 @@ export default function Accomodation(
         onChange={(event) => {
           setFieldValue("accomodation", event?.value);
         }}
-        className="z-20"
         styles={customStyles}
       />
     </div>

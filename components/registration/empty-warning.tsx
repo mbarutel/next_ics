@@ -1,7 +1,7 @@
 export default function EmptyWarning({ text, error, touched }: {
   text: string;
   error: string | string[] | undefined;
-  touched: boolean | never[] | undefined;
+  touched: string | boolean | never[] | undefined;
 }) {
   if (!error && !touched) {
     return null;

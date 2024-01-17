@@ -4,6 +4,8 @@ import { RegistrationForm } from "@/components";
 import { notFound } from "next/navigation";
 import { parserConferenceEntry } from "@/contentful/utils";
 import { Conference } from "@/contentful/services/conferences";
+import { ConferenceType } from "@/lib/types";
+import Image from "next/image";
 
 type ConferenceInfoParams = {
   slug: string;
@@ -55,7 +57,7 @@ function FormNotReady() {
   );
 }
 
-function FormReady({ conference }: { conference: Conference }) {
+function FormReady({ conference }: { conference: ConferenceType }) {
   return (
     <>
       <div className="py-6">
