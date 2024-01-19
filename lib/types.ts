@@ -134,6 +134,7 @@ export type RegistrationType = {
   agreement: boolean;
   masterclass: string;
   accomodation: number;
+  paymentMethod: string;
   extraParticipants: ParticipantType;
   mainParticipant: MainParticipantType;
   dinnerParticipants: DinnerParticipantType;

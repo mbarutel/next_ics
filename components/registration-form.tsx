@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
 import toast from "react-hot-toast";
+import React, { useState } from "react";
 import { Formik, FormikHelpers } from "formik";
 import FormFields from "./registration/form-fields";
+import { RegistrationObjectApiParser } from "@/lib/utils";
 import FormValidation from "./registration/form-validation";
-import { ConferenceType, FormValuesType, RegistrationType } from "@/lib/types";
+import { ConferenceType, FormValuesType } from "@/lib/types";
 
 export default function RegistrationForm(conference: ConferenceType) {
   const [review, setReview] = useState<boolean>(false);
@@ -13,22 +14,10 @@ export default function RegistrationForm(conference: ConferenceType) {
   const handleOnSubmit = async (
     { values }: { values: FormValuesType },
   ) => {
-    // const registrationObject: RegistrationType = {
-    //   conference: conference.title,
-    // events: string[];
-    // company: string;
-    // address: string;
-    // discount: string;
-    // referral: string;
-    // agreement: boolean;
-    // accomodation: number;
-    // price: PriceChoiceType;
-    // masterclass: string | null;
-    // mainParticipant: MainParticipantType;
-    // extraParticipants: ParticipantType[];
-    // dinnerParticipants: DinnerParticipantType[];
-    // }
+    console.log("lol")
+    const registrationObject = RegistrationObjectApiParser({values: values, conference: conference});
 
+    console.log(registrationObject)
     try {
       const rawResponse = await fetch("/api/registration", {
         method: "POST",
@@ -37,12 +26,10 @@ export default function RegistrationForm(conference: ConferenceType) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          ...values,
+          ...registrationObject,
           conference: conference.title,
         }),
       });
-
-      console.log(values)
 
       const response = await rawResponse.json();
 
