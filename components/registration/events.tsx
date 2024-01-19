@@ -52,7 +52,7 @@ export function Events(
             type="button"
             onClick={() => onHandleClick(event)}
             className={clsx(
-              "flex items-center rounded-md overflow-hidden border bg-stone-700 transition_config",
+              "flex items-center rounded-md overflow-hidden border bg-stone-700 transition_config hover:scale-[101%] active:scale-95",
               {
                 "!bg-gradient-to-r gradient text-black":
                   choices.includes(event.title) === true,
@@ -68,7 +68,7 @@ export function Events(
                 className="object-cover group-hover:scale-110 transition-all ease-in-out"
               />
             </div>
-            <h2 className="text-left leading-tight text-lg pl-3">
+            <h2 className="text-left leading-none text-lg pl-3 my-6">
               {event.title}
             </h2>
           </button>

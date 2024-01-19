@@ -5,9 +5,7 @@ import toast from "react-hot-toast";
 import { Formik, FormikHelpers } from "formik";
 import FormFields from "./registration/form-fields";
 import FormValidation from "./registration/form-validation";
-import { ConferenceType, FormValuesType, ParticipantType } from "@/lib/types";
-import QuestionTitle from "./registration/question-title";
-import dayjs from "dayjs";
+import { ConferenceType, FormValuesType, RegistrationType } from "@/lib/types";
 
 export default function RegistrationForm(conference: ConferenceType) {
   const [review, setReview] = useState<boolean>(false);
@@ -15,7 +13,22 @@ export default function RegistrationForm(conference: ConferenceType) {
   const handleOnSubmit = async (
     { values }: { values: FormValuesType },
   ) => {
-    console.log("hello before trying");
+    // const registrationObject: RegistrationType = {
+    //   conference: conference.title,
+    // events: string[];
+    // company: string;
+    // address: string;
+    // discount: string;
+    // referral: string;
+    // agreement: boolean;
+    // accomodation: number;
+    // price: PriceChoiceType;
+    // masterclass: string | null;
+    // mainParticipant: MainParticipantType;
+    // extraParticipants: ParticipantType[];
+    // dinnerParticipants: DinnerParticipantType[];
+    // }
+
     try {
       const rawResponse = await fetch("/api/registration", {
         method: "POST",
@@ -28,6 +41,8 @@ export default function RegistrationForm(conference: ConferenceType) {
           conference: conference.title,
         }),
       });
+
+      console.log(values)
 
       const response = await rawResponse.json();
 
@@ -85,6 +100,7 @@ export default function RegistrationForm(conference: ConferenceType) {
           price: { priceChoice: 0, dueDate: null },
           dinnerParticipants: [],
           masterclass: "no",
+          paymentMethod: "credit",
           accomodation: 0,
           discount: "",
           referral: "",
@@ -101,9 +117,8 @@ export default function RegistrationForm(conference: ConferenceType) {
           // }
 
           // Need to convert Values type to registrations type
-          console.log("helllllo");
           setSubmitting(true);
-          // await handleOnSubmit({ values });
+          await handleOnSubmit({ values });
           // redirect("/");
           console.log(values);
           setSubmitting(false);

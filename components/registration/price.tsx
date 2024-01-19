@@ -31,14 +31,14 @@ export default function Price(
         />
         <QuestionTitle>Registration Fee</QuestionTitle>
       </div>
-      <div className="grid grid-cols-1">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-1 xl:gap-2">
         <button
           type="button"
           onClick={() => (setFieldValue("price", {
             priceChoice: prices.student,
             dueDate: new Date(defaultDueDate),
           }))}
-          className="flex items-center justify-start gap-1"
+          className="flex items-center justify-start gap-1 bg-stone-700 border-[1px] border-white rounded-md px-3 py-2"
         >
           <Field
             type="radio"
@@ -51,7 +51,8 @@ export default function Price(
               });
             }}
           />
-          Student Price: AU${prices.student}
+          <span className="font-semibold">Student Price</span>: AU${prices
+            .student}
         </button>
 
         {prices.base.map((item, index) => {
@@ -69,7 +70,7 @@ export default function Price(
                 priceChoice: item.price,
                 dueDate: dueDate,
               }))}
-              className="flex items-center justify-start gap-1"
+              className="flex items-center justify-start gap-1 bg-stone-700 border-[1px] border-white rounded-md px-3 py-2"
             >
               <Field
                 type="radio"
@@ -82,8 +83,9 @@ export default function Price(
                   });
                 }}
               />
-              Before{" "}
-              {dayjs(item.dueDate).format("DD, MMM YYYY")}: AU${item.price}
+              <span className="font-semibold">
+                Before {dayjs(item.dueDate).format("DD, MMM YYYY")}
+              </span>: AU${item.price}
             </button>
           );
         })}
@@ -94,7 +96,7 @@ export default function Price(
             priceChoice: prices.walkIn,
             dueDate: new Date(defaultDueDate),
           }))}
-          className="flex items-center justify-start gap-1"
+          className="flex items-center justify-start gap-1 bg-stone-700 border-[1px] border-white rounded-md px-3 py-2"
         >
           <Field
             type="radio"
@@ -107,7 +109,8 @@ export default function Price(
               });
             }}
           />
-          Walk-in Price: AU${prices.walkIn}
+          <span className="font-semibold">Walk-in Price</span>: AU${prices
+            .walkIn}
         </button>
       </div>
     </div>

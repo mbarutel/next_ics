@@ -15,6 +15,7 @@ import Price from "./price";
 import Referral from "./referral";
 import QuestionTitle from "./question-title";
 import dayjs from "dayjs";
+import PaymentType from "./payment-type";
 
 type FormikFormProps = {
   review: boolean;
@@ -39,8 +40,8 @@ export default function FormFields(
 ) {
   return (
     <Form>
-      <div className="grid grid-cols-3 gap-3">
-        <div className="border-2 rounded-md px-5 col-span-2">
+      <div className="grid grid-cols-1 gap-2 xl:grid-cols-3 xl:gap-3">
+        <div className="border-2 rounded-md px-5 xl:col-span-2 bg-stone-800">
           <Events
             errors={errors}
             touched={touched}
@@ -80,6 +81,13 @@ export default function FormFields(
             masterclasses={conference.masterclass}
           />
 
+          <PaymentType
+            choice={values.paymentMethod}
+            errors={errors}
+            touched={touched}
+            setFieldValue={setFieldValue}
+          />
+
           <Accomodation
             errors={errors}
             touched={touched}
@@ -103,14 +111,14 @@ export default function FormFields(
             setFieldValue={setFieldValue}
           />
         </div>
-        <div className="border-2 rounded-md px-5 h-fit sticky top-5 py-4">
+        <div className="border-2 rounded-md px-5 h-fit sticky top-5 py-4 bg-stone-800">
           <ReviewBox conference={conference} values={values} />
           {/* Submit Buttons */}
           <div className="flex gap-2">
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-green-200 rounded-sm border px-4 py-2 mt-4 text-slate-800/80 hover:scale-105 focus:scale-105 active:scale-95 transition ease-in-out font-semibold min-w-[8rem] flex justify-center"
+              className="bg-gradient-to-b gradient rounded-md border px-4 py-2 mt-4 hover:scale-105 focus:scale-105 active:scale-95 transition ease-in-out font-semibold min-w-[8rem] flex justify-center text-black"
             >
               {isSubmitting
                 ? (
@@ -135,13 +143,15 @@ function ReviewBox(
     values: FormValuesType;
   },
 ) {
+  if (!conference.prices) return null;
+
   const participantQty = values.extraParticipants.length + 1;
   const total = values.price.priceChoice * participantQty +
     values.dinnerParticipants.length * conference.prices?.dinner +
     (values.masterclass !== "no" ? conference.prices?.masterclass : 0);
 
   return (
-    <div>
+    <>
       <QuestionTitle>Summary</QuestionTitle>
       <div>
         <h3 className="font-semibold">Event(s):</h3>
@@ -171,15 +181,6 @@ function ReviewBox(
       </div>
       <div>
         <h3>
-          <span className="font-semibold">Masterclass:</span>{" "}
-          {values.masterclass === "no" && "No"}
-        </h3>
-        {values.masterclass !== "no" && (
-          <p className="capitalize">• {values.masterclass}</p>
-        )}
-      </div>
-      <div>
-        <h3>
           <span className="font-semibold">Dinner:</span>{" "}
           {values.dinnerParticipants.length === 0 ? "No" : "Yes"}
         </h3>
@@ -187,6 +188,15 @@ function ReviewBox(
           <h3 className="pl-4">
             Dinner Participant(s): {values.dinnerParticipants.length}
           </h3>
+        )}
+      </div>
+      <div>
+        <h3>
+          <span className="font-semibold">Masterclass:</span>{" "}
+          {values.masterclass === "no" && "No"}
+        </h3>
+        {values.masterclass !== "no" && (
+          <p className="capitalize pl-4">• {values.masterclass}</p>
         )}
       </div>
       <div>
@@ -219,6 +229,11 @@ function ReviewBox(
       )}
       <div className="h-1 bg-white rounded-full my-3" />
       <QuestionTitle>Total</QuestionTitle>
+      {values.discount !== "" && (
+        <p className="italic -mt-2 mb-2 text-sm">
+          Discount Code will be reflected in the invoice we send you.
+        </p>
+      )}
       {values.price.dueDate && (
         <h3>
           Registration: ${values.price.priceChoice} x {participantQty}{" "}
@@ -239,7 +254,7 @@ function ReviewBox(
         </h3>
       )}
       {total > 0 && <h3>Total: ${total}</h3>}
-      <div className="h-1 bg-white/90 rounded-full" />
-    </div>
+      <div className="h-1 bg-white/90 rounded-full mt-3" />
+    </>
   );
 }

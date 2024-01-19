@@ -36,9 +36,9 @@ export async function POST(
 
     const date = new Date();
     const events = body.events.join("\n");
-    const extraParticipants = body.extraParticipants.map((item) =>
-      item.name.concat(` | ${item.position}`)
-    ).join("\n");
+    // const extraParticipants = body.extraParticipants.map((item) =>
+    //   item.name.concat(` | ${item.position}`)
+    // ).join("\n");
     // const price = body.price.price?.toString().concat(
     //   ` | ${body.fee.dueDate ? body.fee.dueDate.toString() : "NULL"}\n`,
     // );
@@ -46,6 +46,26 @@ export async function POST(
     //   item.name.concat(` | ${item.diet}`)
     // ).join("\n");
     //
+    
+    // date
+    // Conferece
+    // rego number ID - First three letters of conference
+    // name
+    // position
+    // company
+    // address
+    // phone
+    // email
+    // fee
+    // dinner
+    // masterclass
+    // GST 10%
+    // Surcharge
+    // accomodation
+    // Total
+    // Manual
+    // Remark
+    // Status
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_REGISTRATION_SHEET_ID,
@@ -56,16 +76,14 @@ export async function POST(
           [
             date,
             body.conference,
-            body.company,
-            body.address,
             body.mainParticipant.name,
             body.mainParticipant.position,
-            body.mainParticipant.email,
+            body.company,
+            body.address,
             body.mainParticipant.phone,
+            body.mainParticipant.email,
             events,
-            extraParticipants,
-            // price,
-            // dinner,
+            // extraParticipants,
             body.masterclass,
             body.accomodation,
             body.discount,
@@ -79,7 +97,7 @@ export async function POST(
       message: "Registration Success!",
     }, { status: 201 });
   } catch (error: unknown) {
-    console.log("error happened");
+    console.log(error);
     if (error instanceof Error) {
       return NextResponse.json({
         error: "Registration unsuccesful. Please try again later.",

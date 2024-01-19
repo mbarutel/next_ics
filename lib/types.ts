@@ -123,19 +123,20 @@ export type DinnerParticipantType = {
 };
 
 export type RegistrationType = {
-  conference: string;
-  events: string[];
+  events: string;
   company: string;
   address: string;
   discount: string;
+  conference: string;
   referral: string;
+  priceValue: number;
+  priceDueDate: Date | null;
   agreement: boolean;
+  masterclass: string;
   accomodation: number;
-  price: PriceChoiceType;
-  masterclass: string | null;
+  extraParticipants: ParticipantType;
   mainParticipant: MainParticipantType;
-  extraParticipants: ParticipantType[];
-  dinnerParticipants: DinnerParticipantType[];
+  dinnerParticipants: DinnerParticipantType;
 };
 
 export type FormValuesType = {
@@ -152,6 +153,7 @@ export type FormValuesType = {
     dueDate: Date | null;
   };
   dinnerParticipants: [];
+  paymentMethod: "credit" | "bank";
   masterclass: string;
   accomodation: number;
   discount: string;

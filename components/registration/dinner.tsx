@@ -59,7 +59,7 @@ export default function Dinner({
           type="button"
           onClick={() => setSelected(true)}
           className={clsx(
-            "border field_input bg-stone-700 transition button_effect",
+            "border field_input bg-stone-700 transition_config rounded-md",
             {
               "!bg-gradient-to-r gradient": selected === true,
             },
@@ -71,7 +71,7 @@ export default function Dinner({
           type="button"
           onClick={() => setSelected(false)}
           className={clsx(
-            "border rounded-sm bg-stone-700 transition_config field_input",
+            "border field_input bg-stone-700 transition_config rounded-md",
             {
               "!bg-gradient-to-r gradient": selected === false,
             },
@@ -80,44 +80,46 @@ export default function Dinner({
           No
         </button>
       </div>
-      {selected === false ? null : (
-        <div className="mt-2 border-t-4 border-stone-700/80">
-          <FieldArray name="dinnerParticipants">
-            {({ remove, push }) => (
-              <>
-                <div className="mb-2">
-                  {dinnerParticipants.length > 0 &&
-                    dinnerParticipants.map((participant, index) => (
-                      <Fragment key={index}>
-                        <DinnerParticipantField
-                          name={`dinnerParticipants.${index}.name`}
-                          position={`dinnerParticipants.${index}.diet`}
-                          options={options}
-                          push={push}
-                          remove={remove}
-                          setFieldValue={setFieldValue}
-                          setSelected={setSelected}
-                          index={index}
-                          participant={participant}
-                          participants={dinnerParticipants}
-                        />
-                      </Fragment>
-                    ))}
-                </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    push({ name: "", diet: "normal" });
-                  }}
-                  className="w-full !bg-gradient-to-l gradient field_input"
-                >
-                  Add Dinner Participant
-                </button>
-              </>
-            )}
-          </FieldArray>
-        </div>
-      )}
+      {selected === false
+        ? null
+        : (
+          <div className="mt-2 border-t-4 border-stone-700/80">
+            <FieldArray name="dinnerParticipants">
+              {({ remove, push }) => (
+                <>
+                  <div className="mb-2">
+                    {dinnerParticipants.length > 0 &&
+                      dinnerParticipants.map((participant, index) => (
+                        <Fragment key={index}>
+                          <DinnerParticipantField
+                            name={`dinnerParticipants.${index}.name`}
+                            position={`dinnerParticipants.${index}.diet`}
+                            options={options}
+                            push={push}
+                            remove={remove}
+                            setFieldValue={setFieldValue}
+                            setSelected={setSelected}
+                            index={index}
+                            participant={participant}
+                            participants={dinnerParticipants}
+                          />
+                        </Fragment>
+                      ))}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      push({ name: "", diet: "normal" });
+                    }}
+                    className="w-full !bg-gradient-to-l gradient field_input"
+                  >
+                    Add Dinner Participant
+                  </button>
+                </>
+              )}
+            </FieldArray>
+          </div>
+        )}
     </div>
   );
 }
