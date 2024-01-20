@@ -9,7 +9,7 @@ export default function UpcomingConferences(
   { conferences }: { conferences: ConferenceType[] },
 ) {
   return (
-    <section id="conferences" className="scroll-mt-24 section_top_margin">
+    <section id="conferences" className="scroll-mt-28 section_margin">
       <div className="section_container">
         <SectionHeaderText text={"Upcoming Conferences"} />
         <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-y-2 gap-x-4">
@@ -29,24 +29,24 @@ export default function UpcomingConferences(
 
 function ConferenceCard(conference: ConferenceType) {
   return (
-    <div className="group relative h-48 md:h-56 group transition-all duration-200 rounded-sm overflow-hidden">
+    <div className="group relative h-48 md:h-56 rounded-md overflow-hidden">
       <Image
         src={conference.coverImage.src}
         alt={conference.coverImage.alt}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="object-cover grayscale-[75%] transition_config group-hover:grayscale-0"
+        className="hidden md:block object-cover grayscale-[75%] transition_config group-hover:grayscale-0 md:group-odd:clip-path-polygon-[0_0,_30%_0,_40%_100%,_0_100%] z-40 group-even:clip-path-polygon-[70%_0,_100%_0,_100%_100%,_60%_100%]"
       />
       <div className="conference_card_info_wrap conference_card_orientation">
         <Link
           href={`/conference/${conference.slug}`}
-          className="group-odd:pr-4 group-odd:ml-auto group-odd:text-right group-even:pl-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 max-w-[28rem] pt-2 z-20 w-[15rem] md:w-fit active:scale-95 transition_config"
+          className="group-odd:pr-4 group-odd:ml-auto group-odd:text-right group-even:pl-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 max-w-[28rem] pt-2 z-20 active:scale-95 transition_config"
         >
-          <h3 className="text-xl sm:text-3xl font-semibold group-even:ml-auto uppercase !tracking-tight !leading-none transition text-white mb-1">
+          <h3 className="text-2xl mdnprogress:text-3xl font-semibold group-even:ml-auto uppercase !tracking-tight !leading-none transition text-white mb-1">
             {conference.title}
           </h3>
           <Date date={conference.date} />
-          <h4 className="-mt-2 text-base md:text-xl whitespace-nowrap group-hover:whitespace-normal transition font-semibold">
+          <h4 className="-mt-2 text-xl whitespace-nowrap group-hover:whitespace-normal transition font-semibold">
             {conference.venue}
           </h4>
         </Link>
@@ -81,7 +81,7 @@ function Date(
 ) {
   return (
     <span className="z-20">
-      <h4 className="text-base md:text-xl whitespace-nowrap font-semibold">
+      <h4 className="text-xl whitespace-nowrap font-semibold">
         {date
           ? (
             <>
@@ -107,7 +107,7 @@ function CallToActionButtons({
     <div className="absolute bottom-1 group-odd:right-1 group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
       <Link
         href={`/conference/${slug}`}
-        className="group-odd:order-1 bg-black text-white rounded-sm hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-2 sm:px-3"
+        className="group-odd:order-1 bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
       >
         View Events
       </Link>
@@ -116,7 +116,7 @@ function CallToActionButtons({
           href={registration}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gradient-to-r rounded-sm gradient hover:-translate-y-1 py-2 transition_config active:translate-y-1 duration-100 px-1 sm:px-3"
+          className="bg-gradient-to-r gradient rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
         >
           Registration
         </Link>

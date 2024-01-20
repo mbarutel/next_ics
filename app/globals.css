@@ -47,16 +47,21 @@ body {
   @apply container mx-auto px-1;
 }
 
-.section_top_margin {
+
+.section_top_margin { /* To make redundant */
   @apply xl:mt-10 lg:mt-8 md:mt-6 sm:mt-4 mt-3;
+}
+
+.section_margin {
+  @apply xl:mt-10 lg:mt-8 md:mt-6 sm:mt-4 mt-3;
+}
+
+.header_height {
+  @apply xl:h-[45rem] md:h-[30rem] h-[25rem];
 }
 
 .header_wrapper {
   @apply relative header_height rounded-md;
-}
-
-.header_height {
-  @apply xl:h-[45rem] h-[30rem];
 }
 
 .header_sizes {
@@ -75,8 +80,12 @@ body {
   @apply xl:text-lg lg:text-base md:text-sm text-left text-xs font-medium xl:mt-3 lg:mt-2 text-white/90;
 }
 
-.button_padding {
-  @apply px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4;
+/* .button_padding { */
+/*   @apply px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4; */
+/* } */
+
+.button_config {
+  @apply rounded-lg w-fit px-5 py-3 md:px-7 md:py-4 transition_config hover:shadow-md hover:scale-105 active:scale-[98%] focus:outline-none;
 }
 
 .countdown_padding {
@@ -93,10 +102,6 @@ body {
 
 .flex_center {
   @apply flex justify-center items-center;
-}
-
-.rounded {
-  @apply rounded-lg;
 }
 
 .transition_config {
@@ -128,7 +133,7 @@ body {
 /* Header Grid */
 
 .header_grid {
-  @apply rounded-lg p-4 cursor-default;
+  @apply rounded-md p-4 cursor-default;
 }
 
 .header_grid_with_text {
@@ -146,11 +151,11 @@ body {
 /* Upcoming Conferences */
 
 .conference_card_info_wrap {
-  @apply absolute w-full overflow-hidden bg-zinc-800 h-full flex_col justify-between;
+  @apply h-full w-full bg-zinc-800 flex_col justify-between;
 }
 
 .conference_card_orientation {
-  @apply group-odd:-right-0.5 group-odd:text-right group-even:-left-0.5 group-odd:clip-path-polygon-[100%_0,_30%_0,_40%_100%,_100%_100%] group-even:clip-path-polygon-[0_0,_70%_0,_60%_100%,_0_100%] group-even:items-start group-odd:items-end;
+  @apply group-odd:text-right group-even:items-start group-odd:items-end;
 }
 
 /* Footer */

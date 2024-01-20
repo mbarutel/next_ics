@@ -18,20 +18,20 @@ export default function LandingHeader() {
 
 function TitleAndSubTitle() {
   return (
-    <div className="absolute flex_col left-5 top-1/2 xl:top-1/3 -translate-y-1/2 z-40">
-      <h1 className="flex_col uppercase font-extrabold text-5xl sm:text-6xl w-fit">
-        <span>Indigenous</span>
-        <span>Conference</span>
-        <span>Services</span>
-        <span className="h-2 w-full bg-white rounded-full my-3" />
+    <div className="absolute flex_col w-[95%] left-2 md:w-fit md:left-5 top-1/2 xl:top-1/3 -translate-y-1/2 z-40">
+      <h1 className="uppercase font-extrabold text-5xl sm:text-6xl">
+        Indigenous<br />
+        Conference<br />
+        Services
       </h1>
-      <p className="text-base lg:text-base sm:max-w-[25rem] leading-none">
+      <div className="h-2 w-full bg-white rounded-full my-3" />
+      <p className="md:w-[25rem] leading-tight">
         ICS wishes to invite you and your team for the interest in humanities
         and improving outcomes for First Nations people to our next event
       </p>
       <Link
         href="/#conferences"
-        className="rounded-sm w-fit bg-gradient-to-r gradient px-7 py-4 mt-4 text-black/90 uppercase hover:scale-105 active:scale-95 transition_config"
+        className="button_config bg-gradient-to-r gradient font-medium mt-4 tracking-tight text-black/80 uppercase"
       >
         To Our Conferences
       </Link>
