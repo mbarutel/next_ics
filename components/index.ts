@@ -22,6 +22,7 @@ import SpeakersDisplay from "./speaker-display";
 import EventInformation from "./event-information";
 import RegistrationForm from "./registration-form";
 import RegistrationHeader from "./registration-header";
+import InstagramBanner from "./instagram-banner";
 
 export {
   About,
@@ -40,6 +41,7 @@ export {
   ExitDraftModeLink,
   Footer,
   GoogleAnalytics,
+  InstagramBanner,
   LandingHeader,
   Masterclass,
   NavBar,

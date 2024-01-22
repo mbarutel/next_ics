@@ -1,5 +1,6 @@
 import {
   CallToAction,
+  InstagramBanner,
   LandingHeader,
   SubscribeEmailList,
   UpcomingConferences,
@@ -32,6 +33,7 @@ export default async function Home() {
       <NavBar conferences={conferences} />
       <LandingHeader />
       <Announcement />
+      <InstagramBanner />
       <UpcomingConferences
         conferences={conferences}
       />
