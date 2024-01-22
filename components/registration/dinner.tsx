@@ -162,7 +162,7 @@ function DinnerParticipantField(
         type="text"
         name={`dinnerParticipants.${index}.name`}
         placeholder="Full Name"
-        className="field_input sm:col-start-1 sm:col-end-2"
+        className="field_input sm:col-start-1 sm:col-end-2 text-black"
       />
       <span className="validation_text sm:col-start-2 sm:col-end-3 sm:row-start-1">
         <ErrorMessage

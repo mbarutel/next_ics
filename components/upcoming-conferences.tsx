@@ -40,7 +40,7 @@ function ConferenceCard(conference: ConferenceType) {
       <div className="conference_card_info_wrap conference_card_orientation">
         <Link
           href={`/conference/${conference.slug}`}
-          className="group-odd:pr-4 group-odd:ml-auto group-odd:text-right group-even:pl-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 max-w-[28rem] pt-2 z-20 active:scale-95 transition_config"
+          className="group-odd:pr-4 group-odd:ml-auto group-odd:text-right group-even:pl-4 text-transparent bg-clip-text bg-gradient-to-r gradient max-w-[28rem] pt-2 z-20 active:scale-95 transition_config"
         >
           <h3 className="text-2xl mdnprogress:text-3xl font-semibold group-even:ml-auto uppercase !tracking-tight !leading-none transition text-white mb-1">
             {conference.title}

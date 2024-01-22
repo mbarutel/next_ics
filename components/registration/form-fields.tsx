@@ -83,8 +83,6 @@ export default function FormFields(
 
           <PaymentType
             choice={values.paymentMethod}
-            errors={errors}
-            touched={touched}
             setFieldValue={setFieldValue}
           />
 
@@ -118,7 +116,7 @@ export default function FormFields(
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-gradient-to-b gradient rounded-md border px-4 py-2 mt-4 hover:scale-105 focus:scale-105 active:scale-95 transition ease-in-out font-semibold min-w-[8rem] flex justify-center text-black"
+              className="bg-gradient-to-b gradient rounded-md border px-4 py-2 mt-4 hover:scale-105 focus:scale-105 active:scale-95 transition ease-in-out  min-w-[8rem] flex justify-center text-black"
             >
               {isSubmitting
                 ? (

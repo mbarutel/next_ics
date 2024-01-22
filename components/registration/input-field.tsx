@@ -19,7 +19,7 @@ export function InputField(
       <Field
         name={name}
         type={type}
-        className="field_input"
+        className="field_input text-black"
       />
     </div>
   );

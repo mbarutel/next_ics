@@ -11,7 +11,7 @@ export default function DiscountQuestion() {
       <p className="-mt-2 mb-2">
         You can get our discount codes by our newsletter!
       </p>
-      <Field type="text" name="discount" className="field_input w-full" />
+      <Field type="text" name="discount" className="field_input w-full text-black" />
     </div>
   );
 }

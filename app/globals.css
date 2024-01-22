@@ -108,7 +108,7 @@ body {
 }
 
 .gradient_secondary {
-  @apply from-yellow-700 via-yellow-600 to-yellow-500;
+  @apply from-[#f8bf33] via-[#f8ce19] to-[#ffdc02];
 }
 
 /* Navigation Bar */

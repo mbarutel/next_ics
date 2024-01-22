@@ -64,7 +64,7 @@ function ParticipantField(
         name={name}
         type="text"
         placeholder="Full Name"
-        className="field_input sm:col-start-1 sm:col-end-2"
+        className="field_input sm:col-start-1 sm:col-end-2 text-black"
       />
       <span className="validation_text sm:col-start-2 sm:col-end-3 sm:row-start-1">
         <ErrorMessage
@@ -76,7 +76,7 @@ function ParticipantField(
         type="text"
         name={position}
         placeholder="Position"
-        className="field_input sm:col-start-2 sm:col-end-3"
+        className="field_input sm:col-start-2 sm:col-end-3 text-black"
       />
       <button
         type="button"

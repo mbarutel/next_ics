@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import { draftMode } from "next/headers";
 import { RegistrationForm, RegistrationHeader } from "@/components";
 import { notFound } from "next/navigation";
@@ -39,25 +38,9 @@ export default async function page({ params }: ConferenceInfoProps) {
 
   return (
     <>
-      <RegistrationHeader />
+      <RegistrationHeader {...conference} />
       <section>
         <div className="section_container">
-          <div className="py-6">
-            <h1 className="text-2xl sm:text-4xl font-bold mb-2">
-              {conference.title}
-            </h1>
-            {conference.date &&
-              (
-                <div className="flex gap-2 text-xl font-semibold">
-                  <span>
-                    {dayjs(conference.date.startDate).format("DD")} -{" "}
-                    {dayjs(conference.date.endDate).format("DD MMM, YYYY")}
-                  </span>
-                  {" | "}
-                  <span>{conference.venue}</span>
-                </div>
-              )}
-          </div>
           {content}
         </div>
       </section>

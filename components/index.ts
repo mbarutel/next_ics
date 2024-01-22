@@ -23,6 +23,7 @@ import EventInformation from "./event-information";
 import RegistrationForm from "./registration-form";
 import RegistrationHeader from "./registration-header";
 import InstagramBanner from "./instagram-banner";
+import ConferenceTimer from "./conference-timer";
 
 export {
   About,
@@ -34,6 +35,7 @@ export {
   CallToAction,
   ConferenceEvents,
   ConferenceHeader,
+  ConferenceTimer,
   ContactForm,
   EventHeader,
   EventInformation,
