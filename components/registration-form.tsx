@@ -12,12 +12,17 @@ export default function RegistrationForm(conference: ConferenceType) {
   const [review, setReview] = useState<boolean>(false);
 
   const handleOnSubmit = async (
-    { values }: { values: FormValuesType },
+    { values, conference }: {
+      values: FormValuesType;
+      conference: ConferenceType;
+    },
   ) => {
-    console.log("lol")
-    const registrationObject = RegistrationObjectApiParser({values: values, conference: conference});
+    const registrationObject = RegistrationObjectApiParser({
+      values: values,
+      conference: conference.title,
+    });
 
-    console.log(registrationObject)
+    console.log(registrationObject);
     try {
       const rawResponse = await fetch("/api/registration", {
         method: "POST",
@@ -105,7 +110,7 @@ export default function RegistrationForm(conference: ConferenceType) {
 
           // Need to convert Values type to registrations type
           setSubmitting(true);
-          await handleOnSubmit({ values });
+          await handleOnSubmit({ values, conference });
           // redirect("/");
           console.log(values);
           setSubmitting(false);

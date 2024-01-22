@@ -32,7 +32,7 @@ export default function ExtraParticipants(
               onClick={() => {
                 push({ name: "", position: "" });
               }}
-              className="w-full bg-gradient-to-r gradient field_input"
+              className="w-full bg-gradient-to-r gradient field_input text-black"
             >
               Add Delegate
             </button>

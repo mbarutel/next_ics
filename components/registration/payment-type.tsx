@@ -1,5 +1,4 @@
-import { FormValuesType } from "@/lib/types";
-import { Field, FormikErrors, FormikTouched } from "formik";
+import { Field } from "formik";
 import QuestionTitle from "./question-title";
 
 export default function PaymentType(
@@ -15,7 +14,7 @@ export default function PaymentType(
         <button
           type="button"
           onClick={() => (setFieldValue("paymentMethod", "credit"))}
-          className="flex items-center justify-start gap-1 bg-stone-700 border-[1px] border-white rounded-md px-3 py-2"
+          className="flex items-center justify-start gap-2 bg-stone-700 border-[1px] border-white field_input text-white"
         >
           <Field
             type="radio"
@@ -30,7 +29,7 @@ export default function PaymentType(
         <button
           type="button"
           onClick={() => (setFieldValue("paymentMethod", "bank"))}
-          className="flex items-center justify-start gap-1 bg-stone-700 border-[1px] border-white rounded-md px-3 py-2"
+          className="flex items-center justify-start gap-2 bg-stone-700 border-[1px] border-white field_input text-white"
         >
           <Field
             type="radio"

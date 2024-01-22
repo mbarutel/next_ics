@@ -48,12 +48,9 @@ function ActionCard(
           href={form}
           target="_blank"
           rel="noreferrer"
-          className="group relative inline-flex group mt-3 lg:mt-5 button_padding bg-black transition-all active:scale-95 w-fit rounded-sm overflow-hidden"
+          className="relative mt-3 lg:mt-5 button_config bg-black"
         >
-          <span className="z-10">
-            {button}
-          </span>
-          <span className="absolute h-full w-0 left-0 bottom-0 group-hover:w-full transition-all ease-in-out z-0 bg-zinc-600" />
+          {button}
         </Link>
       </div>
     </div>

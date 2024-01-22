@@ -61,7 +61,7 @@ export default function Dinner({
           className={clsx(
             "border field_input bg-stone-700 transition_config rounded-md",
             {
-              "!bg-gradient-to-r gradient": selected === true,
+              "!bg-gradient-to-r gradient !text-black": selected === true,
             },
           )}
         >
@@ -73,7 +73,7 @@ export default function Dinner({
           className={clsx(
             "border field_input bg-stone-700 transition_config rounded-md",
             {
-              "!bg-gradient-to-r gradient": selected === false,
+              "!bg-gradient-to-r gradient !text-black": selected === false,
             },
           )}
         >

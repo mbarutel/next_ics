@@ -47,8 +47,8 @@ body {
   @apply container mx-auto px-1;
 }
 
-
-.section_top_margin { /* To make redundant */
+.section_top_margin {
+  /* To make redundant */
   @apply xl:mt-10 lg:mt-8 md:mt-6 sm:mt-4 mt-3;
 }
 
@@ -186,7 +186,7 @@ body {
 
 /* Registration Form */
 .field_input {
-  @apply p-2 text-lg rounded-md text-black border focus:outline-none focus:border-blue-500;
+  @apply p-2 text-lg rounded-md border focus:outline-none focus:border-blue-500;
 }
 
 .question_wrapper {

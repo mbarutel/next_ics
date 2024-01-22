@@ -1,6 +1,5 @@
 "use client";
 
-import clsx from "clsx";
 import React from "react";
 import EmptyWarning from "./empty-warning";
 import { FormValuesType } from "@/lib/types";
@@ -29,7 +28,7 @@ export default function Agreement(
           "agreement",
           choice === true ? false : true,
         ))}
-        className="flex gap-1 items-center"
+        className="flex gap-1 items-center text-xl"
       >
         <Field
           type="checkbox"

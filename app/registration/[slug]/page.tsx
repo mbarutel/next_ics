@@ -1,11 +1,10 @@
 import dayjs from "dayjs";
 import { draftMode } from "next/headers";
-import { RegistrationForm } from "@/components";
+import { RegistrationForm, RegistrationHeader } from "@/components";
 import { notFound } from "next/navigation";
 import { parserConferenceEntry } from "@/contentful/utils";
 import { Conference } from "@/contentful/services/conferences";
 import { ConferenceType } from "@/lib/types";
-import Image from "next/image";
 
 type ConferenceInfoParams = {
   slug: string;
@@ -40,8 +39,25 @@ export default async function page({ params }: ConferenceInfoProps) {
 
   return (
     <>
+      <RegistrationHeader />
       <section>
         <div className="section_container">
+          <div className="py-6">
+            <h1 className="text-2xl sm:text-4xl font-bold mb-2">
+              {conference.title}
+            </h1>
+            {conference.date &&
+              (
+                <div className="flex gap-2 text-xl font-semibold">
+                  <span>
+                    {dayjs(conference.date.startDate).format("DD")} -{" "}
+                    {dayjs(conference.date.endDate).format("DD MMM, YYYY")}
+                  </span>
+                  {" | "}
+                  <span>{conference.venue}</span>
+                </div>
+              )}
+          </div>
           {content}
         </div>
       </section>
@@ -60,21 +76,6 @@ function FormNotReady() {
 function FormReady({ conference }: { conference: ConferenceType }) {
   return (
     <>
-      <div className="py-6">
-        <h1 className="text-2xl sm:text-5xl font-bold mb-2">
-          Registration {conference.title}
-        </h1>
-        {conference.date &&
-          (
-            <div className="flex_col gap-2 text-xl">
-              <span>
-                {dayjs(conference.date.startDate).format("DD")} -{" "}
-                {dayjs(conference.date.endDate).format("DD MMM, YYYY")}
-              </span>
-              <span className="-mt-2">{conference.venue}</span>
-            </div>
-          )}
-      </div>
       <RegistrationForm {...conference} />
     </>
   );

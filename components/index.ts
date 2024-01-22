@@ -21,6 +21,7 @@ import Announcement from "./announcement";
 import SpeakersDisplay from "./speaker-display";
 import EventInformation from "./event-information";
 import RegistrationForm from "./registration-form";
+import RegistrationHeader from "./registration-header";
 
 export {
   About,
@@ -43,6 +44,7 @@ export {
   Masterclass,
   NavBar,
   RegistrationForm,
+  RegistrationHeader,
   SpeakersDisplay,
   SubscribeEmailList,
   UpcomingConferences,
