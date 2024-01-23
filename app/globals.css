@@ -114,7 +114,7 @@ body {
 /* Navigation Bar */
 
 .nav_links {
-  @apply relative text-3xl uppercase outline-none h-16 flex_center px-3 transition hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-300 hover:to-yellow-200;
+  @apply relative text-2xl uppercase outline-none h-12 flex_center px-3 transition hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-300 hover:to-yellow-200;
 }
 
 .nav_dropdown {

@@ -13,7 +13,7 @@ export default function UpcomingConferences(
       <div className="section_container">
         <SectionHeaderText text={"Upcoming Conferences"} />
         <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-y-2 gap-x-4">
-          <div className="hidden xl:block absolute h-full top-0 left-1/2 -translate-x-1/2 w-1 bg-gradient-to-t gradient rounded-full opacity-90" />
+          <div className="hidden xl:block absolute h-full top-0 left-1/2 -translate-x-1/2 w-1 bg-gray-400 rounded-full opacity-90" />
           {conferences.map((conference) => (
             <Fragment
               key={conference.slug}

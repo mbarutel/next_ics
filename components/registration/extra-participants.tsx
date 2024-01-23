@@ -23,6 +23,7 @@ export default function ExtraParticipants(
                     index={index}
                     remove={remove}
                     name={`extraParticipants.${index}.name`}
+                    email={`extraParticipants.${index}.email`}
                     position={`extraParticipants.${index}.position`}
                   />
                 </Fragment>
@@ -45,39 +46,62 @@ export default function ExtraParticipants(
 
 type ParticipantFieldProps = {
   name: string;
+  email: string;
   position: string;
   remove: Function;
   index: number;
 };
 function ParticipantField(
-  { name, position, remove, index }: ParticipantFieldProps,
+  { name, email, position, remove, index }: ParticipantFieldProps,
 ) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-1 mb-1">
-      <div className="validation_text sm:col-start-1 sm:col-end-2">
-        <ErrorMessage
-          name={name}
-          component="div"
-        />
+    <div className="flex flex-col sm:flex-row gap-1 sm:items-end mb-1">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-1">
+        <div className="flex_col justify-end">
+          <div className="validation_text">
+            <ErrorMessage
+              name={name}
+              component="div"
+            />
+          </div>
+          <Field
+            name={name}
+            type="text"
+            placeholder="Full Name"
+            className="field_input text-black"
+          />
+        </div>
+
+        <div className="flex_col justify-end">
+          <div className="validation_text">
+            <ErrorMessage
+              name={position}
+              component="div"
+            />
+          </div>
+          <Field
+            type="text"
+            name={position}
+            placeholder="Position"
+            className="field_input text-black"
+          />
+        </div>
+
+        <div className="flex_col justify-end">
+          <div className="validation_text">
+            <ErrorMessage
+              name={email}
+              component="div"
+            />
+          </div>
+          <Field
+            type="text"
+            name={email}
+            placeholder="Email"
+            className="field_input text-black"
+          />
+        </div>
       </div>
-      <Field
-        name={name}
-        type="text"
-        placeholder="Full Name"
-        className="field_input sm:col-start-1 sm:col-end-2 text-black"
-      />
-      <span className="validation_text sm:col-start-2 sm:col-end-3 sm:row-start-1">
-        <ErrorMessage
-          name={position}
-          component="div"
-        />
-      </span>
-      <Field
-        type="text"
-        name={position}
-        placeholder="Position"
-        className="field_input sm:col-start-2 sm:col-end-3 text-black"
-      />
       <button
         type="button"
         onClick={() => remove(index)}

@@ -14,7 +14,7 @@ export default function HeaderFormLinks(
         href={registration}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative inline-flex group button_padding bg-zinc-900 text-base font-medium transition-all active:scale-95 rounded-sm overflow-hidden text-white hover:text-black"
+        className="relative inline-flex group button_config bg-zinc-900 text-base font-medium transition-all active:scale-95 rounded-sm overflow-hidden text-white hover:text-black"
       >
         <span className="z-10">
           Register
@@ -27,7 +27,7 @@ export default function HeaderFormLinks(
             href={configs.forms.submitPaper}
             target="_blank"
             rel="noreferrer"
-            className="relative inline-flex group button_padding bg-gradient-to-r gradient text-sm sm:text-base transition_config active:scale-95 rounded-sm overflow-hidden text-black hover:text-white"
+            className="relative inline-flex group button_config bg-gradient-to-r gradient text-sm sm:text-base transition_config active:scale-95 rounded-sm overflow-hidden text-black hover:text-white"
           >
             <span className="z-10">
               Submit a paper

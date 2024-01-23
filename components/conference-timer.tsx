@@ -10,9 +10,9 @@ export default function ConferenceTimer(conference: ConferenceType) {
 
   return (
     <section>
-      <div className="section_container text-gray-800">
+      <div className="section_container">
         <div className="flex flex-col lg:flex-row items-center bg-gradient-to-r gradient py-4 lg:py-14 lg:pl-12 lg:pr-14 xl:pr-16 2xl:pr-36 rounded-md justify-between">
-          <div className="uppercase text-center lg:text-left">
+          <div className="uppercase text-center lg:text-left bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
             <h2>Next Conference</h2>
             <h2 className="text-2xl lg:text-3xl font-bold leading-none">
               {conference.title}
@@ -35,7 +35,6 @@ function Timer({ date }: { date: Date }) {
   const [seconds, setSeconds] = useState(0);
   const [conferenceTime, setConferenceTime] = useState(false);
 
-  console.log(date);
   useEffect(() => {
     const target = new Date(date);
     const interval = setInterval(() => {
@@ -65,27 +64,27 @@ function Timer({ date }: { date: Date }) {
   }, [date]);
 
   return (
-    <div className="flex gap-4 lg:gap-8 text-center mt-4 lg:mt-0">
+    <div className="flex gap-4 lg:gap-8 text-center mt-4 lg:mt-0 bg-gradient-to-l from-gray-900 to-gray-600 bg-clip-text text-transparent">
       <div>
-        <h2 className="text-2xl lg:text-4xl font-bold">
+        <h2 className="text-2xl lg:text-4xl xl:text-5xl font-bold">
           {days}
         </h2>
         <h3 className="-mt-2">Days</h3>
       </div>
       <div>
-        <h2 className="text-2xl lg:text-4xl font-bold">
+        <h2 className="text-2xl lg:text-4xl xl:text-5xl font-bold">
           {hours}
         </h2>
         <h3 className="-mt-2">Hours</h3>
       </div>
       <div>
-        <h2 className="text-2xl lg:text-4xl font-bold">
+        <h2 className="text-2xl lg:text-4xl xl:text-5xl font-bold">
           {minutes}
         </h2>
         <h3 className="-mt-2">Minutes</h3>
       </div>
       <div>
-        <h2 className="text-2xl lg:text-4xl font-bold">
+        <h2 className="text-2xl lg:text-4xl xl:text-5xl font-bold">
           {seconds}
         </h2>
         <h3 className="-mt-2">Seconds</h3>

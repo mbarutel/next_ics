@@ -5,11 +5,7 @@ import {
   TypeSpeakerSkeleton,
 } from "@/contentful/types/contentful/types";
 import { Entry } from "contentful";
-// import { eventLinks } from "./data";
-import { Omit } from "@react-spring/web";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
-
-// export type SectionName = typeof eventLinks[number]["name"];
 
 export type ConferencesEntry = Entry<
   TypeConferencesSkeleton,
@@ -28,7 +24,7 @@ export type PriceType = {
   dinner: number;
   masterclass: number;
   walkIn: number;
-  student: number;
+  // student: number;
   base: {
     price: number;
     dueDate: Date;
@@ -135,9 +131,9 @@ export type RegistrationType = {
   masterclass: string;
   accomodation: number;
   paymentMethod: string;
-  extraParticipants: ParticipantType;
+  extraParticipants: string;
   mainParticipant: MainParticipantType;
-  dinnerParticipants: DinnerParticipantType;
+  dinnerParticipants: string;
 };
 
 export type FormValuesType = {

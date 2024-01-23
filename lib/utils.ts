@@ -1,4 +1,9 @@
-import { FormValuesType, ParticipantType, RegistrationType } from "./types";
+import {
+  DinnerParticipantType,
+  FormValuesType,
+  ParticipantType,
+  RegistrationType,
+} from "./types";
 
 export const validateString = (value: unknown, maxLength: number) => {
   if (!value || typeof value !== "string" || value.length > maxLength) {
@@ -28,12 +33,11 @@ export const RegistrationObjectApiParser = (
 ): RegistrationType => {
   console.log(values);
   const events = values.events.join("\n");
-  const extraParticipants = values.extraParticipants.map((item) =>
-    item.name.concat(` | ${item.position}`)
-  ).join("\n");
-  const dinnerParticipants = values.dinnerParticipants.map((item) =>
-    item.name.concat(` | ${item.diet}`)
-  ).join("\n");
+  const extraParticipants = parseExtraParticipants(values.extraParticipants)
+    .map((item) => item.name.concat(` | ${item.email} | ${item.position}`))
+    .join("\n");
+  const dinnerParticipants = parseDinnerParticipants(values.dinnerParticipants)
+    .map((item) => item.name.concat(` | ${item.diet}`)).join("\n");
 
   return {
     conference: conference,
@@ -57,4 +61,39 @@ export const RegistrationObjectApiParser = (
     extraParticipants: extraParticipants,
     agreement: values.agreement,
   };
+};
+
+const parseExtraParticipants = (
+  extraParticipants: never[],
+): ParticipantType[] => {
+  if (!extraParticipants || Array.isArray(extraParticipants) === false) {
+    return [];
+  }
+  for (let i = 0; i < extraParticipants.length; i++) {
+    if (
+      typeof extraParticipants[i] !== "object" ||
+      !("name" in extraParticipants[i]) || !("email" in extraParticipants[i]) ||
+      !("position" in extraParticipants[i])
+    ) {
+      return [];
+    }
+  }
+  return extraParticipants as ParticipantType[];
+};
+
+const parseDinnerParticipants = (
+  dinnerParticipants: never[],
+): DinnerParticipantType[] => {
+  if (!dinnerParticipants || Array.isArray(dinnerParticipants) === false) {
+    return [];
+  }
+  for (let i = 0; i < dinnerParticipants.length; i++) {
+    if (
+      typeof dinnerParticipants[i] !== "object" ||
+      !("name" in dinnerParticipants[i]) || !("diet" in dinnerParticipants[i])
+    ) {
+      return [];
+    }
+  }
+  return dinnerParticipants as DinnerParticipantType[];
 };

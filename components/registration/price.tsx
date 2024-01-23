@@ -32,29 +32,6 @@ export default function Price(
         <QuestionTitle>Registration Fee</QuestionTitle>
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-1 xl:gap-2">
-        <button
-          type="button"
-          onClick={() => (setFieldValue("price", {
-            priceChoice: prices.student,
-            dueDate: new Date(defaultDueDate),
-          }))}
-          className="flex items-center justify-start gap-1 bg-stone-700 border-[1px] border-white rounded-md px-3 py-2"
-        >
-          <Field
-            type="radio"
-            name="price"
-            checked={priceChoice === prices.student}
-            onChange={() => {
-              setFieldValue("price", {
-                priceChoice: prices.student,
-                dueDate: new Date(defaultDueDate),
-              });
-            }}
-          />
-          <span className="font-semibold">Student Price</span>: AU${prices
-            .student}
-        </button>
-
         {prices.base.map((item, index) => {
           const now = new Date();
           const dueDate = new Date(item.dueDate);

@@ -4,9 +4,9 @@ import React from "react";
 export default function InstagramBanner() {
   return (
     <section>
-      <div className="section_container flex_col justify-center items-center xl:h-36">
-        <div className="w-40 h-3 bg-white rounded-sm" />
-        <div className="text-3xl xl:py-6">
+      <div className="section_container flex_col justify-center items-center py-4 lg:py-6">
+        <div className="w-32 h-3 bg-gradient-to-r gradient rounded-sm" />
+        <div className="text-xl md:text-3xl py-2 lg:py-4 text-center">
           Follow{" "}
           <Link
             href="https://www.instagram.com/ics_conferences/"
@@ -18,7 +18,7 @@ export default function InstagramBanner() {
           </Link>{" "}
           on Instagram
         </div>
-        <div className="w-40 h-3 bg-white rounded-sm" />
+        <div className="w-32 h-3 bg-yellow-400 rounded-sm" />
       </div>
     </section>
   );

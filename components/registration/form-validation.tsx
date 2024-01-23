@@ -26,6 +26,7 @@ const FormValidation = Yup.object().shape({
     Yup.object().shape({
       name: Yup.string().required("*Required"),
       position: Yup.string().required("*Required"),
+      email: Yup.string().required("*Required"),
     }),
   ),
   dinnerParticipants: Yup.array().of(
@@ -35,7 +36,6 @@ const FormValidation = Yup.object().shape({
     }),
   ),
   price: Yup.object().shape({
-    // priceChoice: Yup.number().required("*"),
     priceChoice: Yup.number(),
     dueDate: Yup.date().required("*"),
   }),

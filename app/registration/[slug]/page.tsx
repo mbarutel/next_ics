@@ -1,9 +1,9 @@
 import { draftMode } from "next/headers";
-import { RegistrationForm, RegistrationHeader } from "@/components";
 import { notFound } from "next/navigation";
+import { ConferenceType } from "@/lib/types";
 import { parserConferenceEntry } from "@/contentful/utils";
 import { Conference } from "@/contentful/services/conferences";
-import { ConferenceType } from "@/lib/types";
+import { RegistrationForm, RegistrationHeader } from "@/components";
 
 type ConferenceInfoParams = {
   slug: string;

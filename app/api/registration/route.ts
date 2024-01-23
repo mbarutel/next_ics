@@ -33,10 +33,8 @@ export async function POST(
       auth,
       version: "v4",
     });
-    console.log(body);
 
     const date = new Date();
-
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_REGISTRATION_SHEET_ID,
       range: "A2:B2",

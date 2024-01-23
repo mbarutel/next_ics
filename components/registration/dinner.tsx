@@ -111,7 +111,7 @@ export default function Dinner({
                     onClick={() => {
                       push({ name: "", diet: "normal" });
                     }}
-                    className="w-full !bg-gradient-to-l gradient field_input"
+                    className="w-full !bg-gradient-to-l gradient field_input text-black"
                   >
                     Add Dinner Participant
                   </button>

@@ -45,7 +45,7 @@ function parseConferencePrices(object: unknown): PriceType | undefined {
   const parsedPrice = object as PriceType;
 
   if (
-    !parsedPrice || !("student" in parsedPrice) ||
+    !parsedPrice ||
     !("walkIn" in parsedPrice) ||
     !("base" in parsedPrice) ||
     !("dinner" in parsedPrice) ||
@@ -57,7 +57,6 @@ function parseConferencePrices(object: unknown): PriceType | undefined {
 
   if (
     typeof parsedPrice.walkIn !== "number" ||
-    typeof parsedPrice.student !== "number" ||
     typeof parsedPrice.dinner !== "number" ||
     typeof parsedPrice.masterclass !== "number" ||
     !Array.isArray(parsedPrice.base)
