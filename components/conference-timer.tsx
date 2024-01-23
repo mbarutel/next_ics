@@ -6,7 +6,9 @@ import React, { useEffect, useState } from "react";
 export default function ConferenceTimer(
   { conferences }: { conferences: ConferenceType[] },
 ) {
-  const conference = conferences.find((c) => c.date.startDate > new Date());
+  const conference = conferences.find((conference) =>
+    conference.date && conference.date.startDate > new Date()
+  );
 
   if (!conference || !conference.date) {
     return null;
