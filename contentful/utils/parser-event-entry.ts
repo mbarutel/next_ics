@@ -1,4 +1,3 @@
-import { Entry, UnresolvedLink } from "contentful";
 import {
   AgendaType,
   ConferenceInEventType,
@@ -6,9 +5,10 @@ import {
   EventType,
 } from "@/lib/types";
 import parserAsset from "./parser-asset";
+import { Entry, UnresolvedLink } from "contentful";
+import parserConferenceDate from "./parser-conference-date";
 import { TypeConferencesSkeleton } from "../types/contentful/types";
 import parserMasterclassesInConference from "./parser-masterclasses-in-conference";
-import parserConferenceDate from "./parser-conference-date";
 
 export default function parserEventEntry(
   eventEntry: EventEntry,

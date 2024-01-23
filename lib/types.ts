@@ -62,7 +62,7 @@ export type EventType = {
 
 export type ConferenceInEventType = Omit<
   ConferenceType,
-  "slug" | "tite" | "events" | "coverImage" | "speakers"
+  "slug" | "tite" | "events" | "coverImage" | "speakers" | "formLink" | "prices"
 >;
 
 export type AssetType = {

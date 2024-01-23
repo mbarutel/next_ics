@@ -1,12 +1,12 @@
 import Link from "next/link";
-import React, { Fragment } from "react";
-import { configs, links } from "@/lib/data";
+import React from "react";
 import {
   AiOutlineMail,
   AiOutlinePhone,
   AiOutlinePushpin,
 } from "react-icons/ai";
 import Image from "next/image";
+import { configs } from "@/lib/data";
 
 export default function Footer() {
   return (

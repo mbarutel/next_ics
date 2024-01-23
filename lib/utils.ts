@@ -35,24 +35,26 @@ export const RegistrationObjectApiParser = (
     conference: ConferenceType;
   },
 ): RegistrationType => {
-  const reference = parseReference(values.events[0]);
+  const reference = parseReference(values.events);
   const events = values.events.join("\n");
   const extraParticipants = parseExtraParticipants(values.extraParticipants)
     .map((item) => item.name.concat(` | ${item.email} | ${item.position}`))
     .join("\n");
   const dinnerParticipants = parseDinnerParticipants(values.dinnerParticipants)
     .map((item) => item.name.concat(` | ${item.diet}`)).join("\n");
+
+  if (!conference.prices) {
+    throw new Error("Conference prices are not set");
+  }
+
   const dinnerPrice = values.dinnerParticipants.length *
     conference.prices?.dinner;
   const masterclassPrice = values.masterclass === "no"
     ? 0
     : conference.prices?.masterclass;
-  const total = (values.price.priceChoice * (values.extraParticipants.length + 1)) +
+  const total =
+    (values.price.priceChoice * (values.extraParticipants.length + 1)) +
     dinnerPrice + masterclassPrice;
-
-  console.log(values.masterclass)
-  console.log(conference.prices?.masterclass);
-  console.log(total);
 
   return {
     reference: reference,
@@ -117,13 +119,12 @@ const parseDinnerParticipants = (
   return dinnerParticipants as DinnerParticipantType[];
 };
 
-const parseReference = (event: string): string => {
+const parseReference = (events: string[]): string => {
   const date = new Date();
-  const eventCode = event.split(" ").map((word) => word[0]).join("");
+  const eventCode = events[0].split(" ").map((word) => word[0]).join("");
 
   const seconds = date.getSeconds();
   const minutes = date.getMinutes();
-  const hours = date.getHours();
   const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();

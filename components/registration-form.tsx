@@ -17,30 +17,36 @@ export default function RegistrationForm(conference: ConferenceType) {
       conference: ConferenceType;
     },
   ) => {
-    const registrationObject = RegistrationObjectApiParser({
-      values: values,
-      conference: conference,
-    });
-
-    console.log(registrationObject);
     try {
-      const rawResponse = await fetch("/api/registration", {
-        method: "POST",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...registrationObject,
-          conference: conference.title,
-        }),
+      const registrationObject = RegistrationObjectApiParser({
+        values: values,
+        conference: conference,
       });
 
-      const response = await rawResponse.json();
+      console.log(registrationObject);
+      try {
+        const rawResponse = await fetch("/api/registration", {
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...registrationObject,
+            conference: conference.title,
+          }),
+        });
 
-      if ("error" in response) {
-        toast.error(response.error);
-        return;
+        const response = await rawResponse.json();
+
+        if ("error" in response) {
+          toast.error(response.error);
+          return;
+        }
+      } catch (error) {
+        if (error instanceof Error) {
+          console.log(error.message);
+        }
       }
     } catch (error) {
       if (error instanceof Error) {
