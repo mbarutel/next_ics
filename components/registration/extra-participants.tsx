@@ -31,7 +31,7 @@ export default function ExtraParticipants(
             <button
               type="button"
               onClick={() => {
-                push({ name: "", position: "" });
+                push({ name: "", position: "", email: "" });
               }}
               className="w-full bg-gradient-to-r gradient field_input text-black"
             >

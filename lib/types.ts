@@ -135,6 +135,9 @@ export type RegistrationType = {
   extraParticipants: string;
   mainParticipant: MainParticipantType;
   dinnerParticipants: string;
+  dinnerPrice: number;
+  masterclassPrice: number;
+  total: number;
 };
 
 export type FormValuesType = {

@@ -19,7 +19,7 @@ export default function RegistrationForm(conference: ConferenceType) {
   ) => {
     const registrationObject = RegistrationObjectApiParser({
       values: values,
-      conference: conference.title,
+      conference: conference,
     });
 
     console.log(registrationObject);

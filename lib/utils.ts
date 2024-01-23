@@ -1,4 +1,5 @@
 import {
+  ConferenceType,
   DinnerParticipantType,
   FormValuesType,
   ParticipantType,
@@ -29,7 +30,10 @@ export const getErrorMessage = (error: unknown) => {
 };
 
 export const RegistrationObjectApiParser = (
-  { values, conference }: { values: FormValuesType; conference: string },
+  { values, conference }: {
+    values: FormValuesType;
+    conference: ConferenceType;
+  },
 ): RegistrationType => {
   const reference = parseReference(values.events[0]);
   const events = values.events.join("\n");
@@ -38,10 +42,21 @@ export const RegistrationObjectApiParser = (
     .join("\n");
   const dinnerParticipants = parseDinnerParticipants(values.dinnerParticipants)
     .map((item) => item.name.concat(` | ${item.diet}`)).join("\n");
+  const dinnerPrice = values.dinnerParticipants.length *
+    conference.prices?.dinner;
+  const masterclassPrice = values.masterclass === "no"
+    ? 0
+    : conference.prices?.masterclass;
+  const total = (values.price.priceChoice * (values.extraParticipants.length + 1)) +
+    dinnerPrice + masterclassPrice;
+
+  console.log(values.masterclass)
+  console.log(conference.prices?.masterclass);
+  console.log(total);
 
   return {
     reference: reference,
-    conference: conference,
+    conference: conference.title,
     events: events,
     address: values.address,
     company: values.company,
@@ -61,6 +76,9 @@ export const RegistrationObjectApiParser = (
     dinnerParticipants: dinnerParticipants,
     extraParticipants: extraParticipants,
     agreement: values.agreement,
+    dinnerPrice: dinnerPrice,
+    masterclassPrice: masterclassPrice,
+    total: total,
   };
 };
 
