@@ -37,11 +37,12 @@ export async function POST(
     const date = new Date();
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_REGISTRATION_SHEET_ID,
-      range: "A2:B2",
+      range: "A2",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
           [
+            body.reference,
             dayjs(date).format("DD MMMM, YYYY"),
             body.conference,
             body.mainParticipant.name,

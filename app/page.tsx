@@ -35,7 +35,7 @@ export default async function Home() {
       <LandingHeader />
       <Announcement />
       <InstagramBanner />
-      <ConferenceTimer {...conferences[0]} />
+      <ConferenceTimer conferences={conferences} />
       <UpcomingConferences
         conferences={conferences}
       />

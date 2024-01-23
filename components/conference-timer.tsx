@@ -3,8 +3,12 @@
 import { ConferenceType } from "@/lib/types";
 import React, { useEffect, useState } from "react";
 
-export default function ConferenceTimer(conference: ConferenceType) {
-  if (!conference.date) {
+export default function ConferenceTimer(
+  { conferences }: { conferences: ConferenceType[] },
+) {
+  const conference = conferences.find((c) => c.date.startDate > new Date());
+
+  if (!conference || !conference.date) {
     return null;
   }
 
@@ -33,7 +37,6 @@ function Timer({ date }: { date: Date }) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  const [conferenceTime, setConferenceTime] = useState(false);
 
   useEffect(() => {
     const target = new Date(date);
@@ -55,10 +58,6 @@ function Timer({ date }: { date: Date }) {
         (difference % (1000 * 60)) / 1000,
       );
       setSeconds(s);
-
-      if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
-        setConferenceTime(true);
-      }
     }, 1000);
     return () => clearInterval(interval);
   }, [date]);

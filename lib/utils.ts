@@ -31,7 +31,7 @@ export const getErrorMessage = (error: unknown) => {
 export const RegistrationObjectApiParser = (
   { values, conference }: { values: FormValuesType; conference: string },
 ): RegistrationType => {
-  console.log(values);
+  const reference = parseReference(values.events[0]);
   const events = values.events.join("\n");
   const extraParticipants = parseExtraParticipants(values.extraParticipants)
     .map((item) => item.name.concat(` | ${item.email} | ${item.position}`))
@@ -40,6 +40,7 @@ export const RegistrationObjectApiParser = (
     .map((item) => item.name.concat(` | ${item.diet}`)).join("\n");
 
   return {
+    reference: reference,
     conference: conference,
     events: events,
     address: values.address,
@@ -96,4 +97,18 @@ const parseDinnerParticipants = (
     }
   }
   return dinnerParticipants as DinnerParticipantType[];
+};
+
+const parseReference = (event: string): string => {
+  const date = new Date();
+  const eventCode = event.split(" ").map((word) => word[0]).join("");
+
+  const seconds = date.getSeconds();
+  const minutes = date.getMinutes();
+  const hours = date.getHours();
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  return `${eventCode}-${day}/${month}/${year}-${minutes}${seconds}`;
 };

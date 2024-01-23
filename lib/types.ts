@@ -123,9 +123,10 @@ export type RegistrationType = {
   company: string;
   address: string;
   discount: string;
-  conference: string;
   referral: string;
+  reference: string;
   priceValue: number;
+  conference: string;
   priceDueDate: Date | null;
   agreement: boolean;
   masterclass: string;
