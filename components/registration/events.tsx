@@ -44,7 +44,7 @@ export function Events(
       <div
         role="group"
         aria-labelledby="checkbox-group"
-        className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-1"
+        className="grid grid-cols-1 gap-1"
       >
         {events.map((event, index) => (
           <button
@@ -52,7 +52,7 @@ export function Events(
             type="button"
             onClick={() => onHandleClick(event)}
             className={clsx(
-              "flex items-center rounded-md overflow-hidden border bg-stone-700 transition_config hover:scale-[101%] active:scale-95",
+              "flex items-center rounded-md overflow-hidden border bg-stone-700 transition_config hover:scale-[101%] active:scale-[99%]",
               {
                 "!bg-gradient-to-r gradient text-black":
                   choices.includes(event.title) === true,
@@ -65,10 +65,10 @@ export function Events(
                 alt={event.title}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover group-hover:scale-110 transition-all ease-in-out"
+                className="object-cover"
               />
             </div>
-            <h2 className="text-left leading-none text-lg pl-3 my-6">
+            <h2 className="text-left font-semibold text-xl pl-3 my-6">
               {event.title}
             </h2>
           </button>

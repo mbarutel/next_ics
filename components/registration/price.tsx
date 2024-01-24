@@ -6,6 +6,7 @@ import EmptyWarning from "./empty-warning";
 import { FormValuesType, PriceType } from "@/lib/types";
 import { Field, FormikErrors, FormikTouched } from "formik";
 import QuestionTitle from "./question-title";
+import clsx from "clsx";
 
 export default function Price(
   { errors, prices, priceChoice, setFieldValue, defaultDueDate }: {
@@ -47,7 +48,13 @@ export default function Price(
                 priceChoice: item.price,
                 dueDate: dueDate,
               }))}
-              className="flex items-center justify-start gap-1 bg-stone-700 border-[1px] border-white rounded-md px-3 py-2"
+              className={clsx(
+                "flex items-center justify-start gap-1 bg-stone-700 border-[1px] border-white rounded-md px-3 py-2 transition_config hover:scale-[101%] active:scale-[99%]",
+                {
+                  "!bg-gradient-to-r gradient text-black":
+                    priceChoice === item.price,
+                },
+              )}
             >
               <Field
                 type="radio"
@@ -73,7 +80,13 @@ export default function Price(
             priceChoice: prices.walkIn,
             dueDate: new Date(defaultDueDate),
           }))}
-          className="flex items-center justify-start gap-1 bg-stone-700 border-[1px] border-white rounded-md px-3 py-2"
+          className={clsx(
+            "flex items-center justify-start gap-1 bg-stone-700 border-[1px] border-white rounded-md px-3 py-2 transition_config hover:scale-[101%] active:scale-[99%]",
+            {
+              "!bg-gradient-to-r gradient text-black":
+                priceChoice === prices.walkIn,
+            },
+          )}
         >
           <Field
             type="radio"

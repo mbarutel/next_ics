@@ -33,7 +33,7 @@ export default function ExtraParticipants(
               onClick={() => {
                 push({ name: "", position: "", email: "" });
               }}
-              className="w-full bg-gradient-to-r gradient field_input text-black"
+              className="w-full bg-gradient-to-r gradient field_input text-black transition_config hover:scale-[101%] active:scale-[99%]"
             >
               Add Delegate
             </button>
@@ -105,7 +105,7 @@ function ParticipantField(
       <button
         type="button"
         onClick={() => remove(index)}
-        className="field_input bg-red-600"
+        className="field_input bg-red-600 transition_config hover:scale-[101%] active:scale-[99%]"
       >
         Remove
       </button>

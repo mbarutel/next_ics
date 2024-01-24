@@ -59,7 +59,7 @@ export default function Dinner({
           type="button"
           onClick={() => setSelected(true)}
           className={clsx(
-            "border field_input bg-stone-700 transition_config rounded-md",
+            "border field_input bg-stone-700 transition_config rounded-md transition_config hover:scale-[101%] active:scale-[99%]",
             {
               "!bg-gradient-to-r gradient !text-black": selected === true,
             },
@@ -71,7 +71,7 @@ export default function Dinner({
           type="button"
           onClick={() => setSelected(false)}
           className={clsx(
-            "border field_input bg-stone-700 transition_config rounded-md",
+            "border field_input bg-stone-700 transition_config rounded-md transition_config hover:scale-[101%] active:scale-[99%]",
             {
               "!bg-gradient-to-r gradient !text-black": selected === false,
             },
@@ -111,7 +111,7 @@ export default function Dinner({
                     onClick={() => {
                       push({ name: "", diet: "normal" });
                     }}
-                    className="w-full !bg-gradient-to-l gradient field_input text-black"
+                    className="w-full !bg-gradient-to-l gradient field_input text-black transition_config hover:scale-[101%] active:scale-[99%]"
                   >
                     Add Dinner Participant
                   </button>

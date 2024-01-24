@@ -1,5 +1,6 @@
 import { Field } from "formik";
 import QuestionTitle from "./question-title";
+import clsx from "clsx";
 
 export default function PaymentType(
   { choice, setFieldValue }: {
@@ -14,7 +15,12 @@ export default function PaymentType(
         <button
           type="button"
           onClick={() => (setFieldValue("paymentMethod", "credit"))}
-          className="flex items-center justify-start gap-2 bg-stone-700 border-[1px] border-white field_input text-white text-left"
+          className={clsx(
+            "flex items-center justify-start gap-2 bg-stone-700 field_input text-left transition_config hover:scale-[101%] active:scale-[99%]",
+            {
+              "!bg-gradient-to-r gradient text-black": choice === "credit",
+            },
+          )}
         >
           <Field
             type="radio"
@@ -29,7 +35,12 @@ export default function PaymentType(
         <button
           type="button"
           onClick={() => (setFieldValue("paymentMethod", "bank"))}
-          className="flex items-center justify-start gap-2 bg-stone-700 border-[1px] border-white field_input text-white"
+          className={clsx(
+            "flex items-center justify-start gap-2 bg-stone-700 field_input text-left transition_config hover:scale-[101%] active:scale-[99%]",
+            {
+              "!bg-gradient-to-r gradient text-black": choice === "bank",
+            },
+          )}
         >
           <Field
             type="radio"
