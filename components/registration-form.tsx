@@ -1,7 +1,7 @@
 "use client";
 
 import toast from "react-hot-toast";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Formik, FormikHelpers } from "formik";
 import FormFields from "./registration/form-fields";
 import { RegistrationObjectApiParser } from "@/lib/utils";
@@ -24,64 +24,59 @@ export default function RegistrationForm(conference: ConferenceType) {
         conference: conference,
       });
 
+      // try {
+      //   const rawResponse = await fetch("/api/registration", {
+      //     method: "POST",
+      //     headers: {
+      //       "Accept": "application/json",
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       ...registrationObject,
+      //       conference: conference.title,
+      //     }),
+      //   });
+      //
+      //   const response = await rawResponse.json();
+      //
+      //   if ("error" in response) {
+      //     toast.error(response.error);
+      //   }
+      // } catch (error) {
+      //   if (error instanceof Error) {
+      //     console.log(error);
+      //   }
+      // }
+
       try {
-        const rawResponse = await fetch("/api/registration", {
+        const body = JSON.stringify(registrationObject);
+
+        const rawXeroResponse = await fetch("/api/xero", {
           method: "POST",
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...registrationObject,
-            conference: conference.title,
-          }),
+          body,
         });
 
-        const response = await rawResponse.json();
+        console.log(rawXeroResponse);
+        // const response = await rawXeroResponse.json();
 
-        if ("error" in response) {
-          toast.error(response.error);
-        } else {
-          toast.success("Thank you for registering! We will be in touch soon.");
-        }
+        // console.log(response);
+
+        // if ("error" in response) {
+        //   toast.error(response.error);
+        //   return;
+        // } else {
+        //   toast.success("Registration Successful");
+        // }
       } catch (error) {
         if (error instanceof Error) {
-          console.log(error);
+          console.log(error.message);
         }
       }
     } catch (error) {
       if (error instanceof Error) {
-        console.log(error.message);
+        toast.error(error.message);
       }
     }
-
-    // try {
-    //   const body = JSON.stringify({
-    //     ...values,
-    //     conference: conference.title,
-    //     prices: {
-    //       dinner: conference.fees?.dinner,
-    //       masterclass: conference.fees?.masterclass,
-    //     },
-    //   });
-    //   const rawXeroResponse = await fetch("/api/xero", {
-    //     method: "POST",
-    //     body,
-    //   });
-    //
-    //   const response = await rawXeroResponse.json();
-    //
-    //   if ("error" in response) {
-    //     toast.error(response.error);
-    //     return;
-    //   } else {
-    //     toast.success("Registration Successful");
-    //   }
-    // } catch (error) {
-    //   if (error instanceof Error) {
-    //     console.log(error.message);
-    //   }
-    // }
   };
 
   return (
@@ -119,7 +114,7 @@ export default function RegistrationForm(conference: ConferenceType) {
           setSubmitting(true);
           await handleOnSubmit({ values, conference });
           setSubmitting(false);
-          setComplete(true);
+          // setComplete(true);
         }}
       >
         {({ values, isSubmitting, errors, touched, setFieldValue }) => (
@@ -147,7 +142,10 @@ function FormComplete() {
         <h1 className="xl:text-5xl lg:text-4xl md:text-3xl text:2xl text-center font-semibold mb-7">
           Thank you for registering! We will be in touch soon.
         </h1>
-        <Link href="/" className="button_config bg-gray-800 text-white shadow-md shadow-black/70">
+        <Link
+          href="/"
+          className="button_config bg-gray-800 text-white shadow-md shadow-black/70"
+        >
           Back to Home
         </Link>
       </div>
