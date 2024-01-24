@@ -13,7 +13,7 @@ export default function MainParticipant(
   },
 ) {
   return (
-    <div>
+    <div className="question_wrapper">
       <QuestionTitle>Personal Details</QuestionTitle>
       <div className="flex_col sm:gap-1">
         <InputField

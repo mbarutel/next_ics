@@ -18,8 +18,6 @@ import dayjs from "dayjs";
 import PaymentType from "./payment-type";
 
 type FormikFormProps = {
-  review: boolean;
-  setReview: Function;
   isSubmitting: boolean;
   values: FormValuesType;
   setFieldValue: Function;
@@ -42,17 +40,17 @@ export default function FormFields(
     <Form>
       <div className="grid grid-cols-1 gap-2 xl:grid-cols-3 xl:gap-3">
         <div className="border-2 rounded-md px-5 xl:col-span-2 bg-stone-800">
+          <MainParticipant
+            errors={errors}
+            touched={touched}
+          />
+
           <Events
             errors={errors}
             touched={touched}
             choices={values.events}
             events={conference.events}
             setFieldValue={setFieldValue}
-          />
-
-          <MainParticipant
-            errors={errors}
-            touched={touched}
           />
 
           <ExtraParticipants extraParticipants={values.extraParticipants} />

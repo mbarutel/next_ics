@@ -18,7 +18,7 @@ export default function InstagramBanner() {
           </Link>{" "}
           on Instagram
         </div>
-        <div className="w-32 h-3 bg-yellow-400 rounded-sm" />
+        <div className="w-32 h-3 bg-gradient-to-r gradient rounded-sm" />
       </div>
     </section>
   );
