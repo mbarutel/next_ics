@@ -24,9 +24,11 @@ export async function POST(
 
     const contactId = await contactCheck(body);
 
-    console.log(contactId)
+    const lineItems = generateLineItems({ body });
 
-    const invoice = await xero.accountingApi.createInvoices(
+    console.log(lineItems);
+
+    await xero.accountingApi.createInvoices(
       "",
       {
         invoices: [
@@ -39,15 +41,13 @@ export async function POST(
             date: dayjs(new Date()).format("YYYY-MM-DD"),
             dueDate: dayjs(body.priceDueDate).format("YYYY-MM-DD"),
             lineAmountTypes: LineAmountTypes.Inclusive,
-            lineItems: generateLineItems({ body }),
+            lineItems: lineItems,
             totalTax: body.total * 0.1,
             status: Invoice.StatusEnum.DRAFT,
           },
         ],
       },
     );
-
-    console.log(invoice)
 
     return NextResponse.json(
       { message: "success with connection" },

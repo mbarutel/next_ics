@@ -6,7 +6,7 @@ export function generateLineItems({ body }: { body: RegistrationType }) {
   const extraParticipants = body.extraParticipants.split("\n");
   const dinnerParticipants = body.dinnerParticipants.split("\n");
 
-  let objects: LineItem[] = [{
+  const objects: LineItem[] = [{
     taxType: "OUTPUT",
     accountCode: "200",
     description: "Registration Fee",
@@ -15,8 +15,7 @@ export function generateLineItems({ body }: { body: RegistrationType }) {
   }];
 
   if (dinnerParticipants.length > 0) {
-    objects = [
-      ...objects,
+    objects.push(
       {
         taxType: "OUTPUT",
         accountCode: "200",
@@ -24,31 +23,41 @@ export function generateLineItems({ body }: { body: RegistrationType }) {
         quantity: dinnerParticipants.length,
         unitAmount: body.dinnerPrice,
       },
-    ];
+    );
+  }
+
+  if (dinnerParticipants.length > 0) {
+    objects.push(
+      {
+        taxType: "OUTPUT",
+        accountCode: "200",
+        description: "Conference Networking Dinner",
+        quantity: dinnerParticipants.length,
+        unitAmount: body.dinnerPrice,
+      },
+    );
   }
 
   if (body.masterclass !== "no") {
-    objects = [
-      ...objects,
+    objects.push(
       {
         taxType: "OUTPUT",
         accountCode: "200",
         description: "Post-Conference Masterclass",
         unitAmount: body.masterclassPrice,
       },
-    ];
+    );
   }
 
   if (body.discount !== "") {
-    objects = [
-      ...objects,
+    objects.push(
       {
         taxType: "OUTPUT",
         accountCode: "200",
         description: "Discount Code: " + body.discount,
         unitAmount: 0,
       },
-    ];
+    );
   }
 
   return objects;
