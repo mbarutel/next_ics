@@ -10,7 +10,7 @@ import { sendEmail } from "@/actions/send-email";
 
 export default function ContactForm() {
   return (
-    <section className="section_top_margin">
+    <section className="section_margin">
       <div className="section_container grid lg:grid-cols-2 gap-2">
         <div className="relative hidden lg:block rounded-sm overflow-hidden">
           <Image

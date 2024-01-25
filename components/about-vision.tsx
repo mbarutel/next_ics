@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function AboutVision() {
   return (
-    <section className="section_top_margin">
+    <section className="section_margin">
       <div className="section_container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="xl:py-20">

@@ -1,13 +1,12 @@
-import React from "react";
 import {
   About,
-  NavBar,
   AboutPurpose,
   AboutValues,
   AboutVision,
   Announcement,
   CallToAction,
   LandingHeader,
+  NavBar,
   SubscribeEmailList,
 } from "@/components";
 import { draftMode } from "next/headers";

@@ -15,7 +15,6 @@ import Price from "./price";
 import Referral from "./referral";
 import QuestionTitle from "./question-title";
 import dayjs from "dayjs";
-import PaymentType from "./payment-type";
 
 type FormikFormProps = {
   isSubmitting: boolean;
@@ -77,11 +76,6 @@ export default function FormFields(
             choice={values.masterclass}
             setFieldValue={setFieldValue}
             masterclasses={conference.masterclass}
-          />
-
-          <PaymentType
-            choice={values.paymentMethod}
-            setFieldValue={setFieldValue}
           />
 
           <Accomodation

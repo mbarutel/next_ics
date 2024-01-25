@@ -131,7 +131,6 @@ export type RegistrationType = {
   agreement: boolean;
   masterclass: string;
   accomodation: number;
-  paymentMethod: string;
   extraParticipants: string;
   mainParticipant: MainParticipantType;
   dinnerParticipants: string;
@@ -154,7 +153,6 @@ export type FormValuesType = {
     dueDate: Date | null;
   };
   dinnerParticipants: [];
-  paymentMethod: "credit" | "bank";
   masterclass: string;
   accomodation: number;
   discount: string;

@@ -30,7 +30,7 @@ export default function EventInformation(event: EventType) {
       break;
   }
   return (
-    <article className="section_top_margin">
+    <article className="section_margin">
       <div className="section_container">
         <Tabs
           tab={tab}
@@ -60,11 +60,11 @@ function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
       <button
         onClick={() => setTab("Information")}
         className={clsx(
-          "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3 rounded-md sm:rounded-b-none",
+          "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3 rounded-md sm:rounded-b-none transition_config",
           {
             "bg-gradient-to-r gradient text-stone-800 rounded-md sm:rounded-b-none":
               tab === "Information",
-              "sm:border-b-2 sm:border-stone-900" : tab !== "Information",
+              "sm:border-b-2 sm:border-stone-900 hover:-translate-y-1" : tab !== "Information",
           },
         )}
       >
@@ -74,11 +74,11 @@ function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
         <button
           onClick={() => setTab("Agenda")}
           className={clsx(
-            "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3 rounded-md sm:rounded-b-none",
+            "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3 rounded-md sm:rounded-b-none transition_config",
             {
               "bg-gradient-to-r gradient text-stone-800 rounded-md sm:rounded-b-none":
                 tab === "Agenda",
-              "sm:border-b-2 sm:border-stone-900" : tab !== "Agenda",
+              "sm:border-b-2 sm:border-stone-900 hover:-translate-y-1" : tab !== "Agenda",
             },
           )}
         >
@@ -89,11 +89,11 @@ function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
         <button
           onClick={() => setTab("Masterclass")}
           className={clsx(
-            "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3 rounded-md sm:rounded-b-none",
+            "event_tab_text px-3 bg-stone-800/80 font-extrabold py-3 rounded-md sm:rounded-b-none transition_config",
             {
               "bg-gradient-to-r gradient text-stone-800 rounded-md sm:rounded-b-none":
                 tab === "Masterclass",
-              "sm:border-b-2 sm:border-stone-900" : tab !== "Masterclass",
+              "sm:border-b-2 sm:border-stone-900 hover:-translate-y-1" : tab !== "Masterclass",
             },
           )}
         >

@@ -56,7 +56,6 @@ export async function POST(
             body.dinnerParticipants,
             body.masterclass,
             body.agreement === true ? "Agree" : "Disagree",
-            body.paymentMethod,
             body.discount,
             body.accomodation,
             body.priceValue,

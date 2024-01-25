@@ -146,7 +146,7 @@ body {
 }
 
 .conference_card_orientation {
-  @apply group-odd:text-right group-even:items-start group-odd:items-end;
+  @apply md:group-odd:text-right md:group-even:items-start md:group-odd:items-end pl-2 md:group-odd:pr-4 md:group-odd:ml-auto md:group-even:pl-4;
 }
 
 /* Footer */

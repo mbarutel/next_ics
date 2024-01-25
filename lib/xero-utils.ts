@@ -3,25 +3,26 @@ import { RegistrationType } from "./types";
 import { Contacts, LineItem } from "xero-node";
 
 export function generateLineItems({ body }: { body: RegistrationType }) {
+  const extraParticipants = body.extraParticipants.split("\n");
+  const dinnerParticipants = body.dinnerParticipants.split("\n");
+
   let objects: LineItem[] = [{
     taxType: "OUTPUT",
     accountCode: "200",
     description: "Registration Fee",
-    quantity: body.extraParticipants.length + 1,
+    quantity: extraParticipants.length + 1,
     unitAmount: body.priceValue,
-    // lineAmount: body.fee.price * (body.group.length + 1),
   }];
 
-  if (body.dinnerParticipants.length > 0) {
+  if (dinnerParticipants.length > 0) {
     objects = [
       ...objects,
       {
         taxType: "OUTPUT",
         accountCode: "200",
         description: "Conference Networking Dinner",
-        quantity: body.dinnerParticipants.length,
+        quantity: dinnerParticipants.length,
         unitAmount: body.dinnerPrice,
-        // lineAmount: 150.0 * (body.group.length + 1),
       },
     ];
   }
@@ -34,7 +35,18 @@ export function generateLineItems({ body }: { body: RegistrationType }) {
         accountCode: "200",
         description: "Post-Conference Masterclass",
         unitAmount: body.masterclassPrice,
-        // lineAmount: 150.0 * (body.group.length + 1),
+      },
+    ];
+  }
+
+  if (body.discount !== "") {
+    objects = [
+      ...objects,
+      {
+        taxType: "OUTPUT",
+        accountCode: "200",
+        description: "Discount Code: " + body.discount,
+        unitAmount: 0,
       },
     ];
   }
@@ -47,15 +59,10 @@ export async function contactCheck(
 ) {
   const contacts = await xero.accountingApi.getContacts("");
 
-  console.log(contacts.body.contacts);
-
   const matchedName = contacts.body.contacts &&
     contacts.body.contacts.find((contact) =>
       contact.name?.toLowerCase() === body.company.toLowerCase()
     );
-
-  console.log("is matchedName found");
-  console.log(matchedName);
 
   const name = body.mainParticipant.name.split(" ");
   const firstName = name.slice(0, name.length - 1).join(" ");
@@ -75,8 +82,6 @@ export async function contactCheck(
           },
         ],
       };
-
-      console.log("About to update contact");
 
       await xero.accountingApi.updateContact(
         "",
@@ -99,14 +104,10 @@ export async function contactCheck(
     ],
   };
 
-  console.log("About to make new contact");
-
   const newContact = await xero.accountingApi.createContacts(
     "",
     contactObject,
   );
-
-  console.log("success making new contact");
 
   if (!newContact.body.contacts) {
     throw new Error("Error Creating New Contact");

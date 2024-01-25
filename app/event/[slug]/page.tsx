@@ -1,7 +1,3 @@
-import { draftMode } from "next/headers";
-import { notFound } from "next/navigation";
-import { Event } from "@/contentful/services/event";
-import { parserConferenceEntry, parserEventEntry } from "@/contentful/utils";
 import {
   Announcement,
   CallToAction,
@@ -10,7 +6,11 @@ import {
   NavBar,
   SubscribeEmailList,
 } from "@/components";
+import { draftMode } from "next/headers";
+import { notFound } from "next/navigation";
+import { Event } from "@/contentful/services/event";
 import { Conference } from "@/contentful/services/conferences";
+import { parserConferenceEntry, parserEventEntry } from "@/contentful/utils";
 
 type EventPageParams = {
   slug: string;

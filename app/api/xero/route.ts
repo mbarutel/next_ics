@@ -3,8 +3,8 @@ import { xero } from "@/xero/client";
 import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 import { RegistrationType } from "@/lib/types";
-import { contactCheck, generateLineItems } from "@/lib/xero-utils";
 import { Invoice, LineAmountTypes } from "xero-node";
+import { contactCheck, generateLineItems } from "@/lib/xero-utils";
 
 export async function POST(
   req: Request,
@@ -22,7 +22,7 @@ export async function POST(
   try {
     await xero.getClientCredentialsToken();
 
-    // const contactId = await contactCheck(body);
+    const contactId = await contactCheck(body);
 
     await xero.accountingApi.createInvoices(
       "",
@@ -30,20 +30,20 @@ export async function POST(
         invoices: [
           {
             type: Invoice.TypeEnum.ACCREC,
+            reference: body.reference,
             contact: {
-              contactID: "00000000-0000-0000-0000-000000000000",
+              contactID: contactId,
             },
             date: dayjs(new Date()).format("YYYY-MM-DD"),
             dueDate: dayjs(body.priceDueDate).format("YYYY-MM-DD"),
-            lineAmountTypes: LineAmountTypes.Exclusive,
+            lineAmountTypes: LineAmountTypes.Inclusive,
             lineItems: generateLineItems({ body }),
+            totalTax: body.total * 0.1,
             status: Invoice.StatusEnum.DRAFT,
           },
         ],
       },
     );
-
-    console.log("success with invoice creation")
 
     return NextResponse.json(
       { message: "success with connection" },

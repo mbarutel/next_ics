@@ -40,9 +40,9 @@ function ConferenceCard(conference: ConferenceType) {
       <div className="conference_card_info_wrap conference_card_orientation">
         <Link
           href={`/conference/${conference.slug}`}
-          className="group-odd:pr-4 group-odd:ml-auto group-odd:text-right group-even:pl-4 text-transparent bg-clip-text bg-gradient-to-r gradient max-w-[28rem] pt-2 z-20 active:scale-95 transition_config"
+          className="text-transparent bg-clip-text bg-gradient-to-r gradient max-w-[28rem] pt-2 z-20 active:scale-95 transition_config"
         >
-          <h3 className="text-2xl mdnprogress:text-3xl font-semibold group-even:ml-auto uppercase !tracking-tight !leading-none transition text-white mb-1">
+          <h3 className="text-2xl md:text-3xl font-semibold md:group-even:ml-auto uppercase !tracking-tight !leading-none transition_config text-white mb-1">
             {conference.title}
           </h3>
           <Date date={conference.date} />
@@ -104,10 +104,10 @@ function CallToActionButtons({
   registration,
 }: { slug: string; registration: string | undefined }) {
   return (
-    <div className="absolute bottom-1 group-odd:right-1 group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
+    <div className="absolute bottom-1 left-1 md:left-auto md:group-odd:right-1 md:group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
       <Link
         href={`/conference/${slug}`}
-        className="group-odd:order-1 bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
+        className="md:group-odd:order-1 bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
       >
         View Events
       </Link>

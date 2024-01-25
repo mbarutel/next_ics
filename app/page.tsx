@@ -1,16 +1,16 @@
 import {
+  Announcement,
   CallToAction,
   ConferenceTimer,
   InstagramBanner,
   LandingHeader,
+  NavBar,
   SubscribeEmailList,
   UpcomingConferences,
 } from "@/components";
-import NavBar from "@/components/nav-bar";
 import { draftMode } from "next/headers";
 import { parserConferenceEntry } from "@/contentful/utils";
 import { Conference } from "@/contentful/services/conferences";
-import Announcement from "@/components/announcement";
 
 export async function generateStaticParams() {
   const conferenceInstance = new Conference({
