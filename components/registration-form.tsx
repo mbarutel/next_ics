@@ -25,49 +25,42 @@ export default function RegistrationForm(conference: ConferenceType) {
       });
 
       // Google API
-      try {
-        const rawResponse = await fetch("/api/registration", {
-          method: "POST",
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...registrationObject,
-            conference: conference.title,
-          }),
-        });
+      const rawResponse = await fetch("/api/registration", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...registrationObject,
+          conference: conference.title,
+        }),
+      });
 
-        const response = await rawResponse.json();
+      let response = await rawResponse.json();
 
-        if ("error" in response) {
-          toast.error(response.error);
-        }
-      } catch (error) {
-        if (error instanceof Error) {
-          console.log(error);
-        }
+      if ("error" in response) {
+        toast.error(response.error);
+        return;
       }
 
       // XERO API
-      try {
-        const body = JSON.stringify(registrationObject);
+      const body = JSON.stringify(registrationObject);
 
-        const rawXeroResponse = await fetch("/api/xero", {
-          method: "POST",
-          body,
-        });
-        const response = await rawXeroResponse.json();
+      const rawXeroResponse = await fetch("/api/xero", {
+        method: "POST",
+        body,
+      });
 
-        if ("error" in response) {
-          toast.error(response.error);
-          return;
-        }
-      } catch (error) {
-        if (error instanceof Error) {
-          console.log(error.message);
-        }
+      response = await rawXeroResponse.json();
+
+      console.log(response)
+
+      if ("error" in response) {
+        toast.error(response.error);
+        return;
       }
+      // setComplete(true);
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message);
@@ -103,7 +96,6 @@ export default function RegistrationForm(conference: ConferenceType) {
           setSubmitting(true);
           await handleOnSubmit({ values, conference });
           setSubmitting(false);
-          setComplete(true);
         }}
       >
         {({ values, isSubmitting, errors, touched, setFieldValue }) => (

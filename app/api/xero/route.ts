@@ -24,7 +24,9 @@ export async function POST(
 
     const contactId = await contactCheck(body);
 
-    await xero.accountingApi.createInvoices(
+    console.log(contactId)
+
+    const invoice = await xero.accountingApi.createInvoices(
       "",
       {
         invoices: [
@@ -44,6 +46,8 @@ export async function POST(
         ],
       },
     );
+
+    console.log(invoice)
 
     return NextResponse.json(
       { message: "success with connection" },

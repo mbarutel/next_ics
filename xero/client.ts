@@ -4,7 +4,7 @@ const client_id: string = process.env.NEXT_XERO_CLIENT_ID!;
 const client_secret: string = process.env.NEXT_XERO_SECRET!;
 const redirectUrl: string = process.env.REDIRECT_URI!;
 const scopes: string =
-  "accounting.transactions accounting.settings accounting.contacts";
+  "accounting.transactions accounting.contacts";
 const grantType: string = "client_credentials";
 
 export const xero = new XeroClient({

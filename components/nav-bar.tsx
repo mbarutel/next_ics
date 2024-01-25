@@ -66,7 +66,7 @@ export default function NavBar(
                   onMouseEnter={() => setConferencesOpen(true)}
                   onMouseLeave={() => setConferencesOpen(false)}
                   className={clsx(
-                    "absolute top-full right-0 flex_col gap-3 pl-2 py-4 rounded-b-md bg-stone-900 shadow-lg shadow-black/70 w-[40rem]",
+                    "absolute top-full right-0 flex_col gap-4 pl-2 py-4 rounded-b-md bg-stone-900 shadow-lg shadow-black/70 w-[50rem]",
                     { "!hidden": !conferencesOpen },
                   )}
                 >
@@ -76,7 +76,7 @@ export default function NavBar(
                         href={`/conference/${conference.slug}`}
                         className="nav_dropdown bg-gradient-to-r gradient bg-clip-text hover:text-transparent transition"
                       >
-                        {conference.title}
+                          {conference.title}
                       </Link>
                     </Fragment>
                   ))}

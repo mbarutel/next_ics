@@ -42,7 +42,7 @@ function ConferenceCard(conference: ConferenceType) {
           href={`/conference/${conference.slug}`}
           className="text-transparent bg-clip-text bg-gradient-to-r gradient max-w-[28rem] pt-2 z-20 active:scale-95 transition_config"
         >
-          <h3 className="text-2xl md:text-3xl font-semibold md:group-even:ml-auto uppercase !tracking-tight !leading-none transition_config text-white mb-1">
+          <h3 className="text-xl md:text-2xl font-semibold md:group-even:ml-auto uppercase !tracking-tight !leading-none transition_config text-white mb-1">
             {conference.title}
           </h3>
           <Date date={conference.date} />
