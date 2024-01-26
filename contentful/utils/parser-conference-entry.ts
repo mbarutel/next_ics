@@ -80,6 +80,13 @@ function parseConferencePrices(object: unknown): PriceType | undefined {
       console.log("Conference Price Parsing Error: Incorrect Base Price Type");
       return undefined;
     }
+
+    const dateObject = new Date(parsedPrice.base[i].dueDate);
+
+    if (isNaN(dateObject.getTime())) {
+      console.log("Conference Price Parsing Error: Incorrect Date Format");
+      return undefined;
+    }
   }
   return parsedPrice;
 }

@@ -69,7 +69,7 @@ export async function POST(
     });
 
     return NextResponse.json({
-      message: "Registration Success!",
+      message: "Submission in Google Sheets",
     }, { status: 201 });
   } catch (error: unknown) {
     console.log(error);

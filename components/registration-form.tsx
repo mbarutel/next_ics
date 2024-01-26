@@ -25,49 +25,57 @@ export default function RegistrationForm(conference: ConferenceType) {
       });
 
       // Google API
-      const rawResponse = await fetch("/api/registration", {
-        method: "POST",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...registrationObject,
-          conference: conference.title,
-        }),
-      });
+      try {
+        const rawResponse = await fetch("/api/registration", {
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...registrationObject,
+          }),
+        });
 
-      let response = await rawResponse.json();
+        const response = await rawResponse.json();
 
-      if ("error" in response) {
+        if ("error" in response) {
+          toast.error(
+            "There was an error. Please contact us or try again later. Sorry for the inconvenience.",
+          );
+          return;
+        }
+
+        // XERO API
+        try {
+          const rawXeroResponse = await fetch("/api/xero", {
+            method: "POST",
+            body: JSON.stringify({ ...registrationObject }),
+          });
+
+          const response = await rawXeroResponse.json();
+
+          if ("error" in response) {
+            toast.error(
+              "There was an error. Please contact us or try again later. Sorry for the inconvenience.",
+            );
+            return;
+          }
+
+          setComplete(true);
+        } catch {
+          toast.error(
+            "There was an error. Please contact us or try again later. Sorry for the inconvenience.",
+          );
+        }
+      } catch {
         toast.error(
-          "There was an error. Please contact us or try again later. Sorry for the invoconvenience.",
+          "There was an error. Please contact us or try again later. Sorry for the inconvenience.",
         );
-        return;
       }
-
-      // XERO API
-      const body = JSON.stringify(registrationObject);
-
-      const rawXeroResponse = await fetch("/api/xero", {
-        method: "POST",
-        body,
-      });
-
-      response = await rawXeroResponse.json();
-
-      if ("error" in response) {
-        toast.error(
-          "There was an error. Please contact us or try again later. Sorry for the invoconvenience.",
-        );
-        return;
-      }
-      setComplete(true);
     } catch (error) {
       if (error instanceof Error) {
-        toast.error(
-          "There was an error. Please contact us or try again later. Sorry for the invoconvenience.",
-        );
+        console.error(error.message);
       }
     }
   };

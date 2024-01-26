@@ -66,10 +66,12 @@ export async function contactCheck(
   const name = body.mainParticipant.name.split(" ");
   const firstName = name.slice(0, name.length - 1).join(" ");
   const lastName = name[name.length - 1];
+  const email = body.mainParticipant.email;
 
   if (matchedName && matchedName.contactID) {
     if (
-      firstName !== matchedName.firstName || lastName !== matchedName.lastName
+      firstName !== matchedName.firstName ||
+      lastName !== matchedName.lastName || email !== matchedName.emailAddress
     ) {
       const contactObject: Contacts = {
         contacts: [
