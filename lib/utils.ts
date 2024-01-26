@@ -35,6 +35,10 @@ export const RegistrationObjectApiParser = (
     conference: ConferenceType;
   },
 ): RegistrationType => {
+  if (!conference.prices) {
+    throw new Error("Conference prices are not set");
+  }
+
   const reference = parseReference(values.events);
   const events = values.events.join("\n");
   const extraParticipants = parseExtraParticipants(values.extraParticipants)
@@ -42,10 +46,6 @@ export const RegistrationObjectApiParser = (
     .join("\n");
   const dinnerParticipants = parseDinnerParticipants(values.dinnerParticipants)
     .map((item) => item.name.concat(` | ${item.diet}`)).join("\n");
-
-  if (!conference.prices) {
-    throw new Error("Conference prices are not set");
-  }
 
   const dinnerPrice = values.dinnerParticipants.length *
     conference.prices?.dinner;
@@ -68,7 +68,6 @@ export const RegistrationObjectApiParser = (
     priceDueDate: values.price.dueDate,
     masterclass: values.masterclass,
     accomodation: values.accomodation,
-    paymentMethod: values.paymentMethod,
     mainParticipant: {
       name: values.name,
       email: values.email,
