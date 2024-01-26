@@ -8,7 +8,6 @@ import FormFields from "./registration/form-fields";
 import { RegistrationObjectApiParser } from "@/lib/utils";
 import FormValidation from "./registration/form-validation";
 import { ConferenceType, FormValuesType } from "@/lib/types";
-import { sendEmail } from "@/actions/send-email";
 
 export default function RegistrationForm(conference: ConferenceType) {
   const [complete, setComplete] = useState<boolean>(false);
@@ -65,12 +64,6 @@ export default function RegistrationForm(conference: ConferenceType) {
       }
       setComplete(true);
     } catch (error) {
-      await sendEmail({
-        senderEmail: "ICS Indigenous Website",
-        senderSubject: "Error on Registration",
-        message: "There was an error on a registration. Please Notify Mikey",
-      });
-
       if (error instanceof Error) {
         toast.error(
           "There was an error. Please contact us or try again later. Sorry for the invoconvenience.",

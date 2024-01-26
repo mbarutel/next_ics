@@ -17,9 +17,6 @@ const nextConfig = {
     ],
   },
   optimizeFonts: false,
-  experimental: {
-    serverActions: true,
-  },
 };
 
 module.exports = nextConfig;

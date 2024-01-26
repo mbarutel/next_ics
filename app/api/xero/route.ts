@@ -26,8 +26,6 @@ export async function POST(
 
     const lineItems = generateLineItems({ body });
 
-    console.log(lineItems);
-
     await xero.accountingApi.createInvoices(
       "",
       {

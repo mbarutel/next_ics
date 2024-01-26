@@ -3,61 +3,51 @@ import { RegistrationType } from "./types";
 import { Contacts, LineItem } from "xero-node";
 
 export function generateLineItems({ body }: { body: RegistrationType }) {
-  const extraParticipants = body.extraParticipants.split("\n");
-  const dinnerParticipants = body.dinnerParticipants.split("\n");
-
-  const objects: LineItem[] = [{
+  let objects: LineItem[] = [{
     taxType: "OUTPUT",
     accountCode: "200",
     description: "Registration Fee",
-    quantity: extraParticipants.length + 1,
+    quantity: body.extraParticipants === ""
+      ? 1
+      : body.extraParticipants.split("\n").length + 1,
     unitAmount: body.priceValue,
   }];
 
-  if (dinnerParticipants.length > 0) {
-    objects.push(
+  if (body.dinnerParticipants !== "") {
+    objects = [
+      ...objects,
       {
         taxType: "OUTPUT",
         accountCode: "200",
         description: "Conference Networking Dinner",
-        quantity: dinnerParticipants.length,
+        quantity: body.dinnerParticipants.split("\n").length,
         unitAmount: body.dinnerPrice,
       },
-    );
-  }
-
-  if (dinnerParticipants.length > 0) {
-    objects.push(
-      {
-        taxType: "OUTPUT",
-        accountCode: "200",
-        description: "Conference Networking Dinner",
-        quantity: dinnerParticipants.length,
-        unitAmount: body.dinnerPrice,
-      },
-    );
+    ];
   }
 
   if (body.masterclass !== "no") {
-    objects.push(
+    objects = [
+      ...objects,
       {
         taxType: "OUTPUT",
         accountCode: "200",
         description: "Post-Conference Masterclass",
         unitAmount: body.masterclassPrice,
       },
-    );
+    ];
   }
 
   if (body.discount !== "") {
-    objects.push(
+    objects = [
+      ...objects,
       {
         taxType: "OUTPUT",
         accountCode: "200",
         description: "Discount Code: " + body.discount,
         unitAmount: 0,
       },
-    );
+    ];
   }
 
   return objects;

@@ -37,14 +37,12 @@ export default function ContactForm() {
           </small>
           <form
             action={async (formData) => {
-              // const { error } = await sendEmail(formData);
-              await sendEmail(formData);
-              console.log(formData)
+              const { error } = await sendEmail(formData);
 
-              // if (error) {
-              //   toast.error(error);
-              //   return;
-              // }
+              if (error) {
+                toast.error(error);
+                return;
+              }
               toast.success("Email sent successfully");
             }}
             className="mt-3 lg:mt-6 flex flex-col gap-3"
