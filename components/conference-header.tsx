@@ -34,7 +34,7 @@ function ConferenceInfo(conference: ConferenceType) {
         {conference.venue}
       </h2>
       <HeaderFormLinks
-        registration={conference.registrationLink}
+        registration={conference.formLink}
         submitAPaper={conference.submitPaperLink}
       />
     </div>

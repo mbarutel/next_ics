@@ -16,8 +16,6 @@ import parserMasterclassesInConference from "./parser-masterclasses-in-conferenc
 export default function parserConferenceEntry(
   conferenceEntry: ConferencesEntry,
 ): ConferenceType {
-  const prices = parseConferencePrices(conferenceEntry.fields.prices);
-
   return {
     slug: conferenceEntry.fields.slug,
     title: conferenceEntry.fields.title,
@@ -34,7 +32,7 @@ export default function parserConferenceEntry(
     masterclass: parserMasterclassesInConference(
       conferenceEntry.fields.masterclass,
     ),
-    formLink: prices
+    formLink: conferenceEntry.fields.externalForm === undefined
       ? `/registration/${conferenceEntry.fields.slug}`
       : conferenceEntry.fields.externalForm,
     prices: parseConferencePrices(conferenceEntry.fields.prices),

@@ -36,7 +36,7 @@ function EventInfo(event: EventType) {
                 {event.conference.venue}
               </h2>
               <HeaderFormLinks
-                registration={event.conference.registrationLink}
+                registration={event.conference.formLink}
                 submitAPaper={event.conference.submitPaperLink}
               />
             </>

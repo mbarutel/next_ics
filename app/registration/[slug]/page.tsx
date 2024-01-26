@@ -51,7 +51,9 @@ export default async function page({ params }: ConferenceInfoProps) {
 function FormNotReady() {
   return (
     <>
-      <h1>Registration form is not yet ready</h1>
+      <h1 className="section_header text-center py-10">
+        Registration form is not yet ready
+      </h1>
     </>
   );
 }

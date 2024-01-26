@@ -45,7 +45,7 @@ export type ConferenceType = {
   registrationLink: string; // Will be irrelevant soon
   masterclass: MasterclassType[];
   submitPaperLink: string | undefined;
-  formLink: string | undefined;
+  formLink: string;
   prices: PriceType | undefined;
 };
 
@@ -62,7 +62,7 @@ export type EventType = {
 
 export type ConferenceInEventType = Omit<
   ConferenceType,
-  "slug" | "tite" | "events" | "coverImage" | "speakers" | "formLink" | "prices"
+  "slug" | "tite" | "events" | "coverImage" | "speakers" | "prices"
 >;
 
 export type AssetType = {

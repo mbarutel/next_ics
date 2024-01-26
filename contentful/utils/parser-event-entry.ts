@@ -55,6 +55,9 @@ function parseConferenceInEvent(
       }),
       registrationLink: conference.fields.registrationLink,
       submitPaperLink: conference.fields.submitAPaperLink,
+      formLink: conference.fields.externalForm === undefined
+        ? `/registration/${conference.fields.slug}`
+        : conference.fields.externalForm,
       masterclass: parserMasterclassesInConference(
         conference.fields.masterclass,
       ),
