@@ -14,14 +14,15 @@ export function generateLineItems({ body }: { body: RegistrationType }) {
   }];
 
   if (body.dinnerParticipants !== "") {
+    const quantity = body.dinnerParticipants.split("\n").length;
     objects = [
       ...objects,
       {
         taxType: "OUTPUT",
         accountCode: "200",
         description: "Conference Networking Dinner",
-        quantity: body.dinnerParticipants.split("\n").length,
-        unitAmount: body.dinnerPrice,
+        quantity: quantity,
+        unitAmount: body.dinnerPrice / quantity,
       },
     ];
   }

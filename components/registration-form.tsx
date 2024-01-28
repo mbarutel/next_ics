@@ -26,22 +26,29 @@ export default function RegistrationForm(conference: ConferenceType) {
 
       // Google API
       try {
-        const rawResponse = await fetch("/api/registration", {
-          method: "POST",
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...registrationObject,
-          }),
-        });
+        try {
+          const rawResponse = await fetch("/api/registration", {
+            method: "POST",
+            headers: {
+              "Accept": "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...registrationObject,
+            }),
+          });
 
-        const response = await rawResponse.json();
+          const response = await rawResponse.json();
 
-        if ("error" in response) {
+          if ("error" in response) {
+            toast.error(
+              "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
+            );
+            return;
+          }
+        } catch {
           toast.error(
-            "There was an error. Please contact us or try again later. Sorry for the inconvenience.",
+            "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
           );
           return;
         }
@@ -57,7 +64,7 @@ export default function RegistrationForm(conference: ConferenceType) {
 
           if ("error" in response) {
             toast.error(
-              "There was an error. Please contact us or try again later. Sorry for the inconvenience.",
+              "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
             );
             return;
           }
@@ -65,18 +72,21 @@ export default function RegistrationForm(conference: ConferenceType) {
           setComplete(true);
         } catch {
           toast.error(
-            "There was an error. Please contact us or try again later. Sorry for the inconvenience.",
+            "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
           );
         }
       } catch {
         toast.error(
-          "There was an error. Please contact us or try again later. Sorry for the inconvenience.",
+          "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
         );
       }
     } catch (error) {
       if (error instanceof Error) {
         console.error(error.message);
       }
+      toast.error(
+        "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
+      );
     }
   };
 

@@ -52,7 +52,7 @@ body {
 }
 
 .header_height {
-  @apply xl:h-[45rem] md:h-[30rem] h-[25rem];
+  @apply xl:h-[45rem] lg:h-[40rem] md:h-[35rem] sm:h-[30rem] h-[25rem];
 }
 
 .header_wrapper {
@@ -60,11 +60,11 @@ body {
 }
 
 .header_sizes {
-  @apply xl:text-7xl lg:text-6xl md:text-5xl text-4xl;
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
 }
 
 .header_subtext {
-  @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-wide mb-2;
+  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase tracking-wide mb-2;
 }
 
 .section_header {

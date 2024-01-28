@@ -58,7 +58,7 @@ function ConferenceCard(event: EventType) {
             <Link
               target="_blank"
               rel="noreferer"
-              href={event.conference.registrationLink}
+              href={event.conference.formLink}
               className="grow py-2 text-center text-lg font-bold bg-black/90 hover:bg-gradient-to-b gradient hover:text-black transition_config rounded-sm active:scale-95"
             >
               Registration

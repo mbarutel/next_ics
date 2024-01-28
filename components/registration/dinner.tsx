@@ -3,19 +3,21 @@
 import clsx from "clsx";
 import Select from "react-select";
 import { dietaryOptions } from "@/lib/data";
+import QuestionTitle from "./question-title";
 import { customStyles } from "./select-style";
 import { ErrorMessage, Field, FieldArray } from "formik";
 import React, { Fragment, useEffect, useState } from "react";
 import { DinnerParticipantType, ParticipantType } from "@/lib/types";
-import QuestionTitle from "./question-title";
 
 export default function Dinner({
   name,
+  price,
   participants,
   setFieldValue,
   dinnerParticipants,
 }: {
   name: string;
+  price: number;
   setFieldValue: Function;
   participants: ParticipantType[];
   dinnerParticipants: DinnerParticipantType[];
@@ -53,7 +55,7 @@ export default function Dinner({
   return (
     <div className="question_wrapper">
       <QuestionTitle>Conference Networking Dinner</QuestionTitle>
-      <p className="-mt-2 mb-2">AU$150 Per Person</p>
+      <p className="-mt-2 mb-2">{`AU$${price} Per Person`}</p>
       <div className="grid grid-cols-2 gap-2">
         <button
           type="button"

@@ -9,8 +9,9 @@ import EmptyWarning from "./empty-warning";
 import QuestionTitle from "./question-title";
 
 export default function Masterclass(
-  { choice, masterclasses, errors, touched, setFieldValue }: {
+  { choice, price, masterclasses, errors, touched, setFieldValue }: {
     choice: string;
+    price: number;
     masterclasses: MasterclassType[] | undefined;
     errors: FormikErrors<FormValuesType>;
     touched: FormikTouched<FormValuesType>;
@@ -41,7 +42,7 @@ export default function Masterclass(
         />
         <QuestionTitle>Post-Conference Masterclass</QuestionTitle>
       </div>
-      <p className="-mt-2 mb-2">AU$350 Per Session</p>
+      <p className="-mt-2 mb-2">{`AU$${price} Per Session`}</p>
       <Select
         options={options}
         name="masterclass"

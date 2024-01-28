@@ -26,7 +26,10 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
           </button>
         ))}
       </div>
-      <h3 className="p-4 mb-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 rounded-md">Be advised that the agenda is subject to change</h3>
+      <h3 className="p-4 mb-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 rounded-md">
+        Please be advised that this conference agenda may change without prior
+        notice.
+      </h3>
       <div className="relative flex_col gap-4">
         {day.row.map((row, index) => (
           <div key={index} className="flex gap-2 text-lg">

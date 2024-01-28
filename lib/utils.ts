@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import {
   ConferenceType,
   DinnerParticipantType,
@@ -55,7 +56,8 @@ export const RegistrationObjectApiParser = (
   const total =
     (values.price.priceChoice * (values.extraParticipants.length + 1)) +
     dinnerPrice + masterclassPrice;
-  const dueDate = new Date().getDate() + 7;
+
+  const dueDate = new Date().getTime() + (1000 * 60 * 60 * 24 * 7);
 
   return {
     reference: reference,
@@ -66,7 +68,7 @@ export const RegistrationObjectApiParser = (
     discount: values.discount,
     referral: values.referral,
     priceValue: values.price.priceChoice,
-    priceDueDate: dueDate,
+    priceDueDate: new Date(dueDate),
     masterclass: values.masterclass,
     accomodation: values.accomodation,
     mainParticipant: {

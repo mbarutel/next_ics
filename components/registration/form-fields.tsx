@@ -66,6 +66,7 @@ export default function FormFields(
           <Dinner
             name={values.name}
             setFieldValue={setFieldValue}
+            price={conference.prices?.dinner}
             participants={values.extraParticipants}
             dinnerParticipants={values.dinnerParticipants}
           />
@@ -75,6 +76,7 @@ export default function FormFields(
             touched={touched}
             choice={values.masterclass}
             setFieldValue={setFieldValue}
+            price={conference.prices?.masterclass}
             masterclasses={conference.masterclass}
           />
 
