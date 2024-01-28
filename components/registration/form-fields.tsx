@@ -1,20 +1,20 @@
 "use client";
 
+import dayjs from "dayjs";
 import React from "react";
-import MainParticipant from "./main-participant";
-import { Form, FormikErrors, FormikTouched } from "formik";
-import { ConferenceType, FormValuesType } from "@/lib/types";
-import ExtraParticipants from "./extra-participants";
-import { Events } from "./events";
+import Price from "./price";
 import Dinner from "./dinner";
+import { Events } from "./events";
+import Referral from "./referral";
+import Agreement from "./agreement";
 import Masterclass from "./masterclass";
 import Accomodation from "./accomodation";
 import DiscountQuestion from "./discount";
-import Agreement from "./agreement";
-import Price from "./price";
-import Referral from "./referral";
 import QuestionTitle from "./question-title";
-import dayjs from "dayjs";
+import MainParticipant from "./main-participant";
+import ExtraParticipants from "./extra-participants";
+import { Form, FormikErrors, FormikTouched } from "formik";
+import { ConferenceType, FormValuesType } from "@/lib/types";
 
 type FormikFormProps = {
   isSubmitting: boolean;
@@ -66,7 +66,9 @@ export default function FormFields(
           <Dinner
             name={values.name}
             setFieldValue={setFieldValue}
-            price={conference.prices?.dinner}
+            price={conference.prices === undefined
+              ? 150
+              : conference.prices.dinner}
             participants={values.extraParticipants}
             dinnerParticipants={values.dinnerParticipants}
           />
@@ -76,7 +78,9 @@ export default function FormFields(
             touched={touched}
             choice={values.masterclass}
             setFieldValue={setFieldValue}
-            price={conference.prices?.masterclass}
+            price={conference.prices === undefined
+              ? 350
+              : conference.prices.masterclass}
             masterclasses={conference.masterclass}
           />
 
