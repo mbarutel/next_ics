@@ -45,8 +45,8 @@ function GridHeader() {
       <div className="header_grid_empty hidden xl:block xl:col-start-4 xl:col-end-6 2xl:col-start-3 2xl:col-end-6" />
       <div className="header_grid_with_text header_grid_effects flex_end xl:col-start-6 xl:col-end-7">
         <h3>
-          Proudly presented, formulated, designed and organised by First Nations
-          Peoples
+          proudly presented, formulated, designed and organised by First Nations
+          peoples
         </h3>
       </div>
       <div className="header_grid_with_text header_grid_effects flex_end xl:col-start-5 xl:col-end-6">
@@ -59,7 +59,7 @@ function GridHeader() {
       <div className="header_grid_empty col-start-1 col-end-2 lg:hidden" />
       <div className="header_grid_with_text header_grid_effects flex_end xl:col-start-4 xl:col-end-5">
         <h3>
-          The IMPOSSIBLE IS THE NEXT STEP FOR OUR JOURNEY
+          the impossible is the next step for our journey
         </h3>
       </div>
       <div className="header_grid_empty hidden xl:block xl:row-start-3 xl:row-end-5 xl:col-start-5 xl:col-end-5" />
@@ -73,8 +73,8 @@ function GridHeader() {
       </div>
       <div className="header_grid_with_text header_grid_effects flex_end">
         <h3>
-          Hosted by First Nations Health Professionals and Indigenous Conference
-          Organizers
+          hosted by First Nations health professionals and Indigenous conference
+          organizers
         </h3>
       </div>
     </div>

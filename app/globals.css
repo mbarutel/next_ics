@@ -124,7 +124,7 @@ body {
 }
 
 .header_grid_with_text {
-  @apply header_grid bg-gradient-to-tr gradient text-black/80 lowercase font-medium text-sm lg:text-base !leading-none;
+  @apply header_grid bg-gradient-to-tr gradient text-black/80 font-medium text-sm lg:text-base !leading-none;
 }
 
 .header_grid_empty {
