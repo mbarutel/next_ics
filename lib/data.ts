@@ -20,7 +20,7 @@ export const cta = [
     description:
       "Empower others with your stories, insights, and wisdom, inspiring a world where Indigenous culture is celebrated and respected.",
     button: "Become a Speaker",
-    image: "/assets/images/advantages-two.webp",
+    image: "/assets/images/calltoaction/pamphlet_one.webp",
     form: configs.forms.submitPaper,
   },
   {
@@ -28,7 +28,7 @@ export const cta = [
     description:
       "Use your platform to create awareness about vital Indigenous causes and issues, inspiring attendees to become advocates for positive change.",
     button: "Become an Exhibitor",
-    image: "/assets/images/advantages-three.webp",
+    image: "/assets/images/calltoaction/pamphlet_two.webp",
     form: configs.forms.exhibitor,
   },
   {
@@ -36,7 +36,7 @@ export const cta = [
     description:
       "Associate your brand with a cause that matters, gaining valuable exposure to a diverse and engaged audience, both locally and globally.",
     button: "Become a Sponsor",
-    image: "/assets/images/advantages-one.webp",
+    image: "/assets/images/calltoaction/pamphlet_three.webp",
     form: configs.forms.sponsor,
   },
 ] as const;

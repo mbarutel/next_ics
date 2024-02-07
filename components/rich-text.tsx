@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
+import { ListItem } from "./rich-text-elements";
 import { Block, BLOCKS, Inline, MARKS } from "@contentful/rich-text-types";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { ListItem, Quote } from "./rich-text-elements";
 
 export default function RichText(
   { document }: { document: RichTextDocument | null },
@@ -30,50 +30,40 @@ export default function RichText(
         </div>
       ),
       [BLOCKS.HEADING_1]: (_node: Block | Inline, children: ReactNode) => (
-        <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold -mb-2">
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-semibold -mb-2 leading-7">
           {children}
         </h1>
       ),
       [BLOCKS.HEADING_2]: (_node: Block | Inline, children: ReactNode) => (
-        <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold -mb-2">
+        <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold -mb-2 leading-7">
           {children}
         </h2>
       ),
       [BLOCKS.HEADING_3]: (_node: Block | Inline, children: ReactNode) => (
-        <h3 className="sm:text-lg lg:text-xl xl:text-2xl font-semibold -mb-2">
+        <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold -mb-2 leading-6">
           {children}
         </h3>
       ),
       [BLOCKS.HEADING_4]: (_node: Block | Inline, children: ReactNode) => (
-        <h4 className="sm:text-lg lg:text-xl xl:text-2xl font-semibold -mb-2">
+        <h4 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold -mb-2 leading-6">
           {children}
         </h4>
       ),
       [BLOCKS.HEADING_5]: (_node: Block | Inline, children: ReactNode) => (
-        <h5 className="sm:text-lg lg:text-xl xl:text-2xl font-semibold -mb-2">
+        <h5 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold -mb-2 leading-6">
           {children}
         </h5>
       ),
       [BLOCKS.HEADING_6]: (_node: Block | Inline, children: ReactNode) => (
-        <h6 className="sm:text-lg lg:text-xl xl:text-2xl font-semibold -mb-2">
+        <h6 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold -mb-2 leading-6">
           {children}
         </h6>
       ),
       [BLOCKS.PARAGRAPH]: (_node: Block | Inline, children: ReactNode) => (
-        <p className="text-justify">
+        <p className="text-justify pl-2 md:pl-3 2xl:pl-4">
           {children}
         </p>
       ),
-      // [BLOCKS.QUOTE]: (_node: Block | Inline, children: ReactNode) => (
-      //   <Quote>
-      //     {children}
-      //   </Quote>
-      // ),
-      // [BLOCKS.UL_LIST]: (_node: Block | Inline, children: ReactNode) => (
-      //   <ul className="mb-6">
-      //     {children}
-      //   </ul>
-      // ),
       [BLOCKS.LIST_ITEM]: (_node: Block | Inline, children: ReactNode) => (
         <ListItem>
           {children}

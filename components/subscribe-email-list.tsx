@@ -8,9 +8,9 @@ import SectionHeaderText from "./section-header-text";
 
 export default function SubscribeEmailList() {
   return (
-    <section className="pt-2">
+    <section className="section_margin">
       <div className="section_container">
-        <div className="relative h-[20rem] rounded-sm overflow-hidden">
+        <div className="relative h-[20rem] rounded-md overflow-hidden">
           <Image
             src="/assets/images/email-subscribe-bg.webp"
             alt="Australian Conference by Indigenous Organizers"

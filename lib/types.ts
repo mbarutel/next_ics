@@ -24,7 +24,6 @@ export type PriceType = {
   dinner: number;
   masterclass: number;
   walkIn: number;
-  // student: number;
   base: {
     price: number;
     dueDate: Date;

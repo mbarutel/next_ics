@@ -42,14 +42,6 @@ export default function SpeakersDisplay(
                   }}
                   className="relative flex items-center rounded-sm cursor-pointer border-2 border-zinc-600 bg-zinc-800"
                 >
-                  <Image
-                    src="/assets/images/aboriginal_pattern.svg"
-                    alt="pattern"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover z-0 grayscale opacity-5"
-                  />
-
                   <div className="relative h-20 min-w-[5rem] ml-2">
                     <Image
                       src={speaker.photo.src}
@@ -82,13 +74,6 @@ export default function SpeakersDisplay(
               }}
               className="rounded-sm relative max-w-[50rem] min-h-[40rem] px-10 py-4 mx-auto border-2 border-zinc-600 bg-zinc-800"
             >
-              <Image
-                src="/assets/images/aboriginal_pattern.svg"
-                alt="pattern"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover z-0 grayscale opacity-5"
-              />
               {speaker === null ? null : (
                 <>
                   <button

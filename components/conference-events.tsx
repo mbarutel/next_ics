@@ -24,13 +24,6 @@ export default function ConferenceEvents({ events }: { events: EventType[] }) {
 function ConferenceCard(event: EventType) {
   return (
     <div className="flex_col relative border-2 border-zinc-600 bg-zinc-800 rounded-sm">
-      <Image
-        src="/assets/images/aboriginal_pattern.svg"
-        alt="pattern"
-        fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="object-cover z-0 grayscale opacity-5"
-      />
       <div className="grid grid-cols-2 min-h-[15rem] z-10">
         <h3 className="text-3xl font-bold pl-3 pt-3">{event.title}</h3>
         <div className="relative h-full w-full bg-gradient-to-bl gradient rounded-sm">

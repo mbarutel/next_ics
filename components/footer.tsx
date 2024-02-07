@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="pt-2">
       <div className="section_container">
-        <div className="relative rounded-sm overflow-hidden flex flex-col px-6 pt-10 pb-7 bg-yellow-300 text-gray-700">
+        <div className="relative rounded-md overflow-hidden flex flex-col px-6 pt-10 pb-7 bg-gradient-to-br gradient_secondary text-gray-700">
           <div className="grid grid-cols-1 sm:grid-cols-2 mb-2 z-10 gap-2">
             <Acknowledgement />
             <Contacts />

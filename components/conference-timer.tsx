@@ -17,7 +17,7 @@ export default function ConferenceTimer(
   return (
     <section>
       <div className="section_container">
-        <div className="flex flex-col lg:flex-row items-center bg-gradient-to-r gradient py-4 lg:py-14 lg:pl-12 lg:pr-14 xl:pr-16 2xl:pr-36 rounded-md justify-between">
+        <div className="flex flex-col lg:flex-row items-center bg-gradient-to-r gradient_secondary py-4 lg:py-14 lg:pl-12 lg:pr-14 xl:pr-16 2xl:pr-36 rounded-md justify-between">
           <div className="uppercase text-center lg:text-left bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
             <h2 className="text-base xl:text-xl">Next Conference</h2>
             <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold leading-none">

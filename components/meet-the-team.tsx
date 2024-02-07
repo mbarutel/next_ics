@@ -20,14 +20,14 @@ export default function MeetTheTeam() {
           </Link>
         </div>
         <div className="p-2">
-          <div className="relative h-[350px] sm:h-[400px] xl:h-[450px] w-full bg-gradient-to-tr gradient_secondary -translate-x-2 translate-y-2">
+          <div className="relative h-[350px] sm:h-[400px] xl:h-[450px] w-full bg-gradient-to-tr gradient_secondary -translate-x-2 translate-y-2 rounded-md">
             <Image
               fill
               quality={100}
-              className="object-cover translate-x-4 -translate-y-4 saturate-150"
               alt="Australian Conferences"
               src="/assets/images/meet-the-team.webp"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover translate-x-4 -translate-y-4 saturate-150 rounded-md"
             />
           </div>
         </div>

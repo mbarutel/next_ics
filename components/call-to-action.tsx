@@ -9,7 +9,7 @@ export default function CallToAction() {
     <section className="section_margin">
       <div className="section_container">
         <SectionHeaderText>Become Part of ICS</SectionHeaderText>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-7">
           {cta.map((action, index) => (
             <Fragment key={index}>
               <ActionCard {...action} />
@@ -26,8 +26,8 @@ function ActionCard(
   { title, description, button, image, form }: ActionCardProp,
 ) {
   return (
-    <div className="bg-zinc-800 flex flex-col rounded-sm overflow-hidden">
-      <div className="relative h-52 overflow-hidden">
+    <div className="flex flex-col">
+      <div className="relative h-64 sm:h-96 lg:h-80 xl:h-96 rounded-md overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -36,7 +36,7 @@ function ActionCard(
           className="object-cover hover:scale-110 transition-all duration-500"
         />
       </div>
-      <div className="px-3 pb-3 lg:px-6 lg:pb-6 mt-4 flex-grow flex flex-col">
+      <div className="px-2 mt-4 flex-grow flex flex-col">
         <h3 className="text-2xl font-bold uppercase">
           {title}
         </h3>
@@ -48,7 +48,7 @@ function ActionCard(
           href={form}
           target="_blank"
           rel="noreferrer"
-          className="relative mt-3 lg:mt-5 button_config bg-black"
+          className="relative mt-3 lg:mt-5 button_config bg-black w-full"
         >
           {button}
         </Link>
