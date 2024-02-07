@@ -4,6 +4,7 @@ import {
   ConferenceTimer,
   InstagramBanner,
   LandingHeader,
+  MeetTheTeam,
   NavBar,
   SubscribeEmailList,
   UpcomingConferences,
@@ -39,6 +40,7 @@ export default async function Home() {
       <UpcomingConferences
         conferences={conferences}
       />
+      <MeetTheTeam />
       <CallToAction />
       <SubscribeEmailList />
     </>

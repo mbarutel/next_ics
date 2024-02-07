@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import SectionHeaderText from "./section-header-text";
 
 export default function AboutPurpose() {
   return (
@@ -21,9 +22,7 @@ export default function AboutPurpose() {
             </div>
           </div>
           <div className="xl:py-20">
-            <h3 className="section_header">
-              Our Purpose
-            </h3>
+            <SectionHeaderText>Our Purpose</SectionHeaderText>
             <p className="mt-1 sm:mt-4 mb-2 text-justify">
               At ICS, we are unwavering in our belief that education serves as a
               powerful catalyst for driving positive change. Our dedicated

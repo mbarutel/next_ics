@@ -8,7 +8,7 @@ export default function ConferenceEvents({ events }: { events: EventType[] }) {
   return (
     <section className="section_margin">
       <div className="section_container">
-        <SectionHeaderText text="Upcoming Events" />
+        <SectionHeaderText>Upcoming Events</SectionHeaderText>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {events.map((event) => (
             <Fragment key={event.slug}>

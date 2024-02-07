@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import SectionHeaderText from "./section-header-text";
 
 export default function AboutValues() {
   return (
@@ -7,9 +8,7 @@ export default function AboutValues() {
       <div className="section_container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="xl:py-20">
-            <h3 className="section_header">
-              Our Values
-            </h3>
+            <SectionHeaderText>Our Values</SectionHeaderText>
             <p className="mt-1 sm:mt-4 mb-2 text-justify">
               Our Koori CEO, Tom Callaghan, proudly hails from Kempsey in
               Dunghutti country, New South Wales, and is deeply committed to the

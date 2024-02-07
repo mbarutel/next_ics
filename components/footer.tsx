@@ -12,15 +12,8 @@ export default function Footer() {
   return (
     <footer className="pt-2">
       <div className="section_container">
-        <div className="relative rounded-sm overflow-hidden flex flex-col px-6 pt-10 pb-7">
-          <Image
-            src="/assets/images/conference-bg.webp"
-            alt="Announcements"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover opacity-5 grayscale z-0"
-          />
-          <div className="flex justify-between mb-2 z-10">
+        <div className="relative rounded-sm overflow-hidden flex flex-col px-6 pt-10 pb-7 bg-yellow-300 text-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-2 mb-2 z-10 gap-2">
             <Acknowledgement />
             <Contacts />
           </div>
@@ -35,95 +28,64 @@ export default function Footer() {
 
 function Acknowledgement() {
   return (
-    <div className="hidden lg:block">
-      <h3 className="footer_grid_header">
+    <div className="w-full order-1 sm:order-none">
+      <h3 className="uppercase font-bold tracking-tight md:text-lg lg:text-xl">
         Indigenous Conference Services
       </h3>
-      <p className="text-sm w-[450px]">
-        We acknowledge the Traditional Owners and Custodians of the lands on
-        which we work, live, and create. We pay our respects to their Elders
-        past, present, and emerging.
-      </p>
+      <div className="flex gap-2">
+        <Image
+          src="/assets/images/flags.svg"
+          alt="Australian Aboriginal Conferences"
+          width={40}
+          height={30}
+          className="hidden lg:block"
+        />
+
+        <p className="leading-tight w-[450px]">
+          We acknowledge the Traditional Owners and Custodians of the lands on
+          which we work, live, and create. We pay our respects to their Elders
+          past, present, and emerging.
+        </p>
+      </div>
     </div>
   );
 }
-//
-// function Links() {
-//   return (
-//     <div className="flex flex-col">
-//       <h3 className="footer_grid_header">
-//         Links
-//       </h3>
-//       <div className="grid grid-cols-1 lg:gap-1 w-fit mr-auto">
-//         {links.map((link, index) => (
-//           <Fragment key={index}>
-//             <Link
-//               href={link.path}
-//               className="group text-xs sm:text-sm lg:text-lg"
-//             >
-//               <span className="relative pb-1">
-//                 {link.name}
-//                 <span className="absolute h-1 w-0 right-0 bottom-0 group-hover:w-full group-focus:w-full group-active:scale-95 bg-white transition-all ease-in-out" />
-//               </span>
-//             </Link>
-//           </Fragment>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-//
+
 function Contacts() {
   return (
-    <div className="flex flex-col text-right">
-      <h3 className="footer_grid_header">
+    <div className="w-full sm:text-right">
+      <h3 className="uppercase font-bold tracking-tight md:text-lg lg:text-xl">
         Contacts
       </h3>
-      <div className="text-xs sm:text-sm lg:text-base flex">
-        <span className="hidden sm:block sm:float-left font-medium pr-1">
-          Phone{" "}
-        </span>
-        <AiOutlinePhone className="float-left sm:hidden" />
-        <div className="border-dotted border-b-2 grow border-white/80 -translate-y-[6px]" />
+
+      <div className="flex flex-col -mt-1">
         <Link
           href={`tel:${configs.contact.phone}`}
-          className="group"
+          className="hover:-translate-x-1 transition_config"
         >
-          <span className="relative pb-1 ml-1">
-            {configs.contact.phone}
-            <span className="absolute h-1 w-0 left-0 bottom-0 group-hover:w-full group-focus:w-full group-active:scale-95 bg-white transition-all ease-in-out" />
-          </span>
+          Phone{": "}
+          {configs.contact.phone}
         </Link>
-      </div>
 
-      <div className="text-xs sm:text-sm lg:text-base flex">
-        <span className="hidden sm:block sm:float-left font-medium pr-1">
-          Email{" "}
-        </span>
-        <AiOutlineMail className="float-left sm:hidden" />
-        <div className="border-dotted border-b-2 grow border-white/80 -translate-y-[6px]" />
         <Link
-          href={`mailto:${configs.contact.email}`}
           target="_blank"
           rel="noreferrer"
-          className="group"
+          href="https://www.instagram.com/ics_conferences/"
+          className="hover:-translate-x-1 transition_config -mt-1"
         >
-          <span className="relative pb-1 ml-1">
-            {configs.contact.email}
-            <span className="absolute h-1 w-0 left-0 bottom-0 group-hover:w-full group-focus:w-full group-active:scale-95 bg-white transition-all ease-in-out" />
-          </span>
+          Instagram{": "}
+          @ics_conferences
         </Link>
-      </div>
 
-      <div className="text-xs sm:text-sm lg:text-base flex">
-        <span className="hidden sm:block sm:float-left font-medium pr-1">
-          Address{" "}
-        </span>
-        <AiOutlinePushpin className="float-left sm:hidden" />
-        <div className="border-dotted border-b-2 grow border-white/80 -translate-y-[6px]" />
-        <span className="ml-1">
-          {configs.contact.address}
-        </span>
+        <Link
+          target="_blank"
+          rel="noreferrer"
+          href={`mailto:${configs.contact.email}`}
+          className="hover:-translate-x-1 transition_config -mt-1"
+        >
+          Email{": "}
+          {configs.contact.email}
+        </Link>
       </div>
     </div>
   );

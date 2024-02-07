@@ -5,8 +5,8 @@ export default function InstagramBanner() {
   return (
     <section>
       <div className="section_container flex_col justify-center items-center py-4 lg:py-6">
-        <div className="w-32 h-3 bg-gradient-to-r gradient rounded-sm" />
-        <div className="text-xl md:text-3xl py-2 lg:py-4 text-center">
+        <div className="w-32 h-2 bg-gradient-to-r gradient rounded-sm" />
+        <div className="sm:text-xl md:text-3xl py-1 lg:py-4 text-center">
           Follow{" "}
           <Link
             href="https://www.instagram.com/ics_conferences/"
@@ -18,7 +18,7 @@ export default function InstagramBanner() {
           </Link>{" "}
           on Instagram
         </div>
-        <div className="w-32 h-3 bg-gradient-to-r gradient rounded-sm" />
+        <div className="w-32 h-2 bg-gradient-to-r gradient rounded-sm" />
       </div>
     </section>
   );

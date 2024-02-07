@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import SectionHeaderText from "./section-header-text";
 
 export default function AboutVision() {
   return (
@@ -7,9 +8,7 @@ export default function AboutVision() {
       <div className="section_container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="xl:py-20">
-            <h3 className="section_header">
-              Our Vision
-            </h3>
+            <SectionHeaderText>Our Vision</SectionHeaderText>
             <p className="mt-1 sm:mt-4 mb-2 text-justify">
               ICS stands as the foremost and most enduring professional event
               management company in First Nations Australia, distinguished by

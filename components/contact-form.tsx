@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { configs } from "@/lib/data";
 import SubmitButton from "./submit-button";
 import { sendEmail } from "@/actions/send-email";
+import SectionHeaderText from "./section-header-text";
 
 export default function ContactForm() {
   return (
@@ -22,9 +23,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <h2 className="w-fit section_header mb-1">
-            Contact Us
-          </h2>
+          <SectionHeaderText>Contact Us</SectionHeaderText>
           <small className="text-sm lg:text-base">
             Please contact us direcly at{" "}
             <Link

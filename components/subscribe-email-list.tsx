@@ -4,18 +4,19 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 import { FaPaperPlane } from "react-icons/fa";
 import React, { FormEvent, useState } from "react";
+import SectionHeaderText from "./section-header-text";
 
 export default function SubscribeEmailList() {
   return (
     <section className="pt-2">
       <div className="section_container">
-        <div className="relative h-[30rem] rounded-sm overflow-hidden">
+        <div className="relative h-[20rem] rounded-sm overflow-hidden">
           <Image
             src="/assets/images/email-subscribe-bg.webp"
-            alt="Subscribe to our email list"
+            alt="Australian Conference by Indigenous Organizers"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover"
+            className="object-cover blur-sm object-top grayscale"
           />
           <EmailForm />
         </div>
@@ -60,10 +61,8 @@ function EmailForm() {
 
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center container">
-      <h2 className="section_header text-white mb-2 lg:mb-5">
-        Join Our Conference
-      </h2>
-      <p className="text-center text-white/80 mb-4">
+      <SectionHeaderText>Join Our Conference</SectionHeaderText>
+      <p className="text-center font-medium mb-4">
         Subscribe to our mailing list and stay informed about the latest
         developments in the world of ICS conferences.
       </p>
@@ -78,7 +77,7 @@ function EmailForm() {
           maxLength={500}
           placeholder="Email"
           onChange={(event) => setEmail(event.target.value)}
-          className="h-14 px-4 bg-black/40 backdrop-blur-md border-solid border-[1px] border-stone-500/60 transition-all w-20 text-white flex-grow rounded-l-md"
+          className="h-12 px-4 bg-black border-solid border-[1px] border-stone-500/60 transition-all w-20 text-white flex-grow rounded-l-md"
         />
         <button
           type="submit"

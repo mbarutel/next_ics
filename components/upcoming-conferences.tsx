@@ -11,8 +11,8 @@ export default function UpcomingConferences(
   return (
     <section id="conferences" className="scroll-mt-28 section_margin">
       <div className="section_container">
-        <SectionHeaderText text={"Upcoming Conferences"} />
-        <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-y-2 gap-x-4">
+        <SectionHeaderText>Upcoming Conferences</SectionHeaderText>
+        <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-y-3 gap-x-4">
           <div className="hidden xl:block absolute h-full top-0 left-1/2 -translate-x-1/2 w-1 bg-gray-400 rounded-full opacity-90" />
           {conferences.map((conference) => (
             <Fragment

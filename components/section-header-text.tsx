@@ -1,15 +1,11 @@
 import React from "react";
 
 export default function SectionHeaderText(
-  { text }: {
-    text: string;
-  },
+  { children }: { children: React.ReactNode },
 ) {
   return (
-    <div className="pb-2 md:pb-5">
-      <h2 className="section_header leading-none">
-        {text}
-      </h2>
-    </div>
+    <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-normal leading-7 mb-4">
+      {children}
+    </h2>
   );
 }

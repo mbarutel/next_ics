@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import SectionHeaderText from "./section-header-text";
 
 export default function About() {
   return (
@@ -22,9 +23,7 @@ export default function About() {
             </div>
           </div>
           <div className="flex flex-col relative sm:pt-10 sm:pl-6 lg:pt-16">
-            <h2 className="section_header">
-              About ICS
-            </h2>
+            <SectionHeaderText>About ICS</SectionHeaderText>
             <h3 className="tracking-tight text-lg md:text-xl uppercase font-semibold">
               Indigenous Conference Services
             </h3>

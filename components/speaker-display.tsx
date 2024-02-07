@@ -25,7 +25,7 @@ export default function SpeakersDisplay(
   return (
     <section className="section_margin">
       <div className="section_container flex flex-col">
-        <SectionHeaderText text="Speakers" />
+        <SectionHeaderText>Speakers</SectionHeaderText>
         <div>
           {/* Grid */}
           {side === true ? null : (

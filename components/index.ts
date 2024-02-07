@@ -24,6 +24,7 @@ import RegistrationForm from "./registration-form";
 import RegistrationHeader from "./registration-header";
 import InstagramBanner from "./instagram-banner";
 import ConferenceTimer from "./conference-timer";
+import MeetTheTeam from "./meet-the-team";
 
 export {
   About,
@@ -46,6 +47,7 @@ export {
   InstagramBanner,
   LandingHeader,
   Masterclass,
+  MeetTheTeam,
   NavBar,
   RegistrationForm,
   RegistrationHeader,

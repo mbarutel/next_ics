@@ -8,7 +8,7 @@ export default function CallToAction() {
   return (
     <section className="section_margin">
       <div className="section_container">
-        <SectionHeaderText text="Become Part of ICS" />
+        <SectionHeaderText>Become Part of ICS</SectionHeaderText>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2">
           {cta.map((action, index) => (
             <Fragment key={index}>
