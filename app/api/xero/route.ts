@@ -34,7 +34,7 @@ export async function POST(
           },
           date: dayjs(new Date()).format("YYYY-MM-DD"),
           dueDate: dayjs(body.priceDueDate).format("YYYY-MM-DD"),
-          lineAmountTypes: LineAmountTypes.Inclusive,
+          lineAmountTypes: LineAmountTypes.Exclusive,
           lineItems: generateLineItems({ body }),
           totalTax: body.total * 0.1,
           status: Invoice.StatusEnum.DRAFT,
