@@ -29,17 +29,17 @@ export const getErrorMessage = (error: unknown) => {
   return message;
 };
 
-export const RegistrationObjectApiParser = (
+export const registrationObjectApiParser = (
   { values, conference }: {
     values: FormValuesType;
     conference: ConferenceType;
   },
 ): RegistrationType => {
-  if (!conference.prices) {
-    throw new Error("Conference prices are not set");
+  if (!conference.prices || !conference.date) {
+    throw new Error("Error with conference properties");
   }
 
-  const reference = parseReference(conference.title);
+  const reference = generateReference(conference.date.startDate);
   const events = values.events.join("\n");
   const extraParticipants = parseExtraParticipants(values.extraParticipants)
     .map((item) => item.name.concat(` | ${item.email} | ${item.position}`))
@@ -120,17 +120,49 @@ const parseDinnerParticipants = (
   return dinnerParticipants as DinnerParticipantType[];
 };
 
-const parseReference = (conference: string): string => {
-  const date = new Date();
-  const conferenceCode = conference.split(" ").map((word) =>
-    word[0].toUpperCase()
-  ).join("");
+// const parseReference = (conference: string): string => {
+//   const date = new Date();
+//   const conferenceCode = conference.split(" ").map((word) =>
+//     word[0].toUpperCase()
+//   ).join("");
+//
+//   const seconds = date.getSeconds();
+//   const minutes = date.getMinutes();
+//   const day = date.getDate();
+//   const month = date.getMonth() + 1;
+//   const year = date.getFullYear();
+//
+//   return `${conferenceCode}-${day}/${month}/${year}-${minutes}${seconds}`;
+// };
 
-  const seconds = date.getSeconds();
-  const minutes = date.getMinutes();
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
+const formatDate = (date: Date): string => {
+  const months = [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC",
+  ];
+  const month = months[date.getMonth()];
+  const year = date.getFullYear().toString().slice(-2);
 
-  return `${conferenceCode}-${day}/${month}/${year}-${minutes}${seconds}`;
+  return `${month}${year}`;
+};
+
+const generateReference = (startDate: Date): string => {
+  const dateCode = formatDate(startDate);
+  const currentDate = new Date();
+
+  const day = currentDate.getDate();
+  const minutes = currentDate.getMinutes();
+  const seconds = currentDate.getSeconds().toString().slice(-1);
+
+  return `ICS/${dateCode}/${day}${minutes}${seconds}`;
 };

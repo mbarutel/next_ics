@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import React, { useState } from "react";
 import { Formik, FormikHelpers } from "formik";
 import FormFields from "./registration/form-fields";
-import { RegistrationObjectApiParser } from "@/lib/utils";
+import { registrationObjectApiParser } from "@/lib/utils";
 import FormValidation from "./registration/form-validation";
 import { ConferenceType, FormValuesType } from "@/lib/types";
 
@@ -19,7 +19,7 @@ export default function RegistrationForm(conference: ConferenceType) {
     },
   ) => {
     try {
-      const registrationObject = RegistrationObjectApiParser({
+      const registrationObject = registrationObjectApiParser({
         values: values,
         conference: conference,
       });

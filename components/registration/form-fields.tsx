@@ -145,6 +145,7 @@ function ReviewBox(
   const total = values.price.priceChoice * participantQty +
     values.dinnerParticipants.length * conference.prices?.dinner +
     (values.masterclass !== "no" ? conference.prices?.masterclass : 0);
+  const gst = total * 0.1;
 
   return (
     <>
@@ -249,7 +250,8 @@ function ReviewBox(
           Masterclass: ${conference.prices?.masterclass}
         </h3>
       )}
-      {total > 0 && <h3>Total: ${total}</h3>}
+      {total > 0 && <h3>10% GST: ${gst}</h3>}
+      {total > 0 && <h3>Total: ${total + gst}</h3>}
       <div className="h-1 bg-white/90 rounded-full mt-3" />
     </>
   );

@@ -19,7 +19,6 @@ export async function POST(
   const body = JSON.parse(passedValue) as RegistrationType;
 
   try {
-    console.log(body);
     await xero.getClientCredentialsToken();
 
     const contactId = await contactCheck(body);

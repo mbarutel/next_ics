@@ -1,6 +1,6 @@
 import { xero } from "@/xero/client";
 import { RegistrationType } from "./types";
-import { Contacts, LineItem } from "xero-node";
+import { ContactGroup, ContactGroups, Contacts, LineItem } from "xero-node";
 
 export function generateLineItems({ body }: { body: RegistrationType }) {
   let objects: LineItem[] = [{
@@ -59,46 +59,24 @@ export async function contactCheck(
 ) {
   const contacts = await xero.accountingApi.getContacts("");
 
+  // Check name of registration to contact.name
   const matchedName = contacts.body.contacts &&
     contacts.body.contacts.find((contact) =>
-      contact.name?.toLowerCase() === body.company.toLowerCase()
+      contact.name?.toLowerCase() === body.mainParticipant.name.toLowerCase()
     );
 
   const name = body.mainParticipant.name.split(" ");
   const firstName = name.slice(0, name.length - 1).join(" ");
   const lastName = name[name.length - 1];
-  const email = body.mainParticipant.email;
 
   if (matchedName && matchedName.contactID) {
-    if (
-      firstName !== matchedName.firstName ||
-      lastName !== matchedName.lastName || email !== matchedName.emailAddress
-    ) {
-      const contactObject: Contacts = {
-        contacts: [
-          {
-            ...matchedName,
-            firstName,
-            lastName,
-            emailAddress: body.mainParticipant.email,
-          },
-        ],
-      };
-
-      await xero.accountingApi.updateContact(
-        "",
-        matchedName.contactID,
-        contactObject,
-      );
-    }
-
     return matchedName.contactID;
   }
 
   const contactObject = {
     contacts: [
       {
-        name: body.company,
+        name: body.mainParticipant.name,
         firstName: firstName,
         lastName: lastName,
         emailAddress: body.mainParticipant.email,

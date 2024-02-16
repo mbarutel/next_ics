@@ -61,7 +61,7 @@ export async function POST(
             body.priceValue,
             body.dinnerPrice,
             body.masterclassPrice,
-            body.total,
+            body.total + (body.total* 0.1),
             dayjs(body.priceDueDate).format("DD MMMM, YYYY"),
           ],
         ],
