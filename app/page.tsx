@@ -3,6 +3,7 @@ import {
   CallToAction,
   ConferenceTimer,
   InstagramBanner,
+  IntroModal,
   LandingHeader,
   MeetTheTeam,
   NavBar,
@@ -32,6 +33,7 @@ export default async function Home() {
 
   return (
     <>
+      <IntroModal />
       <NavBar conferences={conferences} />
       <LandingHeader />
       <Announcement />

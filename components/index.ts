@@ -25,9 +25,11 @@ import RegistrationHeader from "./registration-header";
 import InstagramBanner from "./instagram-banner";
 import ConferenceTimer from "./conference-timer";
 import MeetTheTeam from "./meet-the-team";
+import IntroModal from "./intro-modal";
 
 export {
   About,
+  IntroModal,
   AboutPurpose,
   AboutValues,
   AboutVision,
