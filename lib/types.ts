@@ -41,7 +41,6 @@ export type ConferenceType = {
   coverImage: AssetType;
   events: EventType[];
   speakers: SpeakerType[];
-  registrationLink: string; // Will be irrelevant soon
   masterclass: MasterclassType[];
   submitPaperLink: string | undefined;
   formLink: string;

@@ -24,7 +24,6 @@ export default function parserConferenceEntry(
       startDate: conferenceEntry.fields.startDate,
       endDate: conferenceEntry.fields.endDate,
     }),
-    registrationLink: conferenceEntry.fields.registrationLink,
     submitPaperLink: conferenceEntry.fields.submitAPaperLink,
     events: parseEventsInConference(conferenceEntry.fields.events),
     coverImage: parserAsset({ asset: conferenceEntry.fields.coverImage }),

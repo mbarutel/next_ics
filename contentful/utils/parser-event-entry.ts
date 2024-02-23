@@ -53,7 +53,6 @@ function parseConferenceInEvent(
         startDate: conference.fields.startDate,
         endDate: conference.fields.endDate,
       }),
-      registrationLink: conference.fields.registrationLink,
       submitPaperLink: conference.fields.submitAPaperLink,
       formLink: conference.fields.externalForm === undefined
         ? `/registration/${conference.fields.slug}`
