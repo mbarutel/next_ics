@@ -3,11 +3,11 @@ import type { TypeConferencesSkeleton } from "./TypeConferences";
 
 export interface TypeEventFields {
     title: EntryFieldTypes.Symbol;
+    slug: EntryFieldTypes.Symbol;
     description: EntryFieldTypes.Text;
     content: EntryFieldTypes.RichText;
     tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
     media?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
-    slug: EntryFieldTypes.Symbol;
     coverImage: EntryFieldTypes.AssetLink;
     conference: EntryFieldTypes.EntryLink<TypeConferencesSkeleton>;
     agenda?: EntryFieldTypes.Object;
