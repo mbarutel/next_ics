@@ -46,7 +46,7 @@ export default function AboutVision() {
             <div className="absolute bottom-0 left-0 h-[90%] w-[90%]">
               <div className="relative h-full rounded-md overflow-hidden">
                 <Image
-                  src="/assets/images/image_vision.webp"
+                  src="/assets/images/about_vision.webp"
                   fill
                   alt="Indigenous Health Conference"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

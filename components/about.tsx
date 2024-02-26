@@ -12,7 +12,7 @@ export default function About() {
             <div className="absolute bottom-0 right-0 h-[90%] w-[90%]">
               <div className="relative h-full rounded-md overflow-hidden">
                 <Image
-                  src="/assets/images/about-img.webp"
+                  src="/assets/images/ics_about.webp"
                   fill
                   priority={true}
                   alt="Indigenous Health Conference"
