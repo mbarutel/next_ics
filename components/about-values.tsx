@@ -42,7 +42,7 @@ export default function AboutValues() {
             <div className="absolute top-0 left-0 h-[90%] w-[90%]">
               <div className="relative h-full rounded-md overflow-hidden">
                 <Image
-                  src="/assets/images/aboriginal-art.webp"
+                  src="/assets/images/about_values.webp"
                   fill
                   alt="Indigenous Health Conference"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
