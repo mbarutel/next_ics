@@ -39,7 +39,7 @@ export const registrationObjectApiParser = (
     throw new Error("Error with conference properties");
   }
 
-  const reference = generateReference(conference.date.startDate);
+  const reference = generateReference(conference);
   const events = values.events.join("\n");
   const extraParticipants = parseExtraParticipants(values.extraParticipants)
     .map((item) => item.name.concat(` | ${item.email} | ${item.position}`))
@@ -120,49 +120,15 @@ const parseDinnerParticipants = (
   return dinnerParticipants as DinnerParticipantType[];
 };
 
-// const parseReference = (conference: string): string => {
-//   const date = new Date();
-//   const conferenceCode = conference.split(" ").map((word) =>
-//     word[0].toUpperCase()
-//   ).join("");
-//
-//   const seconds = date.getSeconds();
-//   const minutes = date.getMinutes();
-//   const day = date.getDate();
-//   const month = date.getMonth() + 1;
-//   const year = date.getFullYear();
-//
-//   return `${conferenceCode}-${day}/${month}/${year}-${minutes}${seconds}`;
-// };
+const generateReference = (conference: ConferenceType): string => {
+  if (!conference.date) {
+    throw new Error("Date cannot be empty at this point.");
+  }
 
-const formatDate = (date: Date): string => {
-  const months = [
-    "JAN",
-    "FEB",
-    "MAR",
-    "APR",
-    "MAY",
-    "JUN",
-    "JUL",
-    "AUG",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DEC",
-  ];
-  const month = months[date.getMonth()];
-  const year = date.getFullYear().toString().slice(-2);
-
-  return `${month}${year}`;
-};
-
-const generateReference = (startDate: Date): string => {
-  const dateCode = formatDate(startDate);
   const currentDate = new Date();
-
   const day = currentDate.getDate();
   const minutes = currentDate.getMinutes();
   const seconds = currentDate.getSeconds().toString().slice(-1);
 
-  return `ICS/${dateCode}/${day}${minutes}${seconds}`;
+  return `${conference.invoiceRef}-${day}${minutes}${seconds}`;
 };

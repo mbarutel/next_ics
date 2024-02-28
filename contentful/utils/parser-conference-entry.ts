@@ -1,9 +1,9 @@
 import {
-  ConferencesEntry,
-  ConferenceType,
-  EventEntry,
-  EventType,
   PriceType,
+  EventType,
+  EventEntry,
+  ConferenceType,
+  ConferencesEntry,
 } from "@/lib/types";
 import parserAsset from "./parser-asset";
 import { Entry, UnresolvedLink } from "contentful";
@@ -20,6 +20,7 @@ export default function parserConferenceEntry(
     slug: conferenceEntry.fields.slug,
     title: conferenceEntry.fields.title,
     venue: conferenceEntry.fields.venue,
+    invoiceRef: conferenceEntry.fields.invoiceReference,
     date: parserConferenceDate({
       startDate: conferenceEntry.fields.startDate,
       endDate: conferenceEntry.fields.endDate,

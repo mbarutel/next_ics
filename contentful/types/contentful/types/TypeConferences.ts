@@ -6,6 +6,7 @@ import type { TypeSpeakerSkeleton } from "./TypeSpeaker";
 export interface TypeConferencesFields {
     title: EntryFieldTypes.Symbol;
     slug: EntryFieldTypes.Symbol;
+    invoiceReference: EntryFieldTypes.Symbol;
     startDate?: EntryFieldTypes.Date;
     endDate?: EntryFieldTypes.Date;
     venue: EntryFieldTypes.Symbol;

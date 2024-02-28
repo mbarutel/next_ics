@@ -1,8 +1,8 @@
 import {
-  TypeConferencesSkeleton,
   TypeEventSkeleton,
-  TypeMasterclassSkeleton,
   TypeSpeakerSkeleton,
+  TypeConferencesSkeleton,
+  TypeMasterclassSkeleton,
 } from "@/contentful/types/contentful/types";
 import { Entry } from "contentful";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
@@ -21,13 +21,13 @@ export type EventEntry = Entry<TypeEventSkeleton, undefined, string>;
 export type SpeakerEntry = Entry<TypeSpeakerSkeleton, undefined, string>;
 
 export type PriceType = {
-  dinner: number;
-  masterclass: number;
-  walkIn: number;
   base: {
     price: number;
     dueDate: Date;
   }[];
+  dinner: number;
+  walkIn: number;
+  masterclass: number;
 };
 
 export type ConferenceType = {
@@ -35,16 +35,17 @@ export type ConferenceType = {
   title: string;
   venue: string;
   date: {
-    startDate: Date;
     endDate: Date;
+    startDate: Date;
   } | undefined;
-  coverImage: AssetType;
+  formLink: string;
+  invoiceRef: string;
   events: EventType[];
+  coverImage: AssetType;
   speakers: SpeakerType[];
+  prices: PriceType | undefined;
   masterclass: MasterclassType[];
   submitPaperLink: string | undefined;
-  formLink: string;
-  prices: PriceType | undefined;
 };
 
 export type EventType = {
@@ -60,7 +61,7 @@ export type EventType = {
 
 export type ConferenceInEventType = Omit<
   ConferenceType,
-  "slug" | "tite" | "events" | "coverImage" | "speakers" | "prices"
+  "slug" | "tite" | "events" | "coverImage" | "speakers" | "prices" | "invoiceRef"
 >;
 
 export type AssetType = {
