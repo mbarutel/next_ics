@@ -37,11 +37,11 @@ export default async function Home() {
       <NavBar conferences={conferences} />
       <LandingHeader />
       <Announcement />
-      <InstagramBanner />
       <NextConference conferences={conferences} />
       <UpcomingConferences
         conferences={conferences.slice(1)}
       />
+      <InstagramBanner />
       <MeetTheTeam />
       <CallToAction />
       <SubscribeEmailList />
