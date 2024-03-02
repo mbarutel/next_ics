@@ -6,9 +6,9 @@ export default function About() {
   return (
     <section className="section_margin">
       <div className="section_container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 justify-center items-end">
-          <div className="relative h-full hidden sm:block">
-            <span className="w-60 h-96 absolute top-0 left-0 bg-gradient-to-r gradient_secondary rounded-md" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="about_image_wrapper">
+            <div className="w-60 h-96 absolute top-0 left-0 bg-gradient-to-r gradient_secondary rounded-md" />
             <div className="absolute bottom-0 right-0 h-[90%] w-[90%]">
               <div className="relative h-full rounded-md overflow-hidden">
                 <Image
@@ -22,7 +22,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col relative sm:pt-10 sm:pl-6 lg:pt-16">
+          <div className="flex flex-col relative">
             <SectionHeaderText>About ICS</SectionHeaderText>
             <h3 className="tracking-tight text-lg md:text-xl uppercase font-semibold">
               Indigenous Conference Services

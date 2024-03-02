@@ -143,6 +143,14 @@ body {
   @apply hover:scale-110 transition duration-500;
 }
 
+.about_section_columns {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+}
+
+.about_image_wrapper {
+  @apply relative h-full hidden md:block;
+}
+
 /* Event Page */
 
 .event_tab_text {

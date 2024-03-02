@@ -6,7 +6,7 @@ export default function AboutValues() {
   return (
     <section className="section_margin">
       <div className="section_container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="about_section_columns">
           <div className="xl:py-20">
             <SectionHeaderText>Our Values</SectionHeaderText>
             <p className="mt-1 sm:mt-4 mb-2 text-justify">
@@ -37,7 +37,7 @@ export default function AboutValues() {
               advancing Indigenous health and closing the gap.
             </p>
           </div>
-          <div className="relative h-full hidden sm:block">
+          <div className="about_image_wrapper">
             <span className="w-60 h-96 absolute bottom-0 right-0 bg-gradient-to-l gradient_secondary rounded-md" />
             <div className="absolute top-0 left-0 h-[90%] w-[90%]">
               <div className="relative h-full rounded-md overflow-hidden">
