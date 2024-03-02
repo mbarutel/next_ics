@@ -6,11 +6,9 @@ export interface TypeEventFields {
     slug: EntryFieldTypes.Symbol;
     description: EntryFieldTypes.Text;
     content: EntryFieldTypes.RichText;
-    tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
     media?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
     coverImage: EntryFieldTypes.AssetLink;
     conference: EntryFieldTypes.EntryLink<TypeConferencesSkeleton>;
-    agenda?: EntryFieldTypes.Object;
 }
 
 export type TypeEventSkeleton = EntrySkeletonType<TypeEventFields, "event">;

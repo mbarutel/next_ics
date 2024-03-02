@@ -41,6 +41,7 @@ export type ConferenceType = {
   formLink: string;
   invoiceRef: string;
   events: EventType[];
+  agenda: AgendaType[];
   coverImage: AssetType;
   speakers: SpeakerType[];
   prices: PriceType | undefined;
@@ -51,9 +52,7 @@ export type ConferenceType = {
 export type EventType = {
   slug: string;
   title: string;
-  tags: string[];
   description: string;
-  agenda: AgendaType[];
   poster: AssetType;
   content: RichTextDocument;
   conference: ConferenceInEventType | undefined;

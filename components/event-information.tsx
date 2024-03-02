@@ -10,7 +10,10 @@ export default function EventInformation(event: EventType) {
     "Information",
   );
 
-  const agenda = event.agenda.length > 0 ? event.agenda : null;
+  let agenda = null;
+  if (event.conference && event.conference.agenda.length) {
+    agenda = event.conference.agenda;
+  }
   const masterclasses =
     event.conference && event.conference.masterclass.length > 0
       ? event.conference.masterclass

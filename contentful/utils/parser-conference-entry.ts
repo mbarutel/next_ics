@@ -12,6 +12,7 @@ import parserConferenceDate from "./parser-conference-date";
 import { TypeEventSkeleton } from "../types/contentful/types";
 import parserSpeakerInConference from "./parser-speaker-in-conference";
 import parserMasterclassesInConference from "./parser-masterclasses-in-conference";
+import { parseAgenda } from "./parser-agenda";
 
 export default function parserConferenceEntry(
   conferenceEntry: ConferencesEntry,
@@ -20,6 +21,7 @@ export default function parserConferenceEntry(
     slug: conferenceEntry.fields.slug,
     title: conferenceEntry.fields.title,
     venue: conferenceEntry.fields.venue,
+    agenda: parseAgenda(conferenceEntry.fields.agenda),
     invoiceRef: conferenceEntry.fields.invoiceReference,
     date: parserConferenceDate({
       startDate: conferenceEntry.fields.startDate,
@@ -38,6 +40,7 @@ export default function parserConferenceEntry(
     prices: parseConferencePrices(conferenceEntry.fields.prices),
   };
 }
+
 
 function parseConferencePrices(object: unknown): PriceType | undefined {
   const parsedPrice = object as PriceType;
@@ -90,6 +93,7 @@ function parseConferencePrices(object: unknown): PriceType | undefined {
   }
   return parsedPrice;
 }
+
 
 function parseEventsInConference(
   events:
