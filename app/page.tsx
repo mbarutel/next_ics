@@ -1,12 +1,12 @@
 import {
   Announcement,
   CallToAction,
-  ConferenceTimer,
   InstagramBanner,
   IntroModal,
   LandingHeader,
   MeetTheTeam,
   NavBar,
+  NextConference,
   SubscribeEmailList,
   UpcomingConferences,
 } from "@/components";
@@ -38,9 +38,9 @@ export default async function Home() {
       <LandingHeader />
       <Announcement />
       <InstagramBanner />
-      <ConferenceTimer conferences={conferences} />
+      <NextConference conferences={conferences} />
       <UpcomingConferences
-        conferences={conferences}
+        conferences={conferences.slice(1)}
       />
       <MeetTheTeam />
       <CallToAction />

@@ -26,10 +26,10 @@ import InstagramBanner from "./instagram-banner";
 import ConferenceTimer from "./conference-timer";
 import MeetTheTeam from "./meet-the-team";
 import IntroModal from "./intro-modal";
+import NextConference from "./next-conference";
 
 export {
   About,
-  IntroModal,
   AboutPurpose,
   AboutValues,
   AboutVision,
@@ -47,10 +47,12 @@ export {
   Footer,
   GoogleAnalytics,
   InstagramBanner,
+  IntroModal,
   LandingHeader,
   Masterclass,
   MeetTheTeam,
   NavBar,
+  NextConference,
   RegistrationForm,
   RegistrationHeader,
   SpeakersDisplay,
