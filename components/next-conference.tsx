@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ConferenceType } from "@/lib/types";
 import Image from "next/image";
 import dayjs from "dayjs";
+import Link from "next/link";
 
 export default function NextConference(
   { conferences }: { conferences: ConferenceType[] },
@@ -19,9 +20,8 @@ export default function NextConference(
 
   return (
     <section>
-      <div className="section_container">
+      <div className="section_container xl:!px-36">
         <div className="uppercase">
-          <span>{conference.title}</span>
           <h2 className="text-center mb-2">
             Next Conference
           </h2>
@@ -32,8 +32,8 @@ export default function NextConference(
           </div>
         </div>
 
-        <div className="grid grid-cols-1">
-          <div className="relative rounded-md overflow-hidden h-36">
+        <div className="grid grid-cols-1 xl:grid-cols-2">
+          <div className="relative rounded-md overflow-hidden h-36 xl:order-1 xl:h-80 xl:mb-24">
             <Image
               src={conference.coverImage.src}
               alt={conference.coverImage.alt}
@@ -110,16 +110,36 @@ function ConferenceDetails(conference: ConferenceType) {
   }
 
   return (
-    <div className="bg-yellow-400 uppercase rounded-lg w-[95%] mx-auto -translate-y-5">
-      <h2>{conference.title}</h2>
-      <h3>
-        {
-          <>
-            {dayjs(conference.date.startDate).format("DD-")}
-            {dayjs(conference.date.endDate).format("DD MMM YY")}
-          </>
-        }
-      </h3>
+    <div className="bg-gradient-to-br gradient_secondary uppercase flex flex-col rounded-lg p-2 z-10 w-[95%] mx-auto -translate-y-5 xl:translate-y-0 xl:mt-24 xl:w-[120%]">
+      <h3 className="conference_card_title text-gray-800 mt-3">{conference.title}</h3>
+      <h4 className="conference_card_info flex flex-col text-gray-600 mt-3">
+        <span>
+          {dayjs(conference.date.startDate).format("DD-")}
+          {dayjs(conference.date.endDate).format("DD MMM YY")}
+        </span>
+        <span className="leading-none">
+          {conference.venue}
+        </span>
+      </h4>
+      <div className="w-full flex gap-1 p-1 mt-3 xl:mt-auto">
+        <Link
+          href={`/conference/${conference.slug}`}
+          className="grow py-2 text-center text-lg font-bold bg-black/90  hover:bg-gradient-to-b from-gray-400 to-gray-600 hover:text-black transition_config rounded-sm active:scale-95"
+        >
+          View Events
+        </Link>
+        {conference.formLink &&
+          (
+            <Link
+              target="_blank"
+              rel="noreferer"
+              href={`/registration/${conference.slug}`}
+              className="grow py-2 text-center text-lg font-bold bg-black/90 hover:bg-gradient-to-b from-gray-400 to-gray-600 hover:text-black transition_config rounded-sm active:scale-95"
+            >
+              Registration
+            </Link>
+          )}
+      </div>
     </div>
   );
 }

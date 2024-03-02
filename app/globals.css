@@ -99,6 +99,14 @@ body {
   @apply from-[#f8bf33] via-[#f8ce19] to-[#ffdc02];
 }
 
+.conference_card_title {
+  @apply text-xl md:text-2xl font-semibold uppercase !tracking-tight !leading-none;  
+}
+
+.conference_card_info {
+  @apply text-lg sm:text-xl font-semibold;
+}
+
 /* Navigation Bar */
 
 .nav_links {

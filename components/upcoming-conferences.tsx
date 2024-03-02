@@ -35,18 +35,18 @@ function ConferenceCard(conference: ConferenceType) {
         alt={conference.coverImage.alt}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="hidden md:block object-cover grayscale-[75%] transition_config group-hover:grayscale-0 md:group-odd:clip-path-polygon-[0_0,_30%_0,_40%_100%,_0_100%] z-40 group-even:clip-path-polygon-[70%_0,_100%_0,_100%_100%,_60%_100%]"
+        className="hidden md:block object-cover grayscale-[75%] transition_config group-hover:grayscale-0 md:group-odd:clip-path-polygon-[0_0,_30%_0,_40%_100%,_0_100%] z-40 group-even:clip-path-polygon-[70%_0,_100%_0,_100%_100%,_60%_100%] group-hover:scale-110"
       />
       <div className="conference_card_info_wrap conference_card_orientation">
         <Link
           href={`/conference/${conference.slug}`}
           className="text-transparent bg-clip-text bg-gradient-to-r gradient md:max-w-[30rem] lg:max-w-[25rem] 2xl:max-w-[30rem] pt-2 z-20 active:scale-95 transition_config"
         >
-          <h3 className="text-xl md:text-2xl font-semibold md:group-even:ml-auto uppercase !tracking-tight !leading-none transition_config text-white mb-1">
+          <h3 className="conference_card_title md:group-even:ml-auto transition_config mb-1 text-white">
             {conference.title}
           </h3>
           <Date date={conference.date} />
-          <h4 className="-mt-2 text-xl whitespace-nowrap group-hover:whitespace-normal transition font-semibold">
+          <h4 className="-mt-2 conference_card_info">
             {conference.venue}
           </h4>
         </Link>
@@ -81,7 +81,7 @@ function Date(
 ) {
   return (
     <span className="z-20">
-      <h4 className="text-xl whitespace-nowrap font-semibold">
+      <h4 className="conference_card_info">
         {date
           ? (
             <>
