@@ -44,7 +44,7 @@ function ConferenceDetails(conference: ConferenceType) {
   }
 
   return (
-    <div className="bg-yellow-400/90 uppercase flex flex-col justify-center rounded-lg z-10 w-[95%] mx-auto -translate-y-5 px-2 xl:px-4 xl:translate-y-0 xl:mt-24 xl:w-[110%] xl:min-h-[400px]">
+    <div className="bg-yellow-400/90 uppercase flex flex-col justify-center rounded-lg z-10 w-[95%] mx-auto -translate-y-5 p-2 xl:p-4 xl:translate-y-0 xl:mt-24 xl:w-[110%] xl:min-h-[400px]">
       <h3 className="conference_card_title lg:text-3xl xl:text-4xl text-gray-800 mt-3">
         {conference.title}
       </h3>
