@@ -8,6 +8,7 @@ import {
   NavBar,
   NextConference,
   SubscribeEmailList,
+  Testimonials,
   UpcomingConferences,
 } from "@/components";
 import { draftMode } from "next/headers";
@@ -42,6 +43,7 @@ export default async function Home() {
         conferences={conferences.slice(1)}
       />
       <InstagramBanner />
+      <Testimonials />
       <MeetTheTeam />
       <CallToAction />
       <SubscribeEmailList />

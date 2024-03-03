@@ -95,3 +95,12 @@ export const dietaryOptions = [
   "Gluten Free",
   "Other",
 ] as const;
+
+export const testimonials = [
+  "I loved this conference and I can’t wait to come to the next one",
+  "I felt culturally safe - I am not Aboriginal but I am not Anglo either. It felt warm, friendly and humble, don’t often get that it in conferences. I met some beautiful people and great networks. Thank you for the opportunity to present",
+  "Really enjoyed myself listening to eve try ones story",
+  "Fantastic speakers again! Very informative and impactful for me",
+  "Food was great, organisers did a great job kept us informed and on time, great venue, lovely to see aboriginal wears on sale, IT was spot on and extremely helpful, helped with each presentation",
+  "Thank you for this opportunity to connect & learn from Indigenous people who have such similar struggles as the native population of our lands",
+] as const;
