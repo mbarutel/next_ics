@@ -16,10 +16,18 @@ export default function NextConference(
     return null;
   }
 
+  let sectionTitle;
+
+  if (dateNow >= conference.date.startDate && dateNow <=conference.date.endDate) {
+    sectionTitle = "Current Conference";
+  } else {
+    sectionTitle = "Next Conference";
+  }
+
   return (
     <section className="section_margin">
       <div className="section_container">
-        <SectionHeaderText>Next Conference</SectionHeaderText>
+        <SectionHeaderText>{sectionTitle}</SectionHeaderText>
         <div className="xl:px-24">
           <div className="grid grid-cols-1 xl:grid-cols-2">
             <div className="relative rounded-md overflow-hidden h-36 xl:order-1 xl:h-auto xl:mb-24">
