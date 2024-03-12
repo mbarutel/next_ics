@@ -24,7 +24,7 @@ export default function Accomodation(
 
   return (
     <div className="question_wrapper">
-      <QuestionTitle>Accomodation</QuestionTitle>
+      <QuestionTitle>Accommodation</QuestionTitle>
       <EmptyWarning
         text={errors.accomodation as string}
         error={errors.accomodation}

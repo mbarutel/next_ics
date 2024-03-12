@@ -52,7 +52,7 @@ function ConferenceDetails(conference: ConferenceType) {
   }
 
   return (
-    <div className="bg-yellow-400/90 uppercase flex flex-col justify-center rounded-lg z-10 w-[95%] mx-auto -translate-y-5 p-2 xl:p-4 xl:translate-y-0 xl:mt-24 xl:w-[110%] xl:min-h-[400px]">
+    <div className="bg-yellow-400/90 uppercase flex flex-col justify-center rounded-lg z-10 w-[95%] mx-auto -translate-y-5 p-2 xl:p-4 xl:translate-y-0 xl:mt-24 xl:w-[110%] xl:min-h-[400px] shadow-black/80 shadow-lg">
       <h3 className="conference_card_title lg:text-3xl xl:text-4xl text-gray-800 mt-3">
         {conference.title}
       </h3>
@@ -68,7 +68,7 @@ function ConferenceDetails(conference: ConferenceType) {
       <div className="flex gap-1 text-black text-sm sm:text-lg z-40 capitalize mt-12">
         <Link
           href={`/conference/${conference.slug}`}
-          className="bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
+          className="bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3 shadow-black/40 shadow-md"
         >
           View Events
         </Link>
@@ -77,7 +77,7 @@ function ConferenceDetails(conference: ConferenceType) {
             href={conference.formLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r gradient rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
+            className="bg-gradient-to-r gradient rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3 shadow-black/40 shadow-md"
           >
             Registration
           </Link>
