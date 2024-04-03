@@ -52,7 +52,7 @@ export function Events(
             type="button"
             onClick={() => onHandleClick(event)}
             className={clsx(
-              "flex items-center rounded-md overflow-hidden border bg-stone-700 transition_config hover:scale-[101%] active:scale-[99%]",
+              "flex items-center rounded-md overflow-hidden border bg-stone-700 transition_config hover:scale-[101%] active:scale-[99%] shadow-md shadow-black/70",
               {
                 "!bg-gradient-to-r gradient text-black":
                   choices.includes(event.title) === true,

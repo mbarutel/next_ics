@@ -39,17 +39,17 @@ export default function FormFields(
     <Form>
       <div className="grid grid-cols-1 gap-2 xl:grid-cols-3 xl:gap-3">
         <div className="border-2 rounded-md px-5 xl:col-span-2 bg-stone-800">
-          <MainParticipant
-            errors={errors}
-            touched={touched}
-          />
-
           <Events
             errors={errors}
             touched={touched}
             choices={values.events}
             events={conference.events}
             setFieldValue={setFieldValue}
+          />
+
+          <MainParticipant
+            errors={errors}
+            touched={touched}
           />
 
           <ExtraParticipants extraParticipants={values.extraParticipants} />
@@ -114,7 +114,7 @@ export default function FormFields(
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-gradient-to-b gradient rounded-md border px-4 py-2 mt-4 hover:scale-105 focus:scale-105 active:scale-95 transition ease-in-out  min-w-[8rem] flex justify-center text-black"
+              className="bg-gradient-to-b gradient rounded-md border px-4 py-2 mt-4 hover:scale-105 focus:scale-105 active:scale-95 transition ease-in-out  min-w-[8rem] flex justify-center text-black shadow-md shadow-black/90"
             >
               {isSubmitting
                 ? (
