@@ -37,14 +37,19 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
               {row.time}
             </div>
             <div className="flex_col grow border-[1px] px-4 py-1 border-white/80 rounded-md">
-              {row.agenda.map((item, index) => (
-                <span
-                  key={index}
-                  className="text-sm sm:text-base lg:text-lg font-semibold border-white/90"
-                >
-                  {item}
-                </span>
-              ))}
+              <ul>
+                {row.agenda.map((item, index) => (
+                  <li
+                    key={index}
+                    className={clsx(
+                      "text-sm sm:text-base lg:text-lg list-inside border-white/90",
+                      { "list-disc": row.agenda.length > 1 },
+                    )}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
