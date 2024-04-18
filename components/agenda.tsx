@@ -37,6 +37,9 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
               {row.time}
             </div>
             <div className="flex_col grow border-[1px] px-4 py-1 border-white/80 rounded-md">
+              {row.agenda.length > 1 && (
+                <h5 className="text-sm italic">Breakout Sessions</h5>
+              )}
               <ul>
                 {row.agenda.map((item, index) => (
                   <li
