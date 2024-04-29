@@ -1,5 +1,6 @@
 "use client";
 
+import { GoDotFill } from "react-icons/go";
 import React, { useState } from "react";
 import { AgendaType } from "@/lib/types";
 import clsx from "clsx";
@@ -30,32 +31,39 @@ export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
         Please be advised that this conference agenda may change without prior
         notice.
       </h3>
-      <div className="relative flex_col gap-4">
-        {day.row.map((row, index) => (
-          <div key={index} className="flex gap-2 text-lg">
-            <div className="uppercase min-w-[5.5rem] flex items-center">
-              {row.time}
+      <div>
+        {day.row.map((row, index) => {
+          const displayBreakout =
+            row.agenda.length > 1 && day !== agenda[agenda.length - 1];
+
+          return (
+            <div key={index} className="grid grid-cols-12 group">
+              <h5 className="uppercase col-span-2">{row.time}</h5>
+              <div className="w-fit flex_col col-span-1">
+                <GoDotFill className="text-3xl" />
+                <div className="w-[30px] flex-grow flex_center group-last:hidden">
+                  <div className="h-full w-[2px] bg-yellow-400/10" />
+                </div>
+              </div>
+              <div className="col-span-9">
+                {displayBreakout && (
+                  <h5 className="text-sm italic">Breakout Sessions</h5>
+                )}
+                <ul className="flex_col gap-1 justify-center">
+                  {row.agenda.map((item, index) => (
+                    <li
+                      key={index}
+                      className="leading-tight text-sm xl:text-base last:mb-5 first:mt-1"
+                    >
+                      {row.agenda.length > 1 && "- "}
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="flex_col grow border-[1px] px-4 py-1 border-white/80 rounded-md">
-              {row.agenda.length > 1 && (
-                <h5 className="text-sm italic">Breakout Sessions</h5>
-              )}
-              <ul>
-                {row.agenda.map((item, index) => (
-                  <li
-                    key={index}
-                    className={clsx(
-                      "text-sm sm:text-base lg:text-lg list-inside border-white/90",
-                      { "list-disc": row.agenda.length > 1 },
-                    )}
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </>
   );

@@ -20,14 +20,16 @@ function TitleAndSubTitle() {
   return (
     <div className="absolute flex_col w-[95%] left-2 md:w-fit md:left-5 top-1/2 xl:top-1/3 -translate-y-1/2 z-40">
       <h1 className="uppercase font-extrabold text-5xl sm:text-6xl">
-        Indigenous<br />
-        Conference<br />
+        Indigenous
+        <br />
+        Conference
+        <br />
         Services
       </h1>
       <div className="h-2 w-full bg-white rounded-full my-3" />
       <p className="md:w-[25rem] leading-tight">
-        ICS wishes to invite you and your team for the interest in humanities
-        and improving outcomes for First Nations people to our next event
+        ICS wishes to invite you and your team with interest in humanities and
+        improving outcomes for First Nations people to our next conference.
       </p>
       <Link
         href="/#conferences"
@@ -58,17 +60,15 @@ function GridHeader() {
       <div className="header_grid_empty hidden lg:block" />
       <div className="header_grid_empty col-start-1 col-end-2 lg:hidden" />
       <div className="header_grid_with_text header_grid_effects flex_end xl:col-start-4 xl:col-end-5">
-        <h3>
-          the impossible is the next step for our journey
-        </h3>
+        <h3>the impossible is the next step for our journey</h3>
       </div>
       <div className="header_grid_empty hidden xl:block xl:row-start-3 xl:row-end-5 xl:col-start-5 xl:col-end-5" />
       <div className="header_grid_empty hidden xl:block" />
       <div className="header_grid_with_text flex_end xl:col-start-1 xl:col-end-5">
         <h3>
-          <span className="!uppercase">ICS</span>{" "}
-          stands as a fully Indigenous-owned enterprise, maintaining complete
-          independence from government funding bodies
+          <span className="!uppercase">ICS</span> stands as a fully
+          Indigenous-owned enterprise, maintaining complete independence from
+          government funding bodies
         </h3>
       </div>
       <div className="header_grid_with_text header_grid_effects flex_end">
