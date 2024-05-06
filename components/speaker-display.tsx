@@ -1,15 +1,17 @@
 "use client";
 import Image from "next/image";
-import RichText from "./rich-text";
+import RichText from "./rich-text-elements/rich-text";
 import React, { useState } from "react";
 import { SpeakerType } from "@/lib/types";
 import { a, useSpring } from "@react-spring/web";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import SectionHeaderText from "./section-header-text";
 
-export default function SpeakersDisplay(
-  { speakers }: { speakers: SpeakerType[] },
-) {
+export default function SpeakersDisplay({
+  speakers,
+}: {
+  speakers: SpeakerType[];
+}) {
   const [side, setSide] = useState(false);
   const [speaker, setSpeaker] = useState<SpeakerType | null>(null);
 
@@ -52,15 +54,11 @@ export default function SpeakersDisplay(
                     />
                   </div>
                   <div className="flex_col ml-2">
-                    <h4 className="font-bold text-xl">
-                      {speaker.name}
-                    </h4>
+                    <h4 className="font-bold text-xl">{speaker.name}</h4>
                     <h3 className="-mt-0.5 font-medium">
                       {speaker.organization}
                     </h3>
-                    <h3 className="-mt-1 font-medium">
-                      {speaker.jobTitle}
-                    </h3>
+                    <h3 className="-mt-1 font-medium">{speaker.jobTitle}</h3>
                   </div>
                 </div>
               ))}
@@ -95,15 +93,9 @@ export default function SpeakersDisplay(
                         className="object-contain"
                       />
                     </div>
-                    <h4 className="text-2xl font-bold mb-2">
-                      {speaker.name}
-                    </h4>
-                    <h5 className="font-semibold">
-                      {speaker.jobTitle}
-                    </h5>
-                    <h5 className="mb-3 -mt-1">
-                      {speaker.organization}
-                    </h5>
+                    <h4 className="text-2xl font-bold mb-2">{speaker.name}</h4>
+                    <h5 className="font-semibold">{speaker.jobTitle}</h5>
+                    <h5 className="mb-3 -mt-1">{speaker.organization}</h5>
                   </div>
                   <div className="bg-black/80 shadow-lg shadow-black/50 p-5 rounded-md">
                     <RichText document={speaker.biography} />

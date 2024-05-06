@@ -1,17 +1,17 @@
 "use client";
 
-import RichText from "./rich-text";
+import RichText from "./rich-text-elements/rich-text";
 import React, { useState } from "react";
 import VideoPlayer from "./video-player";
 import { MasterclassType } from "@/lib/types";
 import clsx from "clsx";
 
-export default function Masterclass(
-  { masterclass }: { masterclass: MasterclassType[] },
-) {
-  const [option, setOption] = useState<MasterclassType>(
-    masterclass[0],
-  );
+export default function Masterclass({
+  masterclass,
+}: {
+  masterclass: MasterclassType[];
+}) {
+  const [option, setOption] = useState<MasterclassType>(masterclass[0]);
 
   return (
     <>
@@ -37,12 +37,11 @@ export default function Masterclass(
           "2xl:!grid-cols-2": option.asset,
         })}
       >
-        {option.asset &&
-          (
-            <div className="hidden md:block my-auto">
-              <VideoPlayer url={option.asset.src} />
-            </div>
-          )}
+        {option.asset && (
+          <div className="hidden md:block my-auto">
+            <VideoPlayer url={option.asset.src} />
+          </div>
+        )}
         <div>
           <p className="text-justify mb-4">
             We offer new and exciting innovation for our conferences. The third

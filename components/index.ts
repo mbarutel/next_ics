@@ -16,7 +16,7 @@ import GoogleAnalytics from "./google-analytics";
 import UpcomingConferences from "./upcoming-conferences";
 import LandingHeader from "./landing-header";
 import ConferenceHeader from "./conference-header";
-import EventText from "./event-text";
+import EventContent from "./event/event-content";
 import Announcement from "./announcement";
 import SpeakersDisplay from "./speaker-display";
 import EventInformation from "./event-information";
@@ -41,7 +41,7 @@ export {
   ContactForm,
   EventHeader,
   EventInformation,
-  EventText,
+  EventContent,
   ExitDraftModeLink,
   Footer,
   GoogleAnalytics,

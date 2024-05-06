@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.primary_title {
+  @apply text-xl md:text-2xl leading-tight uppercase;
+}
+
+.secondary_title {
+  @apply text-lg md:text-xl leading-tight;
+}
+
+.third_title {
+  @apply text-lg md:text-xl leading-tight;
+}

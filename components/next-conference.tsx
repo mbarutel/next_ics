@@ -4,12 +4,14 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import SectionHeaderText from "./section-header-text";
 
-export default function NextConference(
-  { conferences }: { conferences: ConferenceType[] },
-) {
+export default function NextConference({
+  conferences,
+}: {
+  conferences: ConferenceType[];
+}) {
   const dateNow = new Date();
-  const conference = conferences.find((conference) =>
-    conference.date && conference.date.endDate > dateNow
+  const conference = conferences.find(
+    (conference) => conference.date && conference.date.endDate > dateNow,
   );
 
   if (!conference || !conference.date) {
@@ -18,7 +20,10 @@ export default function NextConference(
 
   let sectionTitle;
 
-  if (dateNow >= conference.date.startDate && dateNow <=conference.date.endDate) {
+  if (
+    dateNow >= conference.date.startDate &&
+    dateNow <= conference.date.endDate
+  ) {
     sectionTitle = "Current Conference";
   } else {
     sectionTitle = "Next Conference";
@@ -32,7 +37,7 @@ export default function NextConference(
           <div className="grid grid-cols-1 xl:grid-cols-2">
             <div className="relative rounded-md overflow-hidden h-36 xl:order-1 xl:h-auto xl:mb-24">
               <Image
-                src="/assets/images/about_vision.webp"
+                src="/assets/images/next-conference-poster.webp"
                 alt="Upcoming Conference In Australia"
                 fill
                 className="object-cover hover:scale-125 transition_config"
@@ -61,9 +66,7 @@ function ConferenceDetails(conference: ConferenceType) {
           {dayjs(conference.date.startDate).format("DD - ")}
           {dayjs(conference.date.endDate).format("DD MMM YYYY")}
         </span>
-        <span className="leading-none">
-          {conference.venue}
-        </span>
+        <span className="leading-none">{conference.venue}</span>
       </h4>
       <div className="flex gap-1 text-black text-sm sm:text-lg z-40 capitalize mt-12">
         <Link
