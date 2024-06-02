@@ -39,12 +39,10 @@ export default async function Home() {
       <LandingHeader />
       <Announcement />
       <NextConference conferences={conferences} />
-      <UpcomingConferences
-        conferences={conferences.slice(1)}
-      />
+      <UpcomingConferences conferences={conferences.slice(1)} />
       <InstagramBanner />
       <Testimonials />
-      <MeetTheTeam />
+      {/* <MeetTheTeam /> */}
       <CallToAction />
       <SubscribeEmailList />
     </>
