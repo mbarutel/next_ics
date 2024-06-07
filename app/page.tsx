@@ -3,12 +3,13 @@ import {
   CallToAction,
   HomeCarousel,
   HomeConference,
+  HomeHighlight,
   InstagramBanner,
-  IntroModal,
+  HomeAcknowledgement,
   LandingHeader,
   NavBar,
   SubscribeEmailList,
-  Testimonials,
+  HomeTestimonial,
   UpcomingConferences,
 } from "@/components";
 import { draftMode } from "next/headers";
@@ -34,15 +35,17 @@ export default async function Home() {
 
   return (
     <>
-      <IntroModal />
+      <HomeAcknowledgement />
       <NavBar conferences={conferences} />
       <LandingHeader />
       <Announcement />
       <HomeConference conferences={conferences} />
       <UpcomingConferences conferences={conferences.slice(1)} />
+      <HomeHighlight />
+      <HomeCarousel />
       <InstagramBanner />
       <HomeCarousel />
-      <Testimonials />
+      <HomeTestimonial />
       <CallToAction />
       <SubscribeEmailList />
     </>

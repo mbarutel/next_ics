@@ -10,7 +10,7 @@ import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 export default function HomeCarousel() {
   return (
     <section className="section_margin">
-      <div className="section_container">
+      <div className="section_container overflow-hidden flex">
         <Carousel />
       </div>
     </section>

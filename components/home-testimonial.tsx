@@ -6,9 +6,9 @@ import { testimonials } from "@/lib/data";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 
-export default function Testimonials() {
+export default function HomeTestimonial() {
   return (
-    <section>
+    <section className="section_margin">
       <div className="section_container relative rounded-md overflow-hidden flex items-center min-h-[16rem] xl:min-h-[24rem] py-4">
         <Image
           src="/assets/images/testimonial-bg.webp"
@@ -32,7 +32,10 @@ function Carousel() {
     <div className="overflow-hidden z-20" ref={emblaRef}>
       <div className="flex">
         {testimonials.map((testimonal, index) => (
-          <div key={index} className="min-w-0 flex-grow-0 flex-shrink-0 w-full cursor-grab flex justify-center items-center">
+          <div
+            key={index}
+            className="min-w-0 flex-grow-0 flex-shrink-0 w-full cursor-grab flex justify-center items-center"
+          >
             <h2 className="text-center h-fit font-bold">"{testimonal}"</h2>
           </div>
         ))}

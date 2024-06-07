@@ -24,19 +24,23 @@ import RegistrationForm from "./registration-form";
 import RegistrationHeader from "./registration-header";
 import InstagramBanner from "./instagram-banner";
 import MeetTheTeam from "./meet-the-team";
-import IntroModal from "./intro-modal";
 import HomeCarousel from "./home-carousel";
 import HomeConference from "./home-conference";
-import Testimonials from "./testimonial";
+import HomeAcknowledgement from "./home-acknowledgement";
+import HomeTestimonial from "./home-testimonial";
+import HomeHighlight from "./home-highlight";
 
 export {
-  HomeCarousel,
   About,
   AboutPurpose,
   AboutValues,
   AboutVision,
   Agenda,
   Announcement,
+  HomeHighlight,
+  HomeCarousel,
+  HomeTestimonial,
+  HomeAcknowledgement,
   CallToAction,
   ConferenceEvents,
   ConferenceHeader,
@@ -48,7 +52,6 @@ export {
   Footer,
   GoogleAnalytics,
   InstagramBanner,
-  IntroModal,
   LandingHeader,
   Masterclass,
   MeetTheTeam,
@@ -58,6 +61,5 @@ export {
   RegistrationHeader,
   SpeakersDisplay,
   SubscribeEmailList,
-  Testimonials,
   UpcomingConferences,
 };
