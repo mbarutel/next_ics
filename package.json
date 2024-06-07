@@ -21,6 +21,7 @@
     "clsx": "^2.0.0",
     "contentful": "^10.5.1",
     "dayjs": "^1.11.9",
+    "embla-carousel": "^8.0.0",
     "embla-carousel-autoplay": "^8.0.0",
     "embla-carousel-react": "^8.0.0",
     "eslint": "8.48.0",

@@ -1,12 +1,12 @@
 import {
   Announcement,
   CallToAction,
+  HomeCarousel,
+  HomeConference,
   InstagramBanner,
   IntroModal,
   LandingHeader,
-  MeetTheTeam,
   NavBar,
-  NextConference,
   SubscribeEmailList,
   Testimonials,
   UpcomingConferences,
@@ -38,11 +38,11 @@ export default async function Home() {
       <NavBar conferences={conferences} />
       <LandingHeader />
       <Announcement />
-      <NextConference conferences={conferences} />
+      <HomeConference conferences={conferences} />
       <UpcomingConferences conferences={conferences.slice(1)} />
       <InstagramBanner />
+      <HomeCarousel />
       <Testimonials />
-      {/* <MeetTheTeam /> */}
       <CallToAction />
       <SubscribeEmailList />
     </>

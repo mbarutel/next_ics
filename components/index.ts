@@ -25,10 +25,12 @@ import RegistrationHeader from "./registration-header";
 import InstagramBanner from "./instagram-banner";
 import MeetTheTeam from "./meet-the-team";
 import IntroModal from "./intro-modal";
-import NextConference from "./next-conference";
+import HomeCarousel from "./home-carousel";
+import HomeConference from "./home-conference";
 import Testimonials from "./testimonial";
 
 export {
+  HomeCarousel,
   About,
   AboutPurpose,
   AboutValues,
@@ -51,7 +53,7 @@ export {
   Masterclass,
   MeetTheTeam,
   NavBar,
-  NextConference,
+  HomeConference,
   RegistrationForm,
   RegistrationHeader,
   SpeakersDisplay,
