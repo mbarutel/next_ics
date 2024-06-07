@@ -26,7 +26,7 @@ export default function HomeAcknowledgement() {
         </p>
         <button
           onClick={() => setIsOpen(false)}
-          className="bg-stone-600 hover:bg-yellow-500 font-bold py-2 px-6 rounded-lg transition_config"
+          className="underline text-black text-xl font-bold"
         >
           Close
         </button>
