@@ -6,11 +6,12 @@ import AutoPlay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { usePrevNextButtons } from "@/lib/carousel-utils";
 import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
+import { carouselImages } from "@/lib/data";
 
 export default function HomeCarousel() {
   return (
     <section className="section_margin">
-      <div className="section_container overflow-hidden flex">
+      <div className="section_container">
         <Carousel />
       </div>
     </section>
@@ -32,13 +33,13 @@ function Carousel() {
   return (
     <div ref={emblaRef} className="overflow-hidden rounded-md relative">
       <div className="flex ml-[-1rem]">
-        {[1, 2, 3].map((index) => (
+        {carouselImages.map((image, index) => (
           <div
             key={index}
             className="relative flex-grow-0 flex-shrink-0 w-2/3 h-[450px] cursor-grab mx-4"
           >
             <Image
-              src="/assets/images/about_values.webp"
+              src={image}
               fill
               alt="Indigenous Health Conference"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

@@ -56,6 +56,13 @@ export const links = [
   },
 ] as const;
 
+export const carouselImages = [
+  "/assets/images/carousel-one.webp",
+  "/assets/images/carousel-two.webp",
+  "/assets/images/carousel-three.webp",
+  "/assets/images/carousel-four.webp",
+] as const;
+
 export const referralOptions = [
   "Manager, Family, Friend or Colleague",
   "Email newsletter",

@@ -41,10 +41,9 @@ export default async function Home() {
       <Announcement />
       <HomeConference conferences={conferences} />
       <UpcomingConferences conferences={conferences.slice(1)} />
-      <HomeHighlight />
-      <HomeCarousel />
       <InstagramBanner />
       <HomeCarousel />
+      <HomeHighlight />
       <HomeTestimonial />
       <CallToAction />
       <SubscribeEmailList />

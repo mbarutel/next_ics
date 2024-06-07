@@ -18,14 +18,14 @@ export default function HomeHighlight() {
           </div>
 
           <div className="p-6">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">64+</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">4+</h2>
             <h3 className="mt-2 text-xl md:text-2xl font-semibold text-yellow-400">
               Locations
             </h3>
           </div>
 
           <div className="p-6">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">4+</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">11+</h2>
             <h3 className="mt-2 text-xl md:text-2xl font-semibold text-yellow-400">
               Years Running
             </h3>
