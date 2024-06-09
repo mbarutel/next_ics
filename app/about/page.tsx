@@ -5,7 +5,7 @@ import {
   AboutVision,
   Announcement,
   CallToAction,
-  LandingHeader,
+  Header,
   NavBar,
   SubscribeEmailList,
 } from "@/components";
@@ -32,7 +32,7 @@ export default async function page() {
   return (
     <>
       <NavBar conferences={conferences} />
-      <LandingHeader />
+      <Header />
       <Announcement />
       <About />
       <AboutVision />

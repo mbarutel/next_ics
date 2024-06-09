@@ -6,7 +6,7 @@ import {
   HomeHighlight,
   InstagramBanner,
   HomeAcknowledgement,
-  LandingHeader,
+  Header,
   NavBar,
   SubscribeEmailList,
   HomeTestimonial,
@@ -37,7 +37,7 @@ export default async function Home() {
     <>
       <HomeAcknowledgement />
       <NavBar conferences={conferences} />
-      <LandingHeader />
+      <Header />
       <Announcement />
       <HomeConference conferences={conferences} />
       <HomeConferences conferences={conferences.slice(1)} />

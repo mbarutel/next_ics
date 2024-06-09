@@ -16,12 +16,12 @@ import ConferenceSpeakers from "./conference/conference-speakers";
 import ConferenceAbout from "./conference/conference-about";
 import ConferenceAgenda from "./conference/conference-agenda";
 import GoogleAnalytics from "./google-analytics";
-import LandingHeader from "./landing-header";
 import Announcement from "./announcement";
 import RegistrationForm from "./registration-form";
 import RegistrationHeader from "./registration-header";
 import InstagramBanner from "./instagram-banner";
 import MeetTheTeam from "./meet-the-team";
+import Header from "./shared/header";
 import HomeCarousel from "./home/home-carousel";
 import HomeConference from "./home/home-conference";
 import HomeConferences from "./home/home-conferences";
@@ -35,6 +35,7 @@ export {
   AboutValues,
   AboutVision,
   Announcement,
+  Header,
   HomeHighlight,
   HomeCarousel,
   HomeConference,
@@ -54,7 +55,6 @@ export {
   Footer,
   GoogleAnalytics,
   InstagramBanner,
-  LandingHeader,
   MeetTheTeam,
   NavBar,
   RegistrationForm,

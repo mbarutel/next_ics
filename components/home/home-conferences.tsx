@@ -106,7 +106,7 @@ function CallToActionButtons({
     <div className="absolute bottom-1 left-1 md:left-auto md:group-odd:right-1 md:group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
       <Link
         href={`/conference/${slug}`}
-        className="md:group-odd:order-1 bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
+        className="bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
       >
         View Events
       </Link>

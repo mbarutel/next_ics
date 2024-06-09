@@ -99,6 +99,11 @@ body {
   @apply relative header_height rounded-md;
 }
 
+/* Rich Text */
+.rich_text_p {
+  @apply mb-2 last:mb-2 text-justify;
+}
+
 /* Text Sizes */
 .title {
   @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-normal leading-7 drop-shadow-sm shadow-black/10 my-3;

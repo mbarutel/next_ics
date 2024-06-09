@@ -3,7 +3,7 @@ import {
   Announcement,
   CallToAction,
   ContactForm,
-  LandingHeader,
+  Header,
   NavBar,
   SubscribeEmailList,
 } from "@/components";
@@ -30,7 +30,7 @@ export default async function page() {
   return (
     <>
       <NavBar conferences={conferences} />
-      <LandingHeader />
+      <Header />
       <Announcement />
       <ContactForm />
       <CallToAction />

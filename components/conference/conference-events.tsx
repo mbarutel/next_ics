@@ -5,7 +5,7 @@ import React, { Fragment } from "react";
 
 export default function ConferenceEvents({ events }: { events: EventType[] }) {
   return (
-    <section className="section_margin">
+    <section id="events" className="section_margin">
       <div className="section_container">
         <h2 className="title">Upcoming Events</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 py-6">
