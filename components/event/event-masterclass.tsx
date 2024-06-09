@@ -1,12 +1,12 @@
 "use client";
 
-import RichText from "./rich-text-elements/rich-text";
+import RichText from "../rich-text-elements/rich-text";
 import React, { useState } from "react";
-import VideoPlayer from "./video-player";
+import VideoPlayer from "../video-player";
 import { MasterclassType } from "@/lib/types";
 import clsx from "clsx";
 
-export default function Masterclass({
+export default function EventMasterclass({
   masterclass,
 }: {
   masterclass: MasterclassType[];

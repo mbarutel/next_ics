@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { AgendaType } from "@/lib/types";
 import clsx from "clsx";
 
-export default function Agenda({ agenda }: { agenda: AgendaType[] }) {
+export default function EventAgenda({ agenda }: { agenda: AgendaType[] }) {
   const [day, setDay] = useState<AgendaType>(agenda[0]);
 
   return (

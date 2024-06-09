@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.about_card_wrapper {
+  @apply mx-2 my-4 lg:mx-16 lg:my-10;
+}
+
+.about_card_title {
+  @apply text-xl xl:text-3xl font-medium uppercase;
+}
+
+.about_card_subtitle {
+  @apply pl-4 italic mb-3 font-thin text-sm md:text-base;
+}
+
+.about_card_content {
+  @apply text-sm md:text-base;
+}

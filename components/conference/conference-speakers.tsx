@@ -1,13 +1,12 @@
 "use client";
 import Image from "next/image";
-import RichText from "./rich-text-elements/rich-text";
+import RichText from "../rich-text-elements/rich-text";
 import React, { useState } from "react";
 import { SpeakerType } from "@/lib/types";
 import { a, useSpring } from "@react-spring/web";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import SectionHeaderText from "./section-header-text";
 
-export default function SpeakersDisplay({
+export default function ConferenceSpeakers({
   speakers,
 }: {
   speakers: SpeakerType[];
@@ -27,8 +26,8 @@ export default function SpeakersDisplay({
   return (
     <section className="section_margin">
       <div className="section_container flex flex-col">
-        <SectionHeaderText>Speakers</SectionHeaderText>
-        <div>
+        <h2 className="title text-center">Speakers</h2>
+        <div className="py-6">
           {/* Grid */}
           {side === true ? null : (
             <a.div
@@ -70,7 +69,7 @@ export default function SpeakersDisplay({
               style={{
                 opacity,
               }}
-              className="rounded-sm relative max-w-[50rem] min-h-[40rem] px-10 py-4 mx-auto border-2 border-zinc-600 bg-zinc-800"
+              className="rounded-sm py-6 relative max-w-[50rem] min-h-[40rem] px-10 mx-auto border-2 border-zinc-600 bg-zinc-800"
             >
               {speaker === null ? null : (
                 <>

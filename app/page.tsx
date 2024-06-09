@@ -10,7 +10,7 @@ import {
   NavBar,
   SubscribeEmailList,
   HomeTestimonial,
-  UpcomingConferences,
+  HomeConferences,
 } from "@/components";
 import { draftMode } from "next/headers";
 import { parserConferenceEntry } from "@/contentful/utils";
@@ -40,7 +40,7 @@ export default async function Home() {
       <LandingHeader />
       <Announcement />
       <HomeConference conferences={conferences} />
-      <UpcomingConferences conferences={conferences.slice(1)} />
+      <HomeConferences conferences={conferences.slice(1)} />
       <InstagramBanner />
       <HomeCarousel />
       <HomeHighlight />

@@ -9,7 +9,12 @@ type TabsProps = {
   agenda: AgendaType[] | null;
   masterclass: MasterclassType[] | null;
 };
-export default function Tabs({ tab, setTab, agenda, masterclass }: TabsProps) {
+export default function EventTabs({
+  tab,
+  setTab,
+  agenda,
+  masterclass,
+}: TabsProps) {
   return (
     <div className="event_tabs_wrapper">
       <button

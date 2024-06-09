@@ -2,14 +2,13 @@ import { EventType } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
 import React, { Fragment } from "react";
-import SectionHeaderText from "./section-header-text";
 
 export default function ConferenceEvents({ events }: { events: EventType[] }) {
   return (
     <section className="section_margin">
       <div className="section_container">
-        <SectionHeaderText>Upcoming Events</SectionHeaderText>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2">
+        <h2 className="title">Upcoming Events</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 py-6">
           {events.map((event) => (
             <Fragment key={event.slug}>
               <ConferenceCard {...event} />
@@ -46,17 +45,16 @@ function ConferenceCard(event: EventType) {
         >
           Read More
         </Link>
-        {event.conference &&
-          (
-            <Link
-              target="_blank"
-              rel="noreferer"
-              href={event.conference.formLink}
-              className="grow py-2 text-center text-lg font-bold bg-black/90 hover:bg-gradient-to-b gradient hover:text-black transition_config rounded-sm active:scale-95"
-            >
-              Registration
-            </Link>
-          )}
+        {event.conference && (
+          <Link
+            target="_blank"
+            rel="noreferer"
+            href={event.conference.formLink}
+            className="grow py-2 text-center text-lg font-bold bg-black/90 hover:bg-gradient-to-b gradient hover:text-black transition_config rounded-sm active:scale-95"
+          >
+            Registration
+          </Link>
+        )}
       </div>
     </div>
   );

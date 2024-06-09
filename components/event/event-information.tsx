@@ -1,10 +1,11 @@
 "use client";
 
-import clsx from "clsx";
 import React, { useState } from "react";
-import { Agenda, EventContent, Masterclass } from ".";
-import { AgendaType, EventType, MasterclassType } from "@/lib/types";
-import Tabs from "./event/event-tabs";
+import EventAgenda from "./event-agenda";
+import EventContent from "./event-content";
+import EventMasterclass from "./event-masterclass";
+import { EventType } from "@/lib/types";
+import EventTabs from "./event-tabs";
 
 export default function EventInformation(event: EventType) {
   const [tab, setTab] = useState<"Conference" | "Agenda" | "Masterclass">(
@@ -24,10 +25,12 @@ export default function EventInformation(event: EventType) {
 
   switch (tab) {
     case "Agenda":
-      content = agenda && <Agenda agenda={agenda} />;
+      content = agenda && <EventAgenda agenda={agenda} />;
       break;
     case "Masterclass":
-      content = masterclasses && <Masterclass masterclass={masterclasses} />;
+      content = masterclasses && (
+        <EventMasterclass masterclass={masterclasses} />
+      );
       break;
     default:
       content = <EventContent event={event} />;
@@ -36,7 +39,7 @@ export default function EventInformation(event: EventType) {
   return (
     <section className="section_margin">
       <div className="section_container">
-        <Tabs
+        <EventTabs
           tab={tab}
           setTab={setTab}
           agenda={agenda}

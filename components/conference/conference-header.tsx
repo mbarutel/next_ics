@@ -1,21 +1,20 @@
 "use client";
 
 import { ConferenceType } from "@/lib/types";
-import HeaderFormLinks from "./header-form-links";
+import HeaderFormLinks from "../shared/header-form-links";
 import React, { useEffect, useState } from "react";
-import SpinningBackground from "./spinning-header";
-import HeaderDate from "./header-date";
+import SpinningBackground from "../shared/spinning-header";
+import HeaderDate from "../shared/header-date";
 
-export default function ConferenceHeader(
-  conference: ConferenceType,
-) {
+export default function ConferenceHeader(conference: ConferenceType) {
   return (
     <header>
       <div className="section_container">
         <div className="header_wrapper">
           <ConferenceInfo {...conference} />
-          {conference.date &&
-            <Countdown startDate={conference.date.startDate} />}
+          {conference.date && (
+            <Countdown startDate={conference.date.startDate} />
+          )}
           <SpinningBackground />
         </div>
       </div>
@@ -30,9 +29,7 @@ function ConferenceInfo(conference: ConferenceType) {
         {conference.title}
       </h1>
       <HeaderDate date={conference.date} />
-      <h2 className="header_subtext -mt-3">
-        {conference.venue}
-      </h2>
+      <h2 className="header_subtext -mt-3">{conference.venue}</h2>
       <HeaderFormLinks
         registration={conference.formLink}
         submitAPaper={conference.submitPaperLink}
@@ -60,13 +57,9 @@ function Countdown({ startDate }: { startDate: Date }) {
         (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
       );
       setHours(h);
-      const m = Math.floor(
-        (difference % (1000 * 60 * 60)) / (1000 * 60),
-      );
+      const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
       setMinutes(m);
-      const s = Math.floor(
-        (difference % (1000 * 60)) / 1000,
-      );
+      const s = Math.floor((difference % (1000 * 60)) / 1000);
       setSeconds(s);
 
       if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {

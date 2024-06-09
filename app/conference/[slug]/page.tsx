@@ -5,7 +5,9 @@ import {
   ConferenceEvents,
   ConferenceHeader,
   SubscribeEmailList,
-  SpeakersDisplay,
+  ConferenceSpeakers,
+  ConferenceAbout,
+  ConferenceAgenda,
 } from "@/components";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
@@ -35,8 +37,8 @@ export default async function page({ params }: ConferencePageProps) {
 
   const conferences = await conferenceInstance.getConferences();
 
-  const conferencePage = conferences.find((conference) =>
-    conference.slug === params.slug
+  const conferencePage = conferences.find(
+    (conference) => conference.slug === params.slug,
   );
 
   if (!conferencePage) {
@@ -48,8 +50,10 @@ export default async function page({ params }: ConferencePageProps) {
       <NavBar conferences={conferences} />
       <ConferenceHeader {...conferencePage} />
       <Announcement />
+      <ConferenceAbout conference={conferencePage} />
       <ConferenceEvents events={conferencePage.events} />
-      <SpeakersDisplay speakers={conferencePage.speakers} />
+      <ConferenceAgenda agenda={conferencePage.agenda} />
+      <ConferenceSpeakers speakers={conferencePage.speakers} />
       <CallToAction />
       <SubscribeEmailList />
     </>

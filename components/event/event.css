@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .primary_title {
-  @apply text-xl md:text-2xl leading-tight uppercase;
+  @apply mt-7 text-xl md:text-2xl leading-tight uppercase;
 }
 
 .secondary_title {
-  @apply text-lg md:text-xl leading-tight;
+  @apply mt-7 text-lg md:text-xl leading-tight;
 }
 
 .third_title {
-  @apply text-lg md:text-xl leading-tight;
+  @apply mt-7 text-lg md:text-xl leading-tight;
 }

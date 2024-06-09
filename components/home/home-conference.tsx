@@ -2,7 +2,7 @@ import { ConferenceType } from "@/lib/types";
 import Image from "next/image";
 import dayjs from "dayjs";
 import Link from "next/link";
-import SectionHeaderText from "./section-header-text";
+import { configs } from "@/lib/data";
 
 export default function HomeConference({
   conferences,
@@ -32,7 +32,7 @@ export default function HomeConference({
   return (
     <section className="section_margin">
       <div className="section_container">
-        <SectionHeaderText>{sectionTitle}</SectionHeaderText>
+        <h2 className="title">{sectionTitle}</h2>
         <div className="xl:px-24">
           <div className="grid grid-cols-1 xl:grid-cols-2">
             <div className="relative rounded-md overflow-hidden h-36 xl:order-1 xl:h-auto xl:mb-24">
@@ -75,12 +75,20 @@ function ConferenceDetails(conference: ConferenceType) {
         >
           View Events
         </Link>
+        <Link
+          href={configs.forms.submitPaper}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-yellow-300 rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3 shadow-black/40 shadow-md"
+        >
+          Submit A Paper
+        </Link>
         {conference.formLink && (
           <Link
             href={conference.formLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r gradient rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3 shadow-black/40 shadow-md"
+            className="bg-yellow-300 rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3 shadow-black/40 shadow-md"
           >
             Registration
           </Link>

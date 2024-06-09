@@ -3,21 +3,21 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { Fragment } from "react";
 import { ConferenceType } from "@/lib/types";
-import SectionHeaderText from "./section-header-text";
+import { configs } from "@/lib/data";
 
-export default function UpcomingConferences(
-  { conferences }: { conferences: ConferenceType[] },
-) {
+export default function HomeConferences({
+  conferences,
+}: {
+  conferences: ConferenceType[];
+}) {
   return (
     <section id="conferences" className="scroll-mt-28 section_margin">
       <div className="section_container">
-        <SectionHeaderText>Upcoming Conferences</SectionHeaderText>
+        <h2 className="title">Upcoming Conferences</h2>
         <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-y-3 gap-x-4">
           <div className="hidden xl:block absolute h-full top-0 left-1/2 -translate-x-1/2 w-1 bg-gray-400 rounded-full opacity-90" />
           {conferences.map((conference) => (
-            <Fragment
-              key={conference.slug}
-            >
+            <Fragment key={conference.slug}>
               <ConferenceCard {...conference} />
             </Fragment>
           ))}
@@ -46,9 +46,7 @@ function ConferenceCard(conference: ConferenceType) {
             {conference.title}
           </h3>
           <Date date={conference.date} />
-          <h4 className="-mt-2 conference_card_info">
-            {conference.venue}
-          </h4>
+          <h4 className="-mt-2 conference_card_info">{conference.venue}</h4>
         </Link>
         <AboriginalIcon />
       </div>
@@ -76,24 +74,22 @@ function AboriginalIcon() {
   );
 }
 
-function Date(
-  { date }: { date: { startDate: Date; endDate: Date } | undefined },
-) {
+function Date({
+  date,
+}: {
+  date: { startDate: Date; endDate: Date } | undefined;
+}) {
   return (
     <span className="z-20">
       <h4 className="conference_card_info">
-        {date
-          ? (
-            <>
-              {dayjs(date.startDate).format("DD-")}
-              {dayjs(date.endDate).format("DD MMM YY")}
-            </>
-          )
-          : (
-            <>
-              TBA
-            </>
-          )}
+        {date ? (
+          <>
+            {dayjs(date.startDate).format("DD-")}
+            {dayjs(date.endDate).format("DD MMM YY")}
+          </>
+        ) : (
+          <>TBA</>
+        )}
       </h4>
     </span>
   );
@@ -102,7 +98,10 @@ function Date(
 function CallToActionButtons({
   slug,
   registration,
-}: { slug: string; registration: string | undefined }) {
+}: {
+  slug: string;
+  registration: string | undefined;
+}) {
   return (
     <div className="absolute bottom-1 left-1 md:left-auto md:group-odd:right-1 md:group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
       <Link
@@ -110,6 +109,14 @@ function CallToActionButtons({
         className="md:group-odd:order-1 bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
       >
         View Events
+      </Link>
+      <Link
+        href={configs.forms.submitPaper}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-yellow-300 rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3 shadow-black/40 shadow-md"
+      >
+        Submit A Paper
       </Link>
       {registration && (
         <Link
