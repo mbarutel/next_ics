@@ -5,6 +5,7 @@ import {
   ParticipantType,
   RegistrationType,
 } from "./types";
+import { v4 as uuidv4 } from "uuid";
 
 export const validateString = (value: unknown, maxLength: number) => {
   if (!value || typeof value !== "string" || value.length > maxLength) {
@@ -29,12 +30,13 @@ export const getErrorMessage = (error: unknown) => {
   return message;
 };
 
-export const registrationObjectApiParser = (
-  { values, conference }: {
-    values: FormValuesType;
-    conference: ConferenceType;
-  },
-): RegistrationType => {
+export const registrationObjectApiParser = ({
+  values,
+  conference,
+}: {
+  values: FormValuesType;
+  conference: ConferenceType;
+}): RegistrationType => {
   if (!conference.prices || !conference.date) {
     throw new Error("Error with conference properties");
   }
@@ -45,18 +47,19 @@ export const registrationObjectApiParser = (
     .map((item) => item.name.concat(` | ${item.email} | ${item.position}`))
     .join("\n");
   const dinnerParticipants = parseDinnerParticipants(values.dinnerParticipants)
-    .map((item) => item.name.concat(` | ${item.diet}`)).join("\n");
+    .map((item) => item.name.concat(` | ${item.diet}`))
+    .join("\n");
 
-  const dinnerPrice = values.dinnerParticipants.length *
-    conference.prices?.dinner;
-  const masterclassPrice = values.masterclass === "no"
-    ? 0
-    : conference.prices?.masterclass;
+  const dinnerPrice =
+    values.dinnerParticipants.length * conference.prices?.dinner;
+  const masterclassPrice =
+    values.masterclass === "no" ? 0 : conference.prices?.masterclass;
   const total =
-    (values.price.priceChoice * (values.extraParticipants.length + 1)) +
-    dinnerPrice + masterclassPrice;
+    values.price.priceChoice * (values.extraParticipants.length + 1) +
+    dinnerPrice +
+    masterclassPrice;
 
-  const dueDate = new Date().getTime() + (1000 * 60 * 60 * 24 * 7);
+  const dueDate = new Date().getTime() + 1000 * 60 * 60 * 24 * 7;
 
   return {
     reference: reference,
@@ -94,7 +97,8 @@ const parseExtraParticipants = (
   for (let i = 0; i < extraParticipants.length; i++) {
     if (
       typeof extraParticipants[i] !== "object" ||
-      !("name" in extraParticipants[i]) || !("email" in extraParticipants[i]) ||
+      !("name" in extraParticipants[i]) ||
+      !("email" in extraParticipants[i]) ||
       !("position" in extraParticipants[i])
     ) {
       return [];
@@ -112,7 +116,8 @@ const parseDinnerParticipants = (
   for (let i = 0; i < dinnerParticipants.length; i++) {
     if (
       typeof dinnerParticipants[i] !== "object" ||
-      !("name" in dinnerParticipants[i]) || !("diet" in dinnerParticipants[i])
+      !("name" in dinnerParticipants[i]) ||
+      !("diet" in dinnerParticipants[i])
     ) {
       return [];
     }
@@ -132,3 +137,12 @@ const generateReference = (conference: ConferenceType): string => {
 
   return `${conference.invoiceRef}-${day}${minutes}${seconds}`;
 };
+//
+// const generateReference = (conference: ConferenceType): string => {
+//   if (!conference.date) {
+//     throw new Error("Date cannot be empty at this point.");
+//   }
+//
+//   const uniquePart = uuidv4().slice(0, 6);
+//   return `${conference.invoiceRef}-${uniquePart}`;
+// };

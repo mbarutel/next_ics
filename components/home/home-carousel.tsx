@@ -2,11 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
+import "./home.css";
+import { carouselImages } from "@/lib/data";
 import AutoPlay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { usePrevNextButtons } from "@/lib/carousel-utils";
 import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
-import { carouselImages } from "@/lib/data";
 
 export default function HomeCarousel() {
   return (
@@ -48,18 +49,14 @@ function Carousel() {
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-2">
-        <div className="embla__buttons">
-          <PrevButton
-            onClick={() => onPrevButtonClick()}
-            disabled={prevBtnDisabled}
-          />
-          <NextButton
-            onClick={() => onNextButtonClick()}
-            disabled={nextBtnDisabled}
-          />
-        </div>
-      </div>
+      <PrevButton
+        onClick={() => onPrevButtonClick()}
+        disabled={prevBtnDisabled}
+      />
+      <NextButton
+        onClick={() => onNextButtonClick()}
+        disabled={nextBtnDisabled}
+      />
     </div>
   );
 }
@@ -75,7 +72,7 @@ function PrevButton({ onClick, disabled }: PropType) {
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className="absolute text-6xl top-1/2 left-32 -translate-y-1/2 opacity-90 text-yellow-400"
+      className="carousel_nav_button left-32"
     >
       <FaChevronCircleLeft />
     </button>
@@ -88,7 +85,7 @@ function NextButton({ onClick, disabled }: PropType) {
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className="absolute text-6xl top-1/2 right-32 -translate-y-1/2 opacity-90 text-yellow-400"
+      className="carousel_nav_button right-32"
     >
       <FaChevronCircleRight />
     </button>

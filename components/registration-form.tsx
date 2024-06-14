@@ -12,81 +12,64 @@ import { ConferenceType, FormValuesType } from "@/lib/types";
 export default function RegistrationForm(conference: ConferenceType) {
   const [complete, setComplete] = useState<boolean>(false);
 
-  const handleOnSubmit = async (
-    { values, conference }: {
-      values: FormValuesType;
-      conference: ConferenceType;
-    },
-  ) => {
+  const showErrorToast = () => {
+    toast.error(
+      "There was an error. We would appreciate it if you contact us about it. Sorry for the inconvenience.",
+    );
+  };
+
+  const submitToAPI = async (url: string, body: any) => {
+    const rawResponse = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    return rawResponse.json();
+  };
+
+  const handleOnSubmit = async ({
+    values,
+    conference,
+  }: {
+    values: FormValuesType;
+    conference: ConferenceType;
+  }) => {
     try {
       const registrationObject = registrationObjectApiParser({
         values: values,
         conference: conference,
       });
 
-      // Google API
       try {
-        try {
-          const rawResponse = await fetch("/api/registration", {
-            method: "POST",
-            headers: {
-              "Accept": "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              ...registrationObject,
-            }),
-          });
+        const response = await submitToAPI(
+          "/api/registration",
+          registrationObject,
+        );
 
-          const response = await rawResponse.json();
-
-          if ("error" in response) {
-            toast.error(
-              "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
-            );
-            return;
-          }
-        } catch {
-          toast.error(
-            "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
-          );
+        if ("error" in response) {
+          showErrorToast();
           return;
         }
 
-        // XERO API
-        try {
-          const rawXeroResponse = await fetch("/api/xero", {
-            method: "POST",
-            body: JSON.stringify({ ...registrationObject }),
-          });
+        const xeroResponse = await submitToAPI("/api/xero", registrationObject);
 
-          const response = await rawXeroResponse.json();
-
-          if ("error" in response) {
-            toast.error(
-              "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
-            );
-            return;
-          }
-
-          setComplete(true);
-        } catch {
-          toast.error(
-            "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
-          );
+        if ("error" in xeroResponse) {
+          showErrorToast();
+          return;
         }
+
+        setComplete(true);
       } catch {
-        toast.error(
-          "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
-        );
+        showErrorToast();
       }
     } catch (error) {
       if (error instanceof Error) {
         console.error(error.message);
       }
-      toast.error(
-        "There was an error. We would appreciate it if you contact us about. Sorry for the inconvenience.",
-      );
+      showErrorToast();
     }
   };
 
