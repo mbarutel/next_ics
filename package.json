@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@contentful/rich-text-types": "^16.2.1",
+    "@types/uuid": "^9.0.8",
     "cf-content-types-generator": "^2.12.2",
     "tailwind-clip-path": "^1.0.0"
   }
