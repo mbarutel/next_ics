@@ -1,9 +1,7 @@
 import {
   NavBar,
   CallToAction,
-  Announcement,
   ConferenceEvents,
-  ConferenceHeader,
   SubscribeEmailList,
   ConferenceSpeakers,
   ConferenceAbout,
