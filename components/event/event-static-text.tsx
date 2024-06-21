@@ -4,7 +4,7 @@ import "./event.css";
 
 export function EventAcknowledgement() {
   return (
-    <div className="px-3">
+    <div>
       <HeaderUnderline>
         <h1 className="primary_title">ACKNOWLEDGEMENT TO COUNTRY</h1>
       </HeaderUnderline>

@@ -28,9 +28,9 @@ export default function RichText({
       },
     },
     renderNode: {
-      [BLOCKS.DOCUMENT]: (_node: Block | Inline, children: ReactNode) => (
-        <div className="px-3">{children}</div>
-      ),
+      // [BLOCKS.DOCUMENT]: (_node: Block | Inline, children: ReactNode) => (
+      //   <div className="px-3">{children}</div>
+      // ),
       [BLOCKS.HEADING_1]: (_node: Block | Inline, children: ReactNode) => (
         <HeaderUnderline>
           <h1 className="primary_title">{children}</h1>
