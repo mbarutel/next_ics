@@ -11,7 +11,7 @@ type ConferenceProps = {
 
 export default function ConferenceAbout({ conference }: ConferenceProps) {
   return (
-    <section id="about" className="section_margin">
+    <section id="about" className="section_margin bg_accent">
       <div className="section_container">
         <h2 className="title text-center">About the Conference</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 mb-4 lg:py-6">

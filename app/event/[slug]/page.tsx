@@ -1,9 +1,8 @@
 import {
-  Announcement,
   CallToAction,
-  EventHeader,
   EventInformation,
   NavBar,
+  SharedHeader,
   SubscribeEmailList,
 } from "@/components";
 import { draftMode } from "next/headers";
@@ -11,6 +10,7 @@ import { notFound } from "next/navigation";
 import { Event } from "@/contentful/services/event";
 import { Conference } from "@/contentful/services/conferences";
 import { parserConferenceEntry, parserEventEntry } from "@/contentful/utils";
+import dayjs from "dayjs";
 
 type EventPageParams = {
   slug: string;
@@ -47,11 +47,16 @@ export default async function page({ params }: EventPageProps) {
 
   const conferences = await conferenceInstance.getConferences();
 
+  const headerText = {
+    title: eventPage.title,
+    subtitle: `${dayjs(eventPage?.conference?.date?.startDate).format("DD-")} ${dayjs(eventPage?.conference?.date?.startDate).format("DD MMMM YYYY")} | ${eventPage?.conference?.venue}`,
+    anchor: "#information",
+  };
+
   return (
     <>
       <NavBar conferences={conferences} />
-      <EventHeader {...eventPage} />
-      <Announcement />
+      <SharedHeader prop={{ ...headerText }} />
       <EventInformation {...eventPage} />
       <CallToAction />
       <SubscribeEmailList />

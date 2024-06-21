@@ -1,24 +1,21 @@
 "use client";
 import Image from "next/image";
 import RichText from "../rich-text-elements/rich-text";
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { SpeakerType } from "@/lib/types";
 import { a, useSpring } from "@react-spring/web";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { carouselImages } from "@/lib/data";
+import AutoPlay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
+import { usePrevNextButtons } from "@/lib/carousel-utils";
+import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 
 export default function ConferenceSpeakers({
   speakers,
 }: {
   speakers: SpeakerType[];
 }) {
-  const [side, setSide] = useState(false);
-  const [speaker, setSpeaker] = useState<SpeakerType | null>(null);
-
-  const { opacity } = useSpring({
-    opacity: side ? 1 : 0,
-    config: { mass: 5, tension: 500, friction: 100 },
-  });
-
   if (speakers.length === 0) {
     return null;
   }
@@ -27,84 +24,100 @@ export default function ConferenceSpeakers({
     <section className="section_margin">
       <div className="section_container flex flex-col">
         <h2 className="title text-center">Speakers</h2>
-        <div className="py-6">
-          {/* Grid */}
-          {side === true ? null : (
-            <a.div
-              style={{ opacity: opacity.to((o) => 1 - o) }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-y-1 gap-x-2 max-h-[25rem] sm:max-h-[40rem] overflow-y-auto"
-            >
-              {speakers.map((speaker) => (
-                <div
-                  key={speaker.slug}
-                  onClick={() => {
-                    setSide((side) => !side);
-                    setSpeaker(speaker);
-                  }}
-                  className="relative flex items-center rounded-sm cursor-pointer border-2 border-zinc-600 bg-zinc-800"
-                >
-                  <div className="relative h-20 min-w-[5rem] ml-2">
-                    <Image
-                      src={speaker.photo.src}
-                      alt={speaker.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="flex_col ml-2">
-                    <h4 className="font-bold text-xl">{speaker.name}</h4>
-                    <h3 className="-mt-0.5 font-medium">
-                      {speaker.organization}
-                    </h3>
-                    <h3 className="-mt-1 font-medium">{speaker.jobTitle}</h3>
-                  </div>
-                </div>
-              ))}
-            </a.div>
-          )}
-          {/* Speaker Information */}
-          {side === false ? null : (
-            <a.div
-              style={{
-                opacity,
-              }}
-              className="rounded-sm py-6 relative max-w-[50rem] min-h-[40rem] px-10 mx-auto border-2 border-zinc-600 bg-zinc-800"
-            >
-              {speaker === null ? null : (
-                <>
-                  <button
-                    onClick={() => {
-                      setSide((side) => !side);
-                      setSpeaker(null);
-                    }}
-                    className="absolute top-3 right-3 text-4xl hover:scale-105 active:scale-95 transition text-yellow-400"
-                  >
-                    <AiOutlineCloseCircle />
-                  </button>
-                  <div className="bg-black/80 shadow-lg shadow-black/50 p-5 rounded-md flex_col items-center w-fit mx-auto mb-5">
-                    <div className="relative h-36 w-36">
-                      <Image
-                        src={speaker.photo.src}
-                        alt={speaker.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-contain"
-                      />
-                    </div>
-                    <h4 className="text-2xl font-bold mb-2">{speaker.name}</h4>
-                    <h5 className="font-semibold">{speaker.jobTitle}</h5>
-                    <h5 className="mb-3 -mt-1">{speaker.organization}</h5>
-                  </div>
-                  <div className="bg-black/80 shadow-lg shadow-black/50 p-5 rounded-md">
-                    <RichText document={speaker.biography} />
-                  </div>
-                </>
-              )}
-            </a.div>
-          )}
-        </div>
+        <Carousel speakers={speakers} />
       </div>
     </section>
+  );
+}
+
+function Carousel({ speakers }: { speakers: SpeakerType[] }) {
+  // const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+  //   AutoPlay({ delay: 6000, stopOnMouseEnter: true, stopOnInteraction: false }),
+  // ]);
+  //
+  // const {
+  //   prevBtnDisabled,
+  //   nextBtnDisabled,
+  //   onPrevButtonClick,
+  //   onNextButtonClick,
+  // } = usePrevNextButtons(emblaApi);
+  //
+  return (
+    <div className="overflow-hidden rounded-md relative">
+      <div className="w-2/3 mx-auto">
+        {speakers.map((speaker, index) => (
+          <Fragment key={index}>
+            <SpeakerCard speaker={speaker} />
+          </Fragment>
+        ))}
+      </div>
+      {/* <PrevButton */}
+      {/*   onClick={() => onPrevButtonClick()} */}
+      {/*   disabled={prevBtnDisabled} */}
+      {/* /> */}
+      {/* <NextButton */}
+      {/*   onClick={() => onNextButtonClick()} */}
+      {/*   disabled={nextBtnDisabled} */}
+      {/* /> */}
+    </div>
+  );
+}
+
+function SpeakerCard({ speaker }: { speaker: SpeakerType }) {
+  return (
+    <div className="relative flex-grow-0 flex-shrink-0 w-full cursor-grab pt-16">
+      <div className="grid grid-cols-4">
+        <div className="relative h-60 w-60 col-span-1">
+          <Image
+            src={speaker.photo.src}
+            alt={speaker.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-contain rounded-full bg-yellow-400"
+          />
+        </div>
+        <div className="col-span-3">
+          <div className="bg-black/80 shadow-lg shadow-black/50 p-5 rounded-md flex_col items-center w-fit mx-auto mb-5">
+            <h4 className="text-2xl font-bold mb-2">{speaker.name}</h4>
+            <h5 className="font-semibold">{speaker.jobTitle}</h5>
+            <h5 className="mb-3 -mt-1">{speaker.organization}</h5>
+          </div>
+          <div className="bg-black/80 shadow-lg shadow-black/50 p-5 rounded-md">
+            <RichText document={speaker.biography} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type PropType = {
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  disabled: boolean;
+};
+
+function PrevButton({ onClick, disabled }: PropType) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      className="carousel_nav_button left-32"
+    >
+      <FaChevronCircleLeft />
+    </button>
+  );
+}
+
+function NextButton({ onClick, disabled }: PropType) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      className="carousel_nav_button right-32"
+    >
+      <FaChevronCircleRight />
+    </button>
   );
 }

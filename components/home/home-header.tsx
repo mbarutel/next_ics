@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import SpinningBackground from "../shared/spinning-header";
 
-export default function Header() {
+export default function HomeHeader() {
   return (
     <header>
       <div className="section_container">

@@ -15,7 +15,7 @@ export default function ConferenceAgenda({ agenda }: ConferenceAgendaProp) {
   }
 
   return (
-    <section className="section_margin">
+    <section className="section_margin bg_accent">
       <div className="section_container">
         <h2 className="title text-center">Conference Agenda</h2>
         <div className="py-6 flex_col gap-4">
@@ -58,7 +58,7 @@ function ConferenceAgendaDay({
         className="relative h-[3.5rem] w-[15rem]"
       >
         <div className="bg-yellow-400 translate-x-2 translate-y-2 absolute inset-0 z-0" />
-        <div className="absolute inset-0 flex_center gap-3 z-10 bg_accent shadow">
+        <div className="absolute inset-0 flex_center gap-3 z-10 bg-black shadow">
           <BsChevronRight
             className={clsx("text-white", { "rotate-90": open })}
           />

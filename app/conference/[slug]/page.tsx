@@ -8,11 +8,13 @@ import {
   ConferenceSpeakers,
   ConferenceAbout,
   ConferenceAgenda,
+  SharedHeader,
 } from "@/components";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { parserConferenceEntry } from "@/contentful/utils";
 import { Conference } from "@/contentful/services/conferences";
+import dayjs from "dayjs";
 
 type ConferencePageParams = {
   slug: string;
@@ -37,23 +39,28 @@ export default async function page({ params }: ConferencePageProps) {
 
   const conferences = await conferenceInstance.getConferences();
 
-  const conferencePage = conferences.find(
+  const conference = conferences.find(
     (conference) => conference.slug === params.slug,
   );
 
-  if (!conferencePage) {
+  if (!conference) {
     return notFound();
   }
+
+  const headerText = {
+    title: conference.title,
+    subtitle: `${dayjs(conference?.date?.startDate).format("DD-")} ${dayjs(conference?.date?.endDate).format("DD MMMM YYYY")} | ${conference.venue}`,
+    anchor: "#about",
+  };
 
   return (
     <>
       <NavBar conferences={conferences} />
-      <ConferenceHeader {...conferencePage} />
-      <Announcement />
-      <ConferenceAbout conference={conferencePage} />
-      <ConferenceEvents events={conferencePage.events} />
-      <ConferenceAgenda agenda={conferencePage.agenda} />
-      <ConferenceSpeakers speakers={conferencePage.speakers} />
+      <SharedHeader prop={{ ...headerText }} />
+      <ConferenceAbout conference={conference} />
+      <ConferenceEvents events={conference.events} />
+      <ConferenceAgenda agenda={conference.agenda} />
+      <ConferenceSpeakers speakers={conference.speakers} />
       <CallToAction />
       <SubscribeEmailList />
     </>

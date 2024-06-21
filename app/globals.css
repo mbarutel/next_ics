@@ -84,7 +84,7 @@ body {
 }
 
 .section_margin {
-  @apply mt-14 lg:mt-20 xl:mt-28 scroll-mt-28;
+  @apply py-7 lg:py-10 xl:py-14 scroll-mt-28;
 }
 
 .section_padding {

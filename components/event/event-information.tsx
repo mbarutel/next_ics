@@ -37,7 +37,7 @@ export default function EventInformation(event: EventType) {
       break;
   }
   return (
-    <section className="section_margin">
+    <section id="information" className="section_margin">
       <div className="section_container">
         <EventTabs
           tab={tab}
