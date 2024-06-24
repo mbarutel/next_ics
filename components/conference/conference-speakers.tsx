@@ -1,15 +1,7 @@
-"use client";
-import Image from "next/image";
 import RichText from "../rich-text-elements/rich-text";
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { SpeakerType } from "@/lib/types";
-import { a, useSpring } from "@react-spring/web";
-import { AiOutlineCloseCircle } from "react-icons/ai";
-import { carouselImages } from "@/lib/data";
-import AutoPlay from "embla-carousel-autoplay";
-import useEmblaCarousel from "embla-carousel-react";
-import { usePrevNextButtons } from "@/lib/carousel-utils";
-import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
+import Image from "next/image";
 
 export default function ConferenceSpeakers({
   speakers,
@@ -39,14 +31,16 @@ export default function ConferenceSpeakers({
 function SpeakerCard({ speaker }: { speaker: SpeakerType }) {
   return (
     <div className="grid grid-cols-4 py-8">
-      <div className="relative h-56 w-56 col-span-1">
-        <Image
-          src={speaker.photo.src}
-          alt={speaker.name}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-contain rounded-full bg-yellow-400"
-        />
+      <div className="bg-yellow-400 h-96 w-64 col-span-1 ">
+        <div className="relative w-full h-full translate-x-3 -translate-y-3 overflow-hidden">
+          <Image
+            fill
+            alt={speaker.name}
+            src={speaker.photo.src}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover bg-stone-800 hover:scale-105 transform transition-transform duration-300"
+          />
+        </div>
       </div>
       <div className="col-span-3 px-5">
         <div className="mb-5 border-yellow-400 border-l-[5px] pl-5">
