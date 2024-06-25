@@ -57,8 +57,8 @@ export default async function page({ params }: ConferencePageProps) {
       <SharedHeader prop={{ ...headerText }} />
       <ConferenceAbout conference={conference} />
       <ConferenceEvents events={conference.events} />
-      <ConferenceAgenda agenda={conference.agenda} />
       <ConferenceSpeakers speakers={conference.speakers} />
+      <ConferenceAgenda agenda={conference.agenda} />
       <CallToAction />
       <SubscribeEmailList />
     </>
