@@ -19,22 +19,22 @@
 
 /* Scrollbar Width */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 12px;
 }
 
 /* Scrollbar Track */
 ::-webkit-scrollbar-track {
-  background: #888;
+  background: #222;
 }
 
 /* Scrollbar Handle */
 ::-webkit-scrollbar-thumb {
-  background: #222;
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #333;
 }
 
 /* General */
