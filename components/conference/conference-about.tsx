@@ -18,7 +18,7 @@ export default function ConferenceAbout({ conference }: ConferenceProps) {
           <Events events={conference.events} />
           <Masterclass masterclass={...conference.masterclass} />
           <NetworkingDinner />
-          <Accomodation venue={conference.venue} />
+          <Accommodation venue={conference.venue} />
         </div>
         <FormButtons
           registration={`/registration/${conference.slug}`}
@@ -86,15 +86,15 @@ function NetworkingDinner() {
   );
 }
 
-type AccomodationProps = {
+type AccommodationProps = {
   venue: string;
 };
-function Accomodation({ venue }: AccomodationProps) {
+function Accommodation({ venue }: AccommodationProps) {
   return (
     <div className="about_card_wrapper">
-      <h3 className="about_card_title">Accomodation</h3>
+      <h3 className="about_card_title">Accommodation</h3>
       <h5 className="about_card_subtitle">(optional, from AUD$300 per night)</h5>
-      <p className="about_card_content">{`Accomodation at ${venue}`}</p>
+      <p className="about_card_content">{`Accommodation at ${venue}`}</p>
     </div>
   );
 }
