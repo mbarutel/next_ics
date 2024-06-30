@@ -30,7 +30,7 @@ export default function HomeConference({
   }
 
   return (
-    <section className="section_margin">
+    <section className="section_padding">
       <div className="section_container">
         <h2 className="title">{sectionTitle}</h2>
         <div className="xl:px-24">

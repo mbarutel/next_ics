@@ -84,11 +84,11 @@ body {
 }
 
 .section_margin {
-  @apply py-7 lg:py-10 xl:py-14 scroll-mt-28;
+  @apply py-7 lg:py-10 xl:py-14 scroll-mt-24;
 }
 
 .section_padding {
-  @apply py-14 lg:py-20 xl:py-28;
+  @apply py-7 lg:py-20 xl:py-28 scroll-mt-24;
 }
 
 .header_height {

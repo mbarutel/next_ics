@@ -11,7 +11,7 @@ export default function HomeConferences({
   conferences: ConferenceType[];
 }) {
   return (
-    <section id="conferences" className="scroll-mt-28 section_margin">
+    <section id="conferences" className="section_padding">
       <div className="section_container">
         <h2 className="title">Upcoming Conferences</h2>
         <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-y-3 gap-x-4">

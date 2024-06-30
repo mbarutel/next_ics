@@ -51,6 +51,10 @@ export const links = [
     path: "/about",
   },
   {
+    name: "Conferences",
+    path: "/#conferences",
+  },
+  {
     name: "Contact",
     path: "/contact",
   },

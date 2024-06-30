@@ -1,15 +1,14 @@
 import {
-  CallToAction,
-  EventInformation,
-  NavBar,
-  SharedHeader,
   SubscribeEmailList,
+  EventInformation,
+  CallToAction,
+  SharedNavbar,
+  SharedHeader,
 } from "@/components";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { Event } from "@/contentful/services/event";
-import { Conference } from "@/contentful/services/conferences";
-import { parserConferenceEntry, parserEventEntry } from "@/contentful/utils";
+import { parserEventEntry } from "@/contentful/utils";
 import dayjs from "dayjs";
 
 type EventPageParams = {
@@ -34,18 +33,11 @@ export default async function page({ params }: EventPageProps) {
     parser: parserEventEntry,
   });
 
-  const conferenceInstance = new Conference({
-    preview: draftMode().isEnabled,
-    parser: parserConferenceEntry,
-  });
-
   const eventPage = await eventInstance.getEvent(params.slug);
 
   if (!eventPage || !eventPage.conference) {
     return notFound();
   }
-
-  const conferences = await conferenceInstance.getConferences();
 
   const headerText = {
     title: eventPage.title,
@@ -55,7 +47,7 @@ export default async function page({ params }: EventPageProps) {
 
   return (
     <>
-      <NavBar conferences={conferences} />
+      <SharedNavbar />
       <SharedHeader prop={{ ...headerText }} />
       <EventInformation {...eventPage} />
       <CallToAction />

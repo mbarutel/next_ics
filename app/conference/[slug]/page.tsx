@@ -1,12 +1,12 @@
 import {
-  NavBar,
-  CallToAction,
-  ConferenceEvents,
   SubscribeEmailList,
   ConferenceSpeakers,
-  ConferenceAbout,
+  ConferenceEvents,
   ConferenceAgenda,
+  ConferenceAbout,
+  CallToAction,
   SharedHeader,
+  SharedNavbar,
 } from "@/components";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
@@ -35,11 +35,7 @@ export default async function page({ params }: ConferencePageProps) {
     parser: parserConferenceEntry,
   });
 
-  const conferences = await conferenceInstance.getConferences();
-
-  const conference = conferences.find(
-    (conference) => conference.slug === params.slug,
-  );
+  const conference = await conferenceInstance.getConference(params.slug);
 
   if (!conference) {
     return notFound();
@@ -53,7 +49,7 @@ export default async function page({ params }: ConferencePageProps) {
 
   return (
     <>
-      <NavBar conferences={conferences} />
+      <SharedNavbar />
       <SharedHeader prop={{ ...headerText }} />
       <ConferenceAbout conference={conference} />
       <ConferenceEvents events={conference.events} />

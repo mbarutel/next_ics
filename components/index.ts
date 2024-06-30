@@ -8,7 +8,6 @@ import AboutVision from "./about-vision";
 import EventInformation from "./event/event-information";
 import ContactForm from "./contact-form";
 import ExitDraftModeLink from "./exit-draft-mode-link";
-import NavBar from "./nav-bar";
 import ConferenceEvents from "./conference/conference-events";
 import ConferenceSpeakers from "./conference/conference-speakers";
 import ConferenceAbout from "./conference/conference-about";
@@ -27,6 +26,7 @@ import HomeAcknowledgement from "./home/home-acknowledgement";
 import HomeTestimonial from "./home/home-testimonial";
 import HomeHighlight from "./home/home-highlight";
 import SharedHeader from "./shared/shared-header";
+import SharedNavbar from "./shared/shared-navbar";
 
 export {
   About,
@@ -42,6 +42,7 @@ export {
   HomeTestimonial,
   HomeAcknowledgement,
   SharedHeader,
+  SharedNavbar,
   CallToAction,
   ConferenceEvents,
   ConferenceSpeakers,
@@ -54,7 +55,6 @@ export {
   GoogleAnalytics,
   InstagramBanner,
   MeetTheTeam,
-  NavBar,
   RegistrationForm,
   RegistrationHeader,
   SubscribeEmailList,
