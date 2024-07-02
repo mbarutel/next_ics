@@ -10,4 +10,4 @@ export interface TypeSpeakerFields {
 }
 
 export type TypeSpeakerSkeleton = EntrySkeletonType<TypeSpeakerFields, "speaker">;
-export type TypeSpeaker<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeSpeakerSkeleton, Modifiers, Locales>;
+export type TypeSpeaker<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeSpeakerSkeleton, Modifiers, Locales>;

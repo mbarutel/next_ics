@@ -8,4 +8,4 @@ export interface TypeMasterclassFields {
 }
 
 export type TypeMasterclassSkeleton = EntrySkeletonType<TypeMasterclassFields, "masterclass">;
-export type TypeMasterclass<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeMasterclassSkeleton, Modifiers, Locales>;
+export type TypeMasterclass<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeMasterclassSkeleton, Modifiers, Locales>;

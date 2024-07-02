@@ -12,4 +12,4 @@ export interface TypeEventFields {
 }
 
 export type TypeEventSkeleton = EntrySkeletonType<TypeEventFields, "event">;
-export type TypeEvent<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeEventSkeleton, Modifiers, Locales>;
+export type TypeEvent<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeEventSkeleton, Modifiers, Locales>;

@@ -21,4 +21,4 @@ export interface TypeConferencesFields {
 }
 
 export type TypeConferencesSkeleton = EntrySkeletonType<TypeConferencesFields, "conferences">;
-export type TypeConferences<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeConferencesSkeleton, Modifiers, Locales>;
+export type TypeConferences<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeConferencesSkeleton, Modifiers, Locales>;
