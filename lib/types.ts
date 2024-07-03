@@ -59,6 +59,7 @@ export type ConferenceType = {
   prices: PriceType | undefined;
   masterclass: MasterclassType[];
   submitPaperLink: string | undefined;
+  sponsors: AssetType[];
 };
 
 export type EventType = {
@@ -79,6 +80,7 @@ export type ConferenceInEventType = Omit<
   | "speakers"
   | "prices"
   | "invoiceRef"
+  | "sponsors"
 >;
 
 export type AssetType = {

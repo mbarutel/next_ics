@@ -7,6 +7,7 @@ import {
   CallToAction,
   SharedHeader,
   SharedNavbar,
+  ConferenceSponsors,
 } from "@/components";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
@@ -55,6 +56,7 @@ export default async function page({ params }: ConferencePageProps) {
       <ConferenceEvents events={conference.events} />
       <ConferenceSpeakers speakers={conference.speakers} />
       <ConferenceAgenda agenda={conference.agenda} />
+      <ConferenceSponsors sponsors={conference.sponsors} />
       <CallToAction />
       <SubscribeEmailList />
     </>

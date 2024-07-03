@@ -23,8 +23,6 @@ export default function SharedCarousel({ images }: CarouselProps) {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
 
-  console.log(images);
-
   return (
     <div ref={emblaRef} className="overflow-hidden rounded-md relative">
       <div className="flex ml-[-1rem]">

@@ -12,6 +12,7 @@ import ConferenceEvents from "./conference/conference-events";
 import ConferenceSpeakers from "./conference/conference-speakers";
 import ConferenceAbout from "./conference/conference-about";
 import ConferenceAgenda from "./conference/conference-agenda";
+import ConferenceSponsors from "./conference/conference-sponsors";
 import GoogleAnalytics from "./google-analytics";
 import Announcement from "./announcement";
 import RegistrationForm from "./registration-form";
@@ -48,6 +49,7 @@ export {
   ConferenceSpeakers,
   ConferenceAbout,
   ConferenceAgenda,
+  ConferenceSponsors,
   ContactForm,
   EventInformation,
   ExitDraftModeLink,

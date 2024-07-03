@@ -4,15 +4,16 @@ import {
   EventEntry,
   ConferenceType,
   ConferencesEntry,
+  AssetType,
 } from "@/lib/types";
 import parserAsset from "./parser-asset";
-import { Entry, UnresolvedLink } from "contentful";
+import parserAgenda from "./parser-agenda";
+import { Asset, Entry, UnresolvedLink } from "contentful";
 import parserEventEntry from "./parser-event-entry";
 import parserConferenceDate from "./parser-conference-date";
 import { TypeEventSkeleton } from "../types/contentful/types";
 import parserSpeakerInConference from "./parser-speaker-in-conference";
 import parserMasterclassesInConference from "./parser-masterclasses-in-conference";
-import { parseAgenda } from "./parser-agenda";
 
 export default function parserConferenceEntry(
   conferenceEntry: ConferencesEntry,
@@ -21,7 +22,7 @@ export default function parserConferenceEntry(
     slug: conferenceEntry.fields.slug,
     title: conferenceEntry.fields.title,
     venue: conferenceEntry.fields.venue,
-    agenda: parseAgenda(conferenceEntry.fields.agenda),
+    agenda: parserAgenda(conferenceEntry.fields.agenda),
     invoiceRef: conferenceEntry.fields.invoiceReference,
     date: parserConferenceDate({
       startDate: conferenceEntry.fields.startDate,
@@ -34,13 +35,14 @@ export default function parserConferenceEntry(
     masterclass: parserMasterclassesInConference(
       conferenceEntry.fields.masterclass,
     ),
-    formLink: conferenceEntry.fields.externalForm === undefined
-      ? `/registration/${conferenceEntry.fields.slug}`
-      : conferenceEntry.fields.externalForm,
+    formLink:
+      conferenceEntry.fields.externalForm === undefined
+        ? `/registration/${conferenceEntry.fields.slug}`
+        : conferenceEntry.fields.externalForm,
     prices: parseConferencePrices(conferenceEntry.fields.prices),
+    sponsors: parseSponsers(conferenceEntry.fields.sponsors),
   };
 }
-
 
 function parseConferencePrices(object: unknown): PriceType | undefined {
   const parsedPrice = object as PriceType;
@@ -68,7 +70,8 @@ function parseConferencePrices(object: unknown): PriceType | undefined {
 
   for (let i = 0; i < parsedPrice.base.length; i++) {
     if (
-      !parsedPrice.base[i] || !("price" in parsedPrice.base[i]) ||
+      !parsedPrice.base[i] ||
+      !("price" in parsedPrice.base[i]) ||
       !("dueDate" in parsedPrice.base[i])
     ) {
       console.log(
@@ -94,14 +97,28 @@ function parseConferencePrices(object: unknown): PriceType | undefined {
   return parsedPrice;
 }
 
-
 function parseEventsInConference(
-  events:
-    (UnresolvedLink<"Entry"> | Entry<TypeEventSkeleton, undefined, string>)[],
+  events: (
+    | UnresolvedLink<"Entry">
+    | Entry<TypeEventSkeleton, undefined, string>
+  )[],
 ): EventType[] {
   if (events) {
-    return events.filter((event) => event.sys.type === "Entry")
+    return events
+      .filter((event) => event.sys.type === "Entry")
       .map((event) => parserEventEntry(event as EventEntry));
+  } else {
+    return [];
+  }
+}
+
+function parseSponsers(
+  sponsors: (UnresolvedLink<"Asset"> | Asset<undefined, string>)[] | undefined,
+): AssetType[] {
+  if (sponsors) {
+    return sponsors
+      .filter((sponsor) => sponsor !== undefined)
+      .map((sponsor) => parserAsset({ asset: sponsor }));
   } else {
     return [];
   }

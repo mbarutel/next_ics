@@ -71,7 +71,7 @@ export function YourInvitation() {
         the end of the conference, delegates will receive a copy of all papers &
         presentations presented at the conference through Dropbox.{" "}
       </p>
-      <ul>
+      <ul className="ul">
         <li>Who:\tIndividuals, Groups, NGO’s, Government Agencies & Others</li>
         <li>When: October 4-6, 2024</li>
         <li>Where: Shangri-La Hotel Cairns QLD Australia</li>

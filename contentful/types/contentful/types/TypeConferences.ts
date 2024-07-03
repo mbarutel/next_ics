@@ -18,6 +18,7 @@ export interface TypeConferencesFields {
     externalForm?: EntryFieldTypes.Symbol;
     prices?: EntryFieldTypes.Object;
     agenda?: EntryFieldTypes.Object;
+    sponsors?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
 }
 
 export type TypeConferencesSkeleton = EntrySkeletonType<TypeConferencesFields, "conferences">;
