@@ -44,10 +44,14 @@ export const registrationObjectApiParser = ({
   const reference = generateReference(conference);
   const events = values.events.join("\n");
   const extraParticipants = parseExtraParticipants(values.extraParticipants)
-    .map((item) => item.name.concat(` | ${item.email} | ${item.position}`))
+    .map((item) =>
+      item.name
+        .trim()
+        .concat(` | ${item.email.trim()} | ${item.position.trim()}`),
+    )
     .join("\n");
   const dinnerParticipants = parseDinnerParticipants(values.dinnerParticipants)
-    .map((item) => item.name.concat(` | ${item.diet}`))
+    .map((item) => item.name.trim().concat(` | ${item.diet}`))
     .join("\n");
 
   const dinnerPrice =
@@ -65,19 +69,19 @@ export const registrationObjectApiParser = ({
     reference: reference,
     conference: conference.title,
     events: events,
-    address: values.address,
-    company: values.company,
-    discount: values.discount,
+    address: values.address.trim(),
+    company: values.company.trim(),
+    discount: values.discount.trim(),
     referral: values.referral,
     priceValue: values.price.priceChoice,
     priceDueDate: new Date(dueDate),
     masterclass: values.masterclass,
     accomodation: values.accomodation,
     mainParticipant: {
-      name: values.name,
-      email: values.email,
-      position: values.position,
-      phone: values.phone,
+      name: values.name.trim(),
+      email: values.email.trim(),
+      position: values.position.trim(),
+      phone: values.phone.trim(),
     },
     dinnerParticipants: dinnerParticipants,
     extraParticipants: extraParticipants,
@@ -122,20 +126,8 @@ const parseDinnerParticipants = (
       return [];
     }
   }
+
   return dinnerParticipants as DinnerParticipantType[];
-};
-
-const generateReference = (conference: ConferenceType): string => {
-  if (!conference.date) {
-    throw new Error("Date cannot be empty at this point.");
-  }
-
-  const currentDate = new Date();
-  const day = currentDate.getDate();
-  const minutes = currentDate.getMinutes();
-  const seconds = currentDate.getSeconds().toString().slice(-1);
-
-  return `${conference.invoiceRef}-${day}${minutes}${seconds}`;
 };
 //
 // const generateReference = (conference: ConferenceType): string => {
@@ -143,6 +135,15 @@ const generateReference = (conference: ConferenceType): string => {
 //     throw new Error("Date cannot be empty at this point.");
 //   }
 //
-//   const uniquePart = uuidv4().slice(0, 6);
-//   return `${conference.invoiceRef}-${uniquePart}`;
+//   const currentDate = new Date();
+//   const day = currentDate.getDate();
+//   const minutes = currentDate.getMinutes();
+//   const seconds = currentDate.getSeconds().toString().slice(-1);
+//
+//   return `${conference.invoiceRef}-${day}${minutes}${seconds}`;
 // };
+
+const generateReference = (conference: ConferenceType): string => {
+  const uniquePart = uuidv4().slice(0, 6);
+  return `${conference.invoiceRef}-${uniquePart}`.toUpperCase();
+};
