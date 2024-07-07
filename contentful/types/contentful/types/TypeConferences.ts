@@ -2,6 +2,7 @@ import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleC
 import type { TypeEventSkeleton } from "./TypeEvent";
 import type { TypeMasterclassSkeleton } from "./TypeMasterclass";
 import type { TypeSpeakerSkeleton } from "./TypeSpeaker";
+import type { TypeSponsorSkeleton } from "./TypeSponsor";
 
 export interface TypeConferencesFields {
     title: EntryFieldTypes.Symbol;
@@ -18,7 +19,7 @@ export interface TypeConferencesFields {
     externalForm?: EntryFieldTypes.Symbol;
     prices?: EntryFieldTypes.Object;
     agenda?: EntryFieldTypes.Object;
-    sponsors?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
+    sponsor?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeSponsorSkeleton>>;
 }
 
 export type TypeConferencesSkeleton = EntrySkeletonType<TypeConferencesFields, "conferences">;

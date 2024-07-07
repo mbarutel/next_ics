@@ -1,8 +1,9 @@
-import { AssetType } from "@/lib/types";
+import { SponsorType } from "@/lib/types";
 import Image from "next/image";
+import Link from "next/link";
 
 type ConferenceSponsorsProps = {
-  sponsors: AssetType[];
+  sponsors: SponsorType[];
 };
 
 export default function ConferenceSponsors({
@@ -14,19 +15,22 @@ export default function ConferenceSponsors({
 
   return (
     <section className="section_padding">
-      <div className="section_container flex gap-3 md:gap-5 lg:gap-12 flex-wrap justify-center">
-        {sponsors.map((image, index) => (
-          <div
+      <div className="section_container flex gap-3 md:gap-5 flex-wrap justify-center">
+        {sponsors.map((sponsor, index) => (
+          <Link
             key={index}
-            className="relative w-36 h-16 sm:w-44 sm:h-24 md:w-60 md:h-32 lg:w-96 lg:h-40"
+            rel="noreferrer"
+            target="_blank"
+            href={sponsor.link}
+            className="relative rounded-md overflow-hidden w-96 h-24 lg:h-40 active:scale-95 transition-transform duration-300 ease-in-out"
           >
             <Image
               fill
-              src={image.src}
-              alt={image.alt}
+              src={sponsor.logo.src}
+              alt={sponsor.logo.alt}
               className="object-contain"
             />
-          </div>
+          </Link>
         ))}
       </div>
     </section>

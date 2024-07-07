@@ -2,18 +2,23 @@ import {
   PriceType,
   EventType,
   EventEntry,
+  SponsorType,
+  SponsorEntry,
   ConferenceType,
   ConferencesEntry,
-  AssetType,
 } from "@/lib/types";
 import parserAsset from "./parser-asset";
 import parserAgenda from "./parser-agenda";
-import { Asset, Entry, UnresolvedLink } from "contentful";
+import { Entry, UnresolvedLink } from "contentful";
 import parserEventEntry from "./parser-event-entry";
 import parserConferenceDate from "./parser-conference-date";
-import { TypeEventSkeleton } from "../types/contentful/types";
+import {
+  TypeEventSkeleton,
+  TypeSponsorSkeleton,
+} from "../types/contentful/types";
 import parserSpeakerInConference from "./parser-speaker-in-conference";
 import parserMasterclassesInConference from "./parser-masterclasses-in-conference";
+import parserSponsorEntry from "./parser-sponsor-entry";
 
 export default function parserConferenceEntry(
   conferenceEntry: ConferencesEntry,
@@ -40,7 +45,7 @@ export default function parserConferenceEntry(
         ? `/registration/${conferenceEntry.fields.slug}`
         : conferenceEntry.fields.externalForm,
     prices: parseConferencePrices(conferenceEntry.fields.prices),
-    sponsors: parseSponsers(conferenceEntry.fields.sponsors),
+    sponsors: parseSponsors(conferenceEntry.fields.sponsor),
   };
 }
 
@@ -112,13 +117,18 @@ function parseEventsInConference(
   }
 }
 
-function parseSponsers(
-  sponsors: (UnresolvedLink<"Asset"> | Asset<undefined, string>)[] | undefined,
-): AssetType[] {
+function parseSponsors(
+  sponsors:
+    | (
+      | UnresolvedLink<"Entry">
+      | Entry<TypeSponsorSkeleton, undefined, string>
+    )[]
+    | undefined,
+): SponsorType[] {
   if (sponsors) {
     return sponsors
-      .filter((sponsor) => sponsor !== undefined)
-      .map((sponsor) => parserAsset({ asset: sponsor }));
+      .filter((sponsor) => sponsor.sys.type === "Entry")
+      .map((sponsor) => parserSponsorEntry(sponsor as SponsorEntry));
   } else {
     return [];
   }
