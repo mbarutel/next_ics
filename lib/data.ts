@@ -9,7 +9,7 @@ export const configs = {
   },
   forms: {
     submitPaper:
-      "https://docs.google.com/forms/d/e/1FAIpQLScR8xcw0IrdVy60HHTD2ECZijXKWtyQyq3S3oEuYRw8m33XWA/viewform",
+      "/submit-paper",
     exhibitor:
       "https://docs.google.com/forms/d/e/1FAIpQLScRpsjKM0uqOmpJjurxMQZbz2o37_F_Gm9aR7PAXS9J-9U3tw/viewform",
     sponsor:
