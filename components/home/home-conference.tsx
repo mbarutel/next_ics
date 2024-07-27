@@ -57,14 +57,14 @@ function ConferenceDetails(conference: ConferenceType) {
   }
 
   return (
-    <div className="bg-yellow-400 uppercase flex_col justify-center rounded-lg z-10 px-4 py-2 md:py-12 md:mt-24 md:w-[110%] box_shadow">
-      <h3 className="conference_card_title lg:text-3xl xl:text-4xl text-gray-800 mt-3">
+    <div className="bg-yellow-400 flex_col justify-center rounded-lg z-10 px-4 py-2 md:py-12 md:mt-24 md:w-[110%] box_shadow">
+      <h3 className="conference_card_title lg:text-3xl xl:text-4xl text-gray-800 mt-3 uppercase ">
         {conference.title}
       </h3>
-      <h4 className="conference_card_info md:text-2xl flex flex-col text-gray-600 mt-3">
+      <h4 className="conference_card_info md:text-2xl flex_col text-gray-600 mt-3 capitalize">
         <span>
           {dayjs(conference.date.startDate).format("DD - ")}
-          {dayjs(conference.date.endDate).format("DD MMM YYYY")}
+          {dayjs(conference.date.endDate).format("DD MMMM YYYY")}
         </span>
         <span className="leading-none">{conference.venue}</span>
       </h4>
