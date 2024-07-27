@@ -34,16 +34,16 @@ export default function HomeConference({
       <div className="section_container">
         <h2 className="title">{sectionTitle}</h2>
         <div className="xl:px-24">
-          <div className="grid grid-cols-1 xl:grid-cols-2">
-            <div className="relative rounded-md overflow-hidden h-36 xl:order-1 xl:h-auto xl:mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <ConferenceDetails {...conference} />
+            <div className="relative rounded-md overflow-hidden md:mb-24">
               <Image
                 src="/assets/images/next-conference-poster.webp"
                 alt="Upcoming Conference In Australia"
                 fill
-                className="object-cover hover:scale-125 transition_config"
+                className="object-cover hover:scale-110 transition_transform duration-500"
               />
             </div>
-            <ConferenceDetails {...conference} />
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@ function ConferenceDetails(conference: ConferenceType) {
   }
 
   return (
-    <div className="bg-yellow-400 uppercase flex flex-col justify-center rounded-lg z-10 w-[95%] mx-auto -translate-y-5 p-2 xl:p-4 xl:translate-y-0 xl:mt-24 xl:w-[110%] xl:min-h-[400px] shadow-black/80 shadow-lg">
+    <div className="bg-yellow-400 uppercase flex_col justify-center rounded-lg z-10 px-4 py-2 md:py-12 md:mt-24 md:w-[110%] box_shadow">
       <h3 className="conference_card_title lg:text-3xl xl:text-4xl text-gray-800 mt-3">
         {conference.title}
       </h3>

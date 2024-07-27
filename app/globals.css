@@ -63,16 +63,12 @@ body {
   @apply list-disc pl-6;
 }
 
-.shadow {
-  @apply shadow-black/10;
-}
-
 .box_shadow {
-  @apply shadow-md;
+  @apply shadow-lg shadow-black/70 ;
 }
 
 .drop_shadow {
-  @apply drop-shadow-sm;
+  @apply drop-shadow-sm shadow-black/70;
 }
 
 .grid_two {
@@ -97,6 +93,10 @@ body {
 
 .header_wrapper {
   @apply relative header_height rounded-md;
+}
+ 
+.click_effect {
+  @apply active:scale-95 transition-all;
 }
 
 /* Rich Text */

@@ -33,9 +33,9 @@ function TitleAndSubTitle() {
       </p>
       <Link
         href="/#conferences"
-        className="button_config bg-gradient-to-r gradient font-medium mt-4 tracking-tight text-black/80 uppercase"
+        className="bg-gradient-to-r gradient font-medium mt-4 tracking-tight text-black/80 py-2 px-4 w-fit rounded-lg hover:underline click_effect"
       >
-        To Our Conferences
+        To our conferences
       </Link>
     </div>
   );
@@ -64,7 +64,7 @@ function GridHeader() {
       </div>
       <div className="header_grid_empty hidden xl:block xl:row-start-3 xl:row-end-5 xl:col-start-5 xl:col-end-5" />
       <div className="header_grid_empty hidden xl:block" />
-      <div className="header_grid_with_text flex_end xl:col-start-1 xl:col-end-5">
+      <div className="header_grid_with_text flex_end xl:col-start-1 xl:col-end-5 hover:italic">
         <h3>
           <span className="!uppercase">ICS</span> stands as a fully
           Indigenous-owned enterprise, maintaining complete independence from

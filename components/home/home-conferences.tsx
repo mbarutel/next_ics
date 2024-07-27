@@ -27,40 +27,44 @@ export default function HomeConferences({
   );
 }
 
+//<div className="conference_card_info_wrap conference_card_orientation">
+//
 function ConferenceCard(conference: ConferenceType) {
   return (
-    <div className="group relative h-48 md:h-56 rounded-md overflow-hidden">
-      <Image
-        src={conference.coverImage.src}
-        alt={conference.coverImage.alt}
-        fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="hidden md:block object-cover grayscale-[75%] transition_config group-hover:grayscale-0 md:group-odd:clip-path-polygon-[0_0,_30%_0,_40%_100%,_0_100%] z-40 group-even:clip-path-polygon-[70%_0,_100%_0,_100%_100%,_60%_100%] group-hover:scale-110"
-      />
-      <div className="conference_card_info_wrap conference_card_orientation">
+    <div className="group relative grid grid-cols-2 bg-stone-700 overflow-hidden rounded-md">
+      <div className="my-4 pl-4 z-10">
         <Link
           href={`/conference/${conference.slug}`}
-          className="text-transparent bg-clip-text bg-gradient-to-r gradient md:max-w-[30rem] lg:max-w-[25rem] 2xl:max-w-[30rem] pt-2 z-20 active:scale-95 transition_config"
+          className="text-yellow-400 group"
         >
-          <h3 className="conference_card_title md:group-even:ml-auto transition_config mb-1 text-white">
+          <h3 className="text-white text-xl leading-tight 2xl:text-2xl 2xl:leading-tight font-medium group-active:scale-95 transition-all">
             {conference.title}
           </h3>
           <Date date={conference.date} />
-          <h4 className="-mt-2 conference_card_info">{conference.venue}</h4>
+          <h4 className="mb-3 2xl:text-xl">{conference.venue}</h4>
         </Link>
-        <AboriginalIcon />
+        <CallToActionButtons
+          slug={conference.slug}
+          registration={conference.formLink}
+        />
       </div>
-      <CallToActionButtons
-        slug={conference.slug}
-        registration={conference.formLink}
-      />
+      <AboriginalIcon />
+      <div className="relative clip-path-polygon-[20%_0,_100%_0,_100%_100%,_10%_100%] z-10">
+        <Image
+          src={conference.coverImage.src}
+          alt={conference.coverImage.alt}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="hidden md:block object-cover grayscale-[75%] transition_config group-hover:grayscale-0 z-40 group-hover:scale-110"
+        />
+      </div>
     </div>
   );
 }
 
 function AboriginalIcon() {
   return (
-    <div className="absolute left-1/2 -translate-x-1/2 translate-y-1/2 bottom-0 block z-0">
+    <div className="absolute left-1/2 -translate-x-1/2 translate-y-1/2 bottom-0 z-0">
       <div className="relative h-96 w-96">
         <Image
           src="/assets/images/conference-card-icon.svg"
@@ -80,18 +84,16 @@ function Date({
   date: { startDate: Date; endDate: Date } | undefined;
 }) {
   return (
-    <span className="z-20">
-      <h4 className="conference_card_info">
+      <h4 className="mt-3 2xl:text-xl">
         {date ? (
           <>
-            {dayjs(date.startDate).format("DD-")}
-            {dayjs(date.endDate).format("DD MMM YY")}
+            {dayjs(date.startDate).format("DD - ")}
+            {dayjs(date.endDate).format("DD MMMM YY")}
           </>
         ) : (
           <>TBA</>
         )}
       </h4>
-    </span>
   );
 }
 
@@ -103,10 +105,10 @@ function CallToActionButtons({
   registration: string | undefined;
 }) {
   return (
-    <div className="absolute bottom-1 left-1 md:left-auto md:group-odd:right-1 md:group-even:left-1 flex gap-1 text-black text-sm sm:text-lg z-40">
+    <div className="md:left-auto md:group-odd:right-1 md:group-even:left-1 flex gap-1 text-sm lg:text-base">
       <Link
         href={`/conference/${slug}`}
-        className="bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
+        className="bg-black text-white rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-1"
       >
         View Events
       </Link>
@@ -114,7 +116,7 @@ function CallToActionButtons({
         href={configs.forms.submitPaper}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-yellow-300 rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3 shadow-black/40 shadow-md"
+        className="bg-yellow-300 text-black rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-1"
       >
         Submit A Paper
       </Link>
@@ -123,7 +125,7 @@ function CallToActionButtons({
           href={registration}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gradient-to-r gradient rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3"
+          className="bg-yellow-400 text-black rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-1"
         >
           Registration
         </Link>
