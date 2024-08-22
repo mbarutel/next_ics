@@ -14,7 +14,7 @@ export default function InputField(
         name={name}
         type={type}
         placeholder={placeholder}
-        className="w-full bg-transparent border-b-white border-b-[1px] p-2 text-white placeholder-white"
+        className="w-full bg-transparent border-b-white border-b-[1px] p-2 text-white placeholder-gray-500"
       />
   );
 }

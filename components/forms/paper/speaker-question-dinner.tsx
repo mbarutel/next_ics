@@ -1,9 +1,9 @@
 "use client";
 
 import { dietaryOptions } from "@/lib/data";
-import { ErrorMessage, Field, FieldArray } from "formik";
+import { FieldArray } from "formik";
 import React, { Fragment, useEffect, useState } from "react";
-import { DinnerParticipantType, ParticipantType } from "@/lib/types";
+import { DinnerParticipantType } from "@/lib/types";
 import Select from "react-select";
 import InputField from "./input-field";
 import { formSelectStyle } from "@/lib/form-select-style";
@@ -44,66 +44,65 @@ export default function SpeakerQuestionDinner({
     <div className="question_wrapper">
       <h2 className="text-xl italic">Conference Networking Dinner</h2>
       <small className="pl-4 italic">{`AU$${price} Per Person`}</small>
-      <div className="flex_col">
-        <label>
-          <input
-            type="radio"
-            name="dinnerParticipation"
-            checked={selected === true}
-            onClick={() => setSelected(true)}
-          />
-          Yes
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="dinnerParticipation"
-            checked={selected === false}
-            onClick={() => setSelected(false)}
-          />
-          No
-        </label>
-      </div>
-      {
-        selected && (
-          <div className="">
-            <FieldArray name="dinnerParticipants">
-              {({ remove, push }) => (
-                <>
-                  <div className="mb-2">
-                    {dinnerParticipants.length > 0 &&
-                      dinnerParticipants.map((participant, index) => (
-                        <Fragment key={index}>
-                          <DinnerParticipantField
-                            name={`dinnerParticipants.${index}.name`}
-                            position={`dinnerParticipants.${index}.diet`}
-                            options={options}
-                            push={push}
-                            remove={remove}
-                            setFieldValue={setFieldValue}
-                            setSelected={setSelected}
-                            index={index}
-                            participant={participant}
-                            participants={dinnerParticipants}
-                          />
-                        </Fragment>
-                      ))}
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      push({ name: "", diet: "normal" });
-                    }}
-                    className="w-full !bg-gradient-to-l gradient field_input text-black transition_config hover:scale-[101%] active:scale-[99%]"
-                  >
-                    Add Dinner Participant
-                  </button>
-                </>
-              )}
-            </FieldArray>
-          </div>
-        )
-      }
+      {!selected ? (
+        <div className="flex_col gap-2">
+          <label>
+            <input
+              type="radio"
+              name="dinnerParticipation"
+              checked={selected}
+              onClick={() => setSelected(true)}
+            />
+            Yes
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="dinnerParticipation"
+              checked={!selected}
+              onClick={() => setSelected(false)}
+            />
+            No
+          </label>
+        </div>
+      ) : (
+        <div className="">
+          <FieldArray name="dinnerParticipants">
+            {({ remove, push }) => (
+              <>
+                <div className="mb-2">
+                  {dinnerParticipants.length > 0 &&
+                    dinnerParticipants.map((participant, index) => (
+                      <Fragment key={index}>
+                        <DinnerParticipantField
+                          name={`dinnerParticipants.${index}.name`}
+                          position={`dinnerParticipants.${index}.diet`}
+                          options={options}
+                          push={push}
+                          remove={remove}
+                          setFieldValue={setFieldValue}
+                          setSelected={setSelected}
+                          index={index}
+                          participant={participant}
+                          participants={dinnerParticipants}
+                        />
+                      </Fragment>
+                    ))}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    push({ name: "", diet: "normal" });
+                  }}
+                  className=""
+                >
+                  Add Dinner Participant
+                </button>
+              </>
+            )}
+          </FieldArray>
+        </div>
+      )}
     </div>
   );
 }

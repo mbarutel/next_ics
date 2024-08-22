@@ -31,6 +31,8 @@ export default async function Home() {
 
   const conferences = await conferenceInstance.getConferences();
 
+  debugger
+
   return (
     <>
       <HomeAcknowledgement />

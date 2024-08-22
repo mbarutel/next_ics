@@ -1,33 +1,42 @@
 import * as Yup from "yup";
 
-const SpeakerValidation = Yup.object().shape({
+const SpeakerFormValidation = Yup.object().shape({
   events: Yup.object().nonNullable(),
   name: Yup.string()
-    .min(2)
-    .max(50, "* Too Long")
-    .required("*"),
+    .trim()
+    .min(2, "Too Short")
+    .max(50, "Too Long")
+    .required("Required"),
   jobTitle: Yup.string()
-    .max(50, "*Too Long")
-    .required("*"),
+    .trim()
+    .min(2, "Too Short")
+    .max(50, "Too Long")
+    .required("Required"),
   organization: Yup.string()
-    .min(2, "*Too Short")
-    .max(50, "*Too Long")
-    .required("*"),
-  address: Yup.string() // this needs proper validation
-    .min(2, "*Too Short")
-    .max(50, "*Too Long")
-    .required("*"),
-  phone: Yup.string().email("*Invalid email").required("*"),
+    .trim()
+    .min(2, "Too Short")
+    .max(50, "Too Long")
+    .required("Required"),
+  address: Yup.string()
+    .trim()
+    .min(2, "Too Short")
+    .max(50, "Too Long")
+    .required("Required"),
+  phone: Yup.string() // This needs proper validation
+    .trim()
+    .min(2, "Too Short")
+    .max(100, "Too Long")
+    .required("Required"),
   email: Yup.string()
-    .min(2, "*Too Short")
-    .max(100, "*Too Long")
-    .required("*"),
+    .trim()
+    .email("Invalid Email")
+    .required("Required"),
   accomodation: Yup.string()
-    .required("*"),
+    .required("Required"),
   referral: Yup.string()
-    .required("*"),
+    .required("Required"),
   agreement: Yup.boolean()
-    .oneOf([true], "*"),
+    .oneOf([true], "Required"),
 });
 
-export default SpeakerValidation;
+export default SpeakerFormValidation;

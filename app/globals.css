@@ -105,10 +105,6 @@ footer {
   @apply py-7 lg:py-10 xl:py-14;
 }
 
-.field {
-  @apply w-full bg-transparent border-b-white border-b-[1px] p-2 text-white placeholder-white;
-}
-
 .section_padding {
   @apply py-7 lg:py-20 xl:py-28;
 }
@@ -282,17 +278,26 @@ footer {
   @apply flex flex-wrap gap-x-1 gap-y-1 mb-2 sm:mb-0;
 }
 
-/* Registration Form */
+/* Forms */
+
+.field {
+  @apply w-full bg-transparent border-b-white border-b-[1px] p-2 text-white placeholder-gray-400;
+}
+
+.question_title {
+  @apply text-2xl;
+}
+
+.question_subtitle {
+  @apply text-xl pl-3 italic;
+}
+
 .field_input {
   @apply p-2 text-lg rounded-md border focus:outline-none focus:border-blue-500;
 }
 
 .question_wrapper {
   @apply py-4;
-}
-
-.question_title {
-  @apply text-2xl capitalize;
 }
 
 .validation_text {

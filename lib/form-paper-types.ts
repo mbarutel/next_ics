@@ -1,4 +1,25 @@
-import { EventType } from "./types";
+import { DinnerParticipantType, EventType } from "./types";
+
+// This is used for the question components for accessing values
+export type PaperFormikValuesType = {
+  event: string | null,
+  name: string | null,
+  jobTitle: string | null,
+  organisation: string | null,
+  address: string | null,
+  phone: string | null,
+  email: string | null,
+  paperTitle: string | null,
+  biography: string | null,
+  paperDescription: string | null,
+  accomodation: string | null,
+  dinnerParticipants: Array<DinnerParticipantType> | null,
+  masterclass: string | null,
+  payment: string | null,
+  discount: string | null,
+  referral: string | null,
+  agreement: boolean,
+}
 
 export type PaperSubmissionType = {
   event: string;
@@ -12,7 +33,7 @@ export type PaperSubmissionType = {
   paperTitle: string;
   paperDescription: boolean;
   accomodation: number;
-  dinnerParticipants: string;
+  dinnerParticipants: DinnerParticipantType[];
   masterclass: string;
   agreement: boolean;
   discount: string;

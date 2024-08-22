@@ -1,9 +1,9 @@
 "use client";
 
 import { Field, Form, Formik } from "formik";
-import InputField from "./input-field";
-import clsx from "clsx";
 import SpeakerQuestionDinner from "./speaker-question-dinner";
+import SpeakerQuestionInformation from "./speaker-question-information";
+import SpeakerFormValidation from "./speaker-validation";
 
 export default function SpeakerForm() {
   return (
@@ -27,22 +27,15 @@ export default function SpeakerForm() {
         referral: null,
         agreement: false,
       }}
-      //validationSchema={FormValidation}
+      validationSchema={SpeakerFormValidation}
       onSubmit={async (
       ) => {
       }}
     >
 
-      {({ values, isSubmitting, errors, touched, setFieldValue }) => (
+      {({ values, isSubmitting, touched, setFieldValue }) => (
         <Form className="flex_col gap-3 py-3">
-          <h3 className="text-2xl italic">Speaker Information</h3>
-          <Field name="name" type="text" placeholder="Full Name" className={clsx("field", { "!placeholder-red-500 !border-red-500": !values.name && touched.name })} />
-          <Field name="jobTitle" type="text" placeholder="Job Title" className="field" />
-          <Field name="organisation" type="text" placeholder="Organisation" className="field" />
-          <Field name="address" type="text" placeholder="Address" className="field" />
-          <Field name="phone" type="text" placeholder="Phone" className="field" />
-          <Field name="email" type="text" placeholder="Email" className="field" />
-
+          <SpeakerQuestionInformation values={values} touched={touched} />
           <h3 className="text-2xl italic">Paper Information</h3>
           <Field name="paperTitle" type="text" placeholder="Paper Title" className="field" />
           <div className="grid grid-cols-2 gap-3">

@@ -22,7 +22,7 @@ export default async function page() {
   return (
     <>
       <section className="section_padding">
-        <div className="section_container">
+        <div className="mx-auto px-1 w-[min(90%,960px)]">
           <h2 className="text-5xl font-semibold">
             Submit a Paper
           </h2>
