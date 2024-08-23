@@ -8,13 +8,13 @@ import Select from "react-select";
 import InputField from "./input-field";
 import { formSelectStyle } from "@/lib/form-select-style";
 
-export default function SpeakerQuestionDinner({
+export default function QuestionDinner({
   name,
   price,
   setFieldValue,
   dinnerParticipants,
 }: {
-  name: string | null,
+  name: string | null;
   price: number;
   setFieldValue: Function;
   dinnerParticipants: DinnerParticipantType[];
@@ -27,21 +27,21 @@ export default function SpeakerQuestionDinner({
 
   useEffect(() => {
     if (selected === true && name !== null) {
-      const participant: DinnerParticipantType[] = [{
-        name: name,
-        diet: "normal",
-      }];
+      const participant: DinnerParticipantType[] = [
+        {
+          name: name,
+          diet: "normal",
+        },
+      ];
 
-      setFieldValue("dinnerParticipants", [
-        ...participant,
-      ]);
+      setFieldValue("dinnerParticipants", [...participant]);
     } else {
       setFieldValue("dinnerParticipants", []);
     }
   }, [setFieldValue, selected]);
 
   return (
-    <div className="question_wrapper">
+    <>
       <h2 className="text-xl italic">Conference Networking Dinner</h2>
       <small className="pl-4 italic">{`AU$${price} Per Person`}</small>
       {!selected ? (
@@ -103,7 +103,7 @@ export default function SpeakerQuestionDinner({
           </FieldArray>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
@@ -122,17 +122,15 @@ type DinnerParticipantFieldProps = {
   participant: DinnerParticipantType;
   participants: DinnerParticipantType[];
 };
-function DinnerParticipantField(
-  {
-    remove,
-    setFieldValue,
-    options,
-    setSelected,
-    index,
-    participant,
-    participants,
-  }: DinnerParticipantFieldProps,
-) {
+function DinnerParticipantField({
+  remove,
+  setFieldValue,
+  options,
+  setSelected,
+  index,
+  participant,
+  participants,
+}: DinnerParticipantFieldProps) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-1">
       <InputField
@@ -145,12 +143,9 @@ function DinnerParticipantField(
         name={`dinnerParticipants.${index}.diet`}
         instanceId={`dinnerParticipants.${index}.diet`}
         value={options.filter((option) => option.value === participant.diet)}
-        onChange={(event) => (
-          setFieldValue(
-            `dinnerParticipants.${index}.diet`,
-            event?.value,
-          )
-        )}
+        onChange={(event) =>
+          setFieldValue(`dinnerParticipants.${index}.diet`, event?.value)
+        }
         styles={formSelectStyle}
       />
       <button

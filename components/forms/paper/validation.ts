@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-const SpeakerFormValidation = Yup.object().shape({
+const FormValidation = Yup.object().shape({
   events: Yup.object().nonNullable(),
   name: Yup.string()
     .trim()
@@ -27,16 +27,10 @@ const SpeakerFormValidation = Yup.object().shape({
     .min(2, "Too Short")
     .max(100, "Too Long")
     .required("Required"),
-  email: Yup.string()
-    .trim()
-    .email("Invalid Email")
-    .required("Required"),
-  accomodation: Yup.string()
-    .required("Required"),
-  referral: Yup.string()
-    .required("Required"),
-  agreement: Yup.boolean()
-    .oneOf([true], "Required"),
+  email: Yup.string().trim().email("Invalid Email").required("Required"),
+  accomodation: Yup.string().required("Required"),
+  referral: Yup.string().required("Required"),
+  agreement: Yup.boolean().oneOf([true], "Required"),
 });
 
-export default SpeakerFormValidation;
+export default FormValidation;

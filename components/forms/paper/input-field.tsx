@@ -1,4 +1,5 @@
 "use client";
+
 import { Field } from "formik";
 
 type InputFieldProps = {
@@ -10,11 +11,11 @@ type InputFieldProps = {
 export default function InputField(
   { name, type, placeholder, }: InputFieldProps) {
   return (
-      <Field
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        className="w-full bg-transparent border-b-white border-b-[1px] p-2 text-white placeholder-gray-500"
-      />
+    <Field
+      name={name}
+      type={type}
+      placeholder={placeholder}
+      className="w-full bg-transparent border-b-white border-b-[1px] p-2 text-white placeholder-gray-500"
+    />
   );
 }
