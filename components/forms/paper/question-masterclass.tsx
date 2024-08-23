@@ -1,12 +1,6 @@
 import { FormValuesType, MasterclassType } from "@/lib/types";
 import { FormikErrors, FormikTouched } from "formik";
-import React from "react";
-
-type QuestionMasterclassProps = {
-  masterclasses: MasterclassType[];
-  errors: FormikErrors<FormValuesType>;
-  touched: FormikTouched<FormValuesType>;
-};
+import React, { Fragment } from "react";
 
 //{ choice, price, masterclasses, errors, touched, setFieldValue }: {
 //  choice: string;
@@ -16,14 +10,36 @@ type QuestionMasterclassProps = {
 //  touched: FormikTouched<FormValuesType>;
 //  setFieldValue: Function;
 //},
+//
+type QuestionMasterclassProps = {
+  masterclasses: MasterclassType[];
+  touched: FormikTouched<FormValuesType>;
+};
 export default function QuestionMasterclass({
   masterclasses,
-  errors,
   touched,
 }: QuestionMasterclassProps) {
   return (
     <>
-      <h2 className="text-xl italic">Masterclass</h2>
+      <h2 className="text-xl italic">Post Conference Masterclass</h2>
+      <div className="flex_col">
+        {masterclasses.map((masterclass) => (
+          <Fragment key={masterclass.slug}>
+            <label>
+              <input
+                type="radio"
+                name="masterclass"
+                value={masterclass.title}
+              />
+              {masterclass.title}
+            </label>
+          </Fragment>
+        ))}
+        <label>
+          <input type="radio" name="masterclass" value="no" />
+          No
+        </label>
+      </div>
     </>
   );
 }

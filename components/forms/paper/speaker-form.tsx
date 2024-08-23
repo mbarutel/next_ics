@@ -2,12 +2,18 @@
 
 import QuestionSpeakerInformation from "./question-speaker-info";
 import QuestionAccomodation from "./question-accomodation";
-import QuestionDinner from "./question-dinner";
-import FormValidation from "./validation";
 import { Form, Formik } from "formik";
+import FormValidation from "./validation";
+import QuestionDinner from "./question-dinner";
+import QuestionMasterclass from "./question-masterclass";
 import QuestionPaperInformation from "./question-paper-info";
+import { EventType } from "@/lib/types";
 
-export default function SpeakerForm() {
+type SpeakerFormProps = {
+  events: EventType[];
+};
+
+export default function SpeakerForm({ events }: SpeakerFormProps) {
   return (
     <Formik
       initialValues={{
@@ -30,7 +36,7 @@ export default function SpeakerForm() {
         agreement: false,
       }}
       validationSchema={FormValidation}
-      onSubmit={async () => { }}
+      onSubmit={async () => {}}
     >
       {({ values, isSubmitting, touched, setFieldValue }) => (
         <Form className="flex_col gap-3 py-3">
@@ -51,6 +57,12 @@ export default function SpeakerForm() {
               setFieldValue={setFieldValue}
               dinnerParticipants={values.dinnerParticipants}
             />
+            {events[0].conference && (
+              <QuestionMasterclass
+                masterclasses={events[0].conference.masterclass}
+                touched={touched}
+              />
+            )}
           </div>
         </Form>
       )}

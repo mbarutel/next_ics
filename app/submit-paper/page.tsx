@@ -23,12 +23,10 @@ export default async function page() {
     <>
       <section className="section_padding">
         <div className="mx-auto px-1 w-[min(90%,960px)]">
-          <h2 className="text-5xl font-semibold">
-            Submit a Paper
-          </h2>
-          <SpeakerForm />
+          <h2 className="text-5xl font-semibold">Submit a Paper</h2>
+          <SpeakerForm events={events} />
         </div>
       </section>
     </>
-  )
+  );
 }
