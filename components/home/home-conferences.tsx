@@ -27,8 +27,6 @@ export default function HomeConferences({
   );
 }
 
-//<div className="conference_card_info_wrap conference_card_orientation">
-//
 function ConferenceCard(conference: ConferenceType) {
   return (
     <div className="group relative grid grid-cols-2 bg-stone-700 overflow-hidden rounded-md">
@@ -37,11 +35,11 @@ function ConferenceCard(conference: ConferenceType) {
           href={`/conference/${conference.slug}`}
           className="text-yellow-400 group"
         >
-          <h3 className="text-white text-xl leading-tight 2xl:text-2xl 2xl:leading-tight font-medium group-active:scale-95 transition-all">
+          <h3 className="text-white text-lg leading-tight font-medium group-active:scale-95 transition-all">
             {conference.title}
           </h3>
           <Date date={conference.date} />
-          <h4 className="mb-3 2xl:text-xl">{conference.venue}</h4>
+          <h4 className="-mt-0.5 mb-1">{conference.venue}</h4>
         </Link>
         <CallToActionButtons
           slug={conference.slug}
@@ -84,16 +82,16 @@ function Date({
   date: { startDate: Date; endDate: Date } | undefined;
 }) {
   return (
-      <h4 className="mt-3 2xl:text-xl">
-        {date ? (
-          <>
-            {dayjs(date.startDate).format("DD - ")}
-            {dayjs(date.endDate).format("DD MMMM YY")}
-          </>
-        ) : (
-          <>TBA</>
-        )}
-      </h4>
+    <h4 className="mt-1">
+      {date ? (
+        <>
+          {dayjs(date.startDate).format("DD - ")}
+          {dayjs(date.endDate).format("DD MMMM YY")}
+        </>
+      ) : (
+        <>TBA</>
+      )}
+    </h4>
   );
 }
 
@@ -105,12 +103,12 @@ function CallToActionButtons({
   registration: string | undefined;
 }) {
   return (
-    <div className="md:left-auto md:group-odd:right-1 md:group-even:left-1 flex gap-1 text-sm lg:text-base">
+    <div className="md:left-auto flex flex-wrap gap-1 text-sm">
       <Link
         href={`/conference/${slug}`}
         className="bg-black text-white rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-1"
       >
-        View Events
+        View&nbsp;Events
       </Link>
       <Link
         href={configs.forms.submitPaper}
@@ -118,7 +116,7 @@ function CallToActionButtons({
         rel="noopener noreferrer"
         className="bg-yellow-300 text-black rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-1"
       >
-        Submit A Paper
+        Submit&nbsp;A&nbsp;Paper
       </Link>
       {registration && (
         <Link

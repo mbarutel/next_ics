@@ -33,7 +33,7 @@ export default function HomeConference({
     <section className="section_padding">
       <div className="section_container">
         <h2 className="title">{sectionTitle}</h2>
-        <div className="xl:px-24">
+        <div className="xl:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2">
             <ConferenceDetails {...conference} />
             <div className="relative rounded-md overflow-hidden md:mb-24">
@@ -57,18 +57,18 @@ function ConferenceDetails(conference: ConferenceType) {
   }
 
   return (
-    <div className="bg-yellow-400 flex_col justify-center rounded-lg z-10 px-4 py-2 md:py-12 md:mt-24 md:w-[110%] box_shadow">
-      <h3 className="conference_card_title lg:text-3xl xl:text-4xl text-gray-800 mt-3 uppercase ">
+    <div className="bg-yellow-400 flex_col justify-center rounded-lg z-10 px-4 py-6 md:mt-24 md:w-[110%] box_shadow">
+      <h3 className="text-2xl italic font-semibold text-gray-800 mt-3 uppercase ">
         {conference.title}
       </h3>
-      <h4 className="conference_card_info md:text-2xl flex_col text-gray-600 mt-3 capitalize">
+      <h4 className="flex_col text-lg text-gray-800 mt-3 capitalize">
         <span>
           {dayjs(conference.date.startDate).format("DD - ")}
           {dayjs(conference.date.endDate).format("DD MMMM YYYY")}
         </span>
         <span className="leading-none">{conference.venue}</span>
       </h4>
-      <div className="flex gap-1 text-black text-sm sm:text-lg z-40 capitalize mt-12">
+      <div className="flex gap-1 text-black z-40 capitalize mt-12">
         <Link
           href={`/conference/${conference.slug}`}
           className="bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3 shadow-black/40 shadow-md"
