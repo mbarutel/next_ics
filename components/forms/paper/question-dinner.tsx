@@ -7,6 +7,7 @@ import { DinnerParticipantType } from "@/lib/types";
 import Select from "react-select";
 import InputField from "./input-field";
 import { formSelectStyle } from "@/lib/form-select-style";
+import QuestionTitle from "./question-title";
 
 export default function QuestionDinner({
   name,
@@ -26,10 +27,10 @@ export default function QuestionDinner({
   }));
 
   useEffect(() => {
-    if (selected === true && name !== null) {
+    if (selected === true) {
       const participant: DinnerParticipantType[] = [
         {
-          name: name,
+          name: name ? name : "",
           diet: "normal",
         },
       ];
@@ -41,39 +42,30 @@ export default function QuestionDinner({
   }, [setFieldValue, selected]);
 
   return (
-    <>
-      <h2 className="text-xl italic">Conference Networking Dinner</h2>
-      <small className="pl-4 italic">{`AU$${price} Per Person`}</small>
-      {!selected ? (
-        <div className="flex_col gap-2">
-          <label>
-            <input
-              type="radio"
-              name="dinnerParticipation"
-              checked={selected}
-              onClick={() => setSelected(true)}
-            />
-            Yes
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="dinnerParticipation"
-              checked={!selected}
-              onClick={() => setSelected(false)}
-            />
-            No
-          </label>
-        </div>
-      ) : (
-        <div className="">
+    <div className="form_section_wrapper">
+      <QuestionTitle
+        title="Conference Networking Dinner"
+        subtitle={`Connect, collaborate, and create opportunities at our exclusive networking dinner! | AU$${price} Per Person`}
+      />
+      <hr className="mb-2" />
+      <div className="flex flex-col">
+        {!selected ? (
+          <button
+            onClick={() => {
+              setSelected(true);
+            }}
+            className="button_primary text-center !w-full"
+          >
+            Yes, please!
+          </button>
+        ) : (
           <FieldArray name="dinnerParticipants">
             {({ remove, push }) => (
               <>
-                <div className="mb-2">
+                <div className="mb-3">
                   {dinnerParticipants.length > 0 &&
                     dinnerParticipants.map((participant, index) => (
-                      <Fragment key={index}>
+                      <div key={index} className="mb-2">
                         <DinnerParticipantField
                           name={`dinnerParticipants.${index}.name`}
                           position={`dinnerParticipants.${index}.diet`}
@@ -86,7 +78,7 @@ export default function QuestionDinner({
                           participant={participant}
                           participants={dinnerParticipants}
                         />
-                      </Fragment>
+                      </div>
                     ))}
                 </div>
                 <button
@@ -94,16 +86,16 @@ export default function QuestionDinner({
                   onClick={() => {
                     push({ name: "", diet: "normal" });
                   }}
-                  className=""
+                  className="button_primary bg-yellow-400"
                 >
                   Add Dinner Participant
                 </button>
               </>
             )}
           </FieldArray>
-        </div>
-      )}
-    </>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -132,7 +124,7 @@ function DinnerParticipantField({
   participants,
 }: DinnerParticipantFieldProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-1">
+    <div className="fields_wrapper xl:grid-cols-3">
       <InputField
         type="text"
         name={`dinnerParticipants.${index}.name`}
@@ -156,7 +148,7 @@ function DinnerParticipantField({
           }
           remove(index);
         }}
-        className="border-white border-2 text-white rounded-md"
+        className="button_primary bg-red-400"
       >
         Remove
       </button>

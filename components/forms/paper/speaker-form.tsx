@@ -8,6 +8,12 @@ import QuestionDinner from "./question-dinner";
 import QuestionMasterclass from "./question-masterclass";
 import QuestionPaperInformation from "./question-paper-info";
 import { EventType } from "@/lib/types";
+import QuestionPaymentType from "./question-payment-type";
+import QuestionDiscount from "./question-discount";
+import QuestionReferral from "./question-referral";
+import QuestionGuidelines from "./question-guidelines";
+import { initValues } from "@/lib/form-paper";
+import QuestionConference from "./question-conference";
 
 type SpeakerFormProps = {
   events: EventType[];
@@ -16,53 +22,53 @@ type SpeakerFormProps = {
 export default function SpeakerForm({ events }: SpeakerFormProps) {
   return (
     <Formik
-      initialValues={{
-        event: null,
-        name: null,
-        jobTitle: null,
-        organisation: null,
-        address: null,
-        phone: null,
-        email: null,
-        paperTitle: null,
-        biography: null,
-        paperDescription: null,
-        accomodation: null,
-        dinnerParticipants: [],
-        masterclass: null,
-        payment: null,
-        discount: null,
-        referral: null,
-        agreement: false,
-      }}
+      initialValues={{ ...initValues }}
       validationSchema={FormValidation}
-      onSubmit={async () => {}}
+      onSubmit={async () => { }}
     >
-      {({ values, isSubmitting, touched, setFieldValue }) => (
-        <Form className="flex_col gap-3 py-3">
+      {({ values, touched, setFieldValue, isSubmitting }) => (
+        <Form>
+          <QuestionConference
+            values={values}
+            touched={touched}
+            events={events}
+          />
+          <hr className="my-2" />
+          <QuestionSpeakerInformation values={values} touched={touched} />
+          <hr className="my-2" />
+          <QuestionPaperInformation values={values} touched={touched} />
+          <hr className="my-2" />
+          <QuestionDinner
+            name={values.name}
+            price={150}
+            setFieldValue={setFieldValue}
+            dinnerParticipants={values.dinnerParticipants}
+          />
+          <hr className="my-2" />
+          <QuestionAccomodation values={values} touched={touched} />
+          <hr className="my-2" />
+          <QuestionMasterclass
+            values={values}
+            touched={touched}
+            events={events}
+          />
           <div>
-            <h3 className="question_title">Speaker Information</h3>
-            <QuestionSpeakerInformation values={values} touched={touched} />
+            <h3 className="question_title">Payment</h3>
+            <QuestionPaymentType touched={touched} />
           </div>
           <div>
-            <h3 className="question_title">Paper Information</h3>
-            <QuestionPaperInformation values={values} touched={touched} />
+            <h3 className="question_title">Discount Code</h3>
+            <QuestionDiscount values={values} touched={touched} />
           </div>
           <div>
-            <h3 className="text-2xl italic">Networking & Accomodation</h3>
-            <QuestionAccomodation values={values} touched={touched} />
-            <QuestionDinner
-              name={values.name}
-              price={150}
-              setFieldValue={setFieldValue}
-              dinnerParticipants={values.dinnerParticipants}
-            />
-            {events[0].conference && (
-              <QuestionMasterclass
-                masterclasses={events[0].conference.masterclass}
-                touched={touched}
-              />
-            )}
+            <h3 className="question_title">How did you hear about us?</h3>
+            <QuestionReferral touched={touched} />
+          </div>
+          <div>
+            <h3 className="question_title">
+              Guidelines for Submitting a Paper
+            </h3>
+            <QuestionGuidelines touched={touched} />
           </div>
         </Form>
       )}

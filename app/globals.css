@@ -50,9 +50,34 @@
   font-family: var(--font-space_mono);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply arvo;
+}
+
+/* Form */
+.speaker_question_title {
+  @apply text-4xl italic;
+}
+
+.form_section_title {
+  @apply text-4xl font-semibold text-yellow-400;
+}
+
+.form_section_wrapper {
+  @apply border-[1px] border-stone-400 border-opacity-60 px-4 py-9;
+}
+
+.fields_wrapper {
+  @apply grid gap-y-1 gap-x-4;
+}
+
 /* General */
 body {
-  @apply inter bg-stone-900 text-white;
+  @apply inter bg-stone-900 text-white antialiased;
 }
 
 header,
@@ -140,6 +165,18 @@ footer {
 }
 
 /* Button */
+.button {
+  @apply space_mono cursor-pointer px-4 py-2 rounded-sm border-2 border-opacity-0 hover:border-opacity-100 transition;
+}
+
+.button_primary {
+  @apply button bg-yellow-400 hover:bg-opacity-0 text-black hover:text-yellow-400 border-yellow-400;
+}
+
+.button_secondary {
+  @apply button underline text-yellow-400 border-yellow-400;
+}
+
 .btn_text {
   @apply text-sm lg:text-base;
 }
@@ -150,14 +187,6 @@ footer {
 
 .btn_primary {
   @apply btn_config btn_text bg_accent box_shadow;
-}
-
-.button_primary {
-  @apply space_mono bg-yellow-400 hover:bg-opacity-0 px-4 py-2 text-black hover:text-yellow-400 rounded-sm border-2 border-opacity-0 hover:border-opacity-100 border-yellow-400 transition;
-}
-
-.button_secondary {
-  @apply space_mono underline px-4 py-2 text-yellow-400 rounded-sm border-2 border-opacity-0 hover:border-opacity-100 border-yellow-400 transition;
 }
 
 .btn_secondary {

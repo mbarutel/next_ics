@@ -1,43 +1,57 @@
 import {
   PaperFormikValuesType,
-  PaperSubmissionType,
-} from "@/lib/form-paper-types";
+  PaperSubmissionFormValuesType,
+} from "@/lib/form-paper";
 import { Field, FormikTouched } from "formik";
+import QuestionTitle from "./question-title";
 
 type InformationQuestionProps = {
   values: PaperFormikValuesType;
-  touched: FormikTouched<PaperSubmissionType>;
+  touched: FormikTouched<PaperFormikValuesType>;
 };
 
 export default function QuestionAccomodation({
   values,
   touched,
 }: InformationQuestionProps) {
+  const fields = [
+    {
+      value: "1",
+      label: "Yes, one (1) night",
+    },
+    {
+      value: "2",
+      label: "Yes, two (2) nights",
+    },
+    {
+      value: "3",
+      label: "Yes, three (3) nights",
+    },
+    {
+      value: "4",
+      label: "Yes, four (4) nights",
+    },
+    {
+      value: "0",
+      label: "No, thank you",
+    },
+  ];
+
   return (
-    <>
-      <h2 className="text-xl italic">Accomodation</h2>
-      <div className="grid grid-cols-3 gap-3">
-        <label className="flex gap-2">
-          <Field name="accomodation" type="radio" value="1" />
-          Yes, one (1) night
-        </label>
-        <label className="flex gap-2">
-          <Field name="accomodation" type="radio" value="2" />
-          Yes, two (2) nights
-        </label>
-        <label className="flex gap-2">
-          <Field name="accomodation" type="radio" value="3" />
-          Yes, three (3) nights
-        </label>
-        <label className="flex gap-2">
-          <Field name="accomodation" type="radio" value="4" />
-          Yes, four (4) nights
-        </label>
-        <label className="flex gap-2">
-          <Field name="accomodation" type="radio" value="0" />
-          No, thank you
-        </label>
+    <div className="form_section_wrapper">
+      <QuestionTitle
+        title="Accommodation"
+        subtitle="Relax and recharge with our comfortable conference accommodations!"
+      />
+      <hr className="mb-2" />
+      <div className="grid grid-cols-2 gap-3">
+        {fields.map((field, index) => (
+          <label key={index} className="flex gap-2 button_primary">
+            <Field name="accomodation" type="radio" value={field.value} />
+            {field.label}
+          </label>
+        ))}
       </div>
-    </>
+    </div>
   );
 }

@@ -1,76 +1,81 @@
-import {
-  PaperFormikValuesType,
-  PaperSubmissionType,
-} from "@/lib/form-paper-types";
-import clsx from "clsx";
+import { PaperFormikValuesType } from "@/lib/form-paper";
 import { Field, FormikTouched } from "formik";
+import clsx from "clsx";
+import { Fragment } from "react";
+import QuestionTitle from "./question-title";
 
 type InformationQuestionProps = {
   values: PaperFormikValuesType;
-  touched: FormikTouched<PaperSubmissionType>;
+  touched: FormikTouched<PaperFormikValuesType>;
 };
 
 export default function QuestionSpeakerInformation({
   values,
   touched,
 }: InformationQuestionProps) {
+  const fields = [
+    {
+      name: "name",
+      type: "text",
+      placeholder: "Full Name",
+      value: values.name,
+      touched: touched.name,
+    },
+    {
+      name: "jobTitle",
+      type: "text",
+      placeholder: "Job Title",
+      value: values.jobTitle,
+      touched: touched.jobTitle,
+    },
+    {
+      name: "organisation",
+      type: "text",
+      placeholder: "Organisation",
+      value: values.organisation,
+      touched: touched.organisation,
+    },
+    {
+      name: "address",
+      type: "text",
+      placeholder: "Address",
+      value: values.address,
+      touched: touched.address,
+    },
+    {
+      name: "phone",
+      type: "text",
+      placeholder: "Phone",
+      value: values.phone,
+      touched: touched.phone,
+    },
+    {
+      name: "email",
+      type: "email",
+      placeholder: "Email",
+      value: values.email,
+      touched: touched.email,
+    },
+  ];
+
   return (
-    <>
-      <Field
-        name="name"
-        type="text"
-        placeholder="Full Name"
-        className={clsx("field", {
-          "!placeholder-red-500 !border-red-500 italic":
-            !values.name?.trim() && touched.name,
-        })}
-      />
-      <Field
-        name="jobTitle"
-        type="text"
-        placeholder="Job Title"
-        className={clsx("field", {
-          "!placeholder-red-500 !border-red-500 italic":
-            !values.jobTitle?.trim() && touched.jobTitle,
-        })}
-      />
-      <Field
-        name="organisation"
-        type="text"
-        placeholder="Organisation"
-        className={clsx("field", {
-          "!placeholder-red-500 !border-red-500 italic":
-            !values.organisation?.trim() && touched.organization,
-        })}
-      />
-      <Field
-        name="address"
-        type="text"
-        placeholder="Address"
-        className={clsx("field", {
-          "!placeholder-red-500 !border-red-500 italic":
-            !values.address?.trim() && touched.address,
-        })}
-      />
-      <Field name="phone" type="text" placeholder="Phone" className="field" />
-      <Field
-        name="phone"
-        type="text"
-        placeholder="Mobile"
-        className={clsx("field", {
-          "!placeholder-red-500 !border-red-500 italic":
-            !values.phone?.trim() && touched.phone,
-        })}
-      />
-      <Field
-        name="email"
-        type="text"
-        placeholder="Email"
-        className={clsx("field", {
-          "!placeholder-red-500 !border-red-500 italic":
-            !values.email?.trim() && touched.email,
-        })}
-      />
-    </>
+    <div className="form_section_wrapper">
+      <QuestionTitle title="Speaker Information" />
+      <div className="fields_wrapper grid-cols-2">
+        {fields.map((field, index) => (
+          <Fragment key={index}>
+            <Field
+              name={field.name}
+              type={field.type}
+              placeholder={field.placeholder}
+              className={clsx("field", {
+                "!placeholder-red-500 !border-red-500 italic":
+                  !field.value?.trim() && field.touched,
+              })}
+            />
+          </Fragment>
+        ))}
+      </div>
+    </div>
   );
 }

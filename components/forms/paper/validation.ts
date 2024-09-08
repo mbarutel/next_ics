@@ -12,7 +12,7 @@ const FormValidation = Yup.object().shape({
     .min(2, "Too Short")
     .max(50, "Too Long")
     .required("Required"),
-  organization: Yup.string()
+  organisation: Yup.string()
     .trim()
     .min(2, "Too Short")
     .max(50, "Too Long")

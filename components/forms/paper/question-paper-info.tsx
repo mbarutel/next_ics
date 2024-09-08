@@ -1,50 +1,61 @@
-import {
-  PaperFormikValuesType,
-  PaperSubmissionType,
-} from "@/lib/form-paper-types";
-import clsx from "clsx";
+import { PaperFormikValuesType } from "@/lib/form-paper";
 import { Field, FormikTouched } from "formik";
+import clsx from "clsx";
+import QuestionTitle from "./question-title";
+import { Fragment } from "react";
 
 type QuestionPaperInformationProps = {
   values: PaperFormikValuesType;
-  touched: FormikTouched<PaperSubmissionType>;
+  touched: FormikTouched<PaperFormikValuesType>;
 };
 
 export default function QuestionPaperInformation({
   values,
   touched,
 }: QuestionPaperInformationProps) {
+  const fields = [
+    {
+      name: "paperTitle",
+      type: "text",
+      placeholder: "Paper Title",
+      value: values.paperTitle,
+      touched: touched.paperTitle,
+    },
+    {
+      name: "biography",
+      as: "textarea",
+      placeholder: "Speaker Biography",
+      value: values.biography,
+      touched: touched.biography,
+    },
+    {
+      name: "paperDescription",
+      as: "textarea",
+      placeholder: "Paper Description",
+      value: values.paperDescription,
+      touched: touched.paperDescription,
+    },
+  ];
+
   return (
-    <>
-      <Field
-        type="text"
-        name="title"
-        placeholder="Paper Title"
-        className={clsx("field", {
-          "!placeholder-red-500 !border-red-500 italic":
-            !values.jobTitle?.trim() && touched.jobTitle,
-        })}
-      />
-      <div className="grid grid-cols-2 gap-2">
-        <Field
-          as="textarea"
-          name="biography"
-          placeholder="Speaker Biography"
-          className={clsx("field", {
-            "!placeholder-red-500 !border-red-500 italic":
-              !values.name?.trim() && touched.name,
-          })}
-        />
-        <Field
-          as="textarea"
-          name="description"
-          placeholder="Paper Description"
-          className={clsx("field", {
-            "!placeholder-red-500 !border-red-500 italic":
-              !values.organisation?.trim() && touched.organization,
-          })}
-        />
+    <div className="form_section_wrapper">
+      <QuestionTitle title="Paper Information" />
+      <div className="fields_wrapper grid-cols-1">
+        {fields.map((field, index) => (
+          <Fragment key={index}>
+            <Field
+              name={field.name}
+              type={field.type || "text"}
+              as={field.as || "input"}
+              placeholder={field.placeholder}
+              className={clsx("field", {
+                "!placeholder-red-500 !border-red-500 italic":
+                  !field.value?.trim() && field.touched,
+              })}
+            />
+          </Fragment>
+        ))}
       </div>
-    </>
+    </div>
   );
 }

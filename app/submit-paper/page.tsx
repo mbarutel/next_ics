@@ -1,3 +1,4 @@
+import QuestionTitle from "@/components/forms/paper/question-title";
 import SpeakerForm from "@/components/forms/paper/speaker-form";
 import { Event } from "@/contentful/services/event";
 import { parserEventEntry } from "@/contentful/utils";
@@ -21,9 +22,20 @@ export default async function page() {
 
   return (
     <>
-      <section className="section_padding">
-        <div className="mx-auto px-1 w-[min(90%,960px)]">
-          <h2 className="text-5xl font-semibold">Submit a Paper</h2>
+      <section>
+        <div className="container w-[min(90%,960px)]">
+          <div className="form_section_wrapper text-center bg-stone-700">
+            <h2 className="text-6xl font-semibold text-yellow-400 mb-2">
+              Submit a Paper
+            </h2>
+            <p className="italic w-[min(100%,80ch)] mx-auto">
+              Empower others with your experience, personal journeys, stories,
+              insights, and wisdom, inspiring a world where all culture is
+              celebrated and respected. Submit a paper for the following
+              conferences!
+            </p>
+          </div>
+          <hr className="my-2" />
           <SpeakerForm events={events} />
         </div>
       </section>

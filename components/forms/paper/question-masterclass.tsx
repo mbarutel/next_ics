@@ -1,27 +1,39 @@
-import { FormValuesType, MasterclassType } from "@/lib/types";
-import { FormikErrors, FormikTouched } from "formik";
-import React, { Fragment } from "react";
+"use client";
 
-//{ choice, price, masterclasses, errors, touched, setFieldValue }: {
-//  choice: string;
-//  price: number;
-//  masterclasses: MasterclassType[] | undefined;
-//  errors: FormikErrors<FormValuesType>;
-//  touched: FormikTouched<FormValuesType>;
-//  setFieldValue: Function;
-//},
-//
-type QuestionMasterclassProps = {
-  masterclasses: MasterclassType[];
-  touched: FormikTouched<FormValuesType>;
+import React, { Fragment, useEffect, useState } from "react";
+import { EventType, MasterclassType } from "@/lib/types";
+import { QuestionBaseProps } from "@/lib/form-paper";
+import QuestionTitle from "./question-title";
+
+type QuestionMasterclassProps = QuestionBaseProps & {
+  events: EventType[];
 };
 export default function QuestionMasterclass({
-  masterclasses,
+  values,
   touched,
+  events,
 }: QuestionMasterclassProps) {
+  const [masterclasses, setMasterclasses] = useState<MasterclassType[]>([]);
+
+  useEffect(() => {
+    let arr: MasterclassType[] = [];
+
+    events.forEach((event) => {
+      if (
+        values.events.includes(event.title) &&
+        event.conference &&
+        event.conference.masterclass.length > 0
+      ) {
+        arr.push(...event.conference.masterclass);
+      }
+    });
+
+    setMasterclasses(arr);
+  }, [values.events]);
+
   return (
-    <>
-      <h2 className="text-xl italic">Post Conference Masterclass</h2>
+    <div className="form_section_wrapper">
+      <QuestionTitle title="Post Conference Masterclass" />
       <div className="flex_col">
         {masterclasses.map((masterclass) => (
           <Fragment key={masterclass.slug}>
@@ -40,6 +52,6 @@ export default function QuestionMasterclass({
           No
         </label>
       </div>
-    </>
+    </div>
   );
 }
