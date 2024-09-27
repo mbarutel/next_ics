@@ -15,7 +15,7 @@ export default function ConferenceAgenda({ agenda }: ConferenceAgendaProp) {
   }
 
   return (
-    <div className="my-6 py-4 rounded-md flex_col bg_accent mx-auto gap-4 w-[80ch]">
+    <div className="my-6 py-4 rounded-md flex_col bg_accent mx-auto gap-4 xl:w-[80ch]">
       {agenda.map((day, index) => {
         const lastDay = index === agenda.length - 1;
 

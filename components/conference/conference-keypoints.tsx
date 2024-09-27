@@ -56,7 +56,7 @@ export default function ConferenceKeypoints({
   return (
     <section>
       <div className="section_container">
-        <div className="flex gap-y-3 gap-x-6">
+        <div className="flex py-3 gap-x-6">
           {buttons.map((button, index) => (
             <Fragment key={index}>
               <label className="cursor-pointer">

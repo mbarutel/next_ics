@@ -26,8 +26,8 @@ export default function ConferenceSpeakers({
 
 function SpeakerCard({ speaker }: { speaker: SpeakerType }) {
   return (
-    <div className="flex py-8 justify-center">
-      <div className="bg-yellow-400 h-96 w-64 col-span-1 mr-8">
+    <div className="flex flex-col xl:flex-row py-8 justify-center">
+      <div className="bg-yellow-400 h-72 w-48 mx-auto xl:mx-0 mb-5 xl:mb-0 xl:h-96 xl:w-64 xl:mr-8">
         <div className="relative w-full h-full translate-x-3 -translate-y-3 overflow-hidden">
           <Image
             fill
@@ -38,7 +38,7 @@ function SpeakerCard({ speaker }: { speaker: SpeakerType }) {
           />
         </div>
       </div>
-      <div className="col-span-3 px-5 w-[80ch]">
+      <div className="px-5 xl:w-[80ch]">
         <div className="mb-5 border-yellow-400 border-l-[5px] pl-5">
           <h4 className="text-3xl font-semibold mb-2">{speaker.name}</h4>
           <h5 className="text-lg">{speaker.jobTitle}</h5>

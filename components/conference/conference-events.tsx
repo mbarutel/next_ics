@@ -8,7 +8,7 @@ type ConferenceEventsProps = {
 };
 export default function ConferenceEvents({ events }: ConferenceEventsProps) {
   return (
-    <div className="grid grid-cols-2 gap-2 my-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 my-6">
       {events.map((event) => (
         <Fragment key={event.slug}>
           <ConferenceCard {...event} />
