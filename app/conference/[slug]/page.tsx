@@ -1,19 +1,17 @@
 import {
   SubscribeEmailList,
-  ConferenceSpeakers,
-  ConferenceEvents,
-  ConferenceAgenda,
   ConferenceAbout,
   CallToAction,
   SharedHeader,
   SharedNavbar,
   ConferenceSponsors,
+  ConferenceKeypoints,
 } from "@/components";
+import dayjs from "dayjs";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { parserConferenceEntry } from "@/contentful/utils";
 import { Conference } from "@/contentful/services/conferences";
-import dayjs from "dayjs";
 
 type ConferencePageParams = {
   slug: string;
@@ -53,9 +51,11 @@ export default async function page({ params }: ConferencePageProps) {
       <SharedNavbar />
       <SharedHeader prop={{ ...headerText }} />
       <ConferenceAbout conference={conference} />
-      <ConferenceEvents events={conference.events} />
-      <ConferenceSpeakers speakers={conference.speakers} />
-      <ConferenceAgenda agenda={conference.agenda} />
+      <ConferenceKeypoints
+        events={conference.events}
+        speakers={conference.speakers}
+        agenda={conference.agenda}
+      />
       <ConferenceSponsors sponsors={conference.sponsors} />
       <CallToAction />
       <SubscribeEmailList />

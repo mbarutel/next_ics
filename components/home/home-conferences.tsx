@@ -106,15 +106,15 @@ function CallToActionButtons({
     <div className="md:left-auto flex flex-wrap gap-1 text-sm">
       <Link
         href={`/conference/${slug}`}
-        className="bg-black text-white rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-1"
+        className="bg-black text-white rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-2"
       >
-        View&nbsp;Events
+        Learn&nbsp;More
       </Link>
       <Link
         href={configs.forms.submitPaper}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-yellow-300 text-black rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-1"
+        className="bg-yellow-300 text-black rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-2"
       >
         Submit&nbsp;A&nbsp;Paper
       </Link>
@@ -123,7 +123,7 @@ function CallToActionButtons({
           href={registration}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-yellow-400 text-black rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-1"
+          className="bg-yellow-400 text-black rounded-md hover:-translate-y-1 transition-all active:translate-y-1 duration-100 px-3 py-2"
         >
           Registration
         </Link>

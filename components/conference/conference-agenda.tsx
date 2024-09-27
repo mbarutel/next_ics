@@ -15,26 +15,21 @@ export default function ConferenceAgenda({ agenda }: ConferenceAgendaProp) {
   }
 
   return (
-    <section className="section_margin bg_accent">
-      <div className="section_container">
-        <h2 className="title text-center">Conference Agenda</h2>
-        <div className="py-6 flex_col gap-4">
-          {agenda.map((day, index) => {
-            const lastDay = index === agenda.length - 1;
+    <div className="my-6 py-4 rounded-md flex_col bg_accent mx-auto gap-4 w-[80ch]">
+      {agenda.map((day, index) => {
+        const lastDay = index === agenda.length - 1;
 
-            return (
-              <Fragment key={index}>
-                <ConferenceAgendaDay
-                  index={index}
-                  lastDay={lastDay}
-                  agendaRow={{ ...day }}
-                />
-              </Fragment>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+        return (
+          <Fragment key={index}>
+            <ConferenceAgendaDay
+              index={index}
+              lastDay={lastDay}
+              agendaRow={{ ...day }}
+            />
+          </Fragment>
+        );
+      })}
+    </div>
   );
 }
 

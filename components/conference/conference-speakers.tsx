@@ -1,6 +1,6 @@
 import RichText from "../rich-text-elements/rich-text";
-import React, { Fragment } from "react";
 import { SpeakerType } from "@/lib/types";
+import React, { Fragment } from "react";
 import Image from "next/image";
 
 export default function ConferenceSpeakers({
@@ -8,30 +8,26 @@ export default function ConferenceSpeakers({
 }: {
   speakers: SpeakerType[];
 }) {
-  if (speakers.length === 0) {
-    return null;
-  }
+  const speakersLengthIndex = speakers.length - 1;
 
   return (
-    <section className="section_margin hidden lg:block">
-      <div className="section_container flex flex-col">
-        <h2 className="title text-center">Speakers</h2>
-        <div className="max-w-6xl mx-auto h-[1000px] overflow-y-auto">
-          {speakers.map((speaker, index) => (
-            <Fragment key={index}>
-              <SpeakerCard speaker={speaker} />
-            </Fragment>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div className="w-fit mx-auto h-[800px] overflow-y-auto my-6">
+      {speakers.map((speaker, index) => (
+        <Fragment key={index}>
+          <SpeakerCard speaker={speaker} />
+          {index !== speakersLengthIndex && (
+            <hr className="border-t-4 border-yellow-600 my-5 w-4/5 mx-auto" />
+          )}
+        </Fragment>
+      ))}
+    </div>
   );
 }
 
 function SpeakerCard({ speaker }: { speaker: SpeakerType }) {
   return (
-    <div className="grid grid-cols-4 py-8">
-      <div className="bg-yellow-400 h-96 w-64 col-span-1 ">
+    <div className="flex py-8 justify-center">
+      <div className="bg-yellow-400 h-96 w-64 col-span-1 mr-8">
         <div className="relative w-full h-full translate-x-3 -translate-y-3 overflow-hidden">
           <Image
             fill
@@ -42,13 +38,13 @@ function SpeakerCard({ speaker }: { speaker: SpeakerType }) {
           />
         </div>
       </div>
-      <div className="col-span-3 px-5">
+      <div className="col-span-3 px-5 w-[80ch]">
         <div className="mb-5 border-yellow-400 border-l-[5px] pl-5">
           <h4 className="text-3xl font-semibold mb-2">{speaker.name}</h4>
           <h5 className="text-lg">{speaker.jobTitle}</h5>
           <h5 className="text-lg -mt-1">{speaker.organization}</h5>
         </div>
-        <div className="">
+        <div>
           <RichText document={speaker.biography} />
         </div>
       </div>

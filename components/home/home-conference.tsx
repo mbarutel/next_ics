@@ -73,7 +73,7 @@ function ConferenceDetails(conference: ConferenceType) {
           href={`/conference/${conference.slug}`}
           className="bg-black text-white rounded-md hover:-translate-y-1 transition_config active:translate-y-1 duration-100 py-2 px-2 sm:px-3 shadow-black/40 shadow-md"
         >
-          View Events
+          Learn More
         </Link>
         <Link
           href={configs.forms.submitPaper}

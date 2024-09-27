@@ -3,20 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { Fragment } from "react";
 
-export default function ConferenceEvents({ events }: { events: EventType[] }) {
+type ConferenceEventsProps = {
+  events: EventType[];
+};
+export default function ConferenceEvents({ events }: ConferenceEventsProps) {
   return (
-    <section id="events" className="section_margin">
-      <div className="section_container">
-        <h2 className="title">Upcoming Events</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 py-6">
-          {events.map((event) => (
-            <Fragment key={event.slug}>
-              <ConferenceCard {...event} />
-            </Fragment>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div className="grid grid-cols-2 gap-2 my-6">
+      {events.map((event) => (
+        <Fragment key={event.slug}>
+          <ConferenceCard {...event} />
+        </Fragment>
+      ))}
+    </div>
   );
 }
 
@@ -43,7 +41,7 @@ function ConferenceCard(event: EventType) {
           href={`/event/${event.slug}`}
           className="grow py-2 text-center text-lg font-bold bg-black/90  hover:bg-gradient-to-b gradient hover:text-black transition_config rounded-sm active:scale-95"
         >
-          Read More
+          Learn More
         </Link>
         {event.conference && (
           <Link

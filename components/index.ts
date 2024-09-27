@@ -8,10 +8,8 @@ import AboutVision from "./about-vision";
 import EventInformation from "./event/event-information";
 import ContactForm from "./contact-form";
 import ExitDraftModeLink from "./exit-draft-mode-link";
-import ConferenceEvents from "./conference/conference-events";
-import ConferenceSpeakers from "./conference/conference-speakers";
 import ConferenceAbout from "./conference/conference-about";
-import ConferenceAgenda from "./conference/conference-agenda";
+import ConferenceKeypoints from "./conference/conference-keypoints";
 import ConferenceSponsors from "./conference/conference-sponsors";
 import GoogleAnalytics from "./google-analytics";
 import Announcement from "./announcement";
@@ -45,10 +43,8 @@ export {
   SharedHeader,
   SharedNavbar,
   CallToAction,
-  ConferenceEvents,
-  ConferenceSpeakers,
   ConferenceAbout,
-  ConferenceAgenda,
+  ConferenceKeypoints,
   ConferenceSponsors,
   ContactForm,
   EventInformation,
