@@ -39,8 +39,8 @@ export default async function Home() {
       <SharedNavbar />
       <HomeHeader />
       <Announcement />
-      <HomeConference conferences={conferences} />
-      <HomeConferences conferences={conferences.slice(1)} />
+      {/* <HomeConference conferences={conferences} /> */}
+      <HomeConferences conferences={conferences} />
       <InstagramBanner />
       <HomeCarousel />
       <HomeHighlight />

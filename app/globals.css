@@ -37,10 +37,27 @@
   background: #333;
 }
 
-/* General */
+/* Fonts */
+.inter {
+  font-family: var(--font-inter);
+}
 
+.arvo {
+  font-family: var(--font-arvo);
+}
+
+.space_mono {
+  font-family: var(--font-space_mono);
+}
+
+/* General */
 body {
-  @apply bg-stone-900 text-white;
+  @apply inter bg-stone-900 text-white;
+}
+
+section,
+header {
+  @apply flex justify-center py-6;
 }
 
 .bg_primary {
@@ -64,7 +81,7 @@ body {
 }
 
 .box_shadow {
-  @apply shadow-lg shadow-black/70 ;
+  @apply shadow-lg shadow-black/70;
 }
 
 .drop_shadow {
@@ -94,7 +111,7 @@ body {
 .header_wrapper {
   @apply relative header_height rounded-md;
 }
- 
+
 .click_effect {
   @apply active:scale-95 transition-all;
 }
