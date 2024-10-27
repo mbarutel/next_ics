@@ -123,11 +123,11 @@ header {
 
 /* Text Sizes */
 .title {
-  @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-normal leading-7 drop-shadow-sm shadow-black/10 my-3;
+  @apply arvo text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-normal leading-7 drop-shadow-sm shadow-black/10 my-3;
 }
 
 .subtitle {
-  @apply text-xl sm:text-2xl md:text-3xl;
+  @apply arvo text-xl sm:text-2xl md:text-3xl;
 }
 
 /* Button */
@@ -141,6 +141,14 @@ header {
 
 .btn_primary {
   @apply btn_config btn_text bg_accent box_shadow;
+}
+
+.button_primary {
+  @apply space_mono bg-yellow-400 hover:bg-opacity-0 px-4 py-2 text-black hover:text-yellow-400 rounded-sm border-2 border-opacity-0 hover:border-opacity-100 border-yellow-400 transition;
+}
+
+.button_secondary {
+  @apply space_mono underline px-4 py-2 text-yellow-400 rounded-sm border-2 border-opacity-0 hover:border-opacity-100 border-yellow-400 transition;
 }
 
 .btn_secondary {

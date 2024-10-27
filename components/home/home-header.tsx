@@ -31,10 +31,7 @@ function TitleAndSubTitle() {
         ICS wishes to invite you and your team with interest in humanities and
         improving outcomes for First Nations people to our next conference.
       </p>
-      <Link
-        href="/#conferences"
-        className="bg-gradient-to-r gradient font-medium mt-4 tracking-tight text-black/80 py-2 px-4 w-fit rounded-lg hover:underline click_effect"
-      >
+      <Link href="/#conferences" className="button_primary w-fit mt-6">
         To our conferences
       </Link>
     </div>

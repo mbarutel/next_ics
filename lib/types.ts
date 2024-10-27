@@ -47,11 +47,11 @@ export type ConferenceType = {
   title: string;
   venue: string;
   date:
-  | {
-    endDate: Date;
-    startDate: Date;
-  }
-  | undefined;
+    | {
+        endDate: Date;
+        startDate: Date;
+      }
+    | undefined;
   formLink: string;
   invoiceRef: string;
   events: EventType[];

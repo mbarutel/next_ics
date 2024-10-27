@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
 
@@ -6,6 +6,8 @@ type HeaderProp = {
   title: string;
   subtitle: string;
   anchor: string;
+  register?: string;
+  paper?: string;
 };
 export default function SharedHeader({ prop }: { prop: HeaderProp }) {
   return (
@@ -17,6 +19,26 @@ export default function SharedHeader({ prop }: { prop: HeaderProp }) {
         <p className="italic drop_shadow mt-2 text-sm sm:text-lg">
           {prop.subtitle}
         </p>
+        {(prop.register || prop.paper) && (
+          <div className="my-6 flex gap-4 mx-auto">
+            {prop.register && (
+              <Link
+                href={prop.register}
+                className="button_primary bg-stone-900 border-stone-900 text-yellow-400 hover:text-stone-900"
+              >
+                Register
+              </Link>
+            )}
+            {prop.paper && (
+              <Link
+                href={prop.paper}
+                className="button_secondary text-stone-900 hover:border-stone-900"
+              >
+                Submit A Paper
+              </Link>
+            )}
+          </div>
+        )}
         <Link
           href={prop.anchor}
           className="absolute bottom-5 left-1/2 -translate-x-1/2 text-5xl"

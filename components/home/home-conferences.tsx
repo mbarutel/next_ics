@@ -136,7 +136,7 @@ type HomeConferencesProp = {
 };
 export default function HomeConferences({ conferences }: HomeConferencesProp) {
   return (
-    <section id="all-conferences">
+    <section id="conferences">
       <div className="container py-14">
         <h2 className="title">Upcoming Conferences</h2>
         {conferences.map((conference) => (
@@ -167,7 +167,11 @@ function ConferenceRow({ conference }: ConferenceRowProp) {
       </div>
       {conference.events.map((event) => (
         <Fragment key={event.slug}>
-          <EventRow event={event} />
+          <EventRow
+            event={event}
+            slug={conference.slug}
+            paperLink={conference.submitPaperLink}
+          />
         </Fragment>
       ))}
     </div>
@@ -176,8 +180,10 @@ function ConferenceRow({ conference }: ConferenceRowProp) {
 
 type EventRowProp = {
   event: EventType;
+  slug: string;
+  paperLink: string | undefined;
 };
-function EventRow({ event }: EventRowProp) {
+function EventRow({ event, slug, paperLink }: EventRowProp) {
   if (!event.conference || !event.conference.date) {
     return null;
   }
@@ -197,12 +203,25 @@ function EventRow({ event }: EventRowProp) {
           {dayjs(event.conference.date.startDate).format("MMMM D, YYYY - ")}
           {dayjs(event.conference.date.endDate).format("MMMM D, YYYY")}
         </h4>
-        <Link href={`/event/${event.slug}`} className="text-yellow-400 text-lg">
+        <Link
+          href={`/event/${event.slug}`}
+          className="text-yellow-400 text-lg hover:underline hover:italic"
+        >
           <h2>{event.title}</h2>
         </Link>
         <h5 className="mb-6">{event.conference.venue}</h5>
-        <p className="merriweather text-justify">{event.description}</p>
-        <hr className="mt-6" />
+        <p className="text-justify">{event.description}</p>
+        <div className="my-6 flex gap-4">
+          <Link href={`/registration/${slug}`} className="button_primary">
+            Register
+          </Link>
+          {paperLink && (
+            <Link href={paperLink} className="button_secondary">
+              Submit A Paper
+            </Link>
+          )}
+        </div>
+        <hr />
       </div>
     </div>
   );
