@@ -14,7 +14,7 @@ type ConferenceKeypointsProps = {
 };
 
 enum TabTypes {
-  events = "Events",
+  conferences = "Conferences",
   speakers = "Speakers",
   agenda = "Agenda",
 }
@@ -25,8 +25,10 @@ export default function ConferenceKeypoints({
   agenda,
 }: ConferenceKeypointsProps) {
   let content: React.JSX.Element;
-  const buttons = [TabTypes.events];
-  const [tab, setTab] = useState<TabTypes>(TabTypes.events);
+  const buttons = [TabTypes.conferences];
+  const [tab, setTab] = useState<TabTypes>(
+    speakers.length === 0 ? TabTypes.conferences : TabTypes.speakers,
+  );
 
   if (speakers.length) {
     buttons.push(TabTypes.speakers);
@@ -38,11 +40,10 @@ export default function ConferenceKeypoints({
 
   const onClickTab = (tabSelected: TabTypes) => {
     setTab(tabSelected);
-    console.log(tab);
   };
 
   switch (tab) {
-    case TabTypes.events:
+    case TabTypes.conferences:
       content = <ConferenceEvents events={events} />;
       break;
     case TabTypes.speakers:
@@ -54,7 +55,7 @@ export default function ConferenceKeypoints({
   }
 
   return (
-    <section>
+    <section id="conference">
       <div className="section_container">
         <div className="flex py-3 gap-x-6">
           {buttons.map((button, index) => (
@@ -62,7 +63,7 @@ export default function ConferenceKeypoints({
               <label className="cursor-pointer">
                 <h2
                   className={clsx("title", {
-                    "underline italic": tab === button,
+                    "underline italic text-yellow-400": tab === button,
                   })}
                 >
                   {button}

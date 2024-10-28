@@ -171,6 +171,7 @@ function ConferenceRow({ conference }: ConferenceRowProp) {
             event={event}
             slug={conference.slug}
             paperLink={conference.submitPaperLink}
+            speakerSet={conference.speakers.length === 0 ? false : true}
           />
         </Fragment>
       ))}
@@ -182,8 +183,9 @@ type EventRowProp = {
   event: EventType;
   slug: string;
   paperLink: string | undefined;
+  speakerSet: boolean;
 };
-function EventRow({ event, slug, paperLink }: EventRowProp) {
+function EventRow({ event, slug, paperLink, speakerSet }: EventRowProp) {
   if (!event.conference || !event.conference.date) {
     return null;
   }
@@ -214,6 +216,12 @@ function EventRow({ event, slug, paperLink }: EventRowProp) {
         <div className="my-6 flex gap-4">
           <Link href={`/registration/${slug}`} className="button_primary">
             Register
+          </Link>
+          <Link
+            href={`/conference/${slug}#conference`}
+            className="button_secondary"
+          >
+            {speakerSet ? "View Speakers" : "Learn More"}
           </Link>
           {paperLink && (
             <Link href={paperLink} className="button_secondary">

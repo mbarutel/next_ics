@@ -57,7 +57,7 @@ body {
 
 section,
 header {
-  @apply flex justify-center py-6;
+  @apply flex justify-center py-6 scroll-mt-16;
 }
 
 .bg_primary {
@@ -97,11 +97,11 @@ header {
 }
 
 .section_margin {
-  @apply py-7 lg:py-10 xl:py-14 scroll-mt-24;
+  @apply py-7 lg:py-10 xl:py-14;
 }
 
 .section_padding {
-  @apply py-7 lg:py-20 xl:py-28 scroll-mt-24;
+  @apply py-7 lg:py-20 xl:py-28;
 }
 
 .header_height {
