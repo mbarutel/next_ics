@@ -3,8 +3,9 @@
 import { Field, Form, Formik } from "formik";
 import InputField from "./input-field";
 import clsx from "clsx";
+import SpeakerQuestionDinner from "./speaker-question-dinner";
 
-export default function PaperFormik() {
+export default function SpeakerForm() {
   return (
     <Formik
       initialValues={{
@@ -50,6 +51,7 @@ export default function PaperFormik() {
           </div>
 
           <h3 className="text-2xl italic">Networking & Accomodation</h3>
+          <h2 className="text-xl italic">Accomodation</h2>
           <div className="grid grid-cols-3 gap-3">
             <label className="flex gap-2">
               <Field name="accomodation" type="radio" value="1" />
@@ -72,6 +74,13 @@ export default function PaperFormik() {
               No, thank you
             </label>
           </div>
+
+          <SpeakerQuestionDinner
+            name={values.name}
+            price={150}
+            setFieldValue={setFieldValue}
+            dinnerParticipants={values.dinnerParticipants}
+          />
 
         </Form>
       )}

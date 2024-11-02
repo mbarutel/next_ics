@@ -1,8 +1,6 @@
-import InputField from "@/components/forms/paper/input-field";
-import PaperFormik from "@/components/forms/paper/paper-formik";
+import SpeakerForm from "@/components/forms/paper/speaker-form";
 import { Event } from "@/contentful/services/event";
 import { parserEventEntry } from "@/contentful/utils";
-import { Formik } from "formik";
 
 export async function generateStaticParams() {
   const eventInstance = new Event({
@@ -28,7 +26,7 @@ export default async function page() {
           <h2 className="text-5xl font-semibold">
             Submit a Paper
           </h2>
-          <PaperFormik />
+          <SpeakerForm />
         </div>
       </section>
     </>
