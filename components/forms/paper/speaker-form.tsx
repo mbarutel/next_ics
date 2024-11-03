@@ -52,24 +52,14 @@ export default function SpeakerForm({ events }: SpeakerFormProps) {
             touched={touched}
             events={events}
           />
-          <div>
-            <h3 className="question_title">Payment</h3>
-            <QuestionPaymentType touched={touched} />
-          </div>
-          <div>
-            <h3 className="question_title">Discount Code</h3>
-            <QuestionDiscount values={values} touched={touched} />
-          </div>
-          <div>
-            <h3 className="question_title">How did you hear about us?</h3>
-            <QuestionReferral touched={touched} />
-          </div>
-          <div>
-            <h3 className="question_title">
-              Guidelines for Submitting a Paper
-            </h3>
-            <QuestionGuidelines touched={touched} />
-          </div>
+          <hr className="my-2" />
+          <QuestionPaymentType touched={touched} />
+          <hr className="my-2" />
+          <QuestionDiscount values={values} touched={touched} />
+          <hr className="my-2" />
+          <QuestionReferral touched={touched} />
+          <hr className="my-2" />
+          <QuestionGuidelines touched={touched} />
         </Form>
       )}
     </Formik>

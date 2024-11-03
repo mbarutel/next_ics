@@ -1,5 +1,6 @@
 import { PaperFormikValuesType } from "@/lib/form-paper";
 import { Field, FormikTouched } from "formik";
+import QuestionTitle from "./question-title";
 
 type QuestionGuidelinesProps = {
   touched: FormikTouched<PaperFormikValuesType>;
@@ -21,18 +22,19 @@ export default function QuestionGuidelines({
   ];
 
   return (
-    <>
-      <ul className="ul">
+    <div className="form_section_wrapper flex_col items-center">
+      <QuestionTitle title="Guidelines for Submitting A Paper" />
+      <ul className="ul mb-6">
         {guidelines.map((item, index) => (
           <li className="italic" key={index}>
             {item}
           </li>
         ))}
       </ul>
-      <label>
+      <label className="button_primary">
         <Field name="agreement" type="radio" value="agree" />
         &nbsp;I Agree
       </label>
-    </>
+    </div>
   );
 }
