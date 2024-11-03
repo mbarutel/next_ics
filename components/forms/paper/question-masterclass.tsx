@@ -31,27 +31,34 @@ export default function QuestionMasterclass({
     setMasterclasses(arr);
   }, [values.events]);
 
+  if (masterclasses.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="form_section_wrapper">
-      <QuestionTitle title="Post Conference Masterclass" />
-      <div className="flex_col">
-        {masterclasses.map((masterclass) => (
-          <Fragment key={masterclass.slug}>
-            <label>
-              <input
-                type="radio"
-                name="masterclass"
-                value={masterclass.title}
-              />
-              {masterclass.title}
-            </label>
-          </Fragment>
-        ))}
-        <label>
-          <input type="radio" name="masterclass" value="no" />
-          No
-        </label>
+    <>
+      <hr className="my-2" />
+      <div className="form_section_wrapper">
+        <QuestionTitle title="Post Conference Masterclass" />
+        <div className="flex_col">
+          {masterclasses.map((masterclass) => (
+            <Fragment key={masterclass.slug}>
+              <label>
+                <input
+                  type="radio"
+                  name="masterclass"
+                  value={masterclass.title}
+                />
+                {masterclass.title}
+              </label>
+            </Fragment>
+          ))}
+          <label>
+            <input type="radio" name="masterclass" value="no" />
+            No
+          </label>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

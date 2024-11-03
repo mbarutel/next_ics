@@ -22,19 +22,22 @@ export default function QuestionGuidelines({
   ];
 
   return (
-    <div className="form_section_wrapper flex_col items-center">
-      <QuestionTitle title="Guidelines for Submitting A Paper" />
-      <ul className="ul mb-6">
-        {guidelines.map((item, index) => (
-          <li className="italic" key={index}>
-            {item}
-          </li>
-        ))}
-      </ul>
-      <label className="button_primary">
-        <Field name="agreement" type="radio" value="agree" />
-        &nbsp;I Agree
-      </label>
-    </div>
+    <>
+      <hr className="my-2" />
+      <div className="form_section_wrapper flex_col items-center">
+        <QuestionTitle title="Guidelines for Submitting A Paper" />
+        <ul className="ul mb-6">
+          {guidelines.map((item, index) => (
+            <li className="italic" key={index}>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <label className="button_primary">
+          <Field name="agreement" type="radio" value="agree" />
+          &nbsp;I Agree
+        </label>
+      </div>
+    </>
   );
 }

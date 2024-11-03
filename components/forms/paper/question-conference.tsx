@@ -46,7 +46,7 @@ export default function QuestionConference(props: QuestionConferenceProps) {
                   },
                 )}
               >
-                <Field name="events" type="checkbox" value={event.title} />
+                <Field name="events" type="radio" value={event.title} />
                 <span className="text-lg font-semibold grow ml-2">
                   {event.title}
                 </span>

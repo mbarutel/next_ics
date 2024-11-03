@@ -13,17 +13,20 @@ export default function QuestionDiscount({
   touched,
 }: QuestionDiscountProps) {
   return (
-    <div className="form_section_wrapper">
-      <QuestionTitle title="Discount Code" />
-      <Field
-        name="discount"
-        type="text"
-        placeholder="Discount Code"
-        className={clsx("field", {
-          "!placeholder-red-500 !border-red-500 italic":
-            !values.discount?.trim() && touched.discount,
-        })}
-      />
-    </div>
+    <>
+      <hr className="my-2" />
+      <div className="form_section_wrapper">
+        <QuestionTitle title="Discount Code" />
+        <Field
+          name="discount"
+          type="text"
+          placeholder="Discount Code"
+          className={clsx("field", {
+            "!placeholder-red-500 !border-red-500 italic":
+              !values.discount?.trim() && touched.discount,
+          })}
+        />
+      </div>
+    </>
   );
 }

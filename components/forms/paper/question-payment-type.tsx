@@ -10,16 +10,19 @@ export default function QuestionPaymentType({
   touched,
 }: QuestionPaymentTypeProps) {
   return (
-    <div className="form_section_wrapper">
-      <QuestionTitle title="Preferred Payment Method" />
-      <label className="flex gap-2">
-        <Field name="payment" type="radio" value="1" />
-        Credit Card <span className="italic">(0.1% Surcharge)</span>
-      </label>
-      <label className="flex gap-2">
-        <Field name="payment" type="radio" value="2" />
-        Direct Bank Transfer
-      </label>
-    </div>
+    <>
+      <hr className="my-2" />
+      <div className="form_section_wrapper">
+        <QuestionTitle title="Preferred Payment Method" />
+        <label className="flex gap-2">
+          <Field name="payment" type="radio" value="credit" />
+          Credit Card <span className="italic">(0.1% Surcharge)</span>
+        </label>
+        <label className="flex gap-2">
+          <Field name="payment" type="radio" value="bank" />
+          Direct Bank Transfer
+        </label>
+      </div>
+    </>
   );
 }

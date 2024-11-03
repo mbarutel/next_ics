@@ -38,20 +38,23 @@ export default function QuestionAccomodation({
   ];
 
   return (
-    <div className="form_section_wrapper">
-      <QuestionTitle
-        title="Accommodation"
-        subtitle="Relax and recharge with our comfortable conference accommodations!"
-      />
-      <hr className="mb-2" />
-      <div className="grid grid-cols-2 gap-3">
-        {fields.map((field, index) => (
-          <label key={index} className="flex gap-2 button_primary">
-            <Field name="accomodation" type="radio" value={field.value} />
-            {field.label}
-          </label>
-        ))}
+    <>
+      <hr className="my-2" />
+      <div className="form_section_wrapper">
+        <QuestionTitle
+          title="Accommodation"
+          subtitle="Relax and recharge with our comfortable conference accommodations!"
+        />
+        <hr className="mb-2" />
+        <div className="grid grid-cols-2 gap-3">
+          {fields.map((field, index) => (
+            <label key={index} className="flex gap-2 button_primary">
+              <Field name="accomodation" type="radio" value={field.value} />
+              {field.label}
+            </label>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

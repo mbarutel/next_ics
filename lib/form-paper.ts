@@ -3,7 +3,7 @@ import { FormikTouched } from "formik";
 
 // This is used for the question components for accessing values
 export type PaperFormikValuesType = {
-  events: string[];
+  events: string;
   name: string | null;
   jobTitle: string | null;
   organisation: string | null;
@@ -23,7 +23,7 @@ export type PaperFormikValuesType = {
 };
 
 export const initValues: PaperFormikValuesType = {
-  events: [],
+  events: "",
   name: "",
   jobTitle: "",
   organisation: "",

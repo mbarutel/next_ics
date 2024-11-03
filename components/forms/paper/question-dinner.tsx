@@ -42,60 +42,63 @@ export default function QuestionDinner({
   }, [setFieldValue, selected]);
 
   return (
-    <div className="form_section_wrapper">
-      <QuestionTitle
-        title="Conference Networking Dinner"
-        subtitle={`Connect, collaborate, and create opportunities at our exclusive networking dinner! | AU$${price} Per Person`}
-      />
-      <hr className="mb-2" />
-      <div className="flex flex-col">
-        {!selected ? (
-          <button
-            onClick={() => {
-              setSelected(true);
-            }}
-            className="button_primary text-center !w-full"
-          >
-            Yes, please!
-          </button>
-        ) : (
-          <FieldArray name="dinnerParticipants">
-            {({ remove, push }) => (
-              <>
-                <div className="mb-3">
-                  {dinnerParticipants.length > 0 &&
-                    dinnerParticipants.map((participant, index) => (
-                      <div key={index} className="mb-2">
-                        <DinnerParticipantField
-                          name={`dinnerParticipants.${index}.name`}
-                          position={`dinnerParticipants.${index}.diet`}
-                          options={options}
-                          push={push}
-                          remove={remove}
-                          setFieldValue={setFieldValue}
-                          setSelected={setSelected}
-                          index={index}
-                          participant={participant}
-                          participants={dinnerParticipants}
-                        />
-                      </div>
-                    ))}
-                </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    push({ name: "", diet: "normal" });
-                  }}
-                  className="button_primary bg-yellow-400"
-                >
-                  Add Dinner Participant
-                </button>
-              </>
-            )}
-          </FieldArray>
-        )}
+    <>
+      <hr className="my-2" />
+      <div className="form_section_wrapper">
+        <QuestionTitle
+          title="Conference Networking Dinner"
+          subtitle={`Connect, collaborate, and create opportunities at our exclusive networking dinner! | AU$${price} Per Person`}
+        />
+        <hr className="mb-2" />
+        <div className="flex flex-col">
+          {!selected ? (
+            <button
+              onClick={() => {
+                setSelected(true);
+              }}
+              className="button_primary text-center !w-full"
+            >
+              Yes, please!
+            </button>
+          ) : (
+            <FieldArray name="dinnerParticipants">
+              {({ remove, push }) => (
+                <>
+                  <div className="mb-3">
+                    {dinnerParticipants.length > 0 &&
+                      dinnerParticipants.map((participant, index) => (
+                        <div key={index} className="mb-2">
+                          <DinnerParticipantField
+                            name={`dinnerParticipants.${index}.name`}
+                            position={`dinnerParticipants.${index}.diet`}
+                            options={options}
+                            push={push}
+                            remove={remove}
+                            setFieldValue={setFieldValue}
+                            setSelected={setSelected}
+                            index={index}
+                            participant={participant}
+                            participants={dinnerParticipants}
+                          />
+                        </div>
+                      ))}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      push({ name: "", diet: "normal" });
+                    }}
+                    className="button_primary bg-yellow-400"
+                  >
+                    Add Dinner Participant
+                  </button>
+                </>
+              )}
+            </FieldArray>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

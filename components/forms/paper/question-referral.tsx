@@ -19,16 +19,19 @@ export default function QuestionReferral({
   );
 
   return (
-    <div className="form_section_wrapper">
-      <QuestionTitle title="How did you hear about us?" />
-      {options.map((item, index) => (
-        <Fragment key={index}>
-          <label className="flex gap-2">
-            <Field name="referral" type="radio" value={item.value} />
-            {item.label}
-          </label>
-        </Fragment>
-      ))}
-    </div>
+    <>
+      <hr className="my-2" />
+      <div className="form_section_wrapper">
+        <QuestionTitle title="How did you hear about us?" />
+        {options.map((item, index) => (
+          <Fragment key={index}>
+            <label className="flex gap-2">
+              <Field name="referral" type="radio" value={item.value} />
+              {item.label}
+            </label>
+          </Fragment>
+        ))}
+      </div>
+    </>
   );
 }

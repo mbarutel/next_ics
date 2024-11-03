@@ -33,32 +33,23 @@ export default function SpeakerForm({ events }: SpeakerFormProps) {
             touched={touched}
             events={events}
           />
-          <hr className="my-2" />
           <QuestionSpeakerInformation values={values} touched={touched} />
-          <hr className="my-2" />
           <QuestionPaperInformation values={values} touched={touched} />
-          <hr className="my-2" />
           <QuestionDinner
             name={values.name}
             price={150}
             setFieldValue={setFieldValue}
             dinnerParticipants={values.dinnerParticipants}
           />
-          <hr className="my-2" />
           <QuestionAccomodation values={values} touched={touched} />
-          <hr className="my-2" />
           <QuestionMasterclass
             values={values}
             touched={touched}
             events={events}
           />
-          <hr className="my-2" />
           <QuestionPaymentType touched={touched} />
-          <hr className="my-2" />
           <QuestionDiscount values={values} touched={touched} />
-          <hr className="my-2" />
           <QuestionReferral touched={touched} />
-          <hr className="my-2" />
           <QuestionGuidelines touched={touched} />
         </Form>
       )}
