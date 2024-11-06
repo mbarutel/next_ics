@@ -24,7 +24,7 @@ export default function SpeakerForm({ events }: SpeakerFormProps) {
     <Formik
       initialValues={{ ...initValues }}
       validationSchema={FormValidation}
-      onSubmit={async () => { }}
+      onSubmit={async () => {}}
     >
       {({ values, touched, setFieldValue, isSubmitting }) => (
         <Form>
@@ -36,10 +36,11 @@ export default function SpeakerForm({ events }: SpeakerFormProps) {
           <QuestionSpeakerInformation values={values} touched={touched} />
           <QuestionPaperInformation values={values} touched={touched} />
           <QuestionDinner
-            name={values.name}
+            values={values}
+            touched={touched}
             price={150}
+            name={values.name}
             setFieldValue={setFieldValue}
-            dinnerParticipants={values.dinnerParticipants}
           />
           <QuestionAccomodation values={values} touched={touched} />
           <QuestionMasterclass
@@ -47,7 +48,7 @@ export default function SpeakerForm({ events }: SpeakerFormProps) {
             touched={touched}
             events={events}
           />
-          <QuestionPaymentType touched={touched} />
+          {/* <QuestionPaymentType touched={touched} /> */}
           <QuestionDiscount values={values} touched={touched} />
           <QuestionReferral touched={touched} />
           <QuestionGuidelines touched={touched} />

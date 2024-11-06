@@ -4,6 +4,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { EventType, MasterclassType } from "@/lib/types";
 import { QuestionBaseProps } from "@/lib/form-paper";
 import QuestionTitle from "./question-title";
+import { Field } from "formik";
 
 type QuestionMasterclassProps = QuestionBaseProps & {
   events: EventType[];
@@ -44,18 +45,18 @@ export default function QuestionMasterclass({
           {masterclasses.map((masterclass) => (
             <Fragment key={masterclass.slug}>
               <label>
-                <input
+                <Field
                   type="radio"
                   name="masterclass"
                   value={masterclass.title}
                 />
-                {masterclass.title}
+                &nbsp;{masterclass.title}
               </label>
             </Fragment>
           ))}
           <label>
-            <input type="radio" name="masterclass" value="no" />
-            No
+            <Field type="radio" name="masterclass" value="" />
+            &nbsp;No, Thank you
           </label>
         </div>
       </div>

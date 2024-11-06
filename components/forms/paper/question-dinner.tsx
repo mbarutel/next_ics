@@ -1,25 +1,28 @@
 "use client";
 
 import { dietaryOptions } from "@/lib/data";
-import { FieldArray } from "formik";
+import { Field, FieldArray } from "formik";
 import React, { Fragment, useEffect, useState } from "react";
 import { DinnerParticipantType } from "@/lib/types";
 import Select from "react-select";
-import InputField from "./input-field";
 import { formSelectStyle } from "@/lib/form-select-style";
 import QuestionTitle from "./question-title";
+import clsx from "clsx";
+import { QuestionBaseProps } from "@/lib/form-paper";
+
+type QuestionDinnerProps = QuestionBaseProps & {
+  name: string;
+  price: number;
+  setFieldValue: Function;
+};
 
 export default function QuestionDinner({
+  values,
+  touched,
   name,
   price,
   setFieldValue,
-  dinnerParticipants,
-}: {
-  name: string | null;
-  price: number;
-  setFieldValue: Function;
-  dinnerParticipants: DinnerParticipantType[];
-}) {
+}: QuestionDinnerProps) {
   const [selected, setSelected] = useState<boolean>(false);
   const options = dietaryOptions.map((item) => ({
     value: item.toLowerCase(),
@@ -65,8 +68,8 @@ export default function QuestionDinner({
               {({ remove, push }) => (
                 <>
                   <div className="mb-3">
-                    {dinnerParticipants.length > 0 &&
-                      dinnerParticipants.map((participant, index) => (
+                    {values.dinnerParticipants.length > 0 &&
+                      values.dinnerParticipants.map((participant, index) => (
                         <div key={index} className="mb-2">
                           <DinnerParticipantField
                             name={`dinnerParticipants.${index}.name`}
@@ -78,7 +81,7 @@ export default function QuestionDinner({
                             setSelected={setSelected}
                             index={index}
                             participant={participant}
-                            participants={dinnerParticipants}
+                            participants={values.dinnerParticipants}
                           />
                         </div>
                       ))}
@@ -128,10 +131,14 @@ function DinnerParticipantField({
 }: DinnerParticipantFieldProps) {
   return (
     <div className="fields_wrapper xl:grid-cols-3">
-      <InputField
+      <Field
         type="text"
         name={`dinnerParticipants.${index}.name`}
         placeholder="Full Name"
+        className={clsx("field", {
+          "!placeholder-red-500 !border-red-500 italic":
+            !field.value?.trim() && field.touched,
+        })}
       />
       <Select
         options={options}

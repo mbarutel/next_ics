@@ -4,22 +4,22 @@ import { FormikTouched } from "formik";
 // This is used for the question components for accessing values
 export type PaperFormikValuesType = {
   events: string;
-  name: string | null;
-  jobTitle: string | null;
-  organisation: string | null;
-  address: string | null;
-  phone: string | null;
-  email: string | null;
-  paperTitle: string | null;
-  biography: string | null;
-  paperDescription: string | null;
-  accomodation: string | null;
+  name: string;
+  jobTitle: string;
+  organisation: string;
+  address: string;
+  phone: string;
+  email: string;
+  paperTitle: string;
+  biography: string;
+  paperDescription: string;
+  accomodation: string;
   dinnerParticipants: DinnerParticipantType[];
-  masterclass: string | null;
-  payment: string | null;
-  discount: string | null;
-  referral: string | null;
-  agreement: string | null;
+  masterclass: string;
+  payment: string;
+  discount: string;
+  referral: string;
+  agreement: string;
 };
 
 export const initValues: PaperFormikValuesType = {
