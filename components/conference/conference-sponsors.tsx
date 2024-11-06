@@ -22,13 +22,13 @@ export default function ConferenceSponsors({
             rel="noreferrer"
             target="_blank"
             href={sponsor.link}
-            className="relative rounded-md overflow-hidden w-96 h-24 lg:h-40 active:scale-95 transition-transform duration-300 ease-in-out"
+            className="rounded-md overflow-hidden"
           >
             <Image
-              fill
               src={sponsor.logo.src}
               alt={sponsor.logo.alt}
-              className="object-contain"
+              width={600}
+              height={200}
             />
           </Link>
         ))}
