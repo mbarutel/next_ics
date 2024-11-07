@@ -3,9 +3,14 @@ export const formSelectStyle = {
     ...provided,
     borderRadius: 0,
     padding: "6px 0",
-    backgroundColor: "#1b1917",
+    backgroundColor: "transparent",
     borderColor: "transparent",
     borderBottom: "1px solid white",
+    color: "rgb(156 163 175)" /* gray-400 */,
+  }),
+  singleValue: (provided: any) => ({
+    ...provided,
+    color: "rgb(156 163 175)", // Ensure the selected value text color is also set
   }),
   option: (styles: any, state: any) => ({
     ...styles,
@@ -18,11 +23,6 @@ export const formSelectStyle = {
   }),
   input: (base: any) => ({
     ...base,
-    // color: "#fff",
-    // "input:focus": {
-    //   boxShadow: "none",
-    //   border: "1px solid #facc15",
-    // },
+    color: "rgb(156 163 175)" /* gray-400 */,
   }),
-  // menuPortal: (base: any) => ({ ...base, zIndex: 9999 }),
 };

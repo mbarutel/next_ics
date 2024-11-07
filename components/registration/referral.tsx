@@ -2,7 +2,6 @@
 
 import React from "react";
 import Select from "react-select";
-import { CiWarning } from "react-icons/ci";
 import EmptyWarning from "./empty-warning";
 import { FormValuesType } from "@/lib/types";
 import { referralOptions } from "@/lib/data";
@@ -10,14 +9,17 @@ import QuestionTitle from "./question-title";
 import { customStyles } from "./select-style";
 import { FormikErrors, FormikTouched } from "formik";
 
-export default function Referral(
-  { choice, setFieldValue, errors, touched }: {
-    choice: string;
-    setFieldValue: Function;
-    errors: FormikErrors<FormValuesType>;
-    touched: FormikTouched<FormValuesType>;
-  },
-) {
+export default function Referral({
+  choice,
+  setFieldValue,
+  errors,
+  touched,
+}: {
+  choice: string;
+  setFieldValue: Function;
+  errors: FormikErrors<FormValuesType>;
+  touched: FormikTouched<FormValuesType>;
+}) {
   const options = referralOptions.map((item) => ({
     value: item.toLowerCase(),
     label: item,
@@ -31,9 +33,7 @@ export default function Referral(
           error={errors.referral}
           touched={touched.referral}
         />
-        <QuestionTitle>
-          How did you hear about the conferences?
-        </QuestionTitle>
+        <QuestionTitle>How did you hear about the conferences?</QuestionTitle>
       </div>
       <Select
         options={options}

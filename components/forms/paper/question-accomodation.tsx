@@ -44,6 +44,12 @@ export default function QuestionAccomodation({
         <QuestionTitle
           title="Accommodation"
           subtitle="Relax and recharge with our comfortable conference accommodations!"
+          asterisk={
+            !values.accomodation &&
+            touched.accomodation && (
+              <span className="untouched_field asterisk"> *</span>
+            )
+          }
         />
         <hr className="mb-2" />
         <div className="grid grid-cols-2 gap-3">

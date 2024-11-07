@@ -1,4 +1,3 @@
-import QuestionTitle from "@/components/forms/paper/question-title";
 import SpeakerForm from "@/components/forms/paper/speaker-form";
 import { Event } from "@/contentful/services/event";
 import { parserEventEntry } from "@/contentful/utils";

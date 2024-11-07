@@ -9,14 +9,17 @@ import { customStyles } from "./select-style";
 import EmptyWarning from "./empty-warning";
 import QuestionTitle from "./question-title";
 
-export default function Accomodation(
-  { choice, setFieldValue, errors, touched }: {
-    choice: number;
-    setFieldValue: Function;
-    errors: FormikErrors<FormValuesType>;
-    touched: FormikTouched<FormValuesType>;
-  },
-) {
+export default function Accomodation({
+  choice,
+  setFieldValue,
+  errors,
+  touched,
+}: {
+  choice: number;
+  setFieldValue: Function;
+  errors: FormikErrors<FormValuesType>;
+  touched: FormikTouched<FormValuesType>;
+}) {
   const options = accomodationOption.map((item) => ({
     value: item.value,
     label: item.label,

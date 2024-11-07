@@ -42,7 +42,7 @@ export default function QuestionDinner({
     } else {
       setFieldValue("dinnerParticipants", []);
     }
-  }, [setFieldValue, selected]);
+  }, [selected, setFieldValue]);
 
   return (
     <>
@@ -72,14 +72,13 @@ export default function QuestionDinner({
                       values.dinnerParticipants.map((participant, index) => (
                         <div key={index} className="mb-2">
                           <DinnerParticipantField
-                            name={`dinnerParticipants.${index}.name`}
-                            position={`dinnerParticipants.${index}.diet`}
-                            options={options}
-                            push={push}
-                            remove={remove}
-                            setFieldValue={setFieldValue}
-                            setSelected={setSelected}
                             index={index}
+                            remove={remove}
+                            options={options}
+                            values={values}
+                            touched={touched}
+                            setSelected={setSelected}
+                            setFieldValue={setFieldValue}
                             participant={participant}
                             participants={values.dinnerParticipants}
                           />
@@ -105,27 +104,26 @@ export default function QuestionDinner({
   );
 }
 
-type DinnerParticipantFieldProps = {
-  name: string;
-  position: string;
+type DinnerParticipantFieldProps = QuestionBaseProps & {
+  index: number;
   options: {
     value: string;
     label: string;
   }[];
-  push: Function;
   remove: Function;
-  index: number;
-  setFieldValue: Function;
   setSelected: Function;
+  setFieldValue: Function;
   participant: DinnerParticipantType;
   participants: DinnerParticipantType[];
 };
 function DinnerParticipantField({
-  remove,
-  setFieldValue,
-  options,
-  setSelected,
   index,
+  options,
+  remove,
+  values,
+  touched,
+  setSelected,
+  setFieldValue,
   participant,
   participants,
 }: DinnerParticipantFieldProps) {
@@ -137,7 +135,9 @@ function DinnerParticipantField({
         placeholder="Full Name"
         className={clsx("field", {
           "!placeholder-red-500 !border-red-500 italic":
-            !field.value?.trim() && field.touched,
+            !values.dinnerParticipants[index].name &&
+            touched.dinnerParticipants &&
+            touched.dinnerParticipants[index],
         })}
       />
       <Select

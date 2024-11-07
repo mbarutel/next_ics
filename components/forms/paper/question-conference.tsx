@@ -7,56 +7,69 @@ import clsx from "clsx";
 import "./speaker-form.css";
 import QuestionTitle from "./question-title";
 
-type QuestionConferenceProps = QuestionBaseProps & {
+type QuestionConference = QuestionBaseProps & {
   events: EventType[];
 };
 
-export default function QuestionConference(props: QuestionConferenceProps) {
+export default function QuestionConference({
+  values,
+  touched,
+  events,
+}: QuestionConference) {
   return (
     <div className="form_section_wrapper flex flex-col gap-1">
-      <QuestionTitle
-        title="Conferences"
-        subtitle="Please select which conferences you wish to submit your entry:"
-      />
+      <div className="flex flex-wrap">
+        <QuestionTitle
+          title="Conferences"
+          subtitle="Please select which conferences you wish to submit your entry:"
+          asterisk={
+            !values.referral &&
+            touched.referral && (
+              <span className="untouched_field asterisk"> *</span>
+            )
+          }
+        />
+      </div>
       <ul className="flex flex-col gap-3">
-        {props.events.map((event) => {
+        {events.map((event) => {
           if (!event.conference) {
             return null;
           }
 
           return (
-            <li
-              key={event.slug}
-              className={clsx(
-                "group flex flex-col border-x-4 border-yellow-400 border-opacity-0 hover:border-opacity-100 py-2 px-4",
-                {
-                  "border-opacity-100": props.values.events.includes(
-                    event.title,
-                  ),
-                },
-              )}
-            >
-              <label
+            <>
+              <li
+                key={event.slug}
                 className={clsx(
-                  "font-medium leading-snug group-hover:italic group-hover:text-yellow-400",
+                  "group flex flex-col border-x-4 border-yellow-400 border-opacity-0 hover:border-opacity-100 py-2 px-4",
                   {
-                    "underline text-yellow-400": props.values.events.includes(
-                      event.title,
-                    ),
+                    "border-opacity-100": values.events.includes(event.title),
                   },
                 )}
               >
-                <Field name="events" type="radio" value={event.title} />
-                <span className="text-lg font-semibold grow ml-2">
-                  {event.title}
-                </span>
-                <br />
-                <span className="space_mono">
-                  {event.conference.venue} |{" "}
-                  {conferenceDate({ ...event.conference.date })}
-                </span>
-              </label>
-            </li>
+                <label
+                  className={clsx(
+                    "font-medium leading-snug group-hover:italic group-hover:text-yellow-400",
+                    {
+                      "underline text-yellow-400": values.events.includes(
+                        event.title,
+                      ),
+                    },
+                  )}
+                >
+                  <Field name="events" type="radio" value={event.title} />
+                  <span className="text-lg font-semibold grow ml-2">
+                    {event.title}
+                  </span>
+                  <br />
+                  <span className="space_mono">
+                    {event.conference.venue} |{" "}
+                    {conferenceDate({ ...event.conference.date })}
+                  </span>
+                </label>
+              </li>
+              <hr className="last:hidden w-[90%] ml-5" />
+            </>
           );
         })}
       </ul>

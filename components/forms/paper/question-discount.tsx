@@ -1,17 +1,8 @@
 import { PaperFormikValuesType } from "@/lib/form-paper";
 import { Field, FormikTouched } from "formik";
-import clsx from "clsx";
 import QuestionTitle from "./question-title";
 
-type QuestionDiscountProps = {
-  values: PaperFormikValuesType;
-  touched: FormikTouched<PaperFormikValuesType>;
-};
-
-export default function QuestionDiscount({
-  values,
-  touched,
-}: QuestionDiscountProps) {
+export default function QuestionDiscount() {
   return (
     <>
       <hr className="my-2" />
@@ -21,10 +12,7 @@ export default function QuestionDiscount({
           name="discount"
           type="text"
           placeholder="Discount Code"
-          className={clsx("field", {
-            "!placeholder-red-500 !border-red-500 italic":
-              !values.discount?.trim() && touched.discount,
-          })}
+          className="field"
         />
       </div>
     </>

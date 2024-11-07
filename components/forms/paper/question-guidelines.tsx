@@ -1,14 +1,11 @@
-import { PaperFormikValuesType } from "@/lib/form-paper";
-import { Field, FormikTouched } from "formik";
+import { QuestionBaseProps } from "@/lib/form-paper";
+import { Field } from "formik";
 import QuestionTitle from "./question-title";
-
-type QuestionGuidelinesProps = {
-  touched: FormikTouched<PaperFormikValuesType>;
-};
 
 export default function QuestionGuidelines({
   touched,
-}: QuestionGuidelinesProps) {
+  values,
+}: QuestionBaseProps) {
   const guidelines = [
     "Papers should not contain offensive language and take into account cultural sensitivities of host country.",
     "Papers may treat the themes in a manner that contributes to further discussion of conference aims.",
@@ -24,8 +21,16 @@ export default function QuestionGuidelines({
   return (
     <>
       <hr className="my-2" />
-      <div className="form_section_wrapper flex_col items-center">
-        <QuestionTitle title="Guidelines for Submitting A Paper" />
+      <div className="form_section_wrapper">
+        <QuestionTitle
+          title="Guidelines for Submitting A Paper?"
+          asterisk={
+            !values.agreement &&
+            touched.agreement && (
+              <span className="untouched_field asterisk"> *</span>
+            )
+          }
+        />
         <ul className="ul mb-6">
           {guidelines.map((item, index) => (
             <li className="italic" key={index}>
