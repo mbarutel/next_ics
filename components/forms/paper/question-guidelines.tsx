@@ -39,7 +39,7 @@ export default function QuestionGuidelines({
           ))}
         </ul>
         <label className="button_primary">
-          <Field name="agreement" type="radio" value="agree" />
+          <Field name="agreement" type="radio" value="true" />
           &nbsp;I Agree
         </label>
       </div>

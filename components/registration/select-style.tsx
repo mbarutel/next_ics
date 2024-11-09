@@ -24,6 +24,7 @@ export const customStyles = {
       boxShadow: "none",
       border: "1px solid #60B3D1",
     },
+    color: "#fff",
   }),
   menuPortal: (base: any) => ({ ...base, zIndex: 9999 }),
 };

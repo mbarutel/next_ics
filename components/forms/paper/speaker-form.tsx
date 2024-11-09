@@ -1,30 +1,38 @@
 "use client";
 
 import QuestionSpeakerInformation from "./question-speaker-info";
-import QuestionAccomodation from "./question-accomodation";
-import { Form, Formik } from "formik";
-import FormValidation from "./validation";
-import QuestionDinner from "./question-dinner";
-import QuestionMasterclass from "./question-masterclass";
 import QuestionPaperInformation from "./question-paper-info";
-import { EventType } from "@/lib/types";
-import QuestionPaymentType from "./question-payment-type";
-import QuestionDiscount from "./question-discount";
-import QuestionReferral from "./question-referral";
+import QuestionAccomodation from "./question-accomodation";
+import QuestionMasterclass from "./question-masterclass";
 import QuestionGuidelines from "./question-guidelines";
-import { initValues } from "@/lib/form-paper";
 import QuestionConference from "./question-conference";
+import { Form, Formik, FormikTouched } from "formik";
+import QuestionReferral from "./question-referral";
+import QuestionDiscount from "./question-discount";
+import QuestionDinner from "./question-dinner";
+import { EventType } from "@/lib/types";
+import {
+  PaperFormikValuesType,
+  FormValidation,
+  initValues,
+} from "@/lib/form-paper";
 
 type SpeakerFormProps = {
   events: EventType[];
 };
 
 export default function SpeakerForm({ events }: SpeakerFormProps) {
+  const handleOnSubmit = async (values: PaperFormikValuesType) => {
+    console.log(values);
+  };
+
   return (
     <Formik
       initialValues={{ ...initValues }}
       validationSchema={FormValidation}
-      onSubmit={async () => { }}
+      onSubmit={async (values: PaperFormikValuesType) => {
+        await handleOnSubmit(values);
+      }}
     >
       {({ values, touched, setFieldValue, isSubmitting }) => (
         <Form>
@@ -48,15 +56,25 @@ export default function SpeakerForm({ events }: SpeakerFormProps) {
             touched={touched}
             events={events}
           />
-          {/* <QuestionPaymentType touched={touched} /> */}
           <QuestionDiscount />
           <QuestionReferral values={values} touched={touched} />
           <QuestionGuidelines values={values} touched={touched} />
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
+          <SubmitButton isSubmitting={isSubmitting} />
         </Form>
       )}
     </Formik>
+  );
+}
+
+// TODO: This should probably go on it's own file
+function SubmitButton({ isSubmitting }: { isSubmitting: boolean }) {
+  return (
+    <button
+      type="submit"
+      disabled={isSubmitting}
+      className="button_primary bg-yellow-400 mt-6 w-full"
+    >
+      Submit
+    </button>
   );
 }
