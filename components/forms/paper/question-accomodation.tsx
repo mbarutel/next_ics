@@ -1,7 +1,4 @@
-import {
-  PaperFormikValuesType,
-  PaperSubmissionFormValuesType,
-} from "@/lib/form-paper";
+import { PaperFormikValuesType } from "@/lib/form-paper";
 import { Field, FormikTouched } from "formik";
 import QuestionTitle from "./question-title";
 

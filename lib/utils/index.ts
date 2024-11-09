@@ -1,3 +1,3 @@
-import dinnerParticipantsToString from "./dinner-participants-to-string";
+import preparePaperPayload from "./prepare-paper-payload";
 
-export { dinnerParticipantsToString };
+export { preparePaperPayload };

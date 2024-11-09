@@ -43,26 +43,25 @@ export const initValues: PaperFormikValuesType = {
   agreement: "",
 };
 
-export type PaperSubmissionFormValuesType = {
-  event: string[];
+export type PaperSubmissionPayloadType = {
+  date: string;
+  events: string;
   name: string;
   jobTitle: string;
-  organization: string;
+  organisation: string;
   address: string;
   phone: string;
   email: string;
-  speakerBiography: string;
   paperTitle: string;
+  biography: string;
   paperDescription: string;
-  accomodation: number;
+  accomodation: string;
   dinnerParticipants: string;
   masterclass: string;
+  payment: string;
   discount: string;
-  agreement: boolean;
-  dinnerPrice: number;
-  masterclassPrice: number;
-  submissionPrice: number;
-  total: number;
+  referral: string;
+  agreement: string;
 };
 
 export type QuestionBaseProps = {

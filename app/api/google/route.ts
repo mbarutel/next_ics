@@ -7,13 +7,7 @@ if (!GOOGLE_CLIENT_EMAIL || !GOOGLE_PRIVATE_KEY) {
   throw new Error("Missing required environment variables");
 }
 
-export async function POST({
-  req,
-  sheetId,
-}: {
-  req: Request;
-  sheetId: string;
-}) {
+export async function POST({ req }: { req: Request }) {
   if (req.method !== "POST") {
     return NextResponse.json(
       { error: "Only POST requests allowed" },
@@ -22,7 +16,9 @@ export async function POST({
   }
 
   try {
-    const body = await req.json();
+    console.log("hello");
+    const { sheetId, ...restOfBody } = await req.json();
+    console.log("hello");
 
     const auth = new google.auth.GoogleAuth({
       credentials: {
@@ -43,7 +39,7 @@ export async function POST({
       range: "A2",
       valueInputOption: "USER_ENTERED",
       requestBody: {
-        values: [[...body]],
+        values: [[...restOfBody]],
       },
     });
 
