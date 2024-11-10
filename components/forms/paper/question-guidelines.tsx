@@ -1,6 +1,6 @@
 import { QuestionBaseProps } from "@/lib/form-paper";
-import { Field } from "formik";
 import QuestionTitle from "./question-title";
+import { Field } from "formik";
 
 export default function QuestionGuidelines({
   touched,

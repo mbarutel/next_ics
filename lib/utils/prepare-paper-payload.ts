@@ -4,7 +4,6 @@ import {
 } from "../form-paper";
 import dinnerParticipantsToString from "./dinner-participants-to-string";
 
-// export default function prepareGooglePayload(
 export default function preparePaperPayload(
   formValues: PaperFormikValuesType,
 ): PaperSubmissionPayloadType {
@@ -14,8 +13,8 @@ export default function preparePaperPayload(
   );
 
   const payload: PaperSubmissionPayloadType = {
-    ...formValues,
     date,
+    ...formValues,
     dinnerParticipants,
   };
   return payload;

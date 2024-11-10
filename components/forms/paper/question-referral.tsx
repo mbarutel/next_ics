@@ -1,8 +1,8 @@
-import { referralOptions } from "@/lib/data";
 import { QuestionBaseProps } from "@/lib/form-paper";
-import { Field } from "formik";
-import { Fragment } from "react";
+import { referralOptions } from "@/lib/data";
 import QuestionTitle from "./question-title";
+import { Fragment } from "react";
+import { Field } from "formik";
 
 export default function QuestionReferral({
   values,

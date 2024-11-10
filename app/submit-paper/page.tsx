@@ -1,6 +1,6 @@
-import SpeakerForm from "@/components/forms/paper/speaker-form";
-import { Event } from "@/contentful/services/event";
 import { parserEventEntry } from "@/contentful/utils";
+import { Event } from "@/contentful/services/event";
+import { FormPaper } from "@/components";
 
 export async function generateStaticParams() {
   const eventInstance = new Event({
@@ -35,7 +35,7 @@ export default async function page() {
             </p>
           </div>
           <hr className="my-2" />
-          <SpeakerForm events={events} />
+          <FormPaper events={events} />
         </div>
       </section>
     </>

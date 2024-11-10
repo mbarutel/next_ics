@@ -1,14 +1,7 @@
-import { PaperFormikValuesType } from "@/lib/form-paper";
-import { Field, FormikTouched } from "formik";
 import QuestionTitle from "./question-title";
+import { Field } from "formik";
 
-type QuestionPaymentTypeProps = {
-  touched: FormikTouched<PaperFormikValuesType>;
-};
-
-export default function QuestionPaymentType({
-  touched,
-}: QuestionPaymentTypeProps) {
+export default function QuestionPaymentType() {
   return (
     <>
       <hr className="my-2" />

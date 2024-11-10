@@ -1,14 +1,14 @@
 "use client";
 
+import { formSelectStyle } from "@/lib/form-select-style";
+import { QuestionBaseProps } from "@/lib/form-paper";
+import { DinnerParticipantType } from "@/lib/types";
+import React, { useEffect, useState } from "react";
+import QuestionTitle from "./question-title";
 import { dietaryOptions } from "@/lib/data";
 import { Field, FieldArray } from "formik";
-import React, { Fragment, useEffect, useState } from "react";
-import { DinnerParticipantType } from "@/lib/types";
 import Select from "react-select";
-import { formSelectStyle } from "@/lib/form-select-style";
-import QuestionTitle from "./question-title";
 import clsx from "clsx";
-import { QuestionBaseProps } from "@/lib/form-paper";
 
 type QuestionDinnerProps = QuestionBaseProps & {
   name: string;

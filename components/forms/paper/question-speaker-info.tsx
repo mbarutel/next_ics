@@ -1,8 +1,8 @@
 import { PaperFormikValuesType } from "@/lib/form-paper";
 import { Field, FormikTouched } from "formik";
-import clsx from "clsx";
-import { Fragment } from "react";
 import QuestionTitle from "./question-title";
+import { Fragment } from "react";
+import clsx from "clsx";
 
 type InformationQuestionProps = {
   values: PaperFormikValuesType;

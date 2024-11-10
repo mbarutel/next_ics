@@ -4,8 +4,9 @@ import { EventType } from "@/lib/types";
 import { Field } from "formik";
 import clsx from "clsx";
 
-import "./speaker-form.css";
+import "./form-paper.css";
 import QuestionTitle from "./question-title";
+import { Fragment } from "react";
 
 type QuestionConference = QuestionBaseProps & {
   events: EventType[];
@@ -23,8 +24,8 @@ export default function QuestionConference({
           title="Conferences"
           subtitle="Please select which conferences you wish to submit your entry:"
           asterisk={
-            !values.referral &&
-            touched.referral && (
+            !values.events &&
+            touched.events && (
               <span className="untouched_field asterisk"> *</span>
             )
           }
@@ -37,9 +38,8 @@ export default function QuestionConference({
           }
 
           return (
-            <>
+            <Fragment key={event.slug}>
               <li
-                key={event.slug}
                 className={clsx(
                   "group flex flex-col border-x-4 border-yellow-400 border-opacity-0 hover:border-opacity-100 py-2 px-4",
                   {
@@ -69,7 +69,7 @@ export default function QuestionConference({
                 </label>
               </li>
               <hr className="last:hidden w-[90%] ml-5" />
-            </>
+            </Fragment>
           );
         })}
       </ul>

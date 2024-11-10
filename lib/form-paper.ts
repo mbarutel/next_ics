@@ -17,7 +17,26 @@ export type PaperFormikValuesType = {
   accomodation: string;
   dinnerParticipants: DinnerParticipantType[];
   masterclass: string;
-  payment: string;
+  discount: string;
+  referral: string;
+  agreement: string;
+};
+
+export type PaperSubmissionPayloadType = {
+  date: string;
+  events: string;
+  name: string;
+  jobTitle: string;
+  organisation: string;
+  address: string;
+  phone: string;
+  email: string;
+  paperTitle: string;
+  biography: string;
+  paperDescription: string;
+  accomodation: string;
+  dinnerParticipants: string;
+  masterclass: string;
   discount: string;
   referral: string;
   agreement: string;
@@ -37,31 +56,9 @@ export const initValues: PaperFormikValuesType = {
   accomodation: "",
   dinnerParticipants: [],
   masterclass: "",
-  payment: "",
   discount: "",
   referral: "",
   agreement: "",
-};
-
-export type PaperSubmissionPayloadType = {
-  date: string;
-  events: string;
-  name: string;
-  jobTitle: string;
-  organisation: string;
-  address: string;
-  phone: string;
-  email: string;
-  paperTitle: string;
-  biography: string;
-  paperDescription: string;
-  accomodation: string;
-  dinnerParticipants: string;
-  masterclass: string;
-  payment: string;
-  discount: string;
-  referral: string;
-  agreement: string;
 };
 
 export type QuestionBaseProps = {
@@ -70,26 +67,25 @@ export type QuestionBaseProps = {
 };
 
 export const FormValidation = Yup.object().shape({
-  events: Yup.string().trim(),
-  name: Yup.string().trim(),
-  jobTitle: Yup.string().trim(),
-  organisation: Yup.string().trim(),
-  address: Yup.string().trim(),
-  phone: Yup.string().trim(),
-  email: Yup.string().trim(),
-  paperTitle: Yup.string().trim(),
-  biography: Yup.string().trim(),
-  paperDescription: Yup.string(),
-  accomodation: Yup.string(),
+  events: Yup.string().trim().required(),
+  name: Yup.string().trim().required(),
+  jobTitle: Yup.string().trim().required(),
+  organisation: Yup.string().trim().required(),
+  address: Yup.string().trim().required(),
+  phone: Yup.string().trim().required(),
+  email: Yup.string().trim().required(),
+  paperTitle: Yup.string().trim().required(),
+  biography: Yup.string().trim().required(),
+  paperDescription: Yup.string().required(),
+  accomodation: Yup.string().required(),
   dinnerParticipants: Yup.array().of(
     Yup.object().shape({
-      name: Yup.string(),
-      diet: Yup.string(),
+      name: Yup.string().required(),
+      diet: Yup.string().required(),
     }),
   ),
   masterclass: Yup.string().trim(),
-  payment: Yup.string().trim(),
   discount: Yup.string().trim(),
-  referral: Yup.string(),
+  referral: Yup.string().trim().required(),
   agreement: Yup.string().matches(/^true$/),
 });

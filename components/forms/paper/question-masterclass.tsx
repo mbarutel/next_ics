@@ -9,9 +9,9 @@ import { Field } from "formik";
 type QuestionMasterclassProps = QuestionBaseProps & {
   events: EventType[];
 };
+
 export default function QuestionMasterclass({
   values,
-  touched,
   events,
 }: QuestionMasterclassProps) {
   const [masterclasses, setMasterclasses] = useState<MasterclassType[]>([]);

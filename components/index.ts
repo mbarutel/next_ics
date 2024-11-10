@@ -26,6 +26,7 @@ import HomeTestimonial from "./home/home-testimonial";
 import HomeHighlight from "./home/home-highlight";
 import SharedHeader from "./shared/shared-header";
 import Navbar from "./shared/navbar";
+import FormPaper from "./forms/paper/form-paper";
 
 export {
   About,
@@ -56,4 +57,5 @@ export {
   RegistrationForm,
   RegistrationHeader,
   SubscribeEmailList,
+  FormPaper,
 };

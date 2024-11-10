@@ -1,5 +1,6 @@
 "use client";
 
+import preparePaperPayload from "@/lib/utils/prepare-paper-payload";
 import QuestionSpeakerInformation from "./question-speaker-info";
 import QuestionPaperInformation from "./question-paper-info";
 import QuestionAccomodation from "./question-accomodation";
@@ -11,18 +12,18 @@ import QuestionDiscount from "./question-discount";
 import QuestionDinner from "./question-dinner";
 import { EventType } from "@/lib/types";
 import { Form, Formik } from "formik";
+import toast from "react-hot-toast";
 import {
   PaperFormikValuesType,
   FormValidation,
   initValues,
 } from "@/lib/form-paper";
-import preparePaperPayload from "@/lib/utils/prepare-paper-payload";
 
-type SpeakerFormProps = {
+type FormPaperProps = {
   events: EventType[];
 };
 
-export default function SpeakerForm({ events }: SpeakerFormProps) {
+export default function FormPaper({ events }: FormPaperProps) {
   const submitToAPI = async (url: string, body: any) => {
     const rawResponse = await fetch(url, {
       method: "POST",
@@ -36,14 +37,16 @@ export default function SpeakerForm({ events }: SpeakerFormProps) {
     return rawResponse.json();
   };
 
-  const handleOnSubmit = async (values: PaperFormikValuesType) => {
-    const GOOGLE_PAPER_SHEET_ID = process.env;
-    const payload = {
-      ...preparePaperPayload(values),
-      sheetID: GOOGLE_PAPER_SHEET_ID,
-    };
+  const showErrorToast = () => {
+    toast.error(
+      "There was an error. We would appreciate it if you contact us about it. Sorry for the inconvenience.",
+    );
+  };
 
+  const handleOnSubmit = async (values: PaperFormikValuesType) => {
+    const payload = preparePaperPayload(values);
     const response = await submitToAPI("/api/google", payload);
+    console.log(response);
   };
 
   return (

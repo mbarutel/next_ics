@@ -1,5 +1,4 @@
-import { PaperFormikValuesType } from "@/lib/form-paper";
-import { Field, FormikTouched } from "formik";
+import { Field } from "formik";
 import QuestionTitle from "./question-title";
 
 export default function QuestionDiscount() {
