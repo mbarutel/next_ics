@@ -10,7 +10,7 @@ export const formSelectStyle = {
   }),
   singleValue: (provided: any) => ({
     ...provided,
-    color: "rgb(156 163 175)", // Ensure the selected value text color is also set
+    color: "#fff",
   }),
   option: (styles: any, state: any) => ({
     ...styles,

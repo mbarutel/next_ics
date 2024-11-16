@@ -18,13 +18,17 @@ import {
   FormValidation,
   initValues,
 } from "@/lib/form-paper";
+import { useState } from "react";
+import SubmissionComplete from "../submission-complete";
 
 type FormPaperProps = {
   events: EventType[];
 };
 
 export default function FormPaper({ events }: FormPaperProps) {
-  const submitToAPI = async (url: string, body: any) => {
+  const [complete, setComplete] = useState(false);
+
+  const submitToApi = async (url: string, body: any) => {
     const rawResponse = await fetch(url, {
       method: "POST",
       headers: {
@@ -45,8 +49,8 @@ export default function FormPaper({ events }: FormPaperProps) {
 
   const handleOnSubmit = async (values: PaperFormikValuesType) => {
     const payload = preparePaperPayload(values);
-    const response = await submitToAPI("/api/google", payload);
-    console.log(response);
+    const response = await submitToApi("/api/google", payload);
+    setComplete(true);
   };
 
   return (
@@ -58,32 +62,35 @@ export default function FormPaper({ events }: FormPaperProps) {
       }}
     >
       {({ values, touched, setFieldValue, isSubmitting }) => (
-        <Form>
-          <QuestionConference
-            values={values}
-            touched={touched}
-            events={events}
-          />
-          <QuestionSpeakerInformation values={values} touched={touched} />
-          <QuestionPaperInformation values={values} touched={touched} />
-          <QuestionDinner
-            values={values}
-            touched={touched}
-            price={150}
-            name={values.name}
-            setFieldValue={setFieldValue}
-          />
-          <QuestionAccomodation values={values} touched={touched} />
-          <QuestionMasterclass
-            values={values}
-            touched={touched}
-            events={events}
-          />
-          <QuestionDiscount />
-          <QuestionReferral values={values} touched={touched} />
-          <QuestionGuidelines values={values} touched={touched} />
-          <SubmitButton isSubmitting={isSubmitting} />
-        </Form>
+        <>
+          {complete && <SubmissionComplete />}
+          <Form>
+            <QuestionConference
+              values={values}
+              touched={touched}
+              events={events}
+            />
+            <QuestionSpeakerInformation values={values} touched={touched} />
+            <QuestionPaperInformation values={values} touched={touched} />
+            <QuestionDinner
+              values={values}
+              touched={touched}
+              price={150}
+              name={values.name}
+              setFieldValue={setFieldValue}
+            />
+            <QuestionAccomodation values={values} touched={touched} />
+            <QuestionMasterclass
+              values={values}
+              touched={touched}
+              events={events}
+            />
+            <QuestionDiscount />
+            <QuestionReferral values={values} touched={touched} />
+            <QuestionGuidelines values={values} touched={touched} />
+            <SubmitButton isSubmitting={isSubmitting} />
+          </Form>
+        </>
       )}
     </Formik>
   );
@@ -97,7 +104,7 @@ function SubmitButton({ isSubmitting }: { isSubmitting: boolean }) {
       disabled={isSubmitting}
       className="button_primary bg-yellow-400 mt-6 w-full"
     >
-      Submit
+      {!isSubmitting ? "Submit" : "Submitting..."}
     </button>
   );
 }
