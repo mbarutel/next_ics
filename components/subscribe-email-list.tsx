@@ -4,22 +4,19 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 import { FaPaperPlane } from "react-icons/fa";
 import React, { FormEvent, useState } from "react";
-import SectionHeaderText from "./section-header-text";
 
 export default function SubscribeEmailList() {
   return (
-    <section className="section_margin">
-      <div className="section_container">
-        <div className="relative h-[20rem] rounded-md overflow-hidden">
-          <Image
-            src="/assets/images/email-subscribe-bg.webp"
-            alt="Australian Conference by Indigenous Organizers"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover blur-sm object-top grayscale"
-          />
-          <EmailForm />
-        </div>
+    <section>
+      <div className="container relative h-[20rem] rounded-sm overflow-hidden">
+        <Image
+          src="/assets/images/email-subscribe-bg.webp"
+          alt="Australian Conference by Indigenous Organizers"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover blur-sm object-top grayscale"
+        />
+        <EmailForm />
       </div>
     </section>
   );
@@ -41,7 +38,7 @@ function EmailForm() {
     const rawResponse = await fetch("/api/submit", {
       method: "POST",
       headers: {
-        "Accept": "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(form),
@@ -61,15 +58,12 @@ function EmailForm() {
 
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center container">
-      <SectionHeaderText>Join Our Conference</SectionHeaderText>
+      <h2 className="section_title">Join Our Conference</h2>
       <p className="text-center font-medium mb-4">
         Subscribe to our mailing list and stay informed about the latest
         developments in the world of ICS conferences.
       </p>
-      <form
-        onSubmit={handleSubmit}
-        className="flex w-[min(90%,40rem)]"
-      >
+      <form onSubmit={handleSubmit} className="flex w-[min(90%,40rem)]">
         <input
           required
           value={email}
@@ -82,19 +76,16 @@ function EmailForm() {
         <button
           type="submit"
           disabled={pending}
-          className="group flex flex-shrink items-center justify-center gap-2 bg-gradient-to-r gradient px-4 transition-all hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65 rounded-r-md"
+          className="space_mono group flex flex-shrink items-center justify-center gap-2 bg-gradient-to-r gradient px-4 transition-all hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65 rounded-r-md"
         >
-          {pending
-            ? (
-              <span className="h-5 w-5 animate-spin rounded-full border-b-2 border-stone-400" />
-            )
-            : (
-              <span className="flex items-center gap-2 text-black font-medium">
-                Submit{" "}
-                <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
-                {" "}
-              </span>
-            )}
+          {pending ? (
+            <span className="h-5 w-5 animate-spin rounded-full border-b-2 border-stone-400" />
+          ) : (
+            <span className="flex items-center gap-2 text-black font-medium">
+              Submit{" "}
+              <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />{" "}
+            </span>
+          )}
         </button>
       </form>
     </div>

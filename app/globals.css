@@ -55,9 +55,14 @@ body {
   @apply inter bg-stone-900 text-white;
 }
 
+header,
 section,
-header {
+footer {
   @apply flex justify-center py-6 scroll-mt-16;
+}
+
+footer {
+  @apply pb-0;
 }
 
 .bg_primary {

@@ -9,7 +9,7 @@ import useEmblaCarousel from "embla-carousel-react";
 export default function HomeTestimonial() {
   return (
     <section>
-      <div className="container relative rounded-md overflow-hidden flex items-center min-h-[16rem] p-4">
+      <div className="container relative rounded-sm overflow-hidden flex items-center min-h-[16rem] p-4">
         <Image
           src="/assets/images/testimonial-bg.webp"
           alt="Conferences Testimonials"

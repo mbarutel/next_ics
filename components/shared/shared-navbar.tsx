@@ -18,7 +18,7 @@ export default function SharedNavbar() {
   return (
     <>
       <div />
-      <nav className="sticky w-full top-0 z-[99] py-2 bg-stone-900">
+      <nav className="sticky w-full top-0 z-[99] py-2 bg-stone-900 space_mono">
         <div className="section_container !overflow-visible">
           {/* Medium Upwards */}
           <div className="hidden md:block ">

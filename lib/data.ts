@@ -1,3 +1,6 @@
+import React from "react";
+import { RiInstagramFill, RiMailFill, RiPhoneFill } from "react-icons/ri";
+
 export const configs = {
   contact: {
     phone: "+61740009111",
@@ -108,3 +111,21 @@ export const testimonials = [
   "Food was great, organisers did a great job kept us informed and on time, great venue, lovely to see aboriginal wears on sale, IT was spot on and extremely helpful, helped with each presentation.",
   "Thank you for this opportunity to connect & learn from Indigenous people who have such similar struggles as the native population of our lands.",
 ] as const;
+
+export const footerIcons = [
+  {
+    title: "Phone",
+    icon: React.createElement(RiPhoneFill),
+    href: `tel:${configs.contact.phone}`,
+  },
+  {
+    title: "E-Mail",
+    icon: React.createElement(RiMailFill),
+    href: `mailto:${configs.contact.email}`,
+  },
+  {
+    title: "Instagram",
+    icon: React.createElement(RiInstagramFill),
+    href: "https://www.instagram.com/ics_conferences/",
+  },
+];
