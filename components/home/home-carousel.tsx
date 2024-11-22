@@ -27,8 +27,8 @@ export default async function HomeCarousel() {
   }
 
   return (
-    <section className="section_margin">
-      <div className="section_container">
+    <section>
+      <div className="container px-20">
         <SharedCarousel {...carousel} />
       </div>
     </section>

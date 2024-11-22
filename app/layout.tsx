@@ -3,7 +3,13 @@ import type { Metadata } from "next";
 import { Arvo, Inter, Space_Mono } from "next/font/google";
 import { draftMode } from "next/headers";
 import { Toaster } from "react-hot-toast";
-import { ExitDraftModeLink, Footer, GoogleAnalytics } from "@/components";
+import {
+  ExitDraftModeLink,
+  Footer,
+  GoogleAnalytics,
+  SharedHeader,
+  SharedNavbar as Navbar,
+} from "@/components";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,6 +56,7 @@ export default function RootLayout({
           <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         ) : null}
         <main className="relative">
+          <Navbar />
           {children}
           <Footer />
           <Toaster position="top-right" />

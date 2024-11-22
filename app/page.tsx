@@ -2,7 +2,6 @@ import {
   Announcement,
   CallToAction,
   HomeCarousel,
-  HomeConference,
   HomeHighlight,
   InstagramBanner,
   HomeAcknowledgement,
@@ -10,7 +9,6 @@ import {
   SubscribeEmailList,
   HomeTestimonial,
   HomeConferences,
-  SharedNavbar,
 } from "@/components";
 import { draftMode } from "next/headers";
 import { parserConferenceEntry } from "@/contentful/utils";
@@ -36,10 +34,7 @@ export default async function Home() {
   return (
     <>
       <HomeAcknowledgement />
-      <SharedNavbar />
       <HomeHeader />
-      <Announcement />
-      {/* <HomeConference conferences={conferences} /> */}
       <HomeConferences conferences={conferences} />
       <InstagramBanner />
       <HomeCarousel />

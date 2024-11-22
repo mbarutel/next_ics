@@ -1,37 +1,31 @@
 export default function HomeHighlight() {
   return (
-    <section className="section_margin">
-      <div className="section_container">
+    <section>
+      <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center cursor-default">
-          <div className="p-6">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">20K+</h2>
-            <h3 className="mt-2 text-xl md:text-2xl font-semibold text-yellow-400">
-              Delegates
-            </h3>
-          </div>
-
-          <div className="p-6">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">600+</h2>
-            <h3 className="mt-2 text-xl md:text-2xl font-semibold text-yellow-400">
-              Speakers
-            </h3>
-          </div>
-
-          <div className="p-6">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">20+</h2>
-            <h3 className="mt-2 text-xl md:text-2xl font-semibold text-yellow-400">
-              Host Cities
-            </h3>
-          </div>
-
-          <div className="p-6">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">30+</h2>
-            <h3 className="mt-2 text-xl md:text-2xl font-semibold text-yellow-400">
-              Years Running
-            </h3>
-          </div>
+          <Highlight title="20K+" subtitle="Delegates" />
+          <Highlight title="600+" subtitle="Speakers" />
+          <Highlight title="20+" subtitle="Host Cities" />
+          <Highlight title="30+" subtitle="Years Running" />
         </div>
       </div>
     </section>
+  );
+}
+
+type HighlightProps = {
+  title: string;
+  subtitle: string;
+};
+function Highlight({ title, subtitle }: HighlightProps) {
+  return (
+    <div className="p-6">
+      <h2 className="space_mono text-3xl md:text-5xl lg:text-6xl font-bold">
+        {title}
+      </h2>
+      <h3 className="arvo mt-2 text-xl md:text-2xl font-semibold text-yellow-400">
+        {subtitle}
+      </h3>
+    </div>
   );
 }

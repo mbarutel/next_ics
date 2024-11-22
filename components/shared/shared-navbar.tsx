@@ -18,7 +18,7 @@ export default function SharedNavbar() {
   return (
     <>
       <div />
-      <nav className="sticky w-full top-0 z-[899] py-2 bg-stone-900">
+      <nav className="sticky w-full top-0 z-[99] py-2 bg-stone-900">
         <div className="section_container !overflow-visible">
           {/* Medium Upwards */}
           <div className="hidden md:block ">
@@ -30,7 +30,6 @@ export default function SharedNavbar() {
               ))}
             </div>
           </div>
-
           {/* Mobile Topbar */}
           <div className="md:hidden h-12 flex justify-between items-center">
             {/* Logo */}

@@ -25,11 +25,11 @@ export default function SharedCarousel({ images }: CarouselProps) {
 
   return (
     <div ref={emblaRef} className="overflow-hidden rounded-md relative">
-      <div className="flex ml-[-1rem]">
+      <div className="flex">
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative flex-grow-0 flex-shrink-0 w-full lg:w-2/3 h-[550px] lg:h-[650px] cursor-grab mx-4"
+            className="relative flex-grow-0 flex-shrink-0 w-full lg:w-1/4 h-[450px] cursor-grab mx-4"
           >
             <Image
               fill

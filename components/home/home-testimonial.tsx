@@ -8,8 +8,8 @@ import useEmblaCarousel from "embla-carousel-react";
 
 export default function HomeTestimonial() {
   return (
-    <section className="section_margin">
-      <div className="section_container relative rounded-md overflow-hidden flex items-center min-h-[16rem] xl:min-h-[24rem] py-4">
+    <section>
+      <div className="container relative rounded-md overflow-hidden flex items-center min-h-[16rem] p-4">
         <Image
           src="/assets/images/testimonial-bg.webp"
           alt="Conferences Testimonials"
@@ -36,7 +36,9 @@ function Carousel() {
             key={index}
             className="min-w-0 flex-grow-0 flex-shrink-0 w-full cursor-grab flex justify-center items-center"
           >
-            <h2 className="text-center h-fit font-bold">"{testimonal}"</h2>
+            <h2 className="text-center arvo text-xl font-bold text-stone-900">
+              "{testimonal}"
+            </h2>
           </div>
         ))}
       </div>

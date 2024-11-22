@@ -122,6 +122,10 @@ header {
 }
 
 /* Text Sizes */
+.section_title {
+  @apply arvo text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-normal leading-7 mb-5;
+}
+
 .title {
   @apply arvo text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold uppercase tracking-normal leading-7 drop-shadow-sm shadow-black/10 my-3;
 }
