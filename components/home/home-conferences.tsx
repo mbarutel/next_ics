@@ -32,10 +32,10 @@ function ConferenceRow({ conference }: ConferenceRowProp) {
   return (
     <div className="mb-12 last:mb-0">
       <div className="flex items-center gap-2">
-        <h3 className="space_mono uppercase text-lg">
-          {dayjs(conference.date.startDate).format("MMMM YYYY")}
+        <h3 className="space_mono uppercase text-xl">
+          {dayjs(conference.date.startDate).format("DD MMMM YYYY")}
         </h3>
-        <hr className="grow" />
+        <hr className="grow border-t-2" />
       </div>
       {conference.events.map((event) => (
         <Fragment key={event.slug}>
