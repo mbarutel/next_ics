@@ -5,11 +5,13 @@ import QuestionSpeakerInformation from "./question-speaker-info";
 import QuestionPaperInformation from "./question-paper-info";
 import QuestionAccomodation from "./question-accomodation";
 import QuestionMasterclass from "./question-masterclass";
+import SubmissionComplete from "../submission-complete";
 import QuestionGuidelines from "./question-guidelines";
 import QuestionConference from "./question-conference";
 import QuestionReferral from "./question-referral";
 import QuestionDiscount from "./question-discount";
 import QuestionDinner from "./question-dinner";
+import SubmitButton from "../submit-button";
 import { EventType } from "@/lib/types";
 import { Form, Formik } from "formik";
 import toast from "react-hot-toast";
@@ -19,7 +21,6 @@ import {
   initValues,
 } from "@/lib/form-paper";
 import { useState } from "react";
-import SubmissionComplete from "../submission-complete";
 
 type FormPaperProps = {
   events: EventType[];
@@ -41,16 +42,16 @@ export default function FormPaper({ events }: FormPaperProps) {
     return rawResponse.json();
   };
 
-  const showErrorToast = () => {
-    toast.error(
-      "There was an error. We would appreciate it if you contact us about it. Sorry for the inconvenience.",
-    );
-  };
-
   const handleOnSubmit = async (values: PaperFormikValuesType) => {
-    const payload = preparePaperPayload(values);
-    const response = await submitToApi("/api/google", payload);
-    setComplete(true);
+    try {
+      const payload = preparePaperPayload(values);
+      await submitToApi("/api/google", payload);
+      setComplete(true);
+    } catch {
+      toast.error(
+        "Unfortunately an error has occured. Please contact us and we will handle the submission manually. Thank you for understanding.",
+      );
+    }
   };
 
   return (
@@ -93,18 +94,5 @@ export default function FormPaper({ events }: FormPaperProps) {
         </>
       )}
     </Formik>
-  );
-}
-
-// TODO: This should probably go on it's own file
-function SubmitButton({ isSubmitting }: { isSubmitting: boolean }) {
-  return (
-    <button
-      type="submit"
-      disabled={isSubmitting}
-      className="button_primary bg-yellow-400 mt-6 w-full"
-    >
-      {!isSubmitting ? "Submit" : "Submitting..."}
-    </button>
   );
 }

@@ -40,9 +40,12 @@ export default function QuestionMasterclass({
     <>
       <hr className="my-2" />
       <div className="form_section_wrapper">
-        <QuestionTitle title="Post Conference Masterclass" />
+        <QuestionTitle
+          title="Post Conference Masterclass"
+          subtitle="AU$350 Per Person"
+        />
         <div className="flex_col">
-          {masterclasses.map((masterclass) => (
+          {masterclasses.map((masterclass, index) => (
             <Fragment key={masterclass.slug}>
               <label>
                 <Field
@@ -50,7 +53,7 @@ export default function QuestionMasterclass({
                   name="masterclass"
                   value={masterclass.title}
                 />
-                &nbsp;{masterclass.title}
+                &nbsp;{`Option ${index + 1}: ${masterclass.title}`}
               </label>
             </Fragment>
           ))}
