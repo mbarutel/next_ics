@@ -1,15 +1,14 @@
-import "./globals.css";
-import type { Metadata } from "next";
 import { Arvo, Inter, Space_Mono } from "next/font/google";
-import { draftMode } from "next/headers";
 import { Toaster } from "react-hot-toast";
+import { draftMode } from "next/headers";
+import type { Metadata } from "next";
 import {
   ExitDraftModeLink,
-  Footer,
   GoogleAnalytics,
-  SharedHeader,
-  SharedNavbar as Navbar,
+  Footer,
+  Navbar,
 } from "@/components";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],

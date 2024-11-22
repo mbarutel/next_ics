@@ -1,7 +1,6 @@
 import React from "react";
 import {
   SubscribeEmailList,
-  SharedNavbar,
   Announcement,
   CallToAction,
   ContactForm,
@@ -11,7 +10,6 @@ import {
 export default async function page() {
   return (
     <>
-      <SharedNavbar />
       <HomeHeader />
       <Announcement />
       <ContactForm />

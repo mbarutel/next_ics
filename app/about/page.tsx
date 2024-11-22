@@ -3,7 +3,6 @@ import {
   Announcement,
   AboutPurpose,
   CallToAction,
-  SharedNavbar,
   AboutValues,
   AboutVision,
   HomeHeader,
@@ -13,7 +12,6 @@ import {
 export default async function page() {
   return (
     <>
-      <SharedNavbar />
       <HomeHeader />
       <Announcement />
       <About />

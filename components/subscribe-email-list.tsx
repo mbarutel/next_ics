@@ -63,7 +63,10 @@ function EmailForm() {
         Subscribe to our mailing list and stay informed about the latest
         developments in the world of ICS conferences.
       </p>
-      <form onSubmit={handleSubmit} className="flex w-[min(90%,40rem)]">
+      <form
+        onSubmit={handleSubmit}
+        className="flex w-[min(90%,40rem)] rounded-sm overflow-hidden"
+      >
         <input
           required
           value={email}
@@ -71,12 +74,12 @@ function EmailForm() {
           maxLength={500}
           placeholder="Email"
           onChange={(event) => setEmail(event.target.value)}
-          className="h-12 px-4 bg-black border-solid border-[1px] border-stone-500/60 transition-all w-20 text-white flex-grow rounded-l-md"
+          className="h-12 px-4 bg-black border-solid border-[1px] border-stone-500/60 transition-all w-20 text-white flex-grow"
         />
         <button
           type="submit"
           disabled={pending}
-          className="space_mono group flex flex-shrink items-center justify-center gap-2 bg-gradient-to-r gradient px-4 transition-all hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65 rounded-r-md"
+          className="space_mono group flex flex-shrink items-center justify-center gap-2 bg-gradient-to-r gradient px-4 transition-all hover:bg-stone-900 disabled:scale-100 disabled:bg-opacity-65"
         >
           {pending ? (
             <span className="h-5 w-5 animate-spin rounded-full border-b-2 border-stone-400" />

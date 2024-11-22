@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { a, useSpring } from "@react-spring/web";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-export default function SharedNavbar() {
+export default function Navbar() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
 
   const dropdownAnimation = useSpring({
@@ -19,7 +19,7 @@ export default function SharedNavbar() {
     <>
       <div />
       <nav className="sticky w-full top-0 z-[99] py-2 bg-stone-900 space_mono">
-        <div className="section_container !overflow-visible">
+        <div className="!overflow-visible">
           {/* Medium Upwards */}
           <div className="hidden md:block ">
             <div className="flex justify-center">
@@ -30,6 +30,7 @@ export default function SharedNavbar() {
               ))}
             </div>
           </div>
+
           {/* Mobile Topbar */}
           <div className="md:hidden h-12 flex justify-between items-center">
             {/* Logo */}

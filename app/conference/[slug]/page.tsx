@@ -3,7 +3,6 @@ import {
   ConferenceAbout,
   CallToAction,
   SharedHeader,
-  SharedNavbar,
   ConferenceSponsors,
   ConferenceKeypoints,
 } from "@/components";
@@ -48,7 +47,6 @@ export default async function page({ params }: ConferencePageProps) {
 
   return (
     <>
-      <SharedNavbar />
       <SharedHeader prop={{ ...headerText }} />
       <ConferenceAbout conference={conference} />
       <ConferenceKeypoints

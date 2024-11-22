@@ -25,7 +25,7 @@ import HomeAcknowledgement from "./home/home-acknowledgement";
 import HomeTestimonial from "./home/home-testimonial";
 import HomeHighlight from "./home/home-highlight";
 import SharedHeader from "./shared/shared-header";
-import SharedNavbar from "./shared/shared-navbar";
+import Navbar from "./shared/navbar";
 
 export {
   About,
@@ -41,7 +41,7 @@ export {
   HomeTestimonial,
   HomeAcknowledgement,
   SharedHeader,
-  SharedNavbar,
+  Navbar,
   CallToAction,
   ConferenceAbout,
   ConferenceKeypoints,

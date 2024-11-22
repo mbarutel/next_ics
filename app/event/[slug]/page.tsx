@@ -2,7 +2,6 @@ import {
   SubscribeEmailList,
   EventInformation,
   CallToAction,
-  SharedNavbar,
   SharedHeader,
 } from "@/components";
 import { draftMode } from "next/headers";
@@ -50,7 +49,6 @@ export default async function page({ params }: EventPageProps) {
 
   return (
     <>
-      <SharedNavbar />
       <SharedHeader prop={{ ...headerText }} />
       <EventInformation {...eventPage} />
       <CallToAction />

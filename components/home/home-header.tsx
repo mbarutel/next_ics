@@ -26,7 +26,7 @@ function TitleAndSubTitle() {
         <br />
         Services
       </h1>
-      <div className="h-2 w-full bg-white rounded-full my-3" />
+      <hr className="h-2 w-full bg-white rounded-sm my-2" />
       <p className="md:w-[25rem] leading-tight">
         ICS wishes to invite you and your team with interest in humanities and
         improving outcomes for First Nations people to our next conference.
