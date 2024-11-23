@@ -86,7 +86,6 @@ export default function FormPaper({ events }: FormPaperProps) {
               touched={touched}
               events={events}
             />
-            <QuestionDiscount />
             <QuestionReferral values={values} touched={touched} />
             <QuestionGuidelines values={values} touched={touched} />
             <SubmitButton isSubmitting={isSubmitting} />

@@ -8,7 +8,7 @@ export default function CallToAction() {
     <section>
       <div className="container">
         <h2 className="section_title">Become Part of ICS</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-7">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-7">
           {cta.map((action, index) => (
             <Fragment key={index}>
               <ActionCard {...action} />
@@ -30,7 +30,7 @@ function ActionCard({
 }: ActionCardProp) {
   return (
     <div className="flex flex-col">
-      <div className="relative h-64 sm:h-96 lg:h-80 xl:h-96 rounded-sm overflow-hidden">
+      <div className="relative h-64 lg:h-80 xl:h-96 rounded-sm overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -47,7 +47,7 @@ function ActionCard({
           href={form}
           target="_blank"
           rel="noreferrer"
-          className="mt-3 button_primary"
+          className="mt-3 button_primary text-sm md:text-base"
         >
           {button}
         </Link>
