@@ -28,7 +28,7 @@ export default async function HomeCarousel() {
 
   return (
     <section>
-      <div className="container px-20">
+      <div className="container xl:px-20">
         <SharedCarousel {...carousel} />
       </div>
     </section>

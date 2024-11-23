@@ -24,12 +24,12 @@ export default function SharedCarousel({ images }: CarouselProps) {
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <div ref={emblaRef} className="overflow-hidden rounded-md relative">
+    <div ref={emblaRef} className="overflow-hidden rounded-sm relative">
       <div className="flex">
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative flex-grow-0 flex-shrink-0 w-full lg:w-1/4 h-[450px] cursor-grab mx-4"
+            className="relative flex-grow-0 flex-shrink-0 w-full lg:w-1/3 xl:w-1/4 h-[450px] cursor-grab mx-4"
           >
             <Image
               fill
@@ -37,7 +37,7 @@ export default function SharedCarousel({ images }: CarouselProps) {
               src={image.src}
               alt={image.alt}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover rounded-md"
+              className="object-cover rounded-sm"
             />
           </div>
         ))}
