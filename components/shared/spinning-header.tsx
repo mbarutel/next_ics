@@ -4,7 +4,7 @@ export default function SpinningBackground() {
   return (
     <div className="overflow-hidden relative h-full rounded-lg z-10">
       <div className="absolute left-1/4 -translate-x-1/2 top-1/2 -translate-y-1/2">
-        <div className="relative h-[72rem] w-[72rem] rounded-full overflow-hidden">
+        <div className="relative h-[90rem] w-[90rem] md:h-[72rem] md:w-[72rem] rounded-full overflow-hidden">
           <Image
             src="/assets/images/header-bg.svg"
             alt="Conference Aboriginal Art"

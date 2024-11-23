@@ -1,4 +1,3 @@
-import Footer from "./footer";
 import SubscribeEmailList from "./subscribe-email-list";
 import CallToAction from "./call-to-action";
 import About from "./about";
@@ -26,6 +25,7 @@ import HomeTestimonial from "./home/home-testimonial";
 import HomeHighlight from "./home/home-highlight";
 import SharedHeader from "./shared/shared-header";
 import Navbar from "./shared/navbar";
+import Footer from "./shared/footer";
 import FormPaper from "./forms/paper/form-paper";
 
 export {

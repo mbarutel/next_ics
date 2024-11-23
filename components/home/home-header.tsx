@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
-import Link from "next/link";
 import SpinningBackground from "../shared/spinning-header";
+import Link from "next/link";
 
 export default function HomeHeader() {
   return (
@@ -17,13 +16,10 @@ export default function HomeHeader() {
 }
 
 function TitleAndSubTitle() {
-  const title = ["Indigenous", "Conference", "Services"];
   return (
-    <div className="absolute flex_col w-[95%] left-2 md:w-fit md:left-5 top-1/2 md:top-1/3 -translate-y-1/2 z-40">
-      <h1 className="arvo uppercase font-extrabold text-5xl sm:text-6xl flex flex-wrap">
-        {title.map((text, index) => (
-          <Fragment key={index}>{text}</Fragment>
-        ))}
+    <div className="absolute flex_col w-[450px] left-2 md:left-5 top-1/2 md:top-1/3 -translate-y-1/2 z-40">
+      <h1 className="arvo uppercase font-extrabold text-5xl sm:text-6xl">
+        Indigenous Conference Services
       </h1>
       <hr className="h-2 w-full bg-white rounded-sm my-2" />
       <p className="md:w-[25rem] leading-tight">
