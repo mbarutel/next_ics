@@ -1,6 +1,5 @@
 import {
   SubscribeEmailList,
-  Announcement,
   AboutPurpose,
   CallToAction,
   AboutValues,
@@ -13,7 +12,6 @@ export default async function page() {
   return (
     <>
       <HomeHeader />
-      <Announcement />
       <About />
       <AboutVision />
       <AboutPurpose />

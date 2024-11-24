@@ -72,7 +72,8 @@ function Contacts() {
         {contacts.map((contact, index) => (
           <Link key={index} href={contact.href}>
             <div className="flex gap-2 justify-center lg:justify-start items-center">
-              {contact.icon} {contact.text}
+              <span className="text-lg">{contact.icon}</span>
+              {contact.text}
             </div>
           </Link>
         ))}
