@@ -38,7 +38,6 @@ export async function POST(req: Request) {
       ),
     ];
 
-    console.log("before");
     await sheets.spreadsheets.values.append({
       spreadsheetId: GOOGLE_PAPER_SHEET_ID,
       range: "A2",
@@ -47,7 +46,6 @@ export async function POST(req: Request) {
         values,
       },
     });
-    console.log("after");
 
     return NextResponse.json({ status: 201 });
   } catch (error: unknown) {

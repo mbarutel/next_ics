@@ -22,7 +22,7 @@ export default function QuestionConference({
       <div className="flex flex-wrap">
         <QuestionTitle
           title="Conferences"
-          subtitle="Please select which conferences you wish to submit your entry:"
+          subtitle="Please select which conference you wish to submit your entry | AU$850 Per Registration"
           asterisk={
             !values.events &&
             touched.events && (
