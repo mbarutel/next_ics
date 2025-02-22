@@ -178,7 +178,7 @@ export function CallingForPapers() {
           notified of their acceptance in writing.
         </li>
         <li>
-          A registration fee of $750 will apply to all persons submitting
+          A registration fee of $850 will apply to all persons submitting
           papers, payable within 7 days upon notification of acceptance.
         </li>
         <li>
