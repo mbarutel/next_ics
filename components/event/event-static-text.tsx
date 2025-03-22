@@ -44,10 +44,7 @@ export function WhyAttend() {
         limit us in expanding our knowledge and networking. Whether you work at
         a community level or at governmental level the opportunity to network
         and gain contacts outside of your local region tend to be limited, this
-        is why this conference will be so valuable to participants. Hence, all
-        Indigenous people and non-indigenous people whether professional or
-        community-based, who have a vested interest in juvenile justice are
-        invited.
+        is why this conference will be so valuable to participants.
       </p>
     </div>
   );
