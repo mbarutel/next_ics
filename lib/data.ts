@@ -3,7 +3,7 @@ import { RiInstagramFill, RiMailFill, RiPhoneFill } from "react-icons/ri";
 
 export const configs = {
   contact: {
-    phone: "+61740009111",
+    phone: "+61414687972",
     email: "admin@icsconferences.org",
     address: "Seaford Entrance, Kewarra Beach QLD 4879",
   },
