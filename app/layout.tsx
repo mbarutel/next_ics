@@ -36,17 +36,19 @@ export const metadata: Metadata = {
   description: "Conferences Services Provider Australia",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { isEnabled } = await draftMode();
+
   return (
     <html lang="en" className="!scroll-smooth no-scrollbar">
       <body
         className={`${inter.variable} ${space_mono.variable} ${arvo.variable}`}
       >
-        {draftMode().isEnabled && (
+        {isEnabled && (
           <p className="py-4 px-[6vw] z-[999]">
             Draft mode is on! <ExitDraftModeLink className="underline" />
           </p>

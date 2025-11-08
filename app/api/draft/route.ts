@@ -9,7 +9,8 @@ export async function GET(request: Request) {
     return new Response("Invalid token", { status: 401 });
   }
 
-  draftMode().enable();
+  const draft = await draftMode();
+  draft.enable();
 
   redirect(searchParams.get("redirect") || "/");
 }

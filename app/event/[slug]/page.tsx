@@ -25,15 +25,18 @@ export async function generateStaticParams(): Promise<EventPageParams[]> {
 }
 
 type EventPageProps = {
-  params: EventPageParams;
+  params: Promise<EventPageParams>;
 };
 export default async function page({ params }: EventPageProps) {
+  const { slug } = await params;
+  const { isEnabled } = await draftMode();
+
   const eventInstance = new Event({
-    preview: draftMode().isEnabled,
+    preview: isEnabled,
     parser: parserEventEntry,
   });
 
-  const eventPage = await eventInstance.getEvent(params.slug);
+  const eventPage = await eventInstance.getEvent(slug);
 
   if (!eventPage || !eventPage.conference) {
     return notFound();

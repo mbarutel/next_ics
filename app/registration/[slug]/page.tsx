@@ -18,15 +18,18 @@ export async function generateStaticParams(): Promise<ConferenceInfoParams[]> {
 }
 
 type ConferenceInfoProps = {
-  params: ConferenceInfoParams;
+  params: Promise<ConferenceInfoParams>;
 };
 export default async function page({ params }: ConferenceInfoProps) {
+  const { slug } = await params;
+  const { isEnabled } = await draftMode();
+
   const conferenceInstance = new Conference({
-    preview: draftMode().isEnabled,
+    preview: isEnabled,
     parser: parserConferenceEntry,
   });
 
-  const conference = await conferenceInstance.getConference(params.slug);
+  const conference = await conferenceInstance.getConference(slug);
 
   if (!conference) {
     return notFound();

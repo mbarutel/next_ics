@@ -15,8 +15,10 @@ export async function generateStaticParams() {
 }
 
 export default async function HomeCarousel() {
+  const { isEnabled } = await draftMode();
+
   const carouselImages = new CarouselImages({
-    preview: draftMode().isEnabled,
+    preview: isEnabled,
     parser: parserCarouselImagesEntry,
   });
 

@@ -16,7 +16,7 @@ export default function ConferenceAbout({ conference }: ConferenceProps) {
         <h2 className="title text-center">About the Conference</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 mb-4 lg:py-6">
           <Events events={conference.events} />
-          <Masterclass masterclass={...conference.masterclass} />
+          <Masterclass masterclass={conference.masterclass} />
           <NetworkingDinner />
           <Accommodation venue={conference.venue} />
         </div>
