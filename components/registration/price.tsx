@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import dayjs from "dayjs";
 import EmptyWarning from "./empty-warning";
 import { FormValuesType, PriceType } from "@/lib/types";
@@ -21,6 +21,32 @@ export default function Price(
   if (prices === undefined || defaultDueDate === undefined) {
     return null;
   }
+
+  // Auto-select current price tier based on today's date
+  useEffect(() => {
+    if (priceChoice === 0 && prices) {
+      const now = new Date();
+
+      // Find the first valid (non-expired) price tier
+      const currentTier = prices.base.find((item) => {
+        const dueDate = new Date(item.dueDate);
+        return dueDate > now;
+      });
+
+      if (currentTier) {
+        setFieldValue("price", {
+          priceChoice: currentTier.price,
+          dueDate: currentTier.dueDate,
+        });
+      } else {
+        // If all tiers are expired, select walk-in price
+        setFieldValue("price", {
+          priceChoice: prices.walkIn,
+          dueDate: new Date(defaultDueDate),
+        });
+      }
+    }
+  }, [prices, priceChoice, setFieldValue, defaultDueDate]);
 
   return (
     <div className="question_wrapper">

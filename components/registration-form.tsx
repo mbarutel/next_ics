@@ -2,15 +2,96 @@
 
 import Link from "next/link";
 import toast from "react-hot-toast";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Formik, FormikHelpers } from "formik";
 import FormFields from "./registration/form-fields";
 import { registrationObjectApiParser } from "@/lib/utils";
 import FormValidation from "./registration/form-validation";
 import { ConferenceType, FormValuesType } from "@/lib/types";
+import { saveFormData, loadFormData, clearFormData } from "@/lib/local-storage";
 
 export default function RegistrationForm(conference: ConferenceType) {
   const [complete, setComplete] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [initialValues, setInitialValues] = useState<FormValuesType>({
+    name: "",
+    company: "",
+    position: "",
+    phone: "",
+    email: "",
+    address: "",
+    events: [],
+    extraParticipants: [],
+    price: { priceChoice: 0, dueDate: null },
+    dinnerParticipants: [],
+    masterclass: "no",
+    accomodation: 0,
+    discount: "",
+    referral: "",
+    agreement: false,
+    delegates: [{
+      firstName: "",
+      lastName: "",
+      jobTitle: "",
+      organization: "",
+      email: "",
+      phone: "",
+      diet: "normal",
+      dinner: false,
+      masterclass: null,
+      accommodationNights: 0,
+    }],
+  });
+
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Load saved form data on mount
+  useEffect(() => {
+    const savedData = loadFormData();
+    if (savedData) {
+      setInitialValues(savedData);
+      toast.success("Draft restored from previous session");
+    }
+    setIsLoaded(true);
+  }, []);
+
+  // Cleanup debounce timer on unmount
+  useEffect(() => {
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
+  }, []);
+
+  // Debounced save function (2 seconds delay)
+  const debouncedSave = useCallback((data: FormValuesType) => {
+    if (!isLoaded) return; // Don't save until initial load is complete
+
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+    debounceTimerRef.current = setTimeout(() => {
+      saveFormData(data);
+    }, 2000);
+  }, [isLoaded]);
+
+  // Scroll to error field
+  const scrollToError = useCallback((fieldName: string) => {
+    // Convert field name to element ID
+    const element = document.querySelector(`[name="${fieldName}"]`);
+    if (element) {
+      const yOffset = -100;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+
+      setTimeout(() => {
+        if (element instanceof HTMLElement) {
+          element.focus();
+        }
+      }, 500);
+    }
+  }, []);
 
   const showErrorToast = () => {
     toast.error(
@@ -61,6 +142,8 @@ export default function RegistrationForm(conference: ConferenceType) {
           return;
         }
 
+        // Clear localStorage on successful submission
+        clearFormData();
         setComplete(true);
       } catch {
         showErrorToast();
@@ -73,49 +156,73 @@ export default function RegistrationForm(conference: ConferenceType) {
     }
   };
 
+  // Show loading state while checking localStorage
+  if (!isLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <div className="text-center">
+          <div className="h-12 w-12 animate-spin rounded-full border-b-4 border-yellow-500 mx-auto mb-4" />
+          <p className="text-gray-300">Loading form...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Formik
-        initialValues={{
-          name: "",
-          company: "",
-          position: "",
-          phone: "",
-          email: "",
-          address: "",
-          events: [],
-          extraParticipants: [],
-          price: { priceChoice: 0, dueDate: null },
-          dinnerParticipants: [],
-          masterclass: "no",
-          accomodation: 0,
-          discount: "",
-          referral: "",
-          agreement: false,
-        }}
+        initialValues={initialValues}
+        enableReinitialize={true}
         validationSchema={FormValidation}
+        validateOnChange={true}
+        validateOnBlur={true}
         onSubmit={async (
           values: FormValuesType,
-          { setSubmitting }: FormikHelpers<FormValuesType>,
+          { setSubmitting, setErrors }: FormikHelpers<FormValuesType>,
         ) => {
           setSubmitting(true);
-          await handleOnSubmit({ values, conference });
+
+          // Validate before submit
+          try {
+            await FormValidation.validate(values, { abortEarly: false });
+            await handleOnSubmit({ values, conference });
+          } catch (validationError: any) {
+            if (validationError.inner && validationError.inner.length > 0) {
+              // Scroll to first error
+              const firstError = validationError.inner[0];
+              scrollToError(firstError.path);
+            }
+            setErrors(validationError.inner?.reduce((acc: any, err: any) => {
+              acc[err.path] = err.message;
+              return acc;
+            }, {}) || {});
+          }
+
           setSubmitting(false);
         }}
       >
-        {({ values, isSubmitting, errors, touched, setFieldValue }) => (
-          <>
-            {complete && <FormComplete />}
-            <FormFields
-              values={values}
-              errors={errors}
-              touched={touched}
-              conference={conference}
-              isSubmitting={isSubmitting}
-              setFieldValue={setFieldValue}
-            />
-          </>
-        )}
+        {({ values, isSubmitting, errors, touched, setFieldValue }) => {
+          // Auto-save form data when values change
+          useEffect(() => {
+            if (isLoaded) {
+              debouncedSave(values);
+            }
+          }, [values]);
+
+          return (
+            <>
+              {complete && <FormComplete />}
+              <FormFields
+                values={values}
+                errors={errors}
+                touched={touched}
+                conference={conference}
+                isSubmitting={isSubmitting}
+                setFieldValue={setFieldValue}
+              />
+            </>
+          );
+        }}
       </Formik>
     </div>
   );

@@ -34,7 +34,7 @@ function parseConferenceInEvent(
       submitPaperLink: conference.fields.submitAPaperLink,
       formLink:
         conference.fields.externalForm === undefined
-          ? `/registration/${conference.fields.slug}`
+          ? `/form/delegates/${conference.fields.slug}`
           : conference.fields.externalForm,
       masterclass: parserMasterclassesInConference(
         conference.fields.masterclass,
