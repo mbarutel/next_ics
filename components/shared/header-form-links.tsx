@@ -24,7 +24,7 @@ export default function HeaderFormLinks(
       {submitAPaper &&
         (
           <Link
-            href={configs.forms.submitPaper}
+            href={submitAPaper}
             target="_blank"
             rel="noreferrer"
             className="relative inline-flex group button_config bg-gradient-to-r gradient text-sm sm:text-base transition_config active:scale-95 rounded-sm overflow-hidden text-black hover:text-white"

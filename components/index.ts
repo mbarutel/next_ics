@@ -24,7 +24,6 @@ import HomeHighlight from "./home/home-highlight";
 import SharedHeader from "./shared/shared-header";
 import Navbar from "./shared/navbar";
 import Footer from "./shared/footer";
-import FormPaper from "./forms/paper/form-paper";
 
 export {
   About,
@@ -53,5 +52,4 @@ export {
   InstagramBanner,
   MeetTheTeam,
   SubscribeEmailList,
-  FormPaper,
 };

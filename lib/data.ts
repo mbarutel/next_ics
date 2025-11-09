@@ -8,7 +8,7 @@ export const configs = {
     address: "Seaford Entrance, Kewarra Beach QLD 4879",
   },
   forms: {
-    submitPaper: "/submit-paper",
+    submitPaper: "/forms/speakers",
     exhibitor: "https://forms.gle/aL37hacuwX8EMcqw6",
     sponsor: "https://forms.gle/ETWg6NV9QC4GWD3U6",
   },

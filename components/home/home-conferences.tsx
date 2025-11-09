@@ -96,7 +96,7 @@ function EventRow({ event, slug, paperLink, speakerSet }: EventRowProp) {
             {speakerSet ? "View Speakers" : "Learn More"}
           </Link>
           {paperLink && (
-            <Link href={`/submit-paper`} className="button_secondary">
+            <Link href={`/forms/speakers?conference=${slug}`} className="button_secondary">
               Submit A Paper
             </Link>
           )}

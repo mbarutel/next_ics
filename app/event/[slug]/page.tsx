@@ -47,7 +47,7 @@ export default async function page({ params }: EventPageProps) {
     subtitle: `${dayjs(eventPage?.conference?.date?.startDate).format("DD-")} ${dayjs(eventPage?.conference?.date?.endDate).format("DD MMMM YYYY")} | ${eventPage?.conference?.venue}`,
     anchor: "#information",
     register: `/forms/delegates?conference=${eventPage.conference.slug}`,
-    paper: configs.forms.submitPaper,
+    paper: `/forms/speakers?conference=${eventPage.conference.slug}`,
   };
 
   return (

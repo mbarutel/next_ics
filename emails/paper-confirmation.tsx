@@ -9,64 +9,52 @@ import {
   Text,
   Hr,
 } from "@react-email/components";
-import { DinnerParticipantType } from "@/lib/types";
+import { SpeakerParticipantType } from "@/lib/types";
 import { PRICING } from "@/helpers/data";
 
 interface PaperConfirmationEmailProps {
   conferenceTitle: string;
-  speakerName: string;
-  speakerEmail: string;
-  speakerJobTitle: string;
-  speakerOrganization: string;
-  speakerAddress: string;
-  speakerPhone: string;
+  speakers: SpeakerParticipantType[];
   paperTitle: string;
-  biography: string;
   paperDescription: string;
-  accommodation: string;
-  dinnerParticipants: DinnerParticipantType[];
-  masterclass: string;
-  discount: string;
-  referral: string;
+  promoCode?: string;
+  discount: number;
+  reference: string;
   invoiceNumber: string;
   invoiceDate: string;
+  subtotal: number;
+  total: number;
 }
 
 export default function PaperConfirmationEmail({
   conferenceTitle,
-  speakerName,
-  speakerEmail,
-  speakerJobTitle,
-  speakerOrganization,
-  speakerAddress,
-  speakerPhone,
+  speakers,
   paperTitle,
-  biography,
   paperDescription,
-  accommodation,
-  dinnerParticipants,
-  masterclass,
+  promoCode,
   discount,
-  referral,
+  reference,
   invoiceNumber,
   invoiceDate,
+  subtotal,
+  total,
 }: PaperConfirmationEmailProps) {
-  // Calculate pricing breakdown
-  const speakerRegistration = PRICING.speakerRegistration;
+  const primarySpeaker = speakers[0];
 
-  const dinnerCount = dinnerParticipants.length;
+  // Calculate counts for display
+  const dinnerCount = speakers.filter((s) => s.dinner).length;
   const dinnerTotal = dinnerCount * PRICING.dinner;
 
-  const accommodationNights = accommodation ? parseInt(accommodation, 10) || 0 : 0;
+  const accommodationNights = speakers.reduce(
+    (sum, s) => sum + s.accommodationNights,
+    0
+  );
   const accommodationTotal = accommodationNights * PRICING.accommodation;
 
-  const masterclassTotal = masterclass ? PRICING.masterclass : 0;
+  const masterclassCount = speakers.filter((s) => s.masterclass !== null).length;
+  const masterclassTotal = masterclassCount * PRICING.masterclass;
 
-  const subtotal = speakerRegistration + dinnerTotal + accommodationTotal + masterclassTotal;
-
-  // Apply discount if any (assuming discount is a percentage or amount)
-  const discountAmount = discount ? parseFloat(discount) || 0 : 0;
-  const total = subtotal - discountAmount;
+  const speakerRegistrationTotal = PRICING.speakerRegistration * speakers.length;
 
   return (
     <Html>
@@ -90,19 +78,18 @@ export default function PaperConfirmationEmail({
             </Text>
           </Section>
 
-          {/* Speaker Information */}
+          {/* Primary Speaker Information */}
           <Section style={section}>
             <Heading as="h2" style={sectionHeading}>
-              Speaker Information
+              Primary Speaker Information
             </Heading>
             <Text style={text}>
-              <strong>{speakerName}</strong>
+              <strong>{primarySpeaker.firstName} {primarySpeaker.lastName}</strong>
             </Text>
-            <Text style={text}>{speakerJobTitle}</Text>
-            <Text style={text}>{speakerOrganization}</Text>
-            <Text style={text}>{speakerAddress}</Text>
-            <Text style={text}>{speakerEmail}</Text>
-            <Text style={text}>{speakerPhone}</Text>
+            <Text style={text}>{primarySpeaker.jobTitle}</Text>
+            <Text style={text}>{primarySpeaker.organization}</Text>
+            <Text style={text}>{primarySpeaker.email}</Text>
+            <Text style={text}>{primarySpeaker.phone}</Text>
           </Section>
 
           <Hr style={divider} />
@@ -131,15 +118,53 @@ export default function PaperConfirmationEmail({
               <strong>Description:</strong>
             </Text>
             <Text style={paperDescriptionStyle}>{paperDescription}</Text>
+          </Section>
 
-            {biography && (
-              <>
-                <Text style={text}>
-                  <strong>Speaker Biography:</strong>
+          <Hr style={divider} />
+
+          {/* All Speakers */}
+          <Section style={section}>
+            <Heading as="h2" style={sectionHeading}>
+              Speakers ({speakers.length})
+            </Heading>
+            {speakers.map((speaker, index) => (
+              <div key={index} style={speakerCard}>
+                <Text style={speakerName}>
+                  {index + 1}. {speaker.firstName} {speaker.lastName}
                 </Text>
-                <Text style={paperDescriptionStyle}>{biography}</Text>
-              </>
-            )}
+                <Text style={speakerDetails}>{speaker.jobTitle}</Text>
+                <Text style={speakerDetails}>{speaker.organization}</Text>
+                <Text style={speakerDetails}>{speaker.email}</Text>
+                {speaker.biography && (
+                  <>
+                    <Text style={text}>
+                      <strong>Biography:</strong>
+                    </Text>
+                    <Text style={biographyStyle}>{speaker.biography}</Text>
+                  </>
+                )}
+                {(speaker.dinner || speaker.masterclass || speaker.accommodationNights > 0) && (
+                  <div style={speakerExtras}>
+                    <Text style={extrasTitle}>Event Preferences:</Text>
+                    {speaker.dinner && (
+                      <Text style={extrasText}>
+                        • Gala Dinner - {speaker.diet}
+                      </Text>
+                    )}
+                    {speaker.masterclass && (
+                      <Text style={extrasText}>
+                        • Masterclass: {speaker.masterclass}
+                      </Text>
+                    )}
+                    {speaker.accommodationNights > 0 && (
+                      <Text style={extrasText}>
+                        • Accommodation: {speaker.accommodationNights} night{speaker.accommodationNights > 1 ? "s" : ""}
+                      </Text>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
           </Section>
 
           <Hr style={divider} />
@@ -161,9 +186,9 @@ export default function PaperConfirmationEmail({
             {/* Speaker Registration */}
             <div style={tableRow}>
               <Text style={tableCell}>Speaker Registration</Text>
-              <Text style={tableCellRight}>1</Text>
-              <Text style={tableCellRight}>${speakerRegistration}</Text>
-              <Text style={tableCellRight}>${speakerRegistration}</Text>
+              <Text style={tableCellRight}>{speakers.length}</Text>
+              <Text style={tableCellRight}>${PRICING.speakerRegistration}</Text>
+              <Text style={tableCellRight}>${speakerRegistrationTotal}</Text>
             </div>
 
             {/* Gala Dinner */}
@@ -176,24 +201,37 @@ export default function PaperConfirmationEmail({
                   <Text style={tableCellRight}>${dinnerTotal}</Text>
                 </div>
                 {/* Dinner Participants List */}
-                {dinnerParticipants.map((participant, index) => (
-                  <div key={index} style={delegateRow}>
-                    <Text style={delegateText}>
-                      • {participant.name} - {participant.diet}
-                    </Text>
-                  </div>
-                ))}
+                {speakers
+                  .filter((s) => s.dinner)
+                  .map((speaker, index) => (
+                    <div key={index} style={delegateRow}>
+                      <Text style={delegateText}>
+                        • {speaker.firstName} {speaker.lastName} - {speaker.diet}
+                      </Text>
+                    </div>
+                  ))}
               </>
             )}
 
             {/* Masterclass */}
-            {masterclass && (
-              <div style={tableRow}>
-                <Text style={tableCell}>Post-Conference Masterclass</Text>
-                <Text style={tableCellRight}>1</Text>
-                <Text style={tableCellRight}>${PRICING.masterclass}</Text>
-                <Text style={tableCellRight}>${masterclassTotal}</Text>
-              </div>
+            {masterclassCount > 0 && (
+              <>
+                <div style={tableRow}>
+                  <Text style={tableCell}>Post-Conference Masterclass</Text>
+                  <Text style={tableCellRight}>{masterclassCount}</Text>
+                  <Text style={tableCellRight}>${PRICING.masterclass}</Text>
+                  <Text style={tableCellRight}>${masterclassTotal}</Text>
+                </div>
+                {speakers
+                  .filter((s) => s.masterclass)
+                  .map((speaker, index) => (
+                    <div key={index} style={delegateRow}>
+                      <Text style={delegateText}>
+                        • {speaker.firstName} {speaker.lastName} - {speaker.masterclass}
+                      </Text>
+                    </div>
+                  ))}
+              </>
             )}
 
             {/* Accommodation */}
@@ -218,11 +256,11 @@ export default function PaperConfirmationEmail({
               <Text style={summaryValue}>${subtotal.toLocaleString()}</Text>
             </div>
 
-            {discountAmount > 0 && (
+            {discount > 0 && (
               <div style={summaryRow}>
-                <Text style={summaryLabel}>Discount:</Text>
+                <Text style={summaryLabel}>Promo Code ({promoCode}):</Text>
                 <Text style={summaryValueDiscount}>
-                  -${discountAmount.toLocaleString()}
+                  -${discount.toLocaleString()}
                 </Text>
               </div>
             )}
@@ -260,7 +298,7 @@ export default function PaperConfirmationEmail({
             <Heading as="h2" style={sectionHeading}>
               How Did You Hear About Us?
             </Heading>
-            <Text style={text}>{referral}</Text>
+            <Text style={text}>{reference}</Text>
           </Section>
 
           <Hr style={divider} />
@@ -377,6 +415,57 @@ const paperDescriptionStyle = {
   padding: "12px",
   backgroundColor: "#f9fafb",
   borderRadius: "4px",
+};
+
+const biographyStyle = {
+  fontSize: "13px",
+  color: "#6b7280",
+  lineHeight: "20px",
+  margin: "8px 0",
+  padding: "10px",
+  backgroundColor: "#f9fafb",
+  borderRadius: "4px",
+  fontStyle: "italic" as const,
+};
+
+const speakerCard = {
+  backgroundColor: "#fafafa",
+  padding: "16px",
+  marginBottom: "12px",
+  borderRadius: "4px",
+  border: "1px solid #e5e7eb",
+};
+
+const speakerName = {
+  fontSize: "16px",
+  fontWeight: "bold",
+  color: "#1f2937",
+  margin: "0 0 8px 0",
+};
+
+const speakerDetails = {
+  fontSize: "14px",
+  color: "#6b7280",
+  margin: "2px 0",
+};
+
+const speakerExtras = {
+  marginTop: "12px",
+  paddingTop: "12px",
+  borderTop: "1px solid #e5e7eb",
+};
+
+const extrasTitle = {
+  fontSize: "13px",
+  fontWeight: "600",
+  color: "#374151",
+  margin: "0 0 6px 0",
+};
+
+const extrasText = {
+  fontSize: "12px",
+  color: "#6b7280",
+  margin: "4px 0",
 };
 
 const divider = {

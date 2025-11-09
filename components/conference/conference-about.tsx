@@ -22,7 +22,7 @@ export default function ConferenceAbout({ conference }: ConferenceProps) {
         </div>
         <FormButtons
           registration={`/forms/delegates?conference=${conference.slug}`}
-          submitPaper={conference.submitPaperLink}
+          submitPaper={`/forms/speakers?conference=${conference.slug}`}
         />
       </div>
     </section>
