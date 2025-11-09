@@ -3,10 +3,11 @@
 import { validatePromoCode, PromoValidationResult } from "@/helpers/promo-codes";
 import { IoTicketOutline, IoCheckmarkCircleOutline, IoCloseCircleOutline } from "react-icons/io5";
 import { useState } from "react";
-import { DelegateType } from "@/lib/types";
+import { DelegateType, SpeakerParticipantType } from "@/lib/types";
 
 type SubmissionType = {
-  delegates: DelegateType[];
+  delegates?: DelegateType[];
+  speakers?: SpeakerParticipantType[];
   selectedPriceTier?: { price: number; date: string };
   promoCode: string;
 };

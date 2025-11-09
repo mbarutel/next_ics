@@ -157,6 +157,23 @@ export type DelegateType = {
   accommodationNights: number;
 };
 
+// Speaker participant type for paper submissions
+export type SpeakerParticipantType = DelegateType & {
+  biography: string;
+};
+
+// Paper submission type
+export type PaperSubmissionType = {
+  conferenceTitle: string | null;
+  speakers: SpeakerParticipantType[];
+  paperTitle: string;
+  paperDescription: string;
+  promoCode: string;
+  reference: string;
+  submittedAt?: Date;
+  totalAmount?: number;
+};
+
 export type RegistrationType = {
   events: string;
   company: string;

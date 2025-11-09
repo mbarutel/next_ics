@@ -1,4 +1,4 @@
-import { DelegateType } from "@/lib/types";
+import { DelegateType, SpeakerParticipantType } from "@/lib/types";
 import { PRICING } from "./data";
 
 export type PromoCodeType = {
@@ -65,7 +65,8 @@ export type PromoValidationResult = {
 };
 
 type SubmissionType = {
-  delegates: DelegateType[];
+  delegates?: DelegateType[];
+  speakers?: SpeakerParticipantType[];
   selectedPriceTier?: { price: number; date: string };
   promoCode: string;
 };
@@ -98,11 +99,11 @@ export function validatePromoCode(
   }
 
   // Check minimum delegates requirement
-  const delegateCount = submission.delegates.length;
-  if (promoCode.minDelegates && delegateCount < promoCode.minDelegates) {
+  const participantCount = (submission.delegates?.length || 0) + (submission.speakers?.length || 0);
+  if (promoCode.minDelegates && participantCount < promoCode.minDelegates) {
     return {
       isValid: false,
-      message: `This promo code requires at least ${promoCode.minDelegates} delegates. You currently have ${delegateCount}.`,
+      message: `This promo code requires at least ${promoCode.minDelegates} participants. You currently have ${participantCount}.`,
     };
   }
 
@@ -124,8 +125,8 @@ export function calculateDiscount(
   promoCode: PromoCodeType,
   submission: SubmissionType
 ): number {
-  const basePrice = submission.selectedPriceTier?.price || 0;
-  const delegateCount = submission.delegates.length;
+  const basePrice = submission.selectedPriceTier?.price || PRICING.delegateRegistration;
+  const participantCount = (submission.delegates?.length || 0) + (submission.speakers?.length || 0);
 
   switch (promoCode.type) {
     case "percentage":
@@ -134,20 +135,20 @@ export function calculateDiscount(
       return Math.round((total * (promoCode.value || 0)) / 100);
 
     case "fixed":
-      // Fixed discount per delegate
-      return (promoCode.value || 0) * delegateCount;
+      // Fixed discount per participant
+      return (promoCode.value || 0) * participantCount;
 
     case "buy_x_get_y":
       // Buy X get Y free logic
       const buyX = promoCode.buyX || 0;
       const payFor = promoCode.getY || 0;
 
-      // Calculate how many complete sets of X delegates
-      const sets = Math.floor(delegateCount / buyX);
-      // Calculate free delegates
-      const freeDelegates = sets * (buyX - payFor);
-      // Discount is the number of free delegates times base price
-      return freeDelegates * basePrice;
+      // Calculate how many complete sets of X participants
+      const sets = Math.floor(participantCount / buyX);
+      // Calculate free participants
+      const freeParticipants = sets * (buyX - payFor);
+      // Discount is the number of free participants times base price
+      return freeParticipants * basePrice;
 
     default:
       return 0;
@@ -161,25 +162,49 @@ function calculateTotal(submission: SubmissionType): number {
   let total = 0;
 
   // Base price per delegate
-  const basePrice = submission.selectedPriceTier?.price || 0;
-  total += basePrice * submission.delegates.length;
+  if (submission.delegates) {
+    const basePrice = submission.selectedPriceTier?.price || PRICING.delegateRegistration;
+    total += basePrice * submission.delegates.length;
 
-  // Add dinner costs
-  const dinnerCount = submission.delegates.filter((d) => d.dinner).length;
-  total += dinnerCount * PRICING.dinner;
+    // Add dinner costs
+    const dinnerCount = submission.delegates.filter((d) => d.dinner).length;
+    total += dinnerCount * PRICING.dinner;
 
-  // Add accommodation costs
-  const accommodationNights = submission.delegates.reduce(
-    (sum, d) => sum + d.accommodationNights,
-    0
-  );
-  total += accommodationNights * PRICING.accommodation;
+    // Add accommodation costs
+    const accommodationNights = submission.delegates.reduce(
+      (sum, d) => sum + d.accommodationNights,
+      0
+    );
+    total += accommodationNights * PRICING.accommodation;
 
-  // Add masterclass costs
-  const masterclassCount = submission.delegates.filter(
-    (d) => d.masterclass !== null
-  ).length;
-  total += masterclassCount * PRICING.masterclass;
+    // Add masterclass costs
+    const masterclassCount = submission.delegates.filter(
+      (d) => d.masterclass !== null
+    ).length;
+    total += masterclassCount * PRICING.masterclass;
+  }
+
+  // Base price per speaker
+  if (submission.speakers) {
+    total += PRICING.speakerRegistration * submission.speakers.length;
+
+    // Add dinner costs
+    const dinnerCount = submission.speakers.filter((s) => s.dinner).length;
+    total += dinnerCount * PRICING.dinner;
+
+    // Add accommodation costs
+    const accommodationNights = submission.speakers.reduce(
+      (sum, s) => sum + s.accommodationNights,
+      0
+    );
+    total += accommodationNights * PRICING.accommodation;
+
+    // Add masterclass costs
+    const masterclassCount = submission.speakers.filter(
+      (s) => s.masterclass !== null
+    ).length;
+    total += masterclassCount * PRICING.masterclass;
+  }
 
   return total;
 }

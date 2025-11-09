@@ -1,23 +1,20 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import { ConferenceType } from "@/lib/types";
-import { saveFormData, loadFormData, clearFormData, SubmissionType } from "@/helpers/local-storage";
-import { validateDelegates, hasValidationErrors, getFirstErrorField, ValidationErrors } from "@/helpers/validation";
-import { calculateOrderTotal } from "@/helpers/order-calculations";
+import { ConferenceType, PaperSubmissionType } from "@/lib/types";
+import { saveFormData, loadFormData, clearFormData } from "@/helpers/local-storage";
+import { validatePaperSubmission, hasPaperValidationErrors, getFirstPaperErrorField, PaperValidationErrors } from "@/helpers/validation";
 import ConferenceSelection from "./conference-selection";
-import PriceSelection from "./price-selection";
-import DelegateDetails from "./delegates";
+import PaperDetails from "./paper-details";
+import SpeakerDetails from "./speakers";
 import PromoCode from "../shared/promo-code";
 import OrderSummary from "../shared/order-summary-unified";
 import SharedReference from "../shared/reference";
 import toast from "react-hot-toast";
 
-const INITIAL_SUBMISSION: SubmissionType = {
-  conferenceTitle: undefined,
-  selectedConference: undefined,
-  selectedPriceTier: undefined,
-  delegates: [
+const INITIAL_SUBMISSION: PaperSubmissionType = {
+  conferenceTitle: null,
+  speakers: [
     {
       firstName: "",
       lastName: "",
@@ -29,32 +26,34 @@ const INITIAL_SUBMISSION: SubmissionType = {
       dinner: false,
       masterclass: null,
       accommodationNights: 0,
+      biography: "",
     },
   ],
+  paperTitle: "",
+  paperDescription: "",
   promoCode: "",
   reference: "Manager, Family, Friend or Colleague",
 };
 
-export default function DelegateForm({
+export default function SpeakerForm({
   conferences,
   preSelectedConferenceSlug,
 }: {
   conferences: ConferenceType[];
   preSelectedConferenceSlug?: string;
 }) {
-  const [submission, setSubmission] = useState<SubmissionType>(INITIAL_SUBMISSION);
+  const [submission, setSubmission] = useState<PaperSubmissionType>(INITIAL_SUBMISSION);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [errors, setErrors] = useState<ValidationErrors>({});
+  const [errors, setErrors] = useState<PaperValidationErrors>({});
   const [showErrors, setShowErrors] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Load data from localStorage on mount
   useEffect(() => {
-    const savedData = loadFormData();
+    const savedData = loadFormData<PaperSubmissionType>("speaker-form");
     if (savedData) {
-      setSubmission(savedData as SubmissionType);
-      toast.success("Draft restored from previous session");
+      setSubmission(savedData);
     } else if (preSelectedConferenceSlug) {
       // If no saved data but we have a pre-selected conference, set it
       const preSelectedConference = conferences.find(
@@ -64,7 +63,6 @@ export default function DelegateForm({
         setSubmission((prev) => ({
           ...prev,
           conferenceTitle: preSelectedConference.title,
-          selectedConference: preSelectedConference,
         }));
       }
     }
@@ -72,12 +70,12 @@ export default function DelegateForm({
   }, [preSelectedConferenceSlug, conferences]);
 
   // Debounced save function (2 seconds delay)
-  const debouncedSave = useCallback((data: SubmissionType) => {
+  const debouncedSave = useCallback((data: PaperSubmissionType) => {
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
     }
     debounceTimerRef.current = setTimeout(() => {
-      saveFormData(data);
+      saveFormData(data, "speaker-form");
     }, 2000);
   }, []);
 
@@ -91,107 +89,82 @@ export default function DelegateForm({
   }, []);
 
   // Custom setState that handles saving
-  const updateSubmission = useCallback(
-    (
-      updater: React.SetStateAction<SubmissionType>,
-      saveImmediately: boolean = false
-    ) => {
-      setSubmission((prev) => {
-        const newState = typeof updater === "function" ? updater(prev) : updater;
+  const updateSubmission = useCallback((
+    updater: React.SetStateAction<PaperSubmissionType>,
+    saveImmediately: boolean = false
+  ) => {
+    setSubmission((prev) => {
+      const newState = typeof updater === 'function' ? updater(prev) : updater;
 
-        // Only save if component has loaded (prevents saving initial state)
-        if (isLoaded) {
-          if (saveImmediately) {
-            // Immediate save for major actions
-            saveFormData(newState);
-          } else {
-            // Debounced save for text inputs
-            debouncedSave(newState);
-          }
+      // Only save if component has loaded (prevents saving initial state)
+      if (isLoaded) {
+        if (saveImmediately) {
+          // Immediate save for major actions
+          saveFormData(newState, "speaker-form");
+        } else {
+          // Debounced save for text inputs
+          debouncedSave(newState);
         }
+      }
 
-        return newState;
-      });
-    },
-    [isLoaded, debouncedSave]
-  );
+      return newState;
+    });
+  }, [isLoaded, debouncedSave]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate conference selection
-    const validationErrors: ValidationErrors = {};
-    if (!submission.conferenceTitle) {
-      validationErrors.conferenceTitle = "Please select a conference";
-    }
-    if (!submission.selectedPriceTier) {
-      validationErrors.selectedPriceTier = "Please select a registration tier";
-    }
-    if (!submission.reference.trim()) {
-      validationErrors.reference = "Please provide a reference";
-    }
-
-    // Validate delegates
-    const delegateErrors = validateDelegates(submission.delegates);
-    if (delegateErrors) {
-      validationErrors.delegates = delegateErrors;
-    }
-
+    // Validate the form
+    const validationErrors = validatePaperSubmission(submission);
     setErrors(validationErrors);
     setShowErrors(true);
 
     // If there are errors, scroll to the first error
-    if (hasValidationErrors(validationErrors)) {
-      const firstErrorField = getFirstErrorField(validationErrors);
+    if (hasPaperValidationErrors(validationErrors)) {
+      const firstErrorField = getFirstPaperErrorField(validationErrors);
       if (firstErrorField) {
         scrollToError(firstErrorField);
       }
-      toast.error("Please fix all errors before submitting");
+      toast.error("Please fix the errors in the form before submitting");
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      // Calculate total amount
-      const totalAmount = calculateOrderTotal(submission);
-
-      // Prepare submission data
-      const submissionData = {
-        ...submission,
-        totalAmount,
-        submittedAt: new Date(),
-      };
-
       // Send to API
-      const response = await fetch("/api/submit-delegate", {
+      const response = await fetch("/api/submit-paper", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(submissionData),
+        body: JSON.stringify({
+          ...submission,
+          submittedAt: new Date(),
+        }),
       });
 
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || "Failed to submit registration");
+        throw new Error(result.error || "Failed to submit paper");
       }
 
       // Clear localStorage on successful submission
-      clearFormData();
+      clearFormData("speaker-form");
 
       // Show success message
       toast.success(
-        `Registration submitted successfully! A confirmation email has been sent to ${submission.delegates[0].email}`
+        `Paper submitted successfully! A confirmation email has been sent to ${submission.speakers[0].email}`
       );
 
-      // Optional: Redirect or reset form
+      // Optional: Reset form or redirect
+      // setSubmission(INITIAL_SUBMISSION);
       // window.location.href = "/thank-you";
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error(
-        "Failed to submit registration. Please try again or contact support if the problem persists."
+        "Failed to submit paper. Please try again or contact support if the problem persists."
       );
     } finally {
       setIsSubmitting(false);
@@ -208,11 +181,7 @@ export default function DelegateForm({
 
       // Focus the element if it's an input
       setTimeout(() => {
-        if (
-          element.tagName === "INPUT" ||
-          element.tagName === "SELECT" ||
-          element.tagName === "TEXTAREA"
-        ) {
+        if (element.tagName === "INPUT" || element.tagName === "SELECT" || element.tagName === "TEXTAREA") {
           element.focus();
         }
       }, 500);
@@ -246,24 +215,26 @@ export default function DelegateForm({
 
         <hr className="my-2" />
 
-        {/* Section 2: Price Selection */}
+        {/* Section 2: Paper Details */}
         <section className="w-full">
-          <PriceSelection
+          <PaperDetails
             submission={submission}
-            setSubmissionAction={(updater) => updateSubmission(updater, true)}
-            error={showErrors ? errors.selectedPriceTier : undefined}
+            setSubmission={updateSubmission}
+            errors={showErrors ? {
+              paperTitle: errors.paperTitle,
+              paperDescription: errors.paperDescription,
+            } : undefined}
           />
         </section>
 
         <hr className="my-2" />
 
-        {/* Section 3: Delegate Details */}
+        {/* Section 3: Speaker Details */}
         <section className="w-full">
-          <DelegateDetails
+          <SpeakerDetails
             submission={submission}
             setSubmission={updateSubmission}
-            masterclasses={submission.selectedConference?.masterclass}
-            errors={showErrors ? errors.delegates : undefined}
+            errors={showErrors ? errors.speakers : undefined}
           />
         </section>
 
@@ -281,7 +252,7 @@ export default function DelegateForm({
 
         {/* Section 5: Order Summary */}
         <section className="w-full">
-          <OrderSummary submission={submission} />
+          <OrderSummary submission={submission} participantType="speaker" />
         </section>
 
         <hr className="my-2" />
@@ -298,17 +269,17 @@ export default function DelegateForm({
 
       <hr className="my-6" />
 
-      {/* Form Footer */}
-      <div className="form_section_wrapper flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-xs sm:text-sm text-gray-400 text-center sm:text-left">
+      {/* Form Footer with Submit Button */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+        <p className="text-xs sm:text-sm text-white text-center sm:text-left">
           All fields are required unless marked optional
         </p>
         <button
           type="submit"
           disabled={isSubmitting}
-          className="px-6 sm:px-8 py-3 bg-yellow-400 text-black font-semibold rounded-md hover:bg-yellow-300 transition-colors shadow-md hover:shadow-lg whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-6 sm:px-8 py-3 bg-yellow-400 text-stone-900 font-semibold rounded-md hover:bg-yellow-300 transition-colors shadow-md hover:shadow-lg whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isSubmitting ? "Submitting..." : "Submit Registration"}
+          {isSubmitting ? "Submitting..." : "Submit Paper"}
         </button>
       </div>
     </form>

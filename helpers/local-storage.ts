@@ -12,8 +12,8 @@ export type SubmissionType = {
 
 const DEFAULT_STORAGE_KEY = "delegate_registration_form_data";
 
-export function saveFormData(
-  data: SubmissionType,
+export function saveFormData<T>(
+  data: T,
   key: string = DEFAULT_STORAGE_KEY
 ): void {
   try {
@@ -25,9 +25,9 @@ export function saveFormData(
   }
 }
 
-export function loadFormData(
+export function loadFormData<T>(
   key: string = DEFAULT_STORAGE_KEY
-): SubmissionType | null {
+): T | null {
   try {
     const serializedData = localStorage.getItem(key);
     if (serializedData === null) {
@@ -35,7 +35,7 @@ export function loadFormData(
     }
     const data = JSON.parse(serializedData);
     console.log("Form data loaded from localStorage");
-    return data as SubmissionType;
+    return data as T;
   } catch (error) {
     console.error("Error loading from localStorage:", error);
     return null;
