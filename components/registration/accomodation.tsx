@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import { accomodationOption } from "@/lib/data";
 import { FormikErrors, FormikTouched } from "formik";
 import { FormValuesType } from "@/lib/types";
@@ -38,7 +38,7 @@ export default function Accomodation({
         instanceId="accomodation"
         name="accomodation.select"
         value={options.filter((option) => option.value === choice)}
-        onChange={(event) => {
+        onChange={(event: SingleValue<{ value: number; label: string }>) => {
           setFieldValue("accomodation", event?.value);
         }}
         styles={customStyles}

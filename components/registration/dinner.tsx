@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import { dietaryOptions } from "@/lib/data";
 import QuestionTitle from "./question-title";
 import { customStyles } from "./select-style";
@@ -177,7 +177,7 @@ function DinnerParticipantField(
         name={`dinnerParticipants.${index}.diet`}
         instanceId={`dinnerParticipants.${index}.diet`}
         value={options.filter((option) => option.value === participant.diet)}
-        onChange={(event) => (
+        onChange={(event: SingleValue<{ value: string; label: string }>) => (
           setFieldValue(
             `dinnerParticipants.${index}.diet`,
             event?.value,

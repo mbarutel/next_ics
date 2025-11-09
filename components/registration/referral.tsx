@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import EmptyWarning from "./empty-warning";
 import { FormValuesType } from "@/lib/types";
 import { referralOptions } from "@/lib/data";
@@ -40,7 +40,7 @@ export default function Referral({
         name="referral"
         instanceId="referral.select"
         value={options.filter((option) => option.value === choice)}
-        onChange={(event) => setFieldValue("referral", event?.value)}
+        onChange={(event: SingleValue<{ value: string; label: string }>) => setFieldValue("referral", event?.value)}
         styles={customStyles}
       />
     </div>

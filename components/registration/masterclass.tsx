@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import { FormikErrors, FormikTouched } from "formik";
 import { FormValuesType, MasterclassType } from "@/lib/types";
 import { customStyles } from "./select-style";
@@ -48,7 +48,7 @@ export default function Masterclass(
         name="masterclass"
         instanceId="masterclass.select"
         value={options.filter((option) => option.value === choice)}
-        onChange={(event) => {
+        onChange={(event: SingleValue<{ value: string; label: string }>) => {
           setFieldValue("masterclass", event?.value);
         }}
         styles={customStyles}

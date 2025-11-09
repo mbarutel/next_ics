@@ -1,0 +1,326 @@
+"use client";
+
+import { useState, useEffect, useCallback, useRef } from "react";
+import { ConferenceType } from "@/lib/types";
+import { saveFormData, loadFormData, clearFormData, SubmissionType } from "@/helpers/local-storage";
+import { validateDelegates, hasValidationErrors, getFirstErrorField, ValidationErrors } from "@/helpers/validation";
+import { calculateOrderTotal } from "@/helpers/order-calculations";
+import ConferenceSelection from "./conference-selection";
+import PriceSelection from "./price-selection";
+import DelegateDetails from "./delegates";
+import PromoCode from "../shared/promo-code";
+import OrderSummary from "../shared/order-summary";
+import SharedReference from "../shared/reference";
+import Divider from "@/components/divider";
+import toast from "react-hot-toast";
+
+const INITIAL_SUBMISSION: SubmissionType = {
+  conferenceTitle: undefined,
+  selectedConference: undefined,
+  selectedPriceTier: undefined,
+  delegates: [
+    {
+      firstName: "",
+      lastName: "",
+      jobTitle: "",
+      organization: "",
+      email: "",
+      phone: "",
+      diet: "normal",
+      dinner: false,
+      masterclass: null,
+      accommodationNights: 0,
+    },
+  ],
+  promoCode: "",
+  reference: "Manager, Family, Friend or Colleague",
+};
+
+export default function DelegateForm({
+  conferences,
+  preSelectedConferenceSlug,
+}: {
+  conferences: ConferenceType[];
+  preSelectedConferenceSlug?: string;
+}) {
+  const [submission, setSubmission] = useState<SubmissionType>(INITIAL_SUBMISSION);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [errors, setErrors] = useState<ValidationErrors>({});
+  const [showErrors, setShowErrors] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Load data from localStorage on mount
+  useEffect(() => {
+    const savedData = loadFormData();
+    if (savedData) {
+      setSubmission(savedData as SubmissionType);
+      toast.success("Draft restored from previous session");
+    } else if (preSelectedConferenceSlug) {
+      // If no saved data but we have a pre-selected conference, set it
+      const preSelectedConference = conferences.find(
+        (c) => c.slug === preSelectedConferenceSlug
+      );
+      if (preSelectedConference) {
+        setSubmission((prev) => ({
+          ...prev,
+          conferenceTitle: preSelectedConference.title,
+          selectedConference: preSelectedConference,
+        }));
+      }
+    }
+    setIsLoaded(true);
+  }, [preSelectedConferenceSlug, conferences]);
+
+  // Debounced save function (2 seconds delay)
+  const debouncedSave = useCallback((data: SubmissionType) => {
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+    debounceTimerRef.current = setTimeout(() => {
+      saveFormData(data);
+    }, 2000);
+  }, []);
+
+  // Cleanup debounce timer on unmount
+  useEffect(() => {
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
+  }, []);
+
+  // Custom setState that handles saving
+  const updateSubmission = useCallback(
+    (
+      updater: React.SetStateAction<SubmissionType>,
+      saveImmediately: boolean = false
+    ) => {
+      setSubmission((prev) => {
+        const newState = typeof updater === "function" ? updater(prev) : updater;
+
+        // Only save if component has loaded (prevents saving initial state)
+        if (isLoaded) {
+          if (saveImmediately) {
+            // Immediate save for major actions
+            saveFormData(newState);
+          } else {
+            // Debounced save for text inputs
+            debouncedSave(newState);
+          }
+        }
+
+        return newState;
+      });
+    },
+    [isLoaded, debouncedSave]
+  );
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validate conference selection
+    const validationErrors: ValidationErrors = {};
+    if (!submission.conferenceTitle) {
+      validationErrors.conferenceTitle = "Please select a conference";
+    }
+    if (!submission.selectedPriceTier) {
+      validationErrors.selectedPriceTier = "Please select a registration tier";
+    }
+    if (!submission.reference.trim()) {
+      validationErrors.reference = "Please provide a reference";
+    }
+
+    // Validate delegates
+    const delegateErrors = validateDelegates(submission.delegates);
+    if (delegateErrors) {
+      validationErrors.delegates = delegateErrors;
+    }
+
+    setErrors(validationErrors);
+    setShowErrors(true);
+
+    // If there are errors, scroll to the first error
+    if (hasValidationErrors(validationErrors)) {
+      const firstErrorField = getFirstErrorField(validationErrors);
+      if (firstErrorField) {
+        scrollToError(firstErrorField);
+      }
+      toast.error("Please fix all errors before submitting");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Calculate total amount
+      const totalAmount = calculateOrderTotal(submission);
+
+      // Prepare submission data
+      const submissionData = {
+        ...submission,
+        totalAmount,
+        submittedAt: new Date(),
+      };
+
+      // Send to API
+      const response = await fetch("/api/submit-delegate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to submit registration");
+      }
+
+      // Clear localStorage on successful submission
+      clearFormData();
+
+      // Show success message
+      toast.success(
+        `Registration submitted successfully! A confirmation email has been sent to ${submission.delegates[0].email}`
+      );
+
+      // Optional: Redirect or reset form
+      // window.location.href = "/thank-you";
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error(
+        "Failed to submit registration. Please try again or contact support if the problem persists."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const scrollToError = (fieldId: string) => {
+    const element = document.getElementById(fieldId);
+    if (element) {
+      // Scroll with offset for fixed headers if any
+      const yOffset = -100;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+
+      // Focus the element if it's an input
+      setTimeout(() => {
+        if (
+          element.tagName === "INPUT" ||
+          element.tagName === "SELECT" ||
+          element.tagName === "TEXTAREA"
+        ) {
+          element.focus();
+        }
+      }, 500);
+    }
+  };
+
+  // Don't render until we've checked localStorage
+  if (!isLoaded) {
+    return (
+      <div className="bg-white rounded-md shadow-lg border border-gray-200 overflow-hidden">
+        <div className="px-8 py-20 text-center">
+          <p className="text-gray-600">Loading form...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white rounded-md shadow-lg border border-gray-200 overflow-hidden"
+    >
+      {/* Form Header */}
+      <div className="bg-gradient-to-r from-yellow-400 to-yellow-300 text-black px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
+          Registration Form
+        </h1>
+        <p className="text-black/90 text-base sm:text-lg">Delegation</p>
+      </div>
+
+      {/* Form Body */}
+      <div className="px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 space-y-8 sm:space-y-10 md:space-y-12">
+        {/* Section 1: Conference Selection */}
+        <section className="w-full">
+          <ConferenceSelection
+            conferences={conferences}
+            submission={submission}
+            setSubmissionAction={(updater) => updateSubmission(updater, true)}
+            error={showErrors ? errors.conferenceTitle : undefined}
+          />
+        </section>
+
+        <Divider />
+
+        {/* Section 2: Price Selection */}
+        <section className="w-full">
+          <PriceSelection
+            submission={submission}
+            setSubmissionAction={(updater) => updateSubmission(updater, true)}
+            error={showErrors ? errors.selectedPriceTier : undefined}
+          />
+        </section>
+
+        <Divider />
+
+        {/* Section 3: Delegate Details */}
+        <section className="w-full">
+          <DelegateDetails
+            submission={submission}
+            setSubmission={updateSubmission}
+            masterclasses={submission.selectedConference?.masterclass}
+            errors={showErrors ? errors.delegates : undefined}
+          />
+        </section>
+
+        <Divider />
+
+        {/* Section 4: Promo Code */}
+        <section className="w-full">
+          <PromoCode
+            submission={submission}
+            setSubmission={(updater) => updateSubmission(updater, true)}
+          />
+        </section>
+
+        <Divider />
+
+        {/* Section 5: Order Summary */}
+        <section className="w-full">
+          <OrderSummary submission={submission} />
+        </section>
+
+        <Divider />
+
+        {/* Section 6: Reference */}
+        <section className="w-full">
+          <SharedReference
+            submission={submission}
+            setSubmission={(updater) => updateSubmission(updater, true)}
+            error={showErrors ? errors.reference : undefined}
+          />
+        </section>
+      </div>
+
+      {/* Form Footer */}
+      <div className="bg-gray-50 px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-t border-gray-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+        <p className="text-xs sm:text-sm text-gray-600 text-center sm:text-left">
+          All fields are required unless marked optional
+        </p>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="px-6 sm:px-8 py-3 bg-yellow-400 text-black font-semibold rounded-md hover:bg-yellow-300 transition-colors shadow-md hover:shadow-lg whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isSubmitting ? "Submitting..." : "Submit Registration"}
+        </button>
+      </div>
+    </form>
+  );
+}

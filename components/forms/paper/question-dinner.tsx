@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import QuestionTitle from "./question-title";
 import { dietaryOptions } from "@/lib/data";
 import { Field, FieldArray } from "formik";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import clsx from "clsx";
 
 type QuestionDinnerProps = QuestionBaseProps & {
@@ -145,7 +145,7 @@ function DinnerParticipantField({
         name={`dinnerParticipants.${index}.diet`}
         instanceId={`dinnerParticipants.${index}.diet`}
         value={options.filter((option) => option.value === participant.diet)}
-        onChange={(event) =>
+        onChange={(event: SingleValue<{ value: string; label: string }>) =>
           setFieldValue(`dinnerParticipants.${index}.diet`, event?.value)
         }
         styles={formSelectStyle}
