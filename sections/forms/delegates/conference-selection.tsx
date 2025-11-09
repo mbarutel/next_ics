@@ -41,14 +41,14 @@ export default function ConferenceSelection<T extends SubmissionType>({
   };
 
   return (
-    <div id="conference-selection" className="w-full">
+    <div id="conference-selection" className="w-full form_section_wrapper">
       <div className="form-section-spacing">
         <h2 className="form-heading">Select Your Conference</h2>
-        <p className="text-xs sm:text-sm text-gray-600">
+        <p className="text-xs sm:text-sm text-gray-400">
           Choose the conference you wish to attend
         </p>
         {error && (
-          <p className="text-red-600 text-sm font-medium mt-2 flex-center-gap-1">
+          <p className="text-red-500 text-sm font-medium mt-2 flex-center-gap-1">
             <IoAlertCircleOutline className="icon-sm" />
             {error}
           </p>
@@ -67,11 +67,11 @@ export default function ConferenceSelection<T extends SubmissionType>({
               onClick={() => handleChange(conf)}
               className={clsx(
                 "relative border rounded-md transition-all overflow-hidden",
-                "focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2",
+                "focus:outline-none focus:ring-2 focus:ring-yellow-400",
                 "text-left hover:shadow-lg",
                 {
-                  "bg-yellow-400/10 border-yellow-400 shadow-lg": isSelected,
-                  "bg-white border-gray-300 hover:border-yellow-400": !isSelected,
+                  "bg-stone-700 border-yellow-400 shadow-lg shadow-yellow-400/20": isSelected,
+                  "bg-stone-800 border-stone-600 hover:border-yellow-400": !isSelected,
                 }
               )}
             >
@@ -98,13 +98,13 @@ export default function ConferenceSelection<T extends SubmissionType>({
                   <h3
                     className={clsx(
                       "font-semibold text-base sm:text-lg leading-tight mb-1 sm:mb-2",
-                      isSelected ? "text-yellow-600" : "text-gray-900"
+                      isSelected ? "text-yellow-400" : "text-white"
                     )}
                   >
                     {conf.title}
                   </h3>
 
-                  <div className="flex flex-col gap-0.5 sm:gap-1 text-xs text-gray-700">
+                  <div className="flex flex-col gap-0.5 sm:gap-1 text-xs text-gray-300">
                     {(startDate || endDate) && (
                       <div className="flex-center-gap-1">
                         <IoCalendarOutline className="icon-sm" />

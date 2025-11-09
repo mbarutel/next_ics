@@ -100,10 +100,10 @@ export default function DelegateDetails<T extends SubmissionType>({
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full form_section_wrapper">
       <div className="form-section-spacing">
         <h2 className="form-heading">Delegate Information</h2>
-        <p className="text-xs sm:text-sm text-gray-600">
+        <p className="text-xs sm:text-sm text-gray-400">
           Provide details for all attendees. You can add multiple delegates below.
         </p>
       </div>
@@ -112,15 +112,15 @@ export default function DelegateDetails<T extends SubmissionType>({
         {submission.delegates.map((delegate, index) => (
           <div
             key={index}
-            className="bg-gray-50 border border-gray-300 p-4 sm:p-6 rounded-md relative"
+            className="bg-stone-800 border border-stone-600 p-4 sm:p-6 rounded-md relative"
           >
             {/* Delegate Header */}
             <div className="flex items-center justify-between mb-3 sm:mb-4 flex-wrap gap-2">
               <div className="flex items-center gap-2">
-                <div className="bg-yellow-400/10 text-yellow-600 rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center font-bold text-xs sm:text-sm">
+                <div className="bg-yellow-400 text-black rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center font-bold text-xs sm:text-sm">
                   {index + 1}
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900">
+                <h3 className="text-base sm:text-lg font-semibold text-white">
                   Delegate {index + 1}
                 </h3>
               </div>
@@ -264,7 +264,7 @@ export default function DelegateDetails<T extends SubmissionType>({
                     name="diet"
                     value={delegate.diet}
                     onChange={(e) => handleChange(index, "diet", e.target.value)}
-                    className="form-input"
+                    className="form-input bg-transparent text-white"
                   >
                     {dietSelection.map((option) => (
                       <option key={option} value={option}>
@@ -283,7 +283,7 @@ export default function DelegateDetails<T extends SubmissionType>({
                     name="dinner"
                     value={delegate.dinner.toString()}
                     onChange={(e) => handleChange(index, "dinner", e.target.value)}
-                    className="form-input"
+                    className="form-input bg-transparent text-white"
                   >
                     <option value="true">Yes, I will attend</option>
                     <option value="false">No, I will not attend</option>
@@ -299,7 +299,7 @@ export default function DelegateDetails<T extends SubmissionType>({
                     name="masterclass"
                     value={delegate.masterclass ?? ""}
                     onChange={(e) => handleChange(index, "masterclass", e.target.value)}
-                    className="form-input"
+                    className="form-input bg-transparent text-white"
                   >
                     <option value="">No masterclass</option>
                     {masterclasses && masterclasses.map((mc) => (
@@ -321,7 +321,7 @@ export default function DelegateDetails<T extends SubmissionType>({
                     onChange={(e) =>
                       handleChange(index, "accommodationNights", e.target.value)
                     }
-                    className="form-input"
+                    className="form-input bg-transparent text-white"
                   >
                     {[0, 1, 2, 3, 4, 5].map((n) => (
                       <option key={n} value={n}>

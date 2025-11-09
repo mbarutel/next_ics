@@ -24,6 +24,7 @@ function parseConferenceInEvent(
 ): ConferenceInEventType | undefined {
   if ("fields" in conference) {
     return {
+      slug: conference.fields.slug,
       title: conference.fields.title,
       venue: conference.fields.venue,
       agenda: parserAgenda(conference.fields.agenda),

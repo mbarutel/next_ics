@@ -75,7 +75,6 @@ export type EventType = {
 
 export type ConferenceInEventType = Omit<
   ConferenceType,
-  | "slug"
   | "tite"
   | "events"
   | "coverImage"

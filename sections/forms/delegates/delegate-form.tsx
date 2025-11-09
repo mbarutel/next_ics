@@ -11,7 +11,6 @@ import DelegateDetails from "./delegates";
 import PromoCode from "../shared/promo-code";
 import OrderSummary from "../shared/order-summary";
 import SharedReference from "../shared/reference";
-import Divider from "@/components/divider";
 import toast from "react-hot-toast";
 
 const INITIAL_SUBMISSION: SubmissionType = {
@@ -232,20 +231,9 @@ export default function DelegateForm({
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white rounded-md shadow-lg border border-gray-200 overflow-hidden"
-    >
-      {/* Form Header */}
-      <div className="bg-gradient-to-r from-yellow-400 to-yellow-300 text-black px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
-          Registration Form
-        </h1>
-        <p className="text-black/90 text-base sm:text-lg">Delegation</p>
-      </div>
-
+    <form onSubmit={handleSubmit}>
       {/* Form Body */}
-      <div className="px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 space-y-8 sm:space-y-10 md:space-y-12">
+      <div className="space-y-6">
         {/* Section 1: Conference Selection */}
         <section className="w-full">
           <ConferenceSelection
@@ -256,7 +244,7 @@ export default function DelegateForm({
           />
         </section>
 
-        <Divider />
+        <hr className="my-2" />
 
         {/* Section 2: Price Selection */}
         <section className="w-full">
@@ -267,7 +255,7 @@ export default function DelegateForm({
           />
         </section>
 
-        <Divider />
+        <hr className="my-2" />
 
         {/* Section 3: Delegate Details */}
         <section className="w-full">
@@ -279,7 +267,7 @@ export default function DelegateForm({
           />
         </section>
 
-        <Divider />
+        <hr className="my-2" />
 
         {/* Section 4: Promo Code */}
         <section className="w-full">
@@ -289,14 +277,14 @@ export default function DelegateForm({
           />
         </section>
 
-        <Divider />
+        <hr className="my-2" />
 
         {/* Section 5: Order Summary */}
         <section className="w-full">
           <OrderSummary submission={submission} />
         </section>
 
-        <Divider />
+        <hr className="my-2" />
 
         {/* Section 6: Reference */}
         <section className="w-full">
@@ -308,9 +296,11 @@ export default function DelegateForm({
         </section>
       </div>
 
+      <hr className="my-6" />
+
       {/* Form Footer */}
-      <div className="bg-gray-50 px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-t border-gray-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
-        <p className="text-xs sm:text-sm text-gray-600 text-center sm:text-left">
+      <div className="form_section_wrapper flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-xs sm:text-sm text-gray-400 text-center sm:text-left">
           All fields are required unless marked optional
         </p>
         <button

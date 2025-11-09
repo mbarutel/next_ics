@@ -39,11 +39,22 @@ export default async function DelegatesPage({
 
   return (
     <main className="min-h-screen">
-      <section className="container mx-auto px-4">
-        <DelegateForm
-          conferences={conferences}
-          preSelectedConferenceSlug={conferenceSlug}
-        />
+      <section>
+        <div className="container mx-auto w-[min(90%,960px)] py-8">
+          <div className="form_section_wrapper text-center bg-stone-700 mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-yellow-400 mb-2">
+              Delegation Registration
+            </h1>
+            <p className="text-white italic w-[min(100%,80ch)] mx-auto text-sm sm:text-base">
+              Register your delegation for upcoming conferences. Fill in the details below to secure your spot.
+            </p>
+          </div>
+          <hr className="my-2" />
+          <DelegateForm
+            conferences={conferences}
+            preSelectedConferenceSlug={conferenceSlug}
+          />
+        </div>
       </section>
     </main>
   );

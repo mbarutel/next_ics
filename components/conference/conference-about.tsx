@@ -21,7 +21,7 @@ export default function ConferenceAbout({ conference }: ConferenceProps) {
           <Accommodation venue={conference.venue} />
         </div>
         <FormButtons
-          registration={`/registration/${conference.slug}`}
+          registration={`/forms/delegates?conference=${conference.slug}`}
           submitPaper={conference.submitPaperLink}
         />
       </div>

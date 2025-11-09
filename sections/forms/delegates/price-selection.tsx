@@ -55,14 +55,14 @@ export default function PriceSelection<T extends SubmissionType>({
   }, [submission.conferenceTitle, tiers, submission.selectedPriceTier, setSubmissionAction]);
 
   return (
-    <div id="price-selection" className="w-full">
+    <div id="price-selection" className="w-full form_section_wrapper">
       <div className="form-section-spacing">
         <h2 className="form-heading">Registration Pricing</h2>
-        <p className="text-xs sm:text-sm text-gray-600">
+        <p className="text-xs sm:text-sm text-gray-400">
           Your registration tier is automatically selected based on today's date. View all pricing tiers below.
         </p>
         {error && (
-          <p className="text-red-600 text-sm font-medium mt-2 flex-center-gap-1">
+          <p className="text-red-500 text-sm font-medium mt-2 flex-center-gap-1">
             <IoAlertCircleOutline className="icon-sm" />
             {error}
           </p>
@@ -84,25 +84,25 @@ export default function PriceSelection<T extends SubmissionType>({
                 "relative border p-3 sm:p-4 rounded-md transition-all",
                 {
                   // Current/Selected state
-                  "bg-yellow-400/10 border-yellow-400 shadow-lg": isCurrent,
+                  "bg-stone-700 border-yellow-400 shadow-lg shadow-yellow-400/20": isCurrent,
 
                   // Expired state
-                  "bg-gray-100 border-gray-300 opacity-60": isExpired,
+                  "bg-stone-900 border-stone-700 opacity-50": isExpired,
 
                   // Upcoming state
-                  "bg-blue-50 border-blue-300": isUpcoming,
+                  "bg-stone-800 border-stone-600": isUpcoming,
                 }
               )}
             >
               <div className="flex flex-col gap-1.5 sm:gap-2">
                 <div className="text-left">
-                  <p className="text-[9px] sm:text-[10px] uppercase tracking-wide text-gray-600">
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-wide text-gray-400">
                     Pay By
                   </p>
                   <p
                     className={clsx(
                       "text-xs sm:text-sm font-bold leading-tight italic",
-                      isExpired ? "text-gray-500" : "text-yellow-600"
+                      isExpired ? "text-gray-600" : "text-yellow-400"
                     )}
                   >
                     {tier.date}
@@ -110,13 +110,13 @@ export default function PriceSelection<T extends SubmissionType>({
                 </div>
 
                 <div className="text-left">
-                  <p className="text-[9px] sm:text-[10px] uppercase tracking-wide text-gray-600">
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-wide text-gray-400">
                     Price
                   </p>
                   <p
                     className={clsx(
                       "text-lg sm:text-xl font-bold leading-tight",
-                      isExpired ? "text-gray-500" : "text-yellow-600"
+                      isExpired ? "text-gray-600" : "text-yellow-400"
                     )}
                   >
                     ${tier.price}
