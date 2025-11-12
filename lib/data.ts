@@ -3,9 +3,12 @@ import { RiInstagramFill, RiMailFill, RiPhoneFill } from "react-icons/ri";
 
 export const configs = {
   contact: {
-    phone: "+61414687972",
+    phone: "(+61) 04557 76 668",
+    phoneSecondary: "0414687972",
     email: "admin@icsconferences.org",
-    address: "Seaford Entrance, Kewarra Beach QLD 4879",
+    address: "8 Kiwi Court Point Vernon QLD 4655",
+    website: "www.icsconferences.org",
+    businessName: "ICS Australia Pty Ltd trading as Indigenous Conference Services",
   },
   forms: {
     submitPaper: "/forms/speakers",
