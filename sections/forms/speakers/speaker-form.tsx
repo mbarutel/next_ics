@@ -158,9 +158,10 @@ export default function SpeakerForm({
         `Paper submitted successfully! A confirmation email has been sent to ${submission.speakers[0].email}`
       );
 
-      // Optional: Reset form or redirect
-      // setSubmission(INITIAL_SUBMISSION);
-      // window.location.href = "/thank-you";
+      // Redirect to home page after successful submission
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 2000);
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error(

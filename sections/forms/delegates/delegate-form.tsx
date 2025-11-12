@@ -186,8 +186,10 @@ export default function DelegateForm({
         `Registration submitted successfully! A confirmation email has been sent to ${submission.delegates[0].email}`
       );
 
-      // Optional: Redirect or reset form
-      // window.location.href = "/thank-you";
+      // Redirect to home page after successful submission
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 2000);
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error(
