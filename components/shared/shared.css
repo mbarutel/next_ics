@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 .carousel_nav_button {
-  @apply absolute text-6xl top-1/2 -translate-y-1/2 opacity-90 text-yellow-400;
+  @apply absolute text-6xl top-1/2 -translate-y-1/2 opacity-90 text-yellow-400
+  hover:opacity-100 hover:scale-110 transition-all duration-200
+  focus:outline-none focus:ring-4 focus:ring-yellow-400/50 rounded-full
+  disabled:opacity-30 disabled:cursor-not-allowed;
 }
