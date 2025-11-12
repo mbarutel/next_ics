@@ -141,8 +141,8 @@ export default function ContactForm() {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div className="lg:col-span-3">
-            <div className="bg-black/20 backdrop-blur-md rounded-lg p-6 lg:p-8 border border-stone-500/30">
+          <div className="lg:col-span-3 my-auto">
+            <div className="bg-black/20 backdrop-blur-md rounded-lg p-6 lg:p-8 border border-stone-500/30 flex flex-col">
               <h3 className="text-2xl font-semibold mb-2">Send us a message</h3>
               <p className="text-sm lg:text-base text-stone-300 mb-6">
                 Fill out the form below and we&apos;ll get back to you as soon
@@ -161,7 +161,7 @@ export default function ContactForm() {
                     "Message sent successfully! We'll be in touch soon."
                   );
                 }}
-                className="space-y-5"
+                className="flex-1 flex flex-col space-y-4"
               >
                 <div>
                   <label
@@ -198,7 +198,7 @@ export default function ContactForm() {
                   />
                 </div>
 
-                <div>
+                <div className="flex-1 flex flex-col">
                   <label
                     htmlFor="message"
                     className="block text-sm font-medium mb-2"
@@ -210,9 +210,8 @@ export default function ContactForm() {
                     id="message"
                     name="message"
                     maxLength={5000}
-                    rows={6}
                     placeholder="Tell us more about your inquiry..."
-                    className="w-full rounded-lg p-4 bg-black/30 backdrop-blur-md text-white border border-stone-500/50 transition-all placeholder:text-stone-400 focus:border-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-500/20 resize-none"
+                    className="flex-1 w-full rounded-lg p-4 bg-black/30 backdrop-blur-md text-white border border-stone-500/50 transition-all placeholder:text-stone-400 focus:border-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-500/20 min-h-[200px]"
                   />
                   <p className="text-xs text-stone-400 mt-1">
                     Maximum 5000 characters
