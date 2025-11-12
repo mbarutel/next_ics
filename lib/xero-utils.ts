@@ -3,41 +3,56 @@ import { RegistrationType } from "./types";
 import { ContactGroup, ContactGroups, Contacts, LineItem } from "xero-node";
 
 export function generateLineItems({ body }: { body: RegistrationType }) {
+  // Check if using new delegates structure
+  const useDelegates = body.delegates && body.delegates.length > 0;
+
+  // Calculate registration quantity
+  const registrationQty = useDelegates
+    ? body.delegates.length
+    : (body.extraParticipants === "" ? 1 : body.extraParticipants.split("\n").length + 1);
+
   let objects: LineItem[] = [
     {
       taxType: "OUTPUT",
       accountCode: "200",
       description: "Registration Fee",
-      quantity:
-        body.extraParticipants === ""
-          ? 1
-          : body.extraParticipants.split("\n").length + 1,
+      quantity: registrationQty,
       unitAmount: body.priceValue,
     },
   ];
 
-  if (body.dinnerParticipants !== "") {
-    const quantity = body.dinnerParticipants.split("\n").length;
+  // Handle dinner participants
+  const dinnerQty = useDelegates
+    ? body.delegates.filter(d => d.dinner).length
+    : (body.dinnerParticipants === "" ? 0 : body.dinnerParticipants.split("\n").length);
+
+  if (dinnerQty > 0) {
     objects = [
       ...objects,
       {
         taxType: "OUTPUT",
         accountCode: "200",
         description: "Conference Networking Dinner",
-        quantity: quantity,
-        unitAmount: body.dinnerPrice / quantity,
+        quantity: dinnerQty,
+        unitAmount: body.dinnerPrice / dinnerQty,
       },
     ];
   }
 
-  if (body.masterclass !== "no") {
+  // Handle masterclass
+  const masterclassQty = useDelegates
+    ? body.delegates.filter(d => d.masterclass !== null && d.masterclass !== "").length
+    : (body.masterclass !== "no" ? 1 : 0);
+
+  if (masterclassQty > 0) {
     objects = [
       ...objects,
       {
         taxType: "OUTPUT",
         accountCode: "200",
         description: "Post-Conference Masterclass",
-        unitAmount: body.masterclassPrice,
+        quantity: masterclassQty,
+        unitAmount: body.masterclassPrice / masterclassQty,
       },
     ];
   }
@@ -62,30 +77,50 @@ export async function contactCheck(body: RegistrationType) {
   // rather than all of them.
   const contacts = await xero.accountingApi.getContacts("");
 
+  // Check if using new delegates structure
+  const useDelegates = body.delegates && body.delegates.length > 0;
+
+  let firstName: string;
+  let lastName: string;
+  let fullName: string;
+  let email: string;
+
+  if (useDelegates) {
+    // Use first delegate for contact
+    firstName = body.delegates[0].firstName;
+    lastName = body.delegates[0].lastName;
+    fullName = `${firstName} ${lastName}`;
+    email = body.delegates[0].email;
+  } else {
+    // Use old structure
+    fullName = body.mainParticipant.name;
+    email = body.mainParticipant.email;
+    const name = fullName.split(" ");
+    firstName = name.slice(0, name.length - 1).join(" ");
+    lastName = name[name.length - 1];
+  }
+
   // Check name of registration to contact.name
   const matchedName =
     contacts.body.contacts &&
     contacts.body.contacts.find(
       (contact) =>
-        contact.name?.toLowerCase() === body.mainParticipant.name.toLowerCase(),
+        contact.name?.toLowerCase() === fullName.toLowerCase(),
     );
 
-  const name = body.mainParticipant.name.split(" ");
-  const firstName = name.slice(0, name.length - 1).join(" ");
-  const lastName = name[name.length - 1];
   const contactObject = {
     contacts: [
       {
-        name: body.mainParticipant.name,
+        name: fullName,
         firstName: firstName,
         lastName: lastName,
-        emailAddress: body.mainParticipant.email,
+        emailAddress: email,
       },
     ],
   };
 
   if (matchedName && matchedName.contactID) {
-    if (matchedName.emailAddress != body.mainParticipant.email) {
+    if (matchedName.emailAddress != email) {
       const updatedContact = await xero.accountingApi.updateContact(
         "",
         matchedName.contactID,

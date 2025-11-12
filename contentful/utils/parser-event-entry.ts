@@ -24,6 +24,7 @@ function parseConferenceInEvent(
 ): ConferenceInEventType | undefined {
   if ("fields" in conference) {
     return {
+      slug: conference.fields.slug,
       title: conference.fields.title,
       venue: conference.fields.venue,
       agenda: parserAgenda(conference.fields.agenda),
@@ -34,7 +35,7 @@ function parseConferenceInEvent(
       submitPaperLink: conference.fields.submitAPaperLink,
       formLink:
         conference.fields.externalForm === undefined
-          ? `/registration/${conference.fields.slug}`
+          ? `/form/delegates/${conference.fields.slug}`
           : conference.fields.externalForm,
       masterclass: parserMasterclassesInConference(
         conference.fields.masterclass,

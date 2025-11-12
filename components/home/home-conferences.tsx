@@ -86,7 +86,7 @@ function EventRow({ event, slug, paperLink, speakerSet }: EventRowProp) {
         <h5 className="mb-6">{event.conference.venue}</h5>
         <p className="text-justify">{event.description}</p>
         <div className="my-6 flex gap-4">
-          <Link href={`/registration/${slug}`} className="button_primary">
+          <Link href={`/forms/delegates?conference=${slug}`} className="button_primary">
             Register
           </Link>
           <Link
@@ -96,7 +96,7 @@ function EventRow({ event, slug, paperLink, speakerSet }: EventRowProp) {
             {speakerSet ? "View Speakers" : "Learn More"}
           </Link>
           {paperLink && (
-            <Link href={`/submit-paper`} className="button_secondary">
+            <Link href={`/forms/speakers?conference=${slug}`} className="button_secondary">
               Submit A Paper
             </Link>
           )}

@@ -25,15 +25,18 @@ export async function generateStaticParams(): Promise<EventPageParams[]> {
 }
 
 type EventPageProps = {
-  params: EventPageParams;
+  params: Promise<EventPageParams>;
 };
 export default async function page({ params }: EventPageProps) {
+  const { slug } = await params;
+  const { isEnabled } = await draftMode();
+
   const eventInstance = new Event({
-    preview: draftMode().isEnabled,
+    preview: isEnabled,
     parser: parserEventEntry,
   });
 
-  const eventPage = await eventInstance.getEvent(params.slug);
+  const eventPage = await eventInstance.getEvent(slug);
 
   if (!eventPage || !eventPage.conference) {
     return notFound();
@@ -43,8 +46,8 @@ export default async function page({ params }: EventPageProps) {
     title: eventPage.title,
     subtitle: `${dayjs(eventPage?.conference?.date?.startDate).format("DD-")} ${dayjs(eventPage?.conference?.date?.endDate).format("DD MMMM YYYY")} | ${eventPage?.conference?.venue}`,
     anchor: "#information",
-    register: eventPage.conference.formLink,
-    paper: configs.forms.submitPaper,
+    register: `/forms/delegates?conference=${eventPage.conference.slug}`,
+    paper: `/forms/speakers?conference=${eventPage.conference.slug}`,
   };
 
   return (

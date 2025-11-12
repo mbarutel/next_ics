@@ -2,15 +2,29 @@
 
 import React, { useEffect, useState } from "react";
 
+const ACKNOWLEDGEMENT_KEY = "ics-acknowledgement-last-shown";
+const ONE_HOUR_MS = 60 * 60 * 1000; // 1 hour in milliseconds
+
 export default function HomeAcknowledgement() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setIsOpen(false);
-    }, 4000);
+    // Check if we should show the acknowledgement
+    const lastShown = localStorage.getItem(ACKNOWLEDGEMENT_KEY);
+    const now = Date.now();
 
-    return () => clearTimeout(timeoutId);
+    if (!lastShown || now - parseInt(lastShown) > ONE_HOUR_MS) {
+      // Show the acknowledgement if it hasn't been shown or if it's been over an hour
+      setIsOpen(true);
+      localStorage.setItem(ACKNOWLEDGEMENT_KEY, now.toString());
+
+      // Auto-close after 4 seconds
+      const timeoutId = setTimeout(() => {
+        setIsOpen(false);
+      }, 4000);
+
+      return () => clearTimeout(timeoutId);
+    }
   }, []);
 
   if (!isOpen) return null;

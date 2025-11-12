@@ -43,25 +43,62 @@ export const registrationObjectApiParser = ({
 
   const reference = generateReference(conference);
   const events = values.events.join("\n");
-  const extraParticipants = parseExtraParticipants(values.extraParticipants)
-    .map((item) =>
-      item.name
-        .trim()
-        .concat(` | ${item.email.trim()} | ${item.position.trim()}`),
-    )
-    .join("\n");
-  const dinnerParticipants = parseDinnerParticipants(values.dinnerParticipants)
-    .map((item) => item.name.trim().concat(` | ${item.diet}`))
-    .join("\n");
 
-  const dinnerPrice =
-    values.dinnerParticipants.length * conference.prices?.dinner;
-  const masterclassPrice =
-    values.masterclass === "no" ? 0 : conference.prices?.masterclass;
-  const total =
-    values.price.priceChoice * (values.extraParticipants.length + 1) +
-    dinnerPrice +
-    masterclassPrice;
+  // Check if using new delegates structure
+  const useDelegates = values.delegates && values.delegates.length > 0;
+
+  let extraParticipants: string;
+  let dinnerParticipants: string;
+  let dinnerPrice: number;
+  let masterclassPrice: number;
+  let total: number;
+  let participantQty: number;
+
+  if (useDelegates) {
+    // New delegates-based calculation
+    participantQty = values.delegates.length;
+
+    // Format delegates information
+    extraParticipants = values.delegates
+      .map((delegate, index) =>
+        `${index + 1}. ${delegate.firstName} ${delegate.lastName} | ${delegate.email} | ${delegate.jobTitle} at ${delegate.organization}`
+      )
+      .join("\n");
+
+    // Format dinner participants from delegates
+    const dinnerDelegates = values.delegates.filter(d => d.dinner);
+    dinnerParticipants = dinnerDelegates
+      .map((delegate) =>
+        `${delegate.firstName} ${delegate.lastName} | ${delegate.diet}`
+      )
+      .join("\n");
+
+    // Calculate prices based on delegates
+    dinnerPrice = dinnerDelegates.length * conference.prices?.dinner;
+    const masterclassDelegates = values.delegates.filter(d => d.masterclass !== null && d.masterclass !== "");
+    masterclassPrice = masterclassDelegates.length * conference.prices?.masterclass;
+
+    total = values.price.priceChoice * participantQty + dinnerPrice + masterclassPrice;
+  } else {
+    // Old structure calculation (backward compatibility)
+    participantQty = values.extraParticipants.length + 1;
+
+    extraParticipants = parseExtraParticipants(values.extraParticipants)
+      .map((item) =>
+        item.name
+          .trim()
+          .concat(` | ${item.email.trim()} | ${item.position.trim()}`),
+      )
+      .join("\n");
+
+    dinnerParticipants = parseDinnerParticipants(values.dinnerParticipants)
+      .map((item) => item.name.trim().concat(` | ${item.diet}`))
+      .join("\n");
+
+    dinnerPrice = values.dinnerParticipants.length * conference.prices?.dinner;
+    masterclassPrice = values.masterclass === "no" ? 0 : conference.prices?.masterclass;
+    total = values.price.priceChoice * participantQty + dinnerPrice + masterclassPrice;
+  }
 
   const dueDate = new Date().getTime() + 1000 * 60 * 60 * 24 * 7;
 
@@ -69,26 +106,38 @@ export const registrationObjectApiParser = ({
     reference: reference,
     conference: conference.title,
     events: events,
-    address: values.address.trim(),
+    address: values.address?.trim() || "",
     company: values.company.trim(),
     discount: values.discount.trim(),
     referral: values.referral,
     priceValue: values.price.priceChoice,
     priceDueDate: new Date(dueDate),
-    masterclass: values.masterclass,
-    accomodation: values.accomodation,
-    mainParticipant: {
-      name: values.name.trim(),
-      email: values.email.trim(),
-      position: values.position.trim(),
-      phone: values.phone.trim(),
-    },
+    masterclass: useDelegates
+      ? (values.delegates.find(d => d.masterclass)?.masterclass || "no")
+      : values.masterclass,
+    accomodation: useDelegates
+      ? values.delegates.reduce((sum, d) => sum + d.accommodationNights, 0)
+      : values.accomodation,
+    mainParticipant: useDelegates
+      ? {
+          name: `${values.delegates[0].firstName} ${values.delegates[0].lastName}`,
+          email: values.delegates[0].email.trim(),
+          position: values.delegates[0].jobTitle.trim(),
+          phone: values.delegates[0].phone.trim(),
+        }
+      : {
+          name: values.name.trim(),
+          email: values.email.trim(),
+          position: values.position.trim(),
+          phone: values.phone.trim(),
+        },
     dinnerParticipants: dinnerParticipants,
     extraParticipants: extraParticipants,
     agreement: values.agreement,
     dinnerPrice: dinnerPrice,
     masterclassPrice: masterclassPrice,
     total: total,
+    delegates: values.delegates || [],
   };
 };
 

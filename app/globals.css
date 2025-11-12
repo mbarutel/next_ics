@@ -318,3 +318,42 @@ footer {
 .validation_text {
   @apply text-red-600 font-medium;
 }
+
+/* Form utility classes - dark theme to match website */
+.form-section-spacing {
+  @apply mb-4 sm:mb-6;
+}
+
+.form-heading {
+  @apply text-xl sm:text-2xl font-bold text-yellow-400 mb-1 sm:mb-2;
+}
+
+.form-label {
+  @apply text-sm font-medium text-gray-300 mb-1 block;
+}
+
+.form-input {
+  @apply block w-full bg-transparent border-b border-b-white p-2 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 transition-colors;
+}
+
+.form-error {
+  @apply text-red-500 text-xs mt-1;
+}
+
+.field-group-label {
+  @apply text-xs sm:text-sm font-semibold text-yellow-400 mb-2 sm:mb-3 uppercase tracking-wide flex items-center gap-2;
+}
+
+/* Layout utility classes */
+.grid-cols-responsive {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4;
+}
+
+.flex-center-gap-1 {
+  @apply flex items-center gap-1;
+}
+
+/* Icon utility classes */
+.icon-sm {
+  @apply w-4 h-4;
+}

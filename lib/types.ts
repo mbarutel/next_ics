@@ -75,7 +75,6 @@ export type EventType = {
 
 export type ConferenceInEventType = Omit<
   ConferenceType,
-  | "slug"
   | "tite"
   | "events"
   | "coverImage"
@@ -144,10 +143,41 @@ export type DinnerParticipantType = {
   diet: string;
 };
 
+// New delegate type for improved registration form
+export type DelegateType = {
+  firstName: string;
+  lastName: string;
+  jobTitle: string;
+  organization: string;
+  email: string;
+  phone: string;
+  diet: string;
+  dinner: boolean;
+  masterclass: string | null;
+  accommodationNights: number;
+};
+
+// Speaker participant type for paper submissions
+export type SpeakerParticipantType = DelegateType & {
+  biography: string;
+};
+
+// Paper submission type
+export type PaperSubmissionType = {
+  conferenceTitle: string | null;
+  speakers: SpeakerParticipantType[];
+  paperTitle: string;
+  paperDescription: string;
+  promoCode: string;
+  reference: string;
+  submittedAt?: Date;
+  totalAmount?: number;
+};
+
 export type RegistrationType = {
   events: string;
   company: string;
-  address: string;
+  address?: string; // Made optional
   discount: string;
   referral: string;
   reference: string;
@@ -163,6 +193,8 @@ export type RegistrationType = {
   dinnerPrice: number;
   masterclassPrice: number;
   total: number;
+  // New delegate-based fields
+  delegates: DelegateType[];
 };
 
 export type FormValuesType = {
@@ -171,7 +203,7 @@ export type FormValuesType = {
   position: string;
   phone: string;
   email: string;
-  address: string;
+  address?: string; // Made optional
   events: [];
   extraParticipants: [];
   price: {
@@ -184,4 +216,6 @@ export type FormValuesType = {
   discount: string;
   referral: string;
   agreement: boolean;
+  // New delegate-based fields
+  delegates: DelegateType[];
 };

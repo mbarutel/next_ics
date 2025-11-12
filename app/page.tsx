@@ -24,8 +24,10 @@ export async function generateStaticParams() {
 }
 
 export default async function Home() {
+  const { isEnabled } = await draftMode();
+
   const conferenceInstance = new Conference({
-    preview: draftMode().isEnabled,
+    preview: isEnabled,
     parser: parserConferenceEntry,
   });
 

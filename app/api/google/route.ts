@@ -1,10 +1,10 @@
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
-const { GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY, GOOGLE_PAPER_SHEET_ID } =
+const { GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY, GOOGLE_SHEET_ID } =
   process.env;
 
-if (!GOOGLE_CLIENT_EMAIL || !GOOGLE_PRIVATE_KEY || !GOOGLE_PAPER_SHEET_ID) {
+if (!GOOGLE_CLIENT_EMAIL || !GOOGLE_PRIVATE_KEY || !GOOGLE_SHEET_ID) {
   throw new Error("Missing required environment variables");
 }
 
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     ];
 
     await sheets.spreadsheets.values.append({
-      spreadsheetId: GOOGLE_PAPER_SHEET_ID,
+      spreadsheetId: GOOGLE_SHEET_ID,
       range: "A2",
       valueInputOption: "USER_ENTERED",
       requestBody: {

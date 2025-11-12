@@ -39,7 +39,7 @@ export const sendEmail = async (formData: FormData) => {
       from: "ICS Contact Form<onboarding@resend.dev>",
       to: configs.contact.email,
       subject: senderSubject as string,
-      reply_to: senderEmail as string,
+      replyTo: senderEmail as string,
       react: React.createElement(ContactFormEmail, {
         message: message as string,
         senderEmail: senderEmail as string,

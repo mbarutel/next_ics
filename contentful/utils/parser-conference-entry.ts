@@ -42,7 +42,7 @@ export default function parserConferenceEntry(
     ),
     formLink:
       conferenceEntry.fields.externalForm === undefined
-        ? `/registration/${conferenceEntry.fields.slug}`
+        ? `/form/delegates/${conferenceEntry.fields.slug}`
         : conferenceEntry.fields.externalForm,
     prices: parseConferencePrices(conferenceEntry.fields.prices),
     sponsors: parseSponsors(conferenceEntry.fields.sponsor),

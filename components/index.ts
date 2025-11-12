@@ -12,8 +12,6 @@ import ConferenceKeypoints from "./conference/conference-keypoints";
 import ConferenceSponsors from "./conference/conference-sponsors";
 import GoogleAnalytics from "./google-analytics";
 import Announcement from "./announcement";
-import RegistrationForm from "./registration-form";
-import RegistrationHeader from "./registration-header";
 import InstagramBanner from "./instagram-banner";
 import MeetTheTeam from "./meet-the-team";
 import HomeHeader from "./home/home-header";
@@ -26,7 +24,6 @@ import HomeHighlight from "./home/home-highlight";
 import SharedHeader from "./shared/shared-header";
 import Navbar from "./shared/navbar";
 import Footer from "./shared/footer";
-import FormPaper from "./forms/paper/form-paper";
 
 export {
   About,
@@ -54,8 +51,5 @@ export {
   GoogleAnalytics,
   InstagramBanner,
   MeetTheTeam,
-  RegistrationForm,
-  RegistrationHeader,
   SubscribeEmailList,
-  FormPaper,
 };

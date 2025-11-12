@@ -8,7 +8,6 @@ type SheetForm = {
 
 export async function POST(
   req: Request,
-  _res: Response,
 ) {
   if (req.method !== "POST") {
     return NextResponse.json({ error: "Only POST requests allowed" }, {
