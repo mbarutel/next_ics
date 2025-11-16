@@ -80,7 +80,6 @@ export function BenefitsForEmployer() {
     <div className="px-3">
       <CollapsibleSection
         title="Benefits of Attending for the Employer"
-        icon="💼"
         defaultOpen={false}
       >
         <p className="rich_text_p">
@@ -127,7 +126,6 @@ export function CallingForPapers() {
     <div className="px-3">
       <CollapsibleSection
         title="Calling for Papers"
-        icon="📝"
         defaultOpen={false}
       >
         <p className="rich_text_p">
@@ -228,7 +226,7 @@ export function Registration() {
   return (
     <>
       <div className="p-4 mb-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-md">
-        <p className="font-bold">💰 Early Bird Discount Available!</p>
+        <p className="font-bold uppercase">Early Bird Discount Available!</p>
         <p className="text-sm">Register early to save on registration fees. Pricing changes monthly!</p>
       </div>
       <p className="text-stone-300 leading-relaxed mb-3">
@@ -240,7 +238,7 @@ export function Registration() {
         include travel costs or accommodation.
       </p>
       <div className="p-4 bg-orange-100 border-l-4 border-orange-500 text-orange-800 rounded-md">
-        <p className="font-bold">⚠️ Important Payment Terms</p>
+        <p className="font-bold uppercase">Important Payment Terms</p>
         <p className="text-sm">
           Registration fees must be received within <strong>7 DAYS</strong> from
           being issued an invoice. Otherwise, bookings will not be considered.
@@ -255,7 +253,6 @@ export function SponsoringTheConference() {
     <div className="px-3">
       <CollapsibleSection
         title="Sponsoring the Conference"
-        icon="🤝"
         defaultOpen={false}
       >
         <p className="rich_text_p">

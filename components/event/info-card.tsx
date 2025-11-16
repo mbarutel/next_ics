@@ -21,8 +21,7 @@ export default function InfoCard({
 
   return (
     <div className={`rounded-lg p-6 ${variants[variant]} shadow-md hover:shadow-lg transition-shadow`}>
-      <div className="flex items-center gap-3 mb-4">
-        {icon && <span className="text-3xl">{icon}</span>}
+      <div className="mb-4">
         <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wide text-yellow-400">
           {title}
         </h2>

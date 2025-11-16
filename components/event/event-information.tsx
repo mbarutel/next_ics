@@ -42,17 +42,17 @@ export default function EventInformation(event: EventType) {
           {/* Info Cards Section - Grid Below Article */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {/* Acknowledgement */}
-            <InfoCard icon="🪃" title="Acknowledgement to Country" variant="highlighted">
+            <InfoCard title="Acknowledgement to Country" variant="highlighted">
               <EventAcknowledgement />
             </InfoCard>
 
             {/* Why Attend */}
-            <InfoCard icon="✨" title="Why Attend" variant="default">
+            <InfoCard title="Why Attend" variant="default">
               <WhyAttend />
             </InfoCard>
 
             {/* Guest Speakers */}
-            <InfoCard icon="🎙️" title="Guest Speakers" variant="default">
+            <InfoCard title="Guest Speakers" variant="default">
               <GuestSpeakers />
             </InfoCard>
           </div>
@@ -79,7 +79,7 @@ export default function EventInformation(event: EventType) {
 
           {/* Registration Section - Full Width */}
           <div className="mt-6">
-            <InfoCard icon="📝" title="Registration" variant="highlighted">
+            <InfoCard title="Registration" variant="highlighted">
               <Registration />
             </InfoCard>
           </div>

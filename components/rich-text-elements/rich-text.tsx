@@ -49,12 +49,12 @@ export default function RichText({
       [BLOCKS.PARAGRAPH]: (_node: Block | Inline, children: ReactNode) => (
         <p className="rich_text_p">{children}</p>
       ),
-      [BLOCKS.UL_LIST]: (_node: Block | Inline, children: ReactNode) => (
-        <ul className="list-disc list-inside">{children}</ul>
-      ),
-      [BLOCKS.OL_LIST]: (_node: Block | Inline, children: ReactNode) => (
-        <ol className="list-decimal list-inside">{children}</ol>
-      ),
+      // [BLOCKS.UL_LIST]: (_node: Block | Inline, children: ReactNode) => (
+      //   <ul className="list-disc list-inside">{children}</ul>
+      // ),
+      // [BLOCKS.OL_LIST]: (_node: Block | Inline, children: ReactNode) => (
+      //   <ol className="list-decimal list-inside">{children}</ol>
+      // ),
       [BLOCKS.LIST_ITEM]: (_node: Block | Inline, children: ReactNode) => (
         <li className="leading-relaxed">{children}</li>
       ),

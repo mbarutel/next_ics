@@ -4,27 +4,6 @@ import React, { useState } from "react";
 import { AgendaType } from "@/lib/types";
 import { GoDotFill } from "react-icons/go";
 
-// Helper function to determine session type and return appropriate icon
-function getSessionIcon(sessionText: string): string {
-  const lowerText = sessionText.toLowerCase();
-
-  if (lowerText.includes("break") || lowerText.includes("tea") || lowerText.includes("coffee")) {
-    return "☕";
-  } else if (lowerText.includes("lunch") || lowerText.includes("dinner") || lowerText.includes("breakfast")) {
-    return "🍽️";
-  } else if (lowerText.includes("keynote") || lowerText.includes("opening") || lowerText.includes("closing")) {
-    return "🎤";
-  } else if (lowerText.includes("network") || lowerText.includes("social")) {
-    return "🤝";
-  } else if (lowerText.includes("registration") || lowerText.includes("check-in")) {
-    return "📋";
-  } else if (lowerText.includes("welcome") || lowerText.includes("acknowledgement")) {
-    return "👋";
-  } else {
-    return "💬"; // Default for regular sessions
-  }
-}
-
 type EventAgendaCardProps = {
   agenda: AgendaType[];
 };
@@ -37,8 +16,7 @@ export default function EventAgendaCard({ agenda }: EventAgendaCardProps) {
   return (
     <div className="bg-stone-900/40 rounded-lg p-6 shadow-md">
       {/* Header */}
-      <div className="flex items-center gap-3 mb-6">
-        <span className="text-3xl">📅</span>
+      <div className="mb-6">
         <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wide text-yellow-400">
           Conference Agenda
         </h2>
@@ -65,7 +43,7 @@ export default function EventAgendaCard({ agenda }: EventAgendaCardProps) {
 
       {/* Warning Banner */}
       <div className="p-3 mb-6 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-md text-sm">
-        <p className="font-semibold">⚠️ Note</p>
+        <p className="font-semibold uppercase">Note</p>
         <p className="text-xs mt-1">This conference agenda may change without prior notice.</p>
       </div>
 
@@ -97,16 +75,12 @@ export default function EventAgendaCard({ agenda }: EventAgendaCardProps) {
                     <p className="text-xs text-yellow-400 italic mb-3">Breakout Sessions</p>
                     <div className="grid grid-cols-1 gap-3">
                       {row.agenda.map((item, idx) => {
-                        const icon = getSessionIcon(item);
                         return (
                           <div
                             key={idx}
                             className="bg-stone-800/30 rounded-md p-3 border-l-2 border-yellow-400/30 hover:border-yellow-400/60 transition-colors"
                           >
-                            <div className="flex items-start gap-2">
-                              <span className="text-lg flex-shrink-0">{icon}</span>
-                              <span className="text-sm text-stone-300 leading-relaxed">{item}</span>
-                            </div>
+                            <span className="text-sm text-stone-300 leading-relaxed">{item}</span>
                           </div>
                         );
                       })}
@@ -115,10 +89,8 @@ export default function EventAgendaCard({ agenda }: EventAgendaCardProps) {
                 ) : (
                   <div className="space-y-2">
                     {row.agenda.map((item, idx) => {
-                      const icon = getSessionIcon(item);
                       return (
-                        <div key={idx} className="flex items-start gap-2">
-                          <span className="text-lg flex-shrink-0">{icon}</span>
+                        <div key={idx}>
                           <span className="text-sm sm:text-base text-stone-300 leading-relaxed">{item}</span>
                         </div>
                       );

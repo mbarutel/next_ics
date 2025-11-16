@@ -26,7 +26,6 @@ export default function CollapsibleSection({
         aria-expanded={isOpen}
       >
         <div className="flex items-center gap-3">
-          {icon && <span className="text-2xl">{icon}</span>}
           <h2 className="text-lg font-bold text-left uppercase tracking-wide text-yellow-400">
             {title}
           </h2>
