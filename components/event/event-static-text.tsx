@@ -308,9 +308,8 @@ export function ContactUs() {
         following contact details:
       </p>
       <ul className="ul mb-2">
-        <li>ICS-MEES Pty Ltd</li>
-        <li>Indigenous Conference Services (Australia)</li>
-        <li>Postal Address: P.O. BOX 702 EDMONTON LPO QLD 4869</li>
+        <li>ICS Australia Pty Ltd trading as Indigenous Conference Services</li>
+        <li>Mailing Address: 8 Kiwi Court Point Vernon QLD 4655 </li>
         <li>
           Web:{" "}
           <a href="http://www.icsconferences.org">www.icsconferences.org</a>
@@ -319,7 +318,7 @@ export function ContactUs() {
           Email:{" "}
           <a href="mailto:admin@icsconferences.org">admin@icsconferences.org</a>
         </li>
-        <li>Phone: 07 40009111, +61 4557 76 668</li>
+        <li>Phone: (+61) 04557 76 668, 0414687972</li>
       </ul>
     </div>
   );
