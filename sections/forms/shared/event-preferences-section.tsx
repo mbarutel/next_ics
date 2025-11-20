@@ -37,7 +37,7 @@ export default function EventPreferencesSection({
             name="diet"
             value={participant.diet}
             onChange={(e) => onFieldChange(index, "diet", e.target.value)}
-            className="form-input bg-stone-900 text-white border-stone-600"
+            className="form-input bg-stone-900 text-white border-stone-600 [&>option]:bg-white [&>option]:text-black"
           >
             {dietOptions.map((option) => (
               <option key={option} value={option}>
@@ -56,7 +56,7 @@ export default function EventPreferencesSection({
             name="dinner"
             value={participant.dinner.toString()}
             onChange={(e) => onFieldChange(index, "dinner", e.target.value)}
-            className="form-input bg-stone-900 text-white border-stone-600"
+            className="form-input bg-stone-900 text-white border-stone-600 [&>option]:bg-white [&>option]:text-black"
           >
             <option value="true">Yes, I will attend</option>
             <option value="false">No, I will not attend</option>
@@ -72,7 +72,7 @@ export default function EventPreferencesSection({
             name="masterclass"
             value={participant.masterclass ?? ""}
             onChange={(e) => onFieldChange(index, "masterclass", e.target.value)}
-            className="form-input bg-stone-900 text-white border-stone-600"
+            className="form-input bg-stone-900 text-white border-stone-600 [&>option]:bg-white [&>option]:text-black"
           >
             <option value="">No masterclass</option>
             {masterclasses ? (
@@ -103,7 +103,7 @@ export default function EventPreferencesSection({
             name="accommodationNights"
             value={participant.accommodationNights.toString()}
             onChange={(e) => onFieldChange(index, "accommodationNights", e.target.value)}
-            className="form-input bg-stone-900 text-white border-stone-600"
+            className="form-input bg-stone-900 text-white border-stone-600 [&>option]:bg-white [&>option]:text-black"
           >
             {[0, 1, 2, 3, 4, 5].map((n) => (
               <option key={n} value={n}>

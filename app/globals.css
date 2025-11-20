@@ -148,7 +148,8 @@ footer {
 
 /* Rich Text */
 .rich_text_p {
-  @apply mb-2 last:mb-2 text-justify;
+  @apply mb-4 last:mb-2 text-justify leading-relaxed;
+  max-width: 120ch;
 }
 
 /* Text Sizes */
@@ -277,20 +278,6 @@ footer {
 
 .conference_card_orientation {
   @apply md:group-odd:text-right md:group-even:items-start md:group-odd:items-end pl-2 md:group-odd:pr-4 md:group-odd:ml-auto md:group-even:pl-4;
-}
-
-/* Event Page */
-
-.event_tab_text {
-  @apply text-lg sm:text-2xl lg:text-4xl uppercase leading-none tracking-tight;
-}
-
-.event_button_text {
-  @apply text-base sm:text-xl lg:text-3xl uppercase leading-none tracking-tight;
-}
-
-.event_tabs_wrapper {
-  @apply flex flex-wrap gap-x-1 gap-y-1 mb-2 sm:mb-0;
 }
 
 /* Forms */

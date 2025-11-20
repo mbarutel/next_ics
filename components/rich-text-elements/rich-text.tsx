@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 import { Block, BLOCKS, Inline, MARKS } from "@contentful/rich-text-types";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import HeaderUnderline from "./header-underline";
+import ArticleContent from "../event/article-content";
 
 export default function RichText({
   document,
@@ -18,28 +18,21 @@ export default function RichText({
   const options = {
     renderMark: {
       [MARKS.BOLD]: (children: ReactNode) => {
-        return <span className="bold">{children}</span>;
+        return <strong>{children}</strong>;
       },
       [MARKS.ITALIC]: (children: ReactNode) => {
-        return <span className="italic">{children}</span>;
+        return <em>{children}</em>;
       },
       [MARKS.UNDERLINE]: (children: ReactNode) => {
         return <span className="underline">{children}</span>;
       },
     },
     renderNode: {
-      // [BLOCKS.DOCUMENT]: (_node: Block | Inline, children: ReactNode) => (
-      //   <div className="px-3">{children}</div>
-      // ),
       [BLOCKS.HEADING_1]: (_node: Block | Inline, children: ReactNode) => (
-        <HeaderUnderline>
-          <h1 className="primary_title">{children}</h1>
-        </HeaderUnderline>
+        <h1 className="primary_title">{children}</h1>
       ),
       [BLOCKS.HEADING_2]: (_node: Block | Inline, children: ReactNode) => (
-        <HeaderUnderline>
-          <h2 className="primary_title">{children}</h2>
-        </HeaderUnderline>
+        <h2 className="primary_title">{children}</h2>
       ),
       [BLOCKS.HEADING_3]: (_node: Block | Inline, children: ReactNode) => (
         <h3 className="secondary_title">{children}</h3>
@@ -56,16 +49,25 @@ export default function RichText({
       [BLOCKS.PARAGRAPH]: (_node: Block | Inline, children: ReactNode) => (
         <p className="rich_text_p">{children}</p>
       ),
-      [BLOCKS.UL_LIST]: (_node: Block | Inline, children: ReactNode) => (
-        <ul className="ul">{children}</ul>
-      ),
+      // [BLOCKS.UL_LIST]: (_node: Block | Inline, children: ReactNode) => (
+      //   <ul className="list-disc list-inside">{children}</ul>
+      // ),
+      // [BLOCKS.OL_LIST]: (_node: Block | Inline, children: ReactNode) => (
+      //   <ol className="list-decimal list-inside">{children}</ol>
+      // ),
       [BLOCKS.LIST_ITEM]: (_node: Block | Inline, children: ReactNode) => (
-        <li className="-mt-0.5 md:-mt-2 first:mt-0 leading-tight">
-          {children}
-        </li>
+        <li className="leading-relaxed">{children}</li>
       ),
+      [BLOCKS.QUOTE]: (_node: Block | Inline, children: ReactNode) => (
+        <blockquote>{children}</blockquote>
+      ),
+      [BLOCKS.HR]: () => <hr />,
     },
   };
 
-  return <div>{documentToReactComponents(document, options)}</div>;
+  return (
+    <ArticleContent>
+      {documentToReactComponents(document, options)}
+    </ArticleContent>
+  );
 }

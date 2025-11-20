@@ -2,14 +2,134 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Article Container */
+.article-wrapper {
+  @apply bg-stone-900/20 rounded-lg p-6 sm:p-8;
+}
+
+.article-content {
+  @apply mx-auto max-w-4xl text-stone-200;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  letter-spacing: -0.003em;
+}
+
+/* Article Typography - Magazine Style */
 .primary_title {
-  @apply mt-7 text-xl md:text-2xl leading-tight uppercase;
+  @apply mt-8 mb-4 text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-yellow-400 tracking-tight;
+  font-family: Georgia, serif;
 }
 
 .secondary_title {
-  @apply mt-7 text-lg md:text-xl leading-tight;
+  @apply mt-6 mb-3 text-xl md:text-2xl font-semibold leading-snug text-yellow-300;
+  font-family: Georgia, serif;
 }
 
 .third_title {
-  @apply mt-7 text-lg md:text-xl leading-tight;
+  @apply mt-5 mb-2 text-lg md:text-xl font-semibold leading-snug text-yellow-200;
+}
+
+/* First paragraph after heading - article style */
+.article-content .primary_title + p,
+.article-content .secondary_title + p {
+  @apply mt-4;
+}
+
+/* Drop cap for first paragraph */
+.article-content > p:first-of-type::first-letter {
+  @apply float-left text-5xl md:text-6xl lg:text-7xl font-bold leading-none mr-2 mt-1 text-yellow-400;
+  font-family: Georgia, serif;
+}
+
+/* Pull quotes / Blockquotes */
+.article-content blockquote {
+  @apply my-6 pl-6 border-l-4 border-yellow-400 italic text-lg md:text-xl text-stone-300;
+  font-family: Georgia, serif;
+}
+
+/* Lists in article */
+.article-content ul {
+  @apply my-4 space-y-2;
+}
+
+.article-content li {
+  @apply leading-relaxed pl-2;
+}
+
+/* Links in article */
+.article-content a {
+  @apply text-yellow-400 hover:text-yellow-300 underline decoration-yellow-400/30 hover:decoration-yellow-400 transition-colors;
+}
+
+/* Emphasis */
+.article-content strong {
+  @apply font-bold text-yellow-100;
+}
+
+.article-content em {
+  @apply italic text-stone-300;
+  font-family: Georgia, serif;
+}
+
+/* Horizontal rules */
+.article-content hr {
+  @apply my-8 border-t border-yellow-400/20;
+}
+
+/* Paragraphs - article spacing */
+.article-content p {
+  @apply mb-5;
+}
+
+/* Remove bottom margin from last paragraph */
+.article-content p:last-child {
+  @apply mb-0;
+}
+
+/* Subheadings get extra top spacing */
+.article-content h3 + p,
+.article-content h4 + p,
+.article-content h5 + p {
+  @apply mt-3;
+}
+
+/* List spacing */
+.article-content ul,
+.article-content ol {
+  @apply mb-5;
+}
+
+/* Nested lists */
+.article-content li > ul,
+.article-content li > ol {
+  @apply mt-2 ml-4;
+}
+
+/* Better list markers */
+.article-content ul li::marker {
+  @apply text-yellow-400;
+}
+
+.article-content ol li::marker {
+  @apply text-yellow-400 font-semibold;
+}
+
+/* Reading experience - prevent orphans */
+.article-content p {
+  orphans: 3;
+  widows: 3;
+}
+
+/* Code blocks (if used) */
+.article-content code {
+  @apply bg-stone-800/50 px-2 py-1 rounded text-sm text-yellow-300;
+  font-family: 'Courier New', monospace;
+}
+
+/* Improve text rendering */
+.article-content {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
