@@ -1,31 +1,21 @@
 import React from "react";
 import RichText from "../rich-text-elements/rich-text";
-import { EventType } from "@/lib/types";
+import { EventType, AssetType } from "@/lib/types";
 import Poster from "./event-poster";
-import {
-  BenefitsForEmployer,
-  CallingForPapers,
-  ContactUs,
-  EventAcknowledgement,
-  GuestSpeakers,
-  Registration,
-  SponsoringTheConference,
-  WhyAttend,
-} from "./event-static-text";
 
-export default function EventContent({ event }: { event: EventType }) {
+type EventContentProps = {
+  event: EventType;
+  poster: AssetType;
+};
+
+export default function EventContent({ event, poster }: EventContentProps) {
   return (
-    <>
-      <Poster src={event.poster.src} alt={event.poster.alt} />
-      <EventAcknowledgement />
-      <RichText document={event.content} />
-      <WhyAttend />
-      <BenefitsForEmployer />
-      <CallingForPapers />
-      <GuestSpeakers />
-      <Registration />
-      <SponsoringTheConference />
-      <ContactUs />
-    </>
+    <div className="max-w-6xl mx-auto border border-stone-800/50 rounded-sm p-8">
+      {/* Article Content */}
+      <div className="prose prose-invert prose-yellow max-w-none">
+        <Poster src={poster.src} alt={poster.alt} />
+        <RichText document={event.content} />
+      </div>
+    </div>
   );
 }

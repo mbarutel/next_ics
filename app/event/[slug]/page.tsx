@@ -2,8 +2,8 @@ import {
   SubscribeEmailList,
   EventInformation,
   CallToAction,
-  SharedHeader,
 } from "@/components";
+import EventHeader from "@/components/event/event-header";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { Event } from "@/contentful/services/event";
@@ -46,13 +46,11 @@ export default async function page({ params }: EventPageProps) {
     title: eventPage.title,
     subtitle: `${dayjs(eventPage?.conference?.date?.startDate).format("DD-")} ${dayjs(eventPage?.conference?.date?.endDate).format("DD MMMM YYYY")} | ${eventPage?.conference?.venue}`,
     anchor: "#information",
-    register: `/forms/delegates?conference=${eventPage.conference.slug}`,
-    paper: `/forms/speakers?conference=${eventPage.conference.slug}`,
   };
 
   return (
     <>
-      <SharedHeader prop={{ ...headerText }} />
+      <EventHeader {...headerText} />
       <EventInformation {...eventPage} />
       <CallToAction />
       <SubscribeEmailList />
