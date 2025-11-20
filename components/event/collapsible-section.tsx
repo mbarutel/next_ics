@@ -19,25 +19,25 @@ export default function CollapsibleSection({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-stone-900/40 rounded-lg overflow-hidden shadow-lg border border-yellow-400/10 transition-all duration-200">
+    <div className="bg-stone-900/20 rounded-sm overflow-hidden border border-stone-800/50 transition-all duration-200">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-6 py-4 flex items-center justify-between hover:bg-stone-900/60 transition-colors duration-200"
+        className="w-full px-8 py-5 flex items-center justify-between hover:bg-stone-900/30 transition-colors duration-200"
         aria-expanded={isOpen}
       >
-        <h2 className="text-lg md:text-xl font-bold text-left uppercase tracking-wide text-yellow-400">
+        <h2 className="text-lg md:text-xl font-semibold text-left tracking-tight text-stone-100">
           {title}
         </h2>
-        <div className="text-yellow-400">
+        <div className="text-stone-400">
           {isOpen ? (
-            <IoChevronUp className="text-2xl" />
+            <IoChevronUp className="text-xl" />
           ) : (
-            <IoChevronDown className="text-2xl" />
+            <IoChevronDown className="text-xl" />
           )}
         </div>
       </button>
       {isOpen && (
-        <div className="px-6 pb-6 pt-2 border-t border-yellow-400/10 animate-fadeIn">{children}</div>
+        <div className="px-8 pb-8 pt-4 animate-fadeIn prose prose-invert prose-stone max-w-none text-stone-300 text-sm leading-relaxed">{children}</div>
       )}
     </div>
   );

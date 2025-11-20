@@ -34,20 +34,20 @@ export default function FloatingCTA({ conferenceSlug }: FloatingCTAProps) {
         isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
       }`}
     >
-      <div className="relative bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-lg shadow-2xl p-4 max-w-xs">
+      <div className="relative bg-stone-900 border border-stone-700 rounded-sm shadow-2xl p-5 max-w-xs">
         <button
           onClick={() => setIsDismissed(true)}
-          className="absolute -top-2 -right-2 bg-stone-900 text-white rounded-full p-1 hover:bg-stone-800 transition-colors"
+          className="absolute -top-2 -right-2 bg-stone-800 text-stone-300 rounded-full p-1.5 hover:bg-stone-700 hover:text-white transition-colors"
           aria-label="Dismiss"
         >
-          <IoClose className="text-xl" />
+          <IoClose className="text-base" />
         </button>
-        <p className="text-stone-900 font-bold mb-3 text-sm">
+        <p className="text-stone-200 font-medium mb-3 text-sm">
           Ready to join us?
         </p>
         <Link
           href={`/forms/delegates?conference=${conferenceSlug}`}
-          className="block w-full bg-stone-900 hover:bg-stone-800 text-yellow-400 font-bold py-2 px-4 rounded-md transition-all duration-200 text-center text-sm shadow-md hover:shadow-lg transform hover:scale-105"
+          className="block w-full bg-yellow-400 hover:bg-yellow-300 text-stone-900 font-semibold py-3 px-4 rounded-sm transition-colors text-center text-xs uppercase tracking-wider"
         >
           Register Now
         </Link>

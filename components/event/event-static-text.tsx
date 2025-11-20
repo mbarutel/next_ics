@@ -7,22 +7,19 @@ export function EventAcknowledgement() {
   return (
     <>
       <p className="text-stone-300 leading-relaxed mb-3">
-        In Australia, the protocol is to recognise the Traditional Owners of the
-        land to which we are gathering. Therefore, all presentations must begin
-        with an acknowledgement to country and to local Traditional Elders: "We
-        wish to acknowledge and respect the traditional custodians whose
-        ancestral lands we are to meet upon. We acknowledge the deep feelings of
-        attachment and relationship of Aboriginal peoples to Country. We also
-        pay respects to the cultural authority of Aboriginal peoples visiting /
-        attending from other areas of Australia who are present here".
-      </p>
-
-      <p className="text-stone-300 leading-relaxed">
-        Indigenous Conference Services acknowledges and pay our respect to the
-        Traditional people of the Country. "Welcome to Country" ceremony and
-        "acknowledging the traditional custodians" of the land shows respect for
-        Aboriginal people as Australia's First Peoples. Ceremonies and protocols
-        are a fundamental part of Aboriginal cultures.
+        In Australia, protocol requires us to recognise the Traditional Owners
+        of the land on which we gather. All presentations must therefore begin
+        with an acknowledgement to Country and to local Traditional Elders: "We
+        wish to acknowledge and respect the traditional custodians whose ancestral
+        lands we meet upon. We acknowledge the deep feelings of attachment and
+        relationship of Aboriginal peoples to Country. We also pay respects to
+        the cultural authority of Aboriginal peoples visiting or attending from
+        other areas of Australia who are present here." Indigenous Conference
+        Services acknowledges and pays respect to the Traditional people of the
+        Country. "Welcome to Country" ceremonies and "acknowledging the traditional
+        custodians" of the land demonstrates respect for Aboriginal people as
+        Australia's First Peoples. Ceremonies and protocols form a fundamental
+        part of Aboriginal cultures.
       </p>
     </>
   );
@@ -31,14 +28,14 @@ export function EventAcknowledgement() {
 export function WhyAttend() {
   return (
     <p className="text-stone-300 leading-relaxed">
-      This conference presents a unique opportunity for delegates to
-      participate in a positive environment that is dedicated to the sharing
-      of information and the empowering of all who attend. In our everyday
-      working environment the day to day stresses of our positions tends to
-      limit us in expanding our knowledge and networking. Whether you work at
-      a community level or at governmental level the opportunity to network
-      and gain contacts outside of your local region tend to be limited, this
-      is why this conference will be so valuable to participants.
+      This conference offers delegates a unique opportunity to participate in a
+      positive environment dedicated to sharing information and empowering all
+      attendees. In our everyday working environment, the daily pressures of our
+      roles often limit our capacity to expand knowledge and build networks.
+      Whether working at community or governmental level, opportunities to network
+      and establish contacts beyond your local region can be limited. This conference
+      addresses that challenge, providing valuable connections and insights that
+      extend well beyond your immediate professional circle.
     </p>
   );
 }
@@ -209,15 +206,16 @@ export function CallingForPapers() {
 export function GuestSpeakers() {
   return (
     <p className="text-stone-300 leading-relaxed">
-      The event is blessed with a kaleidoscope of guest speakers, sharing
-      stories, successes and challenges they've overcome, presenting great
-      opportunities and inspiration for delegates to participate in an event
-      that is devoted to the sharing of Culture, Empowerment, Education &
-      Networking. Drawn from a variety of cultural backgrounds, professional
-      careers, and grassroots community commitments, this year's conference
-      speakers are the difference between an ordinary and extraordinary event;
-      one that is soon forgotten and one which lingers in attendees' memories,
-      a source of tremendous benefit long after the conference is over.
+      This event features an impressive array of guest
+      speakers who share stories, successes, and challenges
+      they've overcome, offering inspiration and opportunities
+      for delegates to engage with Culture, Empowerment,
+      Education, and Networking. Drawn from diverse cultural
+      backgrounds, professional careers, and grassroots community
+      commitments, this year's speakers transform an ordinary
+      event into an extraordinary one. Their contributions create
+      lasting impact, ensuring the conference remains a source of
+      tremendous benefit and memorable insights long after it concludes.
     </p>
   );
 }

@@ -25,24 +25,23 @@ export default function EventInformation(event: EventType) {
     <>
       <a
         href="#event-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-yellow-400 focus:text-stone-900 focus:px-4 focus:py-2 focus:rounded-md font:font-bold"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-yellow-400 focus:text-stone-900 focus:px-4 focus:py-2 focus:rounded-sm font:font-semibold"
       >
         Skip to event content
       </a>
       <section id="information" className="section_margin">
-        <div className="section_container">
-          {/* Quick Info - Integrated into flow */}
+        <div className="section_container space-y-16 sm:space-y-20">
+          {/* Quick Info */}
           <EventQuickInfo event={event} />
 
-          {/* Main Content Area - Seamless integration */}
-          <div className="mt-8">
-            {/* Main Article Content */}
-            <article id="event-content">
-              <EventContent event={event} poster={event.poster} />
-            </article>
+          {/* Main Article Content */}
+          <article id="event-content">
+            <EventContent event={event} poster={event.poster} />
+          </article>
 
-            {/* Key Information Cards - Immediately following content */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          {/* Key Information */}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <InfoCard title="Acknowledgement to Country" variant="highlighted">
                 <EventAcknowledgement />
               </InfoCard>
@@ -55,30 +54,32 @@ export default function EventInformation(event: EventType) {
                 <GuestSpeakers />
               </InfoCard>
             </div>
+          </div>
 
-            {/* Agenda Section */}
-            {agenda.length > 0 && (
-              <div className="mt-12">
-                <EventAgendaCard agenda={agenda} />
-              </div>
-            )}
-
-            {/* Registration - Prominent positioning */}
-            <div className="mt-12">
-              <InfoCard title="Registration" variant="highlighted">
-                <Registration />
-              </InfoCard>
+          {/* Agenda Section */}
+          {agenda.length > 0 && (
+            <div className="max-w-6xl mx-auto">
+              <EventAgendaCard agenda={agenda} />
             </div>
+          )}
 
-            {/* CTA Buttons - Following registration */}
-            {conferenceSlug && (
-              <div className="mt-8">
-                <CTAButtons conferenceSlug={conferenceSlug} />
-              </div>
-            )}
+          {/* Registration */}
+          <div className="max-w-6xl mx-auto">
+            <InfoCard title="Registration" variant="highlighted">
+              <Registration />
+            </InfoCard>
+          </div>
 
-            {/* Additional Information - Collapsible sections */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+          {/* CTA Buttons */}
+          {conferenceSlug && (
+            <div className="max-w-6xl mx-auto">
+              <CTAButtons conferenceSlug={conferenceSlug} />
+            </div>
+          )}
+
+          {/* Additional Information */}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div>
                 <BenefitsForEmployer />
               </div>
@@ -87,16 +88,16 @@ export default function EventInformation(event: EventType) {
                 <CallingForPapers />
               </div>
             </div>
+          </div>
 
-            {/* Sponsorship Section */}
-            <div className="mt-8">
-              <SponsoringTheConference />
-            </div>
+          {/* Sponsorship Section */}
+          <div className="max-w-6xl mx-auto">
+            <SponsoringTheConference />
           </div>
         </div>
       </section>
 
-      {/* Contact Form - Outside Grid, Full Width Section */}
+      {/* Contact Form */}
       <ContactForm />
 
       {event.conference && <FloatingCTA conferenceSlug={event.conference.slug} />}

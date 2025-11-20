@@ -10,53 +10,40 @@ type EventHeaderProps = {
 
 export default function EventHeader({ title, subtitle, anchor }: EventHeaderProps) {
   return (
-    <header className="bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-400 relative">
-      <div className="section_container py-12 sm:py-16 md:py-20 text-stone-900">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Breadcrumb / Category */}
-          <div className="mb-3">
-            <span className="inline-block bg-stone-900/10 backdrop-blur-sm px-3 py-1 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wide">
+    <header className="bg-stone-950 relative border-b border-yellow-400/10">
+      <div className="section_container py-16 sm:py-20 md:py-24">
+        <div className="max-w-5xl mx-auto">
+          {/* Category */}
+          <div className="mb-6">
+            <span className="text-yellow-400/80 text-xs sm:text-sm font-medium uppercase tracking-wider">
               National Conference
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="font-extrabold leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 drop-shadow-sm">
+          <h1 className="font-bold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 text-stone-100 tracking-tight">
             {title}
           </h1>
 
-          {/* Subtitle with enhanced styling */}
-          <div className="flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg flex-wrap">
-            <span className="font-semibold">{subtitle.split('|')[0]?.trim()}</span>
+          {/* Subtitle */}
+          <div className="flex items-center gap-3 text-sm sm:text-base text-stone-400 flex-wrap">
+            <span>{subtitle.split('|')[0]?.trim()}</span>
             {subtitle.includes('|') && (
               <>
-                <span className="hidden sm:inline">•</span>
-                <span className="font-semibold">{subtitle.split('|')[1]?.trim()}</span>
+                <span className="hidden sm:inline text-yellow-400/40">•</span>
+                <span>{subtitle.split('|')[1]?.trim()}</span>
               </>
             )}
           </div>
-
-          {/* Value proposition / Quick highlights */}
-          <div className="mt-6 flex flex-wrap gap-3 sm:gap-4 justify-center text-xs sm:text-sm">
-            <div className="bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md">
-              <span className="font-medium">Expert Speakers</span>
-            </div>
-            <div className="bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md">
-              <span className="font-medium">Networking</span>
-            </div>
-            <div className="bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md">
-              <span className="font-medium">CPD Certified</span>
-            </div>
-          </div>
         </div>
 
-        {/* Scroll indicator - minimal and subtle */}
+        {/* Scroll indicator */}
         <Link
           href={anchor}
-          className="absolute bottom-3 left-1/2 -translate-x-1/2 text-stone-900/40 hover:text-stone-900/70 transition-colors"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 text-stone-600 hover:text-yellow-400 transition-colors"
           aria-label="Scroll to event details"
         >
-          <BsChevronDown className="text-2xl animate-bounce" />
+          <BsChevronDown className="text-xl" />
         </Link>
       </div>
     </header>

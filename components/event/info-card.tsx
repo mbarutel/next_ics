@@ -14,19 +14,19 @@ export default function InfoCard({
   variant = "default",
 }: InfoCardProps) {
   const variants = {
-    default: "bg-stone-900/40 border-yellow-400/10",
-    highlighted: "bg-stone-900/60 border-yellow-400/30",
-    subtle: "bg-stone-900/20 border-yellow-400/5",
+    default: "bg-stone-900/20 border-stone-800/50",
+    highlighted: "bg-stone-900/30 border-stone-700/50",
+    subtle: "bg-stone-900/10 border-stone-800/30",
   };
 
   return (
-    <div className={`rounded-lg p-6 ${variants[variant]} shadow-lg hover:shadow-xl transition-all duration-200 border`}>
-      <div className="mb-4 pb-3 border-b border-yellow-400/20">
-        <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wide text-yellow-400">
+    <div className={`rounded-sm p-8 ${variants[variant]} border`}>
+      <div className="mb-6">
+        <h2 className="text-lg md:text-xl font-semibold tracking-tight text-stone-100">
           {title}
         </h2>
       </div>
-      <div className="prose prose-invert prose-yellow max-w-none">
+      <div className="prose prose-invert prose-stone max-w-none text-stone-300 text-sm leading-relaxed">
         {children}
       </div>
     </div>
