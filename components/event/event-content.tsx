@@ -10,23 +10,11 @@ type EventContentProps = {
 
 export default function EventContent({ event, poster }: EventContentProps) {
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-        {/* Poster */}
-        <div className="lg:col-span-4">
-          <div className="sticky top-8">
-            <div className="border border-stone-800/50 rounded-sm overflow-hidden">
-              <Poster src={poster.src} alt={poster.alt} />
-            </div>
-          </div>
-        </div>
-
-        {/* Article Content */}
-        <div className="lg:col-span-8">
-          <div className="prose prose-invert prose-yellow max-w-none">
-            <RichText document={event.content} />
-          </div>
-        </div>
+    <div className="max-w-6xl mx-auto border border-stone-800/50 rounded-sm p-8">
+      {/* Article Content */}
+      <div className="prose prose-invert prose-yellow max-w-none">
+        <Poster src={poster.src} alt={poster.alt} />
+        <RichText document={event.content} />
       </div>
     </div>
   );

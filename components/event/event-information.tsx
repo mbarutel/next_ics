@@ -30,7 +30,7 @@ export default function EventInformation(event: EventType) {
         Skip to event content
       </a>
       <section id="information" className="section_margin">
-        <div className="section_container space-y-16 sm:space-y-20">
+        <div className="section_container bg-stone-700/10 py-6 rounded-md shadow-md space-y-16 sm:space-y-20 ">
           {/* Quick Info */}
           <EventQuickInfo event={event} />
 
@@ -78,20 +78,9 @@ export default function EventInformation(event: EventType) {
           )}
 
           {/* Additional Information */}
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div>
-                <BenefitsForEmployer />
-              </div>
-
-              <div>
-                <CallingForPapers />
-              </div>
-            </div>
-          </div>
-
-          {/* Sponsorship Section */}
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto space-y-1">
+            <BenefitsForEmployer />
+            <CallingForPapers />
             <SponsoringTheConference />
           </div>
         </div>

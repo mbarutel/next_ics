@@ -11,7 +11,7 @@ export default function EventQuickInfo({ event }: { event: EventType }) {
   const venue = conference.venue;
 
   return (
-    <div className="border border-stone-800/50 bg-stone-700/10 rounded-sm p-8 sm:p-10">
+    <div className="border border-stone-800/50 rounded-sm p-8">
       {/* Event Details */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 mb-10">
         {/* Date */}
