@@ -31,69 +31,67 @@ export default function EventInformation(event: EventType) {
       </a>
       <section id="information" className="section_margin">
         <div className="section_container">
-          {/* Quick Info - Full Width */}
+          {/* Quick Info - Integrated into flow */}
           <EventQuickInfo event={event} />
 
-          {/* Main Article - Full Width, No Grid */}
-          <article id="event-content" className="mt-6">
-            <EventContent event={event} poster={event.poster} />
-          </article>
+          {/* Main Content Area - Seamless integration */}
+          <div className="mt-8">
+            {/* Main Article Content */}
+            <article id="event-content">
+              <EventContent event={event} poster={event.poster} />
+            </article>
 
-          {/* Info Cards Section - Grid Below Article */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            {/* Acknowledgement */}
-            <InfoCard title="Acknowledgement to Country" variant="highlighted">
-              <EventAcknowledgement />
-            </InfoCard>
+            {/* Key Information Cards - Immediately following content */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+              <InfoCard title="Acknowledgement to Country" variant="highlighted">
+                <EventAcknowledgement />
+              </InfoCard>
 
-            {/* Why Attend */}
-            <InfoCard title="Why Attend" variant="default">
-              <WhyAttend />
-            </InfoCard>
+              <InfoCard title="Why Attend" variant="default">
+                <WhyAttend />
+              </InfoCard>
 
-            {/* Guest Speakers */}
-            <InfoCard title="Guest Speakers" variant="default">
-              <GuestSpeakers />
-            </InfoCard>
-          </div>
-
-          {/* Agenda Section - Full Width (if available) */}
-          {agenda.length > 0 && (
-            <div className="mt-6">
-              <EventAgendaCard agenda={agenda} />
-            </div>
-          )}
-
-          {/* Bottom Section - Full Width Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            {/* Benefits for Employer - Collapsible */}
-            <div>
-              <BenefitsForEmployer />
+              <InfoCard title="Guest Speakers" variant="default">
+                <GuestSpeakers />
+              </InfoCard>
             </div>
 
-            {/* Calling for Papers - Collapsible */}
-            <div>
-              <CallingForPapers />
+            {/* Agenda Section */}
+            {agenda.length > 0 && (
+              <div className="mt-12">
+                <EventAgendaCard agenda={agenda} />
+              </div>
+            )}
+
+            {/* Registration - Prominent positioning */}
+            <div className="mt-12">
+              <InfoCard title="Registration" variant="highlighted">
+                <Registration />
+              </InfoCard>
             </div>
-          </div>
 
-          {/* Registration Section - Full Width */}
-          <div className="mt-6">
-            <InfoCard title="Registration" variant="highlighted">
-              <Registration />
-            </InfoCard>
-          </div>
+            {/* CTA Buttons - Following registration */}
+            {conferenceSlug && (
+              <div className="mt-8">
+                <CTAButtons conferenceSlug={conferenceSlug} />
+              </div>
+            )}
 
-          {/* CTA Buttons */}
-          {conferenceSlug && (
-            <div className="mt-6">
-              <CTAButtons conferenceSlug={conferenceSlug} />
+            {/* Additional Information - Collapsible sections */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <div>
+                <BenefitsForEmployer />
+              </div>
+
+              <div>
+                <CallingForPapers />
+              </div>
             </div>
-          )}
 
-          {/* Sponsorship Section - Full Width */}
-          <div className="mt-6">
-            <SponsoringTheConference />
+            {/* Sponsorship Section */}
+            <div className="mt-8">
+              <SponsoringTheConference />
+            </div>
           </div>
         </div>
       </section>

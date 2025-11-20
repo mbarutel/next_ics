@@ -14,9 +14,9 @@ export default function EventAgendaCard({ agenda }: EventAgendaCardProps) {
   if (!agenda || agenda.length === 0) return null;
 
   return (
-    <div className="bg-stone-900/40 rounded-lg p-6 shadow-md">
+    <div className="bg-stone-900/40 rounded-lg p-6 shadow-lg border border-yellow-400/10">
       {/* Header */}
-      <div className="mb-6">
+      <div className="mb-6 pb-3 border-b border-yellow-400/20">
         <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wide text-yellow-400">
           Conference Agenda
         </h2>

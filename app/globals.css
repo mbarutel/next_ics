@@ -149,7 +149,7 @@ footer {
 /* Rich Text */
 .rich_text_p {
   @apply mb-4 last:mb-2 text-justify leading-relaxed;
-  max-width: 75ch;
+  max-width: 120ch;
 }
 
 /* Text Sizes */

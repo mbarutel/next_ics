@@ -27,33 +27,24 @@ export default function EventHeader({ title, subtitle, anchor }: EventHeaderProp
 
           {/* Subtitle with enhanced styling */}
           <div className="flex items-center justify-center gap-2 text-sm sm:text-base md:text-lg flex-wrap">
-            <span className="flex items-center gap-2">
-              <span className="text-lg">📅</span>
-              <span className="font-semibold">{subtitle.split('|')[0]?.trim()}</span>
-            </span>
+            <span className="font-semibold">{subtitle.split('|')[0]?.trim()}</span>
             {subtitle.includes('|') && (
               <>
                 <span className="hidden sm:inline">•</span>
-                <span className="flex items-center gap-2">
-                  <span className="text-lg">📍</span>
-                  <span className="font-semibold">{subtitle.split('|')[1]?.trim()}</span>
-                </span>
+                <span className="font-semibold">{subtitle.split('|')[1]?.trim()}</span>
               </>
             )}
           </div>
 
           {/* Value proposition / Quick highlights */}
           <div className="mt-6 flex flex-wrap gap-3 sm:gap-4 justify-center text-xs sm:text-sm">
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md">
-              <span>🎤</span>
+            <div className="bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md">
               <span className="font-medium">Expert Speakers</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md">
-              <span>🤝</span>
+            <div className="bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md">
               <span className="font-medium">Networking</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md">
-              <span>📜</span>
+            <div className="bg-white/20 backdrop-blur-sm px-3 py-2 rounded-md">
               <span className="font-medium">CPD Certified</span>
             </div>
           </div>
