@@ -16,10 +16,11 @@ export default function ConferenceSelection({
   setSubmissionAction: React.Dispatch<React.SetStateAction<PaperSubmissionType>>;
   error?: string;
 }) {
-  const handleChange = (title: string) => {
+  const handleChange = (conference: ConferenceType) => {
     setSubmissionAction((prev) => ({
       ...prev,
-      conferenceTitle: title,
+      conferenceTitle: conference.title,
+      selectedConference: conference,
     }));
   };
 
@@ -58,7 +59,7 @@ export default function ConferenceSelection({
             <button
               key={index}
               type="button"
-              onClick={() => handleChange(conf.title)}
+              onClick={() => handleChange(conf)}
               className={clsx(
                 "relative border rounded-md transition-all overflow-hidden",
                 "focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-stone-700",

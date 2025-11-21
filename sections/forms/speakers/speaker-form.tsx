@@ -14,6 +14,7 @@ import toast from "react-hot-toast";
 
 const INITIAL_SUBMISSION: PaperSubmissionType = {
   conferenceTitle: null,
+  selectedConference: undefined,
   speakers: [
     {
       firstName: "",
@@ -63,6 +64,7 @@ export default function SpeakerForm({
         setSubmission((prev) => ({
           ...prev,
           conferenceTitle: preSelectedConference.title,
+          selectedConference: preSelectedConference,
         }));
       }
     }
@@ -235,6 +237,7 @@ export default function SpeakerForm({
           <SpeakerDetails
             submission={submission}
             setSubmission={updateSubmission}
+            masterclasses={submission.selectedConference?.masterclass}
             errors={showErrors ? errors.speakers : undefined}
           />
         </section>

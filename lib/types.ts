@@ -165,6 +165,7 @@ export type SpeakerParticipantType = DelegateType & {
 // Paper submission type
 export type PaperSubmissionType = {
   conferenceTitle: string | null;
+  selectedConference?: ConferenceType;
   speakers: SpeakerParticipantType[];
   paperTitle: string;
   paperDescription: string;

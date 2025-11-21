@@ -1,6 +1,6 @@
 "use client";
 
-import { SpeakerParticipantType, PaperSubmissionType } from "@/lib/types";
+import { SpeakerParticipantType, PaperSubmissionType, MasterclassType } from "@/lib/types";
 import { IoPersonCircleOutline, IoMailOutline, IoCloseOutline, IoAddOutline, IoDocumentTextOutline } from "react-icons/io5";
 import FormLabel from "@/components/form-label";
 import FormInput from "@/components/form-input";
@@ -11,10 +11,12 @@ import EventPreferencesSection from "../shared/event-preferences-section";
 export default function SpeakerDetails({
   submission,
   setSubmission,
+  masterclasses,
   errors,
 }: {
   submission: PaperSubmissionType;
   setSubmission: React.Dispatch<React.SetStateAction<PaperSubmissionType>>;
+  masterclasses?: MasterclassType[];
   errors?: {
     [speakerIndex: number]: {
       firstName?: string;
@@ -28,10 +30,6 @@ export default function SpeakerDetails({
   };
 }) {
   const dietSelection = ["normal", "vegan", "vegetarian", "gluten free"];
-  const masterclassSelection = [
-    "Healing Works Through Love",
-    "Breaking Through The Barrier Of Stigma",
-  ];
 
   const handleChange = (
     index: number,
@@ -278,6 +276,7 @@ export default function SpeakerDetails({
               index={index}
               participant={speaker}
               onFieldChange={handleChange}
+              masterclasses={masterclasses}
               dietOptions={dietSelection}
             />
           </div>

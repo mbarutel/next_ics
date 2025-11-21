@@ -75,22 +75,11 @@ export default function EventPreferencesSection({
             className="form-input bg-stone-900 text-white border-stone-600 [&>option]:bg-white [&>option]:text-black"
           >
             <option value="">No masterclass</option>
-            {masterclasses ? (
-              masterclasses.map((mc) => (
-                <option key={mc.slug} value={mc.title}>
-                  {mc.title}
-                </option>
-              ))
-            ) : (
-              <>
-                <option value="Healing Works Through Love">
-                  Healing Works Through Love
-                </option>
-                <option value="Breaking Through The Barrier Of Stigma">
-                  Breaking Through The Barrier Of Stigma
-                </option>
-              </>
-            )}
+            {masterclasses?.map((mc) => (
+              <option key={mc.slug} value={mc.title}>
+                {mc.title}
+              </option>
+            ))}
           </select>
         </label>
 
