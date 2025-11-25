@@ -34,6 +34,14 @@ export default function EventInformation(event: EventType) {
           {/* Quick Info */}
           <EventQuickInfo event={event} />
 
+          {/* Acknowledgement to Country Banner */}
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-gradient-to-r from-amber-900/40 to-stone-800/40 border-l-4 border-amber-500 rounded-md p-6">
+              <h2 className="text-lg font-semibold text-amber-400 mb-3">Acknowledgement to Country</h2>
+              <EventAcknowledgement />
+            </div>
+          </div>
+
           {/* Main Article Content */}
           <article id="event-content">
             <EventContent event={event} poster={event.poster} />
@@ -41,11 +49,7 @@ export default function EventInformation(event: EventType) {
 
           {/* Key Information */}
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <InfoCard title="Acknowledgement to Country" variant="highlighted">
-                <EventAcknowledgement />
-              </InfoCard>
-
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <InfoCard title="Why Attend" variant="default">
                 <WhyAttend />
               </InfoCard>
