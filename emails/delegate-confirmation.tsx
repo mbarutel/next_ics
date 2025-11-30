@@ -12,6 +12,7 @@ import {
 import { DelegateType } from "@/lib/types";
 import { PriceTier } from "@/helpers/utils";
 import { PRICING } from "@/helpers/data";
+import { configs } from "@/lib/data";
 
 interface DelegateConfirmationEmailProps {
   conferenceTitle: string;
@@ -172,10 +173,10 @@ export default function DelegateConfirmationEmail({
               </div>
             ))}
 
-            {/* Gala Dinner */}
+            {/* Networking Dinner */}
             {dinnerCount > 0 && (
               <div style={tableRow}>
-                <Text style={tableCell}>Gala Dinner</Text>
+                <Text style={tableCell}>Networking Dinner</Text>
                 <Text style={tableCellRight}>{dinnerCount}</Text>
                 <Text style={tableCellRight}>${PRICING.dinner}</Text>
                 <Text style={tableCellRight}>${dinnerTotal}</Text>
@@ -279,17 +280,17 @@ export default function DelegateConfirmationEmail({
               closer to the conference date.
             </Text>
             <Text style={noteText}>
-              • For any queries, please contact us at billing@icsconference.com
+              • For any queries, please contact us at {configs.contact.email}
             </Text>
           </Section>
 
           {/* Footer */}
           <Section style={footer}>
             <Text style={footerText}>
-              Indigenous Conferences and Seminars (ICS)
+              Indigenous Conferences Services (ICS)
             </Text>
             <Text style={footerText}>
-              Email: billing@icsconference.com
+              Email: {configs.contact.email}
             </Text>
             <Text style={footerText}>
               © {new Date().getFullYear()} ICS Conference. All rights reserved.

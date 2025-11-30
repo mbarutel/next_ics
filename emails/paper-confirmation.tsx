@@ -11,6 +11,7 @@ import {
 } from "@react-email/components";
 import { SpeakerParticipantType } from "@/lib/types";
 import { PRICING } from "@/helpers/data";
+import { configs } from "@/lib/data";
 
 interface PaperConfirmationEmailProps {
   conferenceTitle: string;
@@ -148,7 +149,7 @@ export default function PaperConfirmationEmail({
                     <Text style={extrasTitle}>Event Preferences:</Text>
                     {speaker.dinner && (
                       <Text style={extrasText}>
-                        • Gala Dinner - {speaker.diet}
+                        • Networking Dinner - {speaker.diet}
                       </Text>
                     )}
                     {speaker.masterclass && (
@@ -191,11 +192,11 @@ export default function PaperConfirmationEmail({
               <Text style={tableCellRight}>${speakerRegistrationTotal}</Text>
             </div>
 
-            {/* Gala Dinner */}
+            {/* Networking Dinner */}
             {dinnerCount > 0 && (
               <>
                 <div style={tableRow}>
-                  <Text style={tableCell}>Gala Dinner</Text>
+                  <Text style={tableCell}>Networking Dinner</Text>
                   <Text style={tableCellRight}>{dinnerCount}</Text>
                   <Text style={tableCellRight}>${PRICING.dinner}</Text>
                   <Text style={tableCellRight}>${dinnerTotal}</Text>
@@ -279,7 +280,7 @@ export default function PaperConfirmationEmail({
               Payment Terms
             </Heading>
             <Text style={text}>
-              Payment is due within 14 days of receiving this invoice.
+              Payment is due within 7 days of receiving this invoice.
             </Text>
             <Text style={text}>
               <strong>Accepted Payment Methods:</strong> Bank Transfer, Credit
@@ -318,17 +319,17 @@ export default function PaperConfirmationEmail({
               • Please retain this email for your records.
             </Text>
             <Text style={noteText}>
-              • For any queries, please contact us at papers@icsconference.com
+              • For any queries, please contact us at {configs.contact.email}
             </Text>
           </Section>
 
           {/* Footer */}
           <Section style={footer}>
             <Text style={footerText}>
-              Indigenous Conferences and Seminars (ICS)
+              Indigenous Conferences Services (ICS)
             </Text>
             <Text style={footerText}>
-              Email: papers@icsconference.com
+              Email: {configs.contact.email}
             </Text>
             <Text style={footerText}>
               © {new Date().getFullYear()} ICS Conference. All rights reserved.

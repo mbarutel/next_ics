@@ -49,7 +49,7 @@ export default function EventPreferencesSection({
 
         <label className="block">
           <FormLabel htmlFor={`participant-${index}-dinner`}>
-            <span className="text-white">Gala Dinner Attendance</span>
+            <span className="text-white">Networking Dinner Attendance</span>
           </FormLabel>
           <select
             id={`participant-${index}-dinner`}

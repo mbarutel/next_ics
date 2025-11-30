@@ -214,7 +214,7 @@ export default function OrderSummary({
                       <div className="flex-center-gap-1">
                         <IoCheckmarkCircle className="icon-sm text-green-400" />
                         <span>
-                          Gala Dinner (+${PRICING.dinner})
+                          Networking Dinner (+${PRICING.dinner})
                         </span>
                       </div>
                     )}
@@ -264,7 +264,7 @@ export default function OrderSummary({
             {dinnerCount > 0 && (
               <div className="flex justify-between">
                 <span className="text-gray-300">
-                  Gala Dinner ({dinnerCount} × ${PRICING.dinner})
+                  Networking Dinner ({dinnerCount} × ${PRICING.dinner})
                 </span>
                 <span className="font-medium text-white">
                   ${dinnerCount * PRICING.dinner}
