@@ -33,7 +33,7 @@
     "formik": "^2.4.5",
     "googleapis": "^127.0.0",
     "latest": "^0.2.0",
-    "next": "16.0.1",
+    "next": "16.0.10",
     "openid-client": "^6.8.1",
     "postcss": "8.4.29",
     "react": "19.2.0",
