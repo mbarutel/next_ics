@@ -1,6 +1,6 @@
 "use client";
 
-import { DelegateType, SpeakerParticipantType, PaperSubmissionType } from "@/lib/types";
+import { DelegateType, SpeakerParticipantType, ExhibitorType, PaperSubmissionType } from "@/lib/types";
 import { validatePromoCode, calculateDiscount } from "@/helpers/promo-codes";
 import { IoReceiptOutline, IoCheckmarkCircle } from "react-icons/io5";
 import { PRICING } from "@/helpers/data";
@@ -12,6 +12,7 @@ type DelegateSubmissionType = {
   promoCode: string;
   paperTitle?: never;
   speakers?: never;
+  exhibitors?: never;
 };
 
 type SpeakerSubmissionType = {
@@ -22,23 +23,40 @@ type SpeakerSubmissionType = {
   promoCode: string;
   selectedPriceTier?: never;
   delegates?: never;
+  exhibitors?: never;
 };
 
-type UnifiedSubmissionType = DelegateSubmissionType | SpeakerSubmissionType;
+type ExhibitorSubmissionType = {
+  conferenceTitle: string | null;
+  exhibitors: ExhibitorType[];
+  organizationName: string;
+  promoCode?: never;
+  selectedPriceTier?: never;
+  delegates?: never;
+  speakers?: never;
+  paperTitle?: never;
+};
+
+type UnifiedSubmissionType = DelegateSubmissionType | SpeakerSubmissionType | ExhibitorSubmissionType;
 
 interface OrderSummaryProps {
   submission: UnifiedSubmissionType;
-  participantType?: 'delegate' | 'speaker';
+  participantType?: 'delegate' | 'speaker' | 'exhibitor';
 }
 
 export default function OrderSummary({
   submission,
-  participantType = 'delegates' in submission ? 'delegate' : 'speaker',
+  participantType = 'delegates' in submission ? 'delegate' : 'speakers' in submission ? 'speaker' : 'exhibitor',
 }: OrderSummaryProps) {
   const isDelegateForm = participantType === 'delegate';
+  const isSpeakerForm = participantType === 'speaker';
+  const isExhibitorForm = participantType === 'exhibitor';
+  
   const participants = isDelegateForm
     ? (submission as DelegateSubmissionType).delegates
-    : (submission as SpeakerSubmissionType).speakers;
+    : isSpeakerForm
+    ? (submission as SpeakerSubmissionType).speakers
+    : (submission as ExhibitorSubmissionType).exhibitors;
 
   // Calculate subtotal (before discount)
   const calculateSubtotal = () => {
@@ -65,7 +83,7 @@ export default function OrderSummary({
         (d) => d.masterclass !== null
       ).length;
       total += masterclassCount * PRICING.masterclass;
-    } else {
+    } else if (isSpeakerForm) {
       const speakerSubmission = submission as SpeakerSubmissionType;
       // Base price per speaker
       total += PRICING.speakerRegistration * speakerSubmission.speakers.length;
@@ -86,6 +104,27 @@ export default function OrderSummary({
         (s) => s.masterclass !== null
       ).length;
       total += masterclassCount * PRICING.masterclass;
+    } else {
+      const exhibitorSubmission = submission as ExhibitorSubmissionType;
+      // Base price per exhibitor
+      total += PRICING.exhibitorRegistration * exhibitorSubmission.exhibitors.length;
+
+      // Add dinner costs
+      const dinnerCount = exhibitorSubmission.exhibitors.filter((e) => e.dinner).length;
+      total += dinnerCount * PRICING.dinner;
+
+      // Add accommodation costs
+      const accommodationNights = exhibitorSubmission.exhibitors.reduce(
+        (sum, e) => sum + e.accommodationNights,
+        0
+      );
+      total += accommodationNights * PRICING.accommodation;
+
+      // Add masterclass costs
+      const masterclassCount = exhibitorSubmission.exhibitors.filter(
+        (e) => e.masterclass !== null && e.masterclass !== ""
+      ).length;
+      total += masterclassCount * PRICING.masterclass;
     }
 
     return total;
@@ -101,10 +140,10 @@ export default function OrderSummary({
     (p) => p.masterclass !== null
   ).length;
 
-  // Calculate discount if promo code is applied
+  // Calculate discount if promo code is applied (not for exhibitors)
   let discount = 0;
   let promoValidation = null;
-  if (submission.promoCode) {
+  if (submission.promoCode && !isExhibitorForm) {
     promoValidation = validatePromoCode(submission.promoCode, submission);
     if (promoValidation.isValid && promoValidation.promoCode) {
       discount = calculateDiscount(promoValidation.promoCode, submission);
@@ -124,11 +163,13 @@ export default function OrderSummary({
 
   const basePrice = isDelegateForm
     ? (submission as DelegateSubmissionType).selectedPriceTier?.price || 0
-    : PRICING.speakerRegistration;
+    : isSpeakerForm
+    ? PRICING.speakerRegistration
+    : PRICING.exhibitorRegistration;
 
-  const participantLabel = isDelegateForm ? 'Delegates' : 'Speakers';
-  const participantSingular = isDelegateForm ? 'Delegate' : 'Speaker';
-  const registrationLabel = isDelegateForm ? 'Delegate Registration' : 'Speaker Registration';
+  const participantLabel = isDelegateForm ? 'Delegates' : isSpeakerForm ? 'Speakers' : 'Exhibitors';
+  const participantSingular = isDelegateForm ? 'Delegate' : isSpeakerForm ? 'Speaker' : 'Exhibitor';
+  const registrationLabel = isDelegateForm ? 'Delegate Registration' : isSpeakerForm ? 'Speaker Registration' : 'Exhibitor Registration';
 
   return (
     <div className="w-full form_section_wrapper">
@@ -138,7 +179,7 @@ export default function OrderSummary({
           Order Summary
         </h2>
         <p className="text-xs sm:text-sm text-white">
-          Review your {isDelegateForm ? 'registration' : 'paper submission'} details and total cost
+          Review your {isDelegateForm ? 'registration' : isSpeakerForm ? 'paper submission' : 'exhibitor registration'} details and total cost
         </p>
       </div>
 
@@ -163,11 +204,19 @@ export default function OrderSummary({
                 </span>
               </div>
             )}
-            {!isDelegateForm && (submission as SpeakerSubmissionType).paperTitle && (
+            {isSpeakerForm && (submission as SpeakerSubmissionType).paperTitle && (
               <div className="flex justify-between items-start">
                 <span className="text-sm text-gray-300">Paper Title:</span>
                 <span className="text-sm font-medium text-white text-right max-w-[60%]">
                   {(submission as SpeakerSubmissionType).paperTitle}
+                </span>
+              </div>
+            )}
+            {isExhibitorForm && (submission as ExhibitorSubmissionType).organizationName && (
+              <div className="flex justify-between items-start">
+                <span className="text-sm text-gray-300">Organization:</span>
+                <span className="text-sm font-medium text-white text-right max-w-[60%]">
+                  {(submission as ExhibitorSubmissionType).organizationName}
                 </span>
               </div>
             )}
@@ -194,9 +243,9 @@ export default function OrderSummary({
                         ? `${participant.firstName} ${participant.lastName}`
                         : `${participantSingular} ${index + 1}`}
                     </p>
-                    {participant.organization && (
+                    {('organization' in participant && (participant as DelegateType | SpeakerParticipantType).organization) && (
                       <p className="text-xs text-gray-400">
-                        {participant.organization}
+                        {(participant as DelegateType | SpeakerParticipantType).organization}
                       </p>
                     )}
                   </div>

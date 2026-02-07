@@ -12,7 +12,7 @@ export const configs = {
   },
   forms: {
     submitPaper: "/forms/speakers",
-    exhibitor: "https://forms.gle/aL37hacuwX8EMcqw6",
+    exhibitor: "/forms/exhibitors",
     sponsor: "https://forms.gle/ETWg6NV9QC4GWD3U6",
   },
 } as const;
