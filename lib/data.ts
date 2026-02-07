@@ -13,7 +13,7 @@ export const configs = {
   forms: {
     submitPaper: "/forms/speakers",
     exhibitor: "/forms/exhibitors",
-    sponsor: "https://forms.gle/ETWg6NV9QC4GWD3U6",
+    sponsor: "/forms/sponsors",
   },
 } as const;
 

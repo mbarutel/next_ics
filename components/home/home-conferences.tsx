@@ -57,12 +57,15 @@ type EventRowProp = {
   paperLink: string | undefined;
   speakerSet: boolean;
 };
-function EventRow({ event, slug, paperLink, speakerSet }: EventRowProp) {
+function EventRow({ event, slug }: EventRowProp) {
   if (!event.conference || !event.conference.date) {
     return null;
   }
   return (
-    <div className="flex pt-6">
+    <div className="flex pt-6 relative">
+      <Link href={`/event/${event.slug}`} className="absolute top-3 right-0 button_secondary">
+        Learn More
+      </Link>
       <div className="px-12">
         <h4 className="space_mono text-center">
           <span className="text-lg font-semibold">
@@ -89,17 +92,15 @@ function EventRow({ event, slug, paperLink, speakerSet }: EventRowProp) {
           <Link href={`/forms/delegates?conference=${slug}`} className="button_primary">
             Register
           </Link>
-          <Link
-            href={`/conference/${slug}#conference`}
-            className="button_secondary"
-          >
-            {speakerSet ? "View Speakers" : "Learn More"}
+          <Link href={`/forms/speakers?conference=${slug}`} className="button_secondary">
+            Become a Speaker
           </Link>
-          {paperLink && (
-            <Link href={`/forms/speakers?conference=${slug}`} className="button_secondary">
-              Submit A Paper
-            </Link>
-          )}
+          <Link href={`/forms/sponsors?conference=${slug}`} className="button_secondary">
+            Become a Sponsor
+          </Link>
+          <Link href={`/forms/exhibitors?conference=${slug}`} className="button_secondary">
+            Become an Exhibitor
+          </Link>
         </div>
         <hr />
       </div>
