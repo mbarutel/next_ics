@@ -1,4 +1,4 @@
-import { DelegateType } from "@/lib/types";
+import { DelegateType, ExhibitorSubmissionType } from "@/lib/types";
 import { validatePromoCode, calculateDiscount } from "./promo-codes";
 import { PRICING } from "./data";
 
@@ -43,4 +43,30 @@ export function calculateOrderTotal(submission: SubmissionType): number {
   }
 
   return subtotal - discount;
+}
+
+export function calculateExhibitorTotal(submission: ExhibitorSubmissionType): number {
+  let subtotal = 0;
+
+  // Base registration: $750 per exhibitor
+  subtotal += PRICING.exhibitorRegistration * submission.exhibitors.length;
+
+  // Dinner costs
+  const dinnerCount = submission.exhibitors.filter((e) => e.dinner).length;
+  subtotal += dinnerCount * PRICING.dinner;
+
+  // Accommodation costs
+  const accommodationNights = submission.exhibitors.reduce(
+    (sum, e) => sum + e.accommodationNights,
+    0
+  );
+  subtotal += accommodationNights * PRICING.accommodation;
+
+  // Masterclass costs
+  const masterclassCount = submission.exhibitors.filter(
+    (e) => e.masterclass !== null && e.masterclass !== ""
+  ).length;
+  subtotal += masterclassCount * PRICING.masterclass;
+
+  return subtotal; // No discount for exhibitors
 }

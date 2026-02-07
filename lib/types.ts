@@ -175,6 +175,36 @@ export type PaperSubmissionType = {
   totalAmount?: number;
 };
 
+// Exhibitor representative type
+export type ExhibitorType = {
+  firstName: string;
+  lastName: string;
+  jobTitle: string;
+  email: string;
+  phone: string;
+  diet: string;
+  dinner: boolean;
+  masterclass: string | null;
+  accommodationNights: number;
+};
+
+// Exhibitor submission type
+export type ExhibitorSubmissionType = {
+  conferenceTitle: string | null;
+  selectedConference?: ConferenceType;
+  organizationName: string;
+  organizationStreetAddress: string;
+  organizationCity: string;
+  organizationStateProvince: string;
+  organizationPostalCode: string;
+  organizationCountry: string;
+  productServicesDescription: string;
+  exhibitors: ExhibitorType[];
+  reference: string;
+  submittedAt?: Date;
+  totalAmount?: number;
+};
+
 export type RegistrationType = {
   events: string;
   company: string;

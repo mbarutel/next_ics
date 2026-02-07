@@ -1,4 +1,4 @@
-import { DelegateType, SpeakerParticipantType, PaperSubmissionType } from "@/lib/types";
+import { DelegateType, SpeakerParticipantType, PaperSubmissionType, ExhibitorType, ExhibitorSubmissionType } from "@/lib/types";
 
 export type ValidationErrors = {
   conferenceTitle?: string;
@@ -29,6 +29,27 @@ export type PaperValidationErrors = {
       email?: string;
       phone?: string;
       biography?: string;
+    };
+  };
+  reference?: string;
+};
+
+export type ExhibitorValidationErrors = {
+  conferenceTitle?: string;
+  organizationName?: string;
+  organizationStreetAddress?: string;
+  organizationCity?: string;
+  organizationStateProvince?: string;
+  organizationPostalCode?: string;
+  organizationCountry?: string;
+  productServicesDescription?: string;
+  exhibitors?: {
+    [exhibitorIndex: number]: {
+      firstName?: string;
+      lastName?: string;
+      jobTitle?: string;
+      email?: string;
+      phone?: string;
     };
   };
   reference?: string;
@@ -343,6 +364,219 @@ export function getFirstPaperErrorField(errors: PaperValidationErrors): string |
       const firstSpeakerErrors = errors.speakers[firstSpeakerIndex];
       const firstField = Object.keys(firstSpeakerErrors)[0];
       return `speaker-${firstSpeakerIndex}-${firstField}`;
+    }
+  }
+
+  // Check reference
+  if (errors.reference) {
+    return "reference";
+  }
+
+  return null;
+}
+
+/**
+ * Validates a single exhibitor
+ */
+export function validateExhibitor(
+  exhibitor: ExhibitorType,
+  index: number
+): { [key: string]: string } {
+  const errors: {
+    firstName?: string;
+    lastName?: string;
+    jobTitle?: string;
+    email?: string;
+    phone?: string;
+  } = {};
+
+  // Validate first name
+  if (!exhibitor.firstName.trim()) {
+    errors.firstName = "First name is required";
+  }
+
+  // Validate last name
+  if (!exhibitor.lastName.trim()) {
+    errors.lastName = "Last name is required";
+  }
+
+  // Validate job title
+  if (!exhibitor.jobTitle.trim()) {
+    errors.jobTitle = "Job title is required";
+  }
+
+  // Validate email
+  if (!exhibitor.email.trim()) {
+    errors.email = "Email is required";
+  } else if (!isValidEmail(exhibitor.email)) {
+    errors.email = "Invalid email format";
+  }
+
+  // Validate phone
+  if (!exhibitor.phone.trim()) {
+    errors.phone = "Phone number is required";
+  } else if (!isValidPhone(exhibitor.phone)) {
+    errors.phone = "Invalid phone number";
+  }
+
+  return errors;
+}
+
+/**
+ * Validates all exhibitors
+ */
+export function validateExhibitors(
+  exhibitors: ExhibitorType[]
+): { [index: number]: { [key: string]: string } } {
+  const exhibitorErrors: { [index: number]: { [key: string]: string } } = {};
+
+  exhibitors.forEach((exhibitor, index) => {
+    const errors = validateExhibitor(exhibitor, index);
+    if (Object.keys(errors).length > 0) {
+      exhibitorErrors[index] = errors;
+    }
+  });
+
+  return exhibitorErrors;
+}
+
+/**
+ * Validates the complete exhibitor submission
+ */
+export function validateExhibitorSubmission(
+  submission: ExhibitorSubmissionType
+): ExhibitorValidationErrors {
+  const errors: ExhibitorValidationErrors = {};
+
+  // Validate conference selection
+  if (!submission.conferenceTitle) {
+    errors.conferenceTitle = "Please select a conference";
+  }
+
+  // Validate organization name
+  if (!submission.organizationName.trim()) {
+    errors.organizationName = "Organization name is required";
+  }
+
+  // Validate organization street address
+  if (!submission.organizationStreetAddress.trim()) {
+    errors.organizationStreetAddress = "Street address is required";
+  }
+
+  // Validate organization city
+  if (!submission.organizationCity.trim()) {
+    errors.organizationCity = "City is required";
+  }
+
+  // Validate organization state/province
+  if (!submission.organizationStateProvince.trim()) {
+    errors.organizationStateProvince = "State/Province is required";
+  }
+
+  // Validate organization postal code
+  if (!submission.organizationPostalCode.trim()) {
+    errors.organizationPostalCode = "Postal code is required";
+  }
+
+  // Validate organization country
+  if (!submission.organizationCountry.trim()) {
+    errors.organizationCountry = "Country is required";
+  }
+
+  // Validate product/services description
+  if (!submission.productServicesDescription.trim()) {
+    errors.productServicesDescription = "Product/services description is required";
+  } else if (submission.productServicesDescription.trim().length < 50) {
+    errors.productServicesDescription = "Description must be at least 50 characters";
+  }
+
+  // Validate exhibitors
+  if (!submission.exhibitors || submission.exhibitors.length === 0) {
+    errors.exhibitors = { 0: { firstName: "At least one exhibitor is required" } };
+  } else {
+    const exhibitorErrors = validateExhibitors(submission.exhibitors);
+    if (Object.keys(exhibitorErrors).length > 0) {
+      errors.exhibitors = exhibitorErrors;
+    }
+  }
+
+  // Validate reference
+  if (!submission.reference.trim()) {
+    errors.reference = "Please provide a reference";
+  }
+
+  return errors;
+}
+
+/**
+ * Checks if there are any exhibitor validation errors
+ */
+export function hasExhibitorValidationErrors(errors: ExhibitorValidationErrors): boolean {
+  if (
+    errors.conferenceTitle ||
+    errors.organizationName ||
+    errors.organizationStreetAddress ||
+    errors.organizationCity ||
+    errors.organizationStateProvince ||
+    errors.organizationPostalCode ||
+    errors.organizationCountry ||
+    errors.productServicesDescription ||
+    errors.reference
+  ) {
+    return true;
+  }
+
+  if (errors.exhibitors && Object.keys(errors.exhibitors).length > 0) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * Gets the first error field identifier for scrolling (exhibitor submission)
+ * Returns a string in the format "section" or "exhibitor-{index}-{field}"
+ */
+export function getFirstExhibitorErrorField(errors: ExhibitorValidationErrors): string | null {
+  // Check conference title
+  if (errors.conferenceTitle) {
+    return "conference-selection";
+  }
+
+  // Check organization fields
+  if (errors.organizationName) {
+    return "organization-name";
+  }
+  if (errors.organizationStreetAddress) {
+    return "organization-street-address";
+  }
+  if (errors.organizationCity) {
+    return "organization-city";
+  }
+  if (errors.organizationStateProvince) {
+    return "organization-state-province";
+  }
+  if (errors.organizationPostalCode) {
+    return "organization-postal-code";
+  }
+  if (errors.organizationCountry) {
+    return "organization-country";
+  }
+  if (errors.productServicesDescription) {
+    return "product-services-description";
+  }
+
+  // Check exhibitors
+  if (errors.exhibitors) {
+    const exhibitorIndices = Object.keys(errors.exhibitors)
+      .map(Number)
+      .sort((a, b) => a - b);
+
+    if (exhibitorIndices.length > 0) {
+      const firstExhibitorIndex = exhibitorIndices[0];
+      const firstExhibitorErrors = errors.exhibitors[firstExhibitorIndex];
+      const firstField = Object.keys(firstExhibitorErrors)[0];
+      return `exhibitor-${firstExhibitorIndex}-${firstField}`;
     }
   }
 

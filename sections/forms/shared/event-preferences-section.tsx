@@ -1,11 +1,11 @@
 "use client";
 
-import { DelegateType, SpeakerParticipantType, MasterclassType } from "@/lib/types";
+import { DelegateType, SpeakerParticipantType, ExhibitorType, MasterclassType } from "@/lib/types";
 import { IoSettingsOutline } from "react-icons/io5";
 import FormLabel from "@/components/form-label";
 import FieldGroupLabel from "@/components/field-group-label";
 
-type ParticipantType = DelegateType | SpeakerParticipantType;
+type ParticipantType = DelegateType | SpeakerParticipantType | ExhibitorType;
 
 interface EventPreferencesSectionProps {
   index: number;
