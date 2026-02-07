@@ -41,8 +41,8 @@ export default async function Home() {
       <HomeHeader />
       <HomeConferences conferences={conferences} />
       <InstagramBanner />
-      <HomeCarousel />
       <HomeHighlight />
+      <HomeCarousel />
       <HomeTestimonial />
       <CallToAction />
       <SubscribeEmailList />

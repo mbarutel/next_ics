@@ -1,9 +1,9 @@
 "use client";
 
-import { DelegateType, SpeakerParticipantType, ExhibitorType, PaperSubmissionType } from "@/lib/types";
+import { DelegateType, SpeakerParticipantType, ExhibitorType, PaperSubmissionType, SponsorRepresentativeType } from "@/lib/types";
 import { validatePromoCode, calculateDiscount } from "@/helpers/promo-codes";
 import { IoReceiptOutline, IoCheckmarkCircle } from "react-icons/io5";
-import { PRICING } from "@/helpers/data";
+import { PRICING, SPONSOR_PACKAGES } from "@/helpers/data";
 
 type DelegateSubmissionType = {
   conferenceTitle?: string;
@@ -35,27 +35,47 @@ type ExhibitorSubmissionType = {
   delegates?: never;
   speakers?: never;
   paperTitle?: never;
+  sponsors?: never;
+  selectedPackage?: never;
+  packagePrice?: never;
 };
 
-type UnifiedSubmissionType = DelegateSubmissionType | SpeakerSubmissionType | ExhibitorSubmissionType;
+type SponsorSubmissionType = {
+  conferenceTitle: string | null;
+  sponsors: SponsorRepresentativeType[];
+  organizationName: string;
+  selectedPackage: 'gold' | 'silver' | 'bronze' | null;
+  packagePrice: number;
+  promoCode?: never;
+  selectedPriceTier?: never;
+  delegates?: never;
+  speakers?: never;
+  paperTitle?: never;
+  exhibitors?: never;
+};
+
+type UnifiedSubmissionType = DelegateSubmissionType | SpeakerSubmissionType | ExhibitorSubmissionType | SponsorSubmissionType;
 
 interface OrderSummaryProps {
   submission: UnifiedSubmissionType;
-  participantType?: 'delegate' | 'speaker' | 'exhibitor';
+  participantType?: 'delegate' | 'speaker' | 'exhibitor' | 'sponsor';
 }
 
 export default function OrderSummary({
   submission,
-  participantType = 'delegates' in submission ? 'delegate' : 'speakers' in submission ? 'speaker' : 'exhibitor',
+  participantType = 'delegates' in submission ? 'delegate' : 'speakers' in submission ? 'speaker' : 'sponsors' in submission ? 'sponsor' : 'exhibitor',
 }: OrderSummaryProps) {
   const isDelegateForm = participantType === 'delegate';
   const isSpeakerForm = participantType === 'speaker';
   const isExhibitorForm = participantType === 'exhibitor';
+  const isSponsorForm = participantType === 'sponsor';
   
   const participants = isDelegateForm
     ? (submission as DelegateSubmissionType).delegates
     : isSpeakerForm
     ? (submission as SpeakerSubmissionType).speakers
+    : isSponsorForm
+    ? (submission as SponsorSubmissionType).sponsors
     : (submission as ExhibitorSubmissionType).exhibitors;
 
   // Calculate subtotal (before discount)
@@ -104,6 +124,43 @@ export default function OrderSummary({
         (s) => s.masterclass !== null
       ).length;
       total += masterclassCount * PRICING.masterclass;
+    } else if (isSponsorForm) {
+      const sponsorSubmission = submission as SponsorSubmissionType;
+      
+      // Don't calculate if package not selected yet
+      if (!sponsorSubmission.selectedPackage) {
+        return 0;
+      }
+      
+      const selectedPackage = SPONSOR_PACKAGES[sponsorSubmission.selectedPackage];
+      const includedReps = selectedPackage.includedRepresentatives;
+      const includedDinners = selectedPackage.includedDinners;
+      
+      // Package price
+      total += sponsorSubmission.packagePrice;
+
+      // Additional representative fees (beyond included count)
+      const totalReps = sponsorSubmission.sponsors.length;
+      const additionalReps = Math.max(0, totalReps - includedReps);
+      total += additionalReps * PRICING.sponsorRegistration;
+
+      // Dinner costs (only beyond included count)
+      const totalDinners = sponsorSubmission.sponsors.filter((s) => s.dinner).length;
+      const additionalDinners = Math.max(0, totalDinners - includedDinners);
+      total += additionalDinners * PRICING.dinner;
+
+      // Accommodation costs
+      const accommodationNights = sponsorSubmission.sponsors.reduce(
+        (sum, s) => sum + s.accommodationNights,
+        0
+      );
+      total += accommodationNights * PRICING.accommodation;
+
+      // Masterclass costs
+      const masterclassCount = sponsorSubmission.sponsors.filter(
+        (s) => s.masterclass !== null && s.masterclass !== ""
+      ).length;
+      total += masterclassCount * PRICING.masterclass;
     } else {
       const exhibitorSubmission = submission as ExhibitorSubmissionType;
       // Base price per exhibitor
@@ -140,10 +197,10 @@ export default function OrderSummary({
     (p) => p.masterclass !== null
   ).length;
 
-  // Calculate discount if promo code is applied (not for exhibitors)
+  // Calculate discount if promo code is applied (not for exhibitors or sponsors)
   let discount = 0;
   let promoValidation = null;
-  if (submission.promoCode && !isExhibitorForm) {
+  if (submission.promoCode && !isExhibitorForm && !isSponsorForm) {
     promoValidation = validatePromoCode(submission.promoCode, submission);
     if (promoValidation.isValid && promoValidation.promoCode) {
       discount = calculateDiscount(promoValidation.promoCode, submission);
@@ -161,15 +218,21 @@ export default function OrderSummary({
     return null;
   }
 
+  if (isSponsorForm && !(submission as SponsorSubmissionType).selectedPackage) {
+    return null;
+  }
+
   const basePrice = isDelegateForm
     ? (submission as DelegateSubmissionType).selectedPriceTier?.price || 0
     : isSpeakerForm
     ? PRICING.speakerRegistration
+    : isSponsorForm
+    ? 0 // Sponsors don't have per-person base price, they have package price
     : PRICING.exhibitorRegistration;
 
-  const participantLabel = isDelegateForm ? 'Delegates' : isSpeakerForm ? 'Speakers' : 'Exhibitors';
-  const participantSingular = isDelegateForm ? 'Delegate' : isSpeakerForm ? 'Speaker' : 'Exhibitor';
-  const registrationLabel = isDelegateForm ? 'Delegate Registration' : isSpeakerForm ? 'Speaker Registration' : 'Exhibitor Registration';
+  const participantLabel = isDelegateForm ? 'Delegates' : isSpeakerForm ? 'Speakers' : isSponsorForm ? 'Sponsor Representatives' : 'Exhibitors';
+  const participantSingular = isDelegateForm ? 'Delegate' : isSpeakerForm ? 'Speaker' : isSponsorForm ? 'Sponsor Representative' : 'Exhibitor';
+  const registrationLabel = isDelegateForm ? 'Delegate Registration' : isSpeakerForm ? 'Speaker Registration' : isSponsorForm ? 'Sponsorship Package' : 'Exhibitor Registration';
 
   return (
     <div className="w-full form_section_wrapper">
@@ -179,7 +242,7 @@ export default function OrderSummary({
           Order Summary
         </h2>
         <p className="text-xs sm:text-sm text-white">
-          Review your {isDelegateForm ? 'registration' : isSpeakerForm ? 'paper submission' : 'exhibitor registration'} details and total cost
+          Review your {isDelegateForm ? 'registration' : isSpeakerForm ? 'paper submission' : isSponsorForm ? 'sponsorship registration' : 'exhibitor registration'} details and total cost
         </p>
       </div>
 
@@ -212,11 +275,19 @@ export default function OrderSummary({
                 </span>
               </div>
             )}
-            {isExhibitorForm && (submission as ExhibitorSubmissionType).organizationName && (
+            {(isExhibitorForm || isSponsorForm) && (submission as ExhibitorSubmissionType | SponsorSubmissionType).organizationName && (
               <div className="flex justify-between items-start">
                 <span className="text-sm text-gray-300">Organization:</span>
                 <span className="text-sm font-medium text-white text-right max-w-[60%]">
-                  {(submission as ExhibitorSubmissionType).organizationName}
+                  {(submission as ExhibitorSubmissionType | SponsorSubmissionType).organizationName}
+                </span>
+              </div>
+            )}
+            {isSponsorForm && (submission as SponsorSubmissionType).selectedPackage && (
+              <div className="flex justify-between items-start">
+                <span className="text-sm text-gray-300">Package:</span>
+                <span className="text-sm font-medium text-white text-right">
+                  {SPONSOR_PACKAGES[(submission as SponsorSubmissionType).selectedPackage!].badge} {SPONSOR_PACKAGES[(submission as SponsorSubmissionType).selectedPackage!].name}
                 </span>
               </div>
             )}
@@ -249,9 +320,11 @@ export default function OrderSummary({
                       </p>
                     )}
                   </div>
-                  <span className="text-sm font-bold text-yellow-400">
-                    ${basePrice}
-                  </span>
+                  {!isSponsorForm && (
+                    <span className="text-sm font-bold text-yellow-400">
+                      ${basePrice}
+                    </span>
+                  )}
                 </div>
 
                 {/* Extras */}
@@ -301,24 +374,79 @@ export default function OrderSummary({
             Cost Breakdown
           </h3>
           <div className="space-y-2 text-sm">
-            <div className="flex justify-between">
-              <span className="text-gray-300">
-                {registrationLabel} ({participants.length} × ${basePrice})
-              </span>
-              <span className="font-medium text-white">
-                ${basePrice * participants.length}
-              </span>
-            </div>
-
-            {dinnerCount > 0 && (
+            {isSponsorForm ? (
+              <>
+                <div className="flex justify-between">
+                  <span className="text-gray-300">
+                    {SPONSOR_PACKAGES[(submission as SponsorSubmissionType).selectedPackage!].name}
+                  </span>
+                  <span className="font-medium text-white">
+                    ${(submission as SponsorSubmissionType).packagePrice.toLocaleString()}
+                  </span>
+                </div>
+                
+                {/* Show what's included */}
+                <div className="text-xs text-green-400 space-y-0.5 pl-4">
+                  <div>✓ Includes {SPONSOR_PACKAGES[(submission as SponsorSubmissionType).selectedPackage!].includedRepresentatives} complimentary representative{SPONSOR_PACKAGES[(submission as SponsorSubmissionType).selectedPackage!].includedRepresentatives > 1 ? 's' : ''}</div>
+                  <div>✓ Includes {SPONSOR_PACKAGES[(submission as SponsorSubmissionType).selectedPackage!].includedDinners} complimentary dinner{SPONSOR_PACKAGES[(submission as SponsorSubmissionType).selectedPackage!].includedDinners > 1 ? 's' : ''}</div>
+                </div>
+                
+                {/* Additional representatives */}
+                {(() => {
+                  const sponsorSub = submission as SponsorSubmissionType;
+                  const pkg = SPONSOR_PACKAGES[sponsorSub.selectedPackage!];
+                  const additionalReps = Math.max(0, sponsorSub.sponsors.length - pkg.includedRepresentatives);
+                  return additionalReps > 0 && (
+                    <div className="flex justify-between mt-2">
+                      <span className="text-gray-300">
+                        Additional Representatives ({additionalReps} × ${PRICING.sponsorRegistration})
+                      </span>
+                      <span className="font-medium text-white">
+                        ${(additionalReps * PRICING.sponsorRegistration).toLocaleString()}
+                      </span>
+                    </div>
+                  );
+                })()}
+              </>
+            ) : (
               <div className="flex justify-between">
                 <span className="text-gray-300">
-                  Networking Dinner ({dinnerCount} × ${PRICING.dinner})
+                  {registrationLabel} ({participants.length} × ${basePrice})
                 </span>
                 <span className="font-medium text-white">
-                  ${dinnerCount * PRICING.dinner}
+                  ${basePrice * participants.length}
                 </span>
               </div>
+            )}
+
+            {isSponsorForm ? (
+              (() => {
+                const sponsorSub = submission as SponsorSubmissionType;
+                const pkg = SPONSOR_PACKAGES[sponsorSub.selectedPackage!];
+                const totalDinners = sponsorSub.sponsors.filter((s) => s.dinner).length;
+                const additionalDinners = Math.max(0, totalDinners - pkg.includedDinners);
+                return additionalDinners > 0 && (
+                  <div className="flex justify-between">
+                    <span className="text-gray-300">
+                      Additional Dinners ({additionalDinners} × ${PRICING.dinner})
+                    </span>
+                    <span className="font-medium text-white">
+                      ${additionalDinners * PRICING.dinner}
+                    </span>
+                  </div>
+                );
+              })()
+            ) : (
+              dinnerCount > 0 && (
+                <div className="flex justify-between">
+                  <span className="text-gray-300">
+                    Networking Dinner ({dinnerCount} × ${PRICING.dinner})
+                  </span>
+                  <span className="font-medium text-white">
+                    ${dinnerCount * PRICING.dinner}
+                  </span>
+                </div>
+              )
             )}
 
             {masterclassCount > 0 && (

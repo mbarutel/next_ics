@@ -1,4 +1,4 @@
-import { DelegateType, SpeakerParticipantType, PaperSubmissionType, ExhibitorType, ExhibitorSubmissionType } from "@/lib/types";
+import { DelegateType, SpeakerParticipantType, PaperSubmissionType, ExhibitorType, ExhibitorSubmissionType, SponsorRepresentativeType, SponsorSubmissionType } from "@/lib/types";
 
 export type ValidationErrors = {
   conferenceTitle?: string;
@@ -45,6 +45,27 @@ export type ExhibitorValidationErrors = {
   productServicesDescription?: string;
   exhibitors?: {
     [exhibitorIndex: number]: {
+      firstName?: string;
+      lastName?: string;
+      jobTitle?: string;
+      email?: string;
+      phone?: string;
+    };
+  };
+  reference?: string;
+};
+
+export type SponsorValidationErrors = {
+  conferenceTitle?: string;
+  organizationName?: string;
+  organizationStreetAddress?: string;
+  organizationCity?: string;
+  organizationStateProvince?: string;
+  organizationPostalCode?: string;
+  organizationCountry?: string;
+  selectedPackage?: string;
+  sponsors?: {
+    [sponsorIndex: number]: {
       firstName?: string;
       lastName?: string;
       jobTitle?: string;
@@ -577,6 +598,219 @@ export function getFirstExhibitorErrorField(errors: ExhibitorValidationErrors): 
       const firstExhibitorErrors = errors.exhibitors[firstExhibitorIndex];
       const firstField = Object.keys(firstExhibitorErrors)[0];
       return `exhibitor-${firstExhibitorIndex}-${firstField}`;
+    }
+  }
+
+  // Check reference
+  if (errors.reference) {
+    return "reference";
+  }
+
+  return null;
+}
+
+/**
+ * Validates a single sponsor
+ */
+export function validateSponsor(
+  sponsor: SponsorRepresentativeType,
+  index: number
+): { [key: string]: string } {
+  const errors: {
+    firstName?: string;
+    lastName?: string;
+    jobTitle?: string;
+    email?: string;
+    phone?: string;
+  } = {};
+
+  // Validate first name
+  if (!sponsor.firstName.trim()) {
+    errors.firstName = "First name is required";
+  }
+
+  // Validate last name
+  if (!sponsor.lastName.trim()) {
+    errors.lastName = "Last name is required";
+  }
+
+  // Validate job title
+  if (!sponsor.jobTitle.trim()) {
+    errors.jobTitle = "Job title is required";
+  }
+
+  // Validate email
+  if (!sponsor.email.trim()) {
+    errors.email = "Email is required";
+  } else if (!isValidEmail(sponsor.email)) {
+    errors.email = "Invalid email format";
+  }
+
+  // Validate phone
+  if (!sponsor.phone.trim()) {
+    errors.phone = "Phone number is required";
+  } else if (!isValidPhone(sponsor.phone)) {
+    errors.phone = "Invalid phone number";
+  }
+
+  return errors;
+}
+
+/**
+ * Validates all sponsors
+ */
+export function validateSponsors(
+  sponsors: SponsorRepresentativeType[]
+): { [index: number]: { [key: string]: string } } {
+  const sponsorErrors: { [index: number]: { [key: string]: string } } = {};
+
+  sponsors.forEach((sponsor, index) => {
+    const errors = validateSponsor(sponsor, index);
+    if (Object.keys(errors).length > 0) {
+      sponsorErrors[index] = errors;
+    }
+  });
+
+  return sponsorErrors;
+}
+
+/**
+ * Validates the complete sponsor submission
+ */
+export function validateSponsorSubmission(
+  submission: SponsorSubmissionType
+): SponsorValidationErrors {
+  const errors: SponsorValidationErrors = {};
+
+  // Validate conference selection
+  if (!submission.conferenceTitle) {
+    errors.conferenceTitle = "Please select a conference";
+  }
+
+  // Validate organization name
+  if (!submission.organizationName.trim()) {
+    errors.organizationName = "Organization name is required";
+  }
+
+  // Validate organization street address
+  if (!submission.organizationStreetAddress.trim()) {
+    errors.organizationStreetAddress = "Street address is required";
+  }
+
+  // Validate organization city
+  if (!submission.organizationCity.trim()) {
+    errors.organizationCity = "City is required";
+  }
+
+  // Validate organization state/province
+  if (!submission.organizationStateProvince.trim()) {
+    errors.organizationStateProvince = "State/Province is required";
+  }
+
+  // Validate organization postal code
+  if (!submission.organizationPostalCode.trim()) {
+    errors.organizationPostalCode = "Postal code is required";
+  }
+
+  // Validate organization country
+  if (!submission.organizationCountry.trim()) {
+    errors.organizationCountry = "Country is required";
+  }
+
+  // Validate sponsorship package selection
+  if (!submission.selectedPackage) {
+    errors.selectedPackage = "Please select a sponsorship package";
+  }
+
+  // Validate sponsors
+  if (!submission.sponsors || submission.sponsors.length === 0) {
+    errors.sponsors = { 0: { firstName: "At least one sponsor representative is required" } };
+  } else {
+    const sponsorErrors = validateSponsors(submission.sponsors);
+    if (Object.keys(sponsorErrors).length > 0) {
+      errors.sponsors = sponsorErrors;
+    }
+  }
+
+  // Validate reference
+  if (!submission.reference.trim()) {
+    errors.reference = "Please provide a reference";
+  }
+
+  return errors;
+}
+
+/**
+ * Checks if there are any sponsor validation errors
+ */
+export function hasSponsorValidationErrors(errors: SponsorValidationErrors): boolean {
+  if (
+    errors.conferenceTitle ||
+    errors.organizationName ||
+    errors.organizationStreetAddress ||
+    errors.organizationCity ||
+    errors.organizationStateProvince ||
+    errors.organizationPostalCode ||
+    errors.organizationCountry ||
+    errors.selectedPackage ||
+    errors.reference
+  ) {
+    return true;
+  }
+
+  if (errors.sponsors && Object.keys(errors.sponsors).length > 0) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * Gets the first error field identifier for scrolling (sponsor submission)
+ * Returns a string in the format "section" or "sponsor-{index}-{field}"
+ */
+export function getFirstSponsorErrorField(errors: SponsorValidationErrors): string | null {
+  // Check conference title
+  if (errors.conferenceTitle) {
+    return "conference-selection";
+  }
+
+  // Check organization fields
+  if (errors.organizationName) {
+    return "organization-name";
+  }
+  if (errors.organizationStreetAddress) {
+    return "organization-street-address";
+  }
+  if (errors.organizationCity) {
+    return "organization-city";
+  }
+  if (errors.organizationStateProvince) {
+    return "organization-state-province";
+  }
+  if (errors.organizationPostalCode) {
+    return "organization-postal-code";
+  }
+  if (errors.organizationCountry) {
+    return "organization-country";
+  }
+
+  // Check package selection
+  if (errors.selectedPackage) {
+    return "package-selection";
+  }
+
+  // Check sponsors
+  if (errors.sponsors) {
+    const sponsorIndices = Object.keys(errors.sponsors)
+      .map(Number)
+      .sort((a, b) => a - b);
+
+    if (sponsorIndices.length > 0) {
+      const firstSponsorIndex = sponsorIndices[0];
+      const firstSponsorErrors = errors.sponsors[firstSponsorIndex];
+      const firstField = Object.keys(firstSponsorErrors)[0];
+      return `sponsor-${firstSponsorIndex}-${firstField}`;
     }
   }
 
