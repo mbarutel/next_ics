@@ -205,6 +205,40 @@ export type ExhibitorSubmissionType = {
   totalAmount?: number;
 };
 
+// Sponsor representative type
+export type SponsorRepresentativeType = {
+  firstName: string;
+  lastName: string;
+  jobTitle: string;
+  email: string;
+  phone: string;
+  diet: string;
+  dinner: boolean;
+  masterclass: string | null;
+  accommodationNights: number;
+};
+
+// Sponsorship package tier
+export type SponsorPackageTier = 'gold' | 'silver' | 'bronze';
+
+// Sponsor submission type
+export type SponsorSubmissionType = {
+  conferenceTitle: string | null;
+  selectedConference?: ConferenceType;
+  organizationName: string;
+  organizationStreetAddress: string;
+  organizationCity: string;
+  organizationStateProvince: string;
+  organizationPostalCode: string;
+  organizationCountry: string;
+  selectedPackage: SponsorPackageTier | null;
+  packagePrice: number;
+  sponsors: SponsorRepresentativeType[];
+  reference: string;
+  submittedAt?: Date;
+  totalAmount?: number;
+};
+
 export type RegistrationType = {
   events: string;
   company: string;
