@@ -5,6 +5,7 @@ import parserConferenceDate from "./parser-conference-date";
 import { TypeConferencesSkeleton } from "../types/contentful/types";
 import parserMasterclassesInConference from "./parser-masterclasses-in-conference";
 import parserAgenda from "./parser-agenda";
+import parserSpeakerInConference from "./parser-speaker-in-conference";
 
 export default function parserEventEntry(eventEntry: EventEntry): EventType {
   return {
@@ -40,6 +41,7 @@ function parseConferenceInEvent(
       masterclass: parserMasterclassesInConference(
         conference.fields.masterclass,
       ),
+      speakers: parserSpeakerInConference(conference.fields.speakers),
     };
   }
   return undefined;

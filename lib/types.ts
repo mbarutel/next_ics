@@ -78,7 +78,6 @@ export type ConferenceInEventType = Omit<
   | "tite"
   | "events"
   | "coverImage"
-  | "speakers"
   | "prices"
   | "invoiceRef"
   | "sponsors"

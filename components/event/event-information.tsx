@@ -16,10 +16,12 @@ import {
   SponsoringTheConference,
   WhyAttend,
 } from "./event-static-text";
+import ConferenceSpeakers from "../conference/conference-speakers";
 
 export default function EventInformation(event: EventType) {
   const conferenceSlug = event.conference?.slug || "";
   const agenda = event.conference?.agenda || [];
+  const speakers = event.conference?.speakers || [];
 
   return (
     <>
@@ -59,6 +61,15 @@ export default function EventInformation(event: EventType) {
               </InfoCard>
             </div>
           </div>
+
+          {/* Speakers Section */}
+          {speakers.length > 0 && (
+            <div className="max-w-6xl mx-auto">
+              <InfoCard title="Our Speakers" variant="default">
+                <ConferenceSpeakers speakers={speakers} />
+              </InfoCard>
+            </div>
+          )}
 
           {/* Agenda Section */}
           {agenda.length > 0 && (
